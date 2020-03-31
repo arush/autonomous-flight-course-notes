@@ -1,0 +1,252 @@
+1
+00:00:00,000 --> 00:00:05,054
+One method you can employ is to take your original plan of a list of grid cells,
+
+2
+00:00:05,054 --> 00:00:07,740
+and extract as way points the beginning and end
+
+3
+00:00:07,740 --> 00:00:10,765
+state of any sequence of states that lie along a straight line.
+
+4
+00:00:10,765 --> 00:00:14,720
+The sequence of states like this are said to be collinear.
+
+5
+00:00:14,720 --> 00:00:17,280
+Notice that these states right here collinear.
+
+6
+00:00:17,280 --> 00:00:21,625
+Which if'd like to do, is put a way point at the beginning of that sequence of states,
+
+7
+00:00:21,625 --> 00:00:23,745
+and a way point at the end of that sequence.
+
+8
+00:00:23,745 --> 00:00:26,970
+And the way to do that is take all the states in your plan,
+
+9
+00:00:26,969 --> 00:00:29,559
+identify each subsequence of collinear states,
+
+10
+00:00:29,559 --> 00:00:34,229
+and keep just the beginning and end point of each subsequence as way points.
+
+11
+00:00:34,229 --> 00:00:36,234
+Let's take a closer look at this.
+
+12
+00:00:36,234 --> 00:00:40,715
+Here I have three points p1, p2, p3.
+
+13
+00:00:40,715 --> 00:00:42,525
+If these three points are collinear,
+
+14
+00:00:42,524 --> 00:00:46,909
+then the area of the triangle defined by these three points is zero.
+
+15
+00:00:46,909 --> 00:00:49,875
+In this case, my triangle has non-zero area.
+
+16
+00:00:49,875 --> 00:00:53,939
+On the other hand, if I have three points that are collinear like these ones here,
+
+17
+00:00:53,939 --> 00:00:57,684
+then this triangle has zero area and there's a nice trick from
+
+18
+00:00:57,685 --> 00:01:01,664
+linear algebra to determine whether the area of a triangle defined by three points is,
+
+19
+00:01:01,664 --> 00:01:03,950
+in fact, equal to zero.
+
+20
+00:01:03,950 --> 00:01:06,510
+The way to perform this trick is to take these three points,
+
+21
+00:01:06,510 --> 00:01:07,780
+and put them into a matrix.
+
+22
+00:01:07,780 --> 00:01:10,799
+So, let's say that each one of these is x1, y1,
+
+23
+00:01:10,799 --> 00:01:13,230
+z1, x2, y2, z2,
+
+24
+00:01:13,230 --> 00:01:15,665
+and x3, y3, z3.
+
+25
+00:01:15,665 --> 00:01:18,855
+Now, if the determinant of that matrix is equal to zero,
+
+26
+00:01:18,855 --> 00:01:20,875
+the area of the triangle is zero,
+
+27
+00:01:20,875 --> 00:01:23,245
+and these three points are collinear.
+
+28
+00:01:23,245 --> 00:01:26,665
+Another way to look at this is that the rank of this matrix is less than three,
+
+29
+00:01:26,665 --> 00:01:29,535
+which for linear algebra people makes sense.
+
+30
+00:01:29,534 --> 00:01:31,599
+Now, that was in three dimensions,
+
+31
+00:01:31,599 --> 00:01:34,604
+but if you're just working in two dimensions as I've drawn here,
+
+32
+00:01:34,605 --> 00:01:36,795
+you can just set that z coordinate to one,
+
+33
+00:01:36,795 --> 00:01:38,510
+and apply the same test.
+
+34
+00:01:38,510 --> 00:01:40,079
+We can write x1, y1,1,
+
+35
+00:01:40,079 --> 00:01:42,959
+x2, y2, 1, x3, y3,
+
+36
+00:01:42,959 --> 00:01:45,359
+1, and again, the determinant of this matrix
+
+37
+00:01:45,359 --> 00:01:48,135
+is equal to zero when these three points are collinear.
+
+38
+00:01:48,135 --> 00:01:49,725
+And when you work it out,
+
+39
+00:01:49,724 --> 00:01:54,729
+the simplified form to evaluate this determinant is going to be equal to x1 times
+
+40
+00:01:54,730 --> 00:02:00,865
+y2 minus y3 plus x2 times y3 minus y1 plus x3 times y1 minus y2.
+
+41
+00:02:00,864 --> 00:02:03,314
+And if that quantity is equal to zero,
+
+42
+00:02:03,314 --> 00:02:05,384
+then these three points are collinear.
+
+43
+00:02:05,385 --> 00:02:08,700
+You can step through your list of grid cells and evaluate all triplet's of
+
+44
+00:02:08,699 --> 00:02:10,949
+adjacent points and every time you find
+
+45
+00:02:10,949 --> 00:02:14,264
+a sequence of three points that collinear according to this equation,
+
+46
+00:02:14,264 --> 00:02:17,114
+you can simply delete the middle point from the path.
+
+47
+00:02:17,115 --> 00:02:21,659
+And this particular equation for 2D is very efficient to evaluate.
+
+48
+00:02:21,659 --> 00:02:25,275
+So, building this step into your planning process will look like this.
+
+49
+00:02:25,275 --> 00:02:28,344
+First, discretize your world into a grid.
+
+50
+00:02:28,344 --> 00:02:32,639
+Second, use A* to get a sequence of cells from the start state to the goal state.
+
+51
+00:02:32,639 --> 00:02:34,739
+Third, test for collinearlity already to see
+
+52
+00:02:34,740 --> 00:02:37,004
+if you can delete some cells from the initial path.
+
+53
+00:02:37,004 --> 00:02:38,530
+And as easy as that,
+
+54
+00:02:38,530 --> 00:02:41,060
+you're left with a reduced path of way points.
+
+55
+00:02:41,060 --> 00:02:44,810
+Remember our trajectory from the previous example that looks like this.
+
+56
+00:02:44,810 --> 00:02:47,340
+Our collinearlity test will eliminate that point,
+
+57
+00:02:47,340 --> 00:02:49,050
+that point, and that point.
+
+58
+00:02:49,050 --> 00:02:50,685
+Leaving this way point,
+
+59
+00:02:50,685 --> 00:02:52,920
+this way point, and this way point.
+
+60
+00:02:52,919 --> 00:02:57,149
+This is a simple method for finding a set of way points that in this case,
+
+61
+00:02:57,150 --> 00:02:59,745
+exactly approximates your original plan,
+
+62
+00:02:59,745 --> 00:03:02,830
+but doesn't have the autopilot making the vehicle stop and
+
+63
+00:03:02,830 --> 00:03:06,000
+start unnecessarily as it travels through the grid.
+

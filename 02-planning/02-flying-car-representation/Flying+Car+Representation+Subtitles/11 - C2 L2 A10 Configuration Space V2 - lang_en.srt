@@ -1,0 +1,280 @@
+1
+00:00:00,000 --> 00:00:03,195
+At this point, we've covered some really useful ideas
+
+2
+00:00:03,195 --> 00:00:07,130
+when it comes to representing your vehicle for solving the planning problem.
+
+3
+00:00:07,130 --> 00:00:10,500
+We've looked at different coordinate frames and how you can represent
+
+4
+00:00:10,500 --> 00:00:14,355
+your vehicles position and orientation within those coordinate frames.
+
+5
+00:00:14,355 --> 00:00:18,040
+But real robots are not just points and orientation vectors,
+
+6
+00:00:18,040 --> 00:00:19,650
+they have some physical size.
+
+7
+00:00:19,650 --> 00:00:21,180
+And the real world is not
+
+8
+00:00:21,180 --> 00:00:25,280
+just some big empty coordinate frame, but it has obstacles in it.
+
+9
+00:00:25,280 --> 00:00:27,270
+So, now I'm going to talk about how to represent
+
+10
+00:00:27,270 --> 00:00:31,415
+your vehicle within what is called your configuration space,
+
+11
+00:00:31,415 --> 00:00:34,290
+which is a way of taking into account the physical size of
+
+12
+00:00:34,290 --> 00:00:38,525
+the vehicle as well as the location of obstacles in the environment.
+
+13
+00:00:38,525 --> 00:00:41,310
+Let's start with a simple example where I've got
+
+14
+00:00:41,310 --> 00:00:45,510
+this square-shaped robot that is free to move about in a 2D plane.
+
+15
+00:00:45,510 --> 00:00:49,530
+I can then also introduce an obstacle into the environment like this.
+
+16
+00:00:49,530 --> 00:00:52,770
+This obstacle now represents locations where the robot cannot go.
+
+17
+00:00:52,770 --> 00:00:56,930
+So, we refer to those points as infeasible locations for the robot.
+
+18
+00:00:56,930 --> 00:01:01,478
+So, now I have a robot with a physical size and the world has obstacles.
+
+19
+00:01:01,478 --> 00:01:02,790
+But for computational purposes,
+
+20
+00:01:02,790 --> 00:01:05,180
+I would still like to represent my vehicle or,
+
+21
+00:01:05,180 --> 00:01:09,960
+in this case, my little square robot as simply a point in an orientation vector.
+
+22
+00:01:09,960 --> 00:01:14,960
+So, suppose I choose this point as the origin in the body frame of my robot.
+
+23
+00:01:14,960 --> 00:01:19,173
+I'd now like to know what regions of space are feasible and infeasible for that point.
+
+24
+00:01:19,173 --> 00:01:21,420
+To see how that works, I can simply move the robot around
+
+25
+00:01:21,420 --> 00:01:24,535
+the obstacle and see what kind of shape is mapped out.
+
+26
+00:01:24,535 --> 00:01:30,215
+Okay, so now the set of infeasible points for our chosen origin point looks like this.
+
+27
+00:01:30,215 --> 00:01:32,775
+I didn't have to choose that particular origin point.
+
+28
+00:01:32,775 --> 00:01:35,575
+I could have chosen any point in the body frame of the vehicle.
+
+29
+00:01:35,575 --> 00:01:37,490
+And for each different point,
+
+30
+00:01:37,490 --> 00:01:40,835
+the infeasible area would take on a slightly different shape.
+
+31
+00:01:40,835 --> 00:01:42,340
+So, what about orientation?
+
+32
+00:01:42,340 --> 00:01:45,710
+Well, I can change the orientation of my robot and see that it
+
+33
+00:01:45,710 --> 00:01:49,273
+traces out a new area of infeasible locations.
+
+34
+00:01:49,273 --> 00:01:51,785
+And as I continue to change the orientation,
+
+35
+00:01:51,785 --> 00:01:56,755
+each new orientation traces out a new area of infeasible points in space.
+
+36
+00:01:56,755 --> 00:02:00,680
+In this way, I can map out what the infeasible area looks like for
+
+37
+00:02:00,680 --> 00:02:05,410
+my chosen point of origin in the body frame at all possible orientations of the vehicle.
+
+38
+00:02:05,410 --> 00:02:09,455
+This new map of the environment is three-dimensional and is referred to
+
+39
+00:02:09,455 --> 00:02:13,660
+as my configuration space with free points and infeasible points.
+
+40
+00:02:13,660 --> 00:02:15,590
+In general, your configuration space will have
+
+41
+00:02:15,590 --> 00:02:19,015
+a dimensionality equal to the number of degrees of freedom of your robot.
+
+42
+00:02:19,015 --> 00:02:20,390
+So, in this case, our robot has
+
+43
+00:02:20,390 --> 00:02:23,735
+two translational degrees of freedom and one rotational degree of freedom.
+
+44
+00:02:23,735 --> 00:02:25,325
+So, three total.
+
+45
+00:02:25,325 --> 00:02:28,630
+Flying robots typically have six degrees of freedom,
+
+46
+00:02:28,630 --> 00:02:31,597
+three translational and three rotational.
+
+47
+00:02:31,597 --> 00:02:35,290
+Your configuration space for a flying car will be six-dimensional.
+
+48
+00:02:35,290 --> 00:02:40,370
+The most exciting and useful thing about configuration space is that within this space,
+
+49
+00:02:40,370 --> 00:02:42,415
+your robot becomes a single point.
+
+50
+00:02:42,415 --> 00:02:44,795
+Obstacles take on more complex shapes.
+
+51
+00:02:44,795 --> 00:02:45,980
+So, for example, on the case,
+
+52
+00:02:45,980 --> 00:02:50,690
+we just looked at my 2D obstacle now takes on a three-dimensional shape because it
+
+53
+00:02:50,690 --> 00:02:55,484
+looks different to the robot as a function of the robot's orientation.
+
+54
+00:02:55,484 --> 00:02:58,145
+Even though the obstacles have more complex shapes now,
+
+55
+00:02:58,145 --> 00:03:01,820
+it's much easier to plan a path because we can represent the robot
+
+56
+00:03:01,820 --> 00:03:05,360
+as a single point in this three-dimensional space.
+
+57
+00:03:05,360 --> 00:03:06,905
+To consider one more example,
+
+58
+00:03:06,905 --> 00:03:10,445
+we can look at a different 2D robot and multiple obstacles.
+
+59
+00:03:10,445 --> 00:03:13,310
+In 2D space, you might think of the robot as
+
+60
+00:03:13,310 --> 00:03:16,245
+sweeping out some area as it travels through the environment,
+
+61
+00:03:16,245 --> 00:03:18,005
+but in configuration space,
+
+62
+00:03:18,005 --> 00:03:22,805
+the robot moves through three-dimensional obstacles as a single point.
+
+63
+00:03:22,805 --> 00:03:25,599
+Going into higher dimensional configuration spaces,
+
+64
+00:03:25,599 --> 00:03:27,793
+it gets harder to visualize things,
+
+65
+00:03:27,793 --> 00:03:29,985
+but that's not a problem because in fact,
+
+66
+00:03:29,985 --> 00:03:34,745
+we're not actually going to compute these complex obstacle shapes explicitly.
+
+67
+00:03:34,745 --> 00:03:35,810
+And rather than defining
+
+68
+00:03:35,810 --> 00:03:39,455
+a six-dimensional configuration space for your quadrotor and simulation,
+
+69
+00:03:39,455 --> 00:03:43,700
+you'll create a simplified 3D configuration space by simply adding
+
+70
+00:03:43,700 --> 00:03:49,000
+a margin of infeasible space around each of the physical obstacles before planning.
+

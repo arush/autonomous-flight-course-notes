@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:02,685
+The dynamics models that we've talked about so far
+
+2
+00:00:02,685 --> 00:00:05,495
+have constraints that involve just the current state.
+
+3
+00:00:05,495 --> 00:00:07,860
+But remember, we have an autopilot that
+
+4
+00:00:07,860 --> 00:00:10,275
+allows us to control the motion of the vehicle so it
+
+5
+00:00:10,275 --> 00:00:15,510
+also makes sense to incorporate the control into the differential constraints as well.
+
+6
+00:00:15,510 --> 00:00:18,030
+Very common dynamics model is what's known as
+
+7
+00:00:18,030 --> 00:00:21,930
+the Dubin's car has a state X, Y, and theta.
+
+8
+00:00:21,930 --> 00:00:24,315
+And it has the following dynamics model which is that
+
+9
+00:00:24,315 --> 00:00:27,865
+X_dot is equal to the cosine of the current orientation,
+
+10
+00:00:27,865 --> 00:00:30,790
+Y_dot is the sine of the current orientation.
+
+11
+00:00:30,790 --> 00:00:32,700
+And we also assume that we have the ability to
+
+12
+00:00:32,700 --> 00:00:35,280
+steer the vehicle so we have a steering angle.
+
+13
+00:00:35,280 --> 00:00:38,190
+U_phi, and we're going to use U in
+
+14
+00:00:38,190 --> 00:00:41,415
+general to denote controls that we're giving to the vehicle.
+
+15
+00:00:41,415 --> 00:00:47,138
+So we say U_phi to specify that as the steering angle phi of the wheels.
+
+16
+00:00:47,138 --> 00:00:50,990
+The change in orientation of the vehicle is the tangent of the steering angle.
+
+17
+00:00:50,990 --> 00:00:54,513
+And presumably, we also have a constraint on the control.
+
+18
+00:00:54,513 --> 00:00:56,550
+Let's say the steering angle is limited to be
+
+19
+00:00:56,550 --> 00:00:58,770
+in the range minus pi over two to pi over two.
+
+20
+00:00:58,770 --> 00:01:01,340
+So, minus 90 to 90 degrees.
+
+21
+00:01:01,340 --> 00:01:04,660
+Implicit in this is an assumption that the vehicle is moving at
+
+22
+00:01:04,660 --> 00:01:08,130
+a fixed velocity of one meter per second in a forward direction.
+
+23
+00:01:08,130 --> 00:01:12,610
+This dynamics model is what's called the Dubin's car and there are different variants of
+
+24
+00:01:12,610 --> 00:01:18,220
+the model that allow the forward velocity to vary or allow backwards motion as well.
+
+25
+00:01:18,220 --> 00:01:21,605
+The Dubin's car is particularly relevant in the flying car domain,
+
+26
+00:01:21,605 --> 00:01:24,870
+because it's a pretty good model for fixed wing aircraft.
+
+27
+00:01:24,870 --> 00:01:28,480
+There's an easy way to convert the steering angle in the model into
+
+28
+00:01:28,480 --> 00:01:31,510
+a flight path angle and bank angle commands that you
+
+29
+00:01:31,510 --> 00:01:34,698
+would normally give to a fixed wing autopilot.
+
+30
+00:01:34,698 --> 00:01:36,735
+For our purposes in the upcoming project,
+
+31
+00:01:36,735 --> 00:01:40,000
+the Dubin's car model is not a particularly great representation of
+
+32
+00:01:40,000 --> 00:01:44,560
+true quadrotor dynamics to exactly follow a curve trajectory.
+
+33
+00:01:44,560 --> 00:01:46,059
+The autopilot for quadrotor,
+
+34
+00:01:46,059 --> 00:01:47,490
+unlike a fixed wing aircraft,
+
+35
+00:01:47,490 --> 00:01:51,297
+would have to constantly adjust the thrust vector through the curve.
+
+36
+00:01:51,297 --> 00:01:52,570
+Unlike a fixed wing vehicle,
+
+37
+00:01:52,570 --> 00:01:55,750
+there isn't a single setting of the controls that will make
+
+38
+00:01:55,750 --> 00:02:00,610
+the quadrotor follow a curved path described by a specific steering angle.
+
+39
+00:02:00,610 --> 00:02:04,570
+That being said, unless the quadrotor stops at each waypoint,
+
+40
+00:02:04,570 --> 00:02:07,386
+the inertia of the vehicle is going to cause it to follow
+
+41
+00:02:07,386 --> 00:02:12,220
+some curved path as it changes direction and moves through a waypoint.
+
+42
+00:02:12,220 --> 00:02:14,423
+If the plan looks like this,
+
+43
+00:02:14,423 --> 00:02:17,260
+the quadrotor is not actually going to follow this exact trajectory,
+
+44
+00:02:17,260 --> 00:02:19,530
+unless it stops at that waypoint.
+
+45
+00:02:19,530 --> 00:02:22,360
+As the vehicle adjusts the thrust of individual motors in
+
+46
+00:02:22,360 --> 00:02:25,730
+order to change the thrust vector from heading in this direction,
+
+47
+00:02:25,730 --> 00:02:28,005
+to heading in this direction,
+
+48
+00:02:28,005 --> 00:02:30,400
+what's actually going to happen is that
+
+49
+00:02:30,400 --> 00:02:34,135
+the quadrotor is going to either follow a curved path,
+
+50
+00:02:34,135 --> 00:02:37,000
+it looks like that, or maybe it starts adjusting it's heading
+
+51
+00:02:37,000 --> 00:02:40,585
+direction earlier and it will follow a curve path that looks more like that.
+
+52
+00:02:40,585 --> 00:02:42,820
+This is just a function of the inertia.
+
+53
+00:02:42,820 --> 00:02:47,230
+While the Dubin's car model isn't really the ideal model for quadrotor motion,
+
+54
+00:02:47,230 --> 00:02:49,375
+physics tells us that a vehicle with inertia
+
+55
+00:02:49,375 --> 00:02:52,425
+is going to follow a curve path of some form.
+
+56
+00:02:52,425 --> 00:02:56,530
+Let's just assume for now that our quadrotor autopilot gives us the ability to follow
+
+57
+00:02:56,530 --> 00:02:59,770
+a specific curve path and thus the Dubin's car model
+
+58
+00:02:59,770 --> 00:03:03,250
+can serve as a reasonable vehicle model that we can incorporate into our plan.
+

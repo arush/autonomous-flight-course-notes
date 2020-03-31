@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:02,280
+Up to this point, you've looked at a couple of
+
+2
+00:00:02,280 --> 00:00:05,055
+different ways to solve the planning problem for flying cars.
+
+3
+00:00:05,055 --> 00:00:07,395
+And you've been working in two-dimensions.
+
+4
+00:00:07,395 --> 00:00:10,185
+We talked about 2D grids, and 2D graphs.
+
+5
+00:00:10,185 --> 00:00:12,795
+But flying cars exist in three-dimensions.
+
+6
+00:00:12,795 --> 00:00:15,510
+Now, we're going to take a look at how to actually solve
+
+7
+00:00:15,510 --> 00:00:19,950
+the planning problem for a three-dimensional vehicle in a three-dimensional world.
+
+8
+00:00:19,950 --> 00:00:25,845
+Remember, the things you need in order to solve the planning problem are the state-space,
+
+9
+00:00:25,845 --> 00:00:28,605
+an action space, a cost function,
+
+10
+00:00:28,605 --> 00:00:30,420
+and a start and goal state.
+
+11
+00:00:30,420 --> 00:00:32,010
+To get at the state-space,
+
+12
+00:00:32,010 --> 00:00:34,845
+you need to represent not just the geometry of the world in 3D,
+
+13
+00:00:34,845 --> 00:00:36,235
+but the configuration space.
+
+14
+00:00:36,235 --> 00:00:38,045
+This is not always an easy task.
+
+15
+00:00:38,045 --> 00:00:40,100
+Depending on the representation you choose,
+
+16
+00:00:40,100 --> 00:00:41,870
+some tasks may become easier,
+
+17
+00:00:41,870 --> 00:00:43,505
+and other tasks, harder.
+
+18
+00:00:43,505 --> 00:00:46,055
+The computer graphics industry, in particular,
+
+19
+00:00:46,055 --> 00:00:49,610
+has looked at a lot of the problems with representing objects in three-dimensions.
+
+20
+00:00:49,610 --> 00:00:54,185
+And you may have seen several of these issues previously if you ever worked in graphics.
+
+21
+00:00:54,185 --> 00:00:56,375
+For the purposes of motion planning,
+
+22
+00:00:56,375 --> 00:00:59,060
+what we care about in terms of a 3D representation
+
+23
+00:00:59,060 --> 00:01:01,880
+of the world is the same thing we cared about in 2D.
+
+24
+00:01:01,880 --> 00:01:04,940
+Namely, whether or not a particular location in
+
+25
+00:01:04,940 --> 00:01:08,545
+the configuration space is free or occupied by an obstacle.
+
+26
+00:01:08,545 --> 00:01:12,000
+Previously, we talked about how your configuration space is
+
+27
+00:01:12,000 --> 00:01:16,065
+a function not only of the position of the vehicle but orientation as well.
+
+28
+00:01:16,065 --> 00:01:17,640
+For the purposes of flight,
+
+29
+00:01:17,640 --> 00:01:19,425
+and particularly for quadrotors,
+
+30
+00:01:19,425 --> 00:01:23,415
+you can usually get away with using a simple 3D configuration space,
+
+31
+00:01:23,415 --> 00:01:26,565
+and ignore the effects of orientation or attitude.
+
+32
+00:01:26,565 --> 00:01:31,245
+However, the truth is that in moving from two-dimensions to three-dimensions,
+
+33
+00:01:31,245 --> 00:01:32,835
+planning gets more expensive.
+
+34
+00:01:32,835 --> 00:01:36,750
+You'll have choices to make in terms of what you want to optimize for,
+
+35
+00:01:36,750 --> 00:01:38,115
+which for the most part,
+
+36
+00:01:38,115 --> 00:01:40,935
+we'll come down to trade-offs in computational complexity,
+
+37
+00:01:40,935 --> 00:01:44,350
+and the completeness of your planning representation.
+

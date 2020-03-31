@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:02,590
+Once you have a frame, you need motors.
+
+2
+00:00:02,590 --> 00:00:04,900
+And most quadrotors use electric motors,
+
+3
+00:00:04,900 --> 00:00:06,370
+which are very easy to work with.
+
+4
+00:00:06,370 --> 00:00:10,825
+They don't have complicated carburetors and other mechanisms for mixing fuel and air,
+
+5
+00:00:10,825 --> 00:00:14,440
+like the carbon-based fuel engines used on more traditional remote control aircraft.
+
+6
+00:00:14,440 --> 00:00:16,975
+They're also much safer than combustion engines.
+
+7
+00:00:16,975 --> 00:00:18,790
+The downside of electric motors,
+
+8
+00:00:18,790 --> 00:00:20,395
+is they're not very efficient.
+
+9
+00:00:20,395 --> 00:00:25,570
+Battery technology is just not as good at delivering energy as carbon-based fuels,
+
+10
+00:00:25,570 --> 00:00:28,060
+and the way that electric motors convert
+
+11
+00:00:28,060 --> 00:00:31,075
+that energy into flight power is also not as efficient.
+
+12
+00:00:31,075 --> 00:00:33,610
+But, electric motors are easy to work with,
+
+13
+00:00:33,610 --> 00:00:37,302
+and they are what you generally find in most quadrotors.
+
+14
+00:00:37,302 --> 00:00:40,425
+More specifically, most qudrotors, like this,
+
+15
+00:00:40,425 --> 00:00:44,844
+use brushless motors, which operate by oscillating magnetic field.
+
+16
+00:00:44,844 --> 00:00:48,990
+That oscillation cause the magnets inside the motor to spin the motor shaft.
+
+17
+00:00:48,990 --> 00:00:51,570
+These motors are called brushless because of the fact that there's
+
+18
+00:00:51,570 --> 00:00:55,095
+no contact between the control mechanism and the motor shaft,
+
+19
+00:00:55,095 --> 00:00:57,530
+in contrast to more traditional brushed motors,
+
+20
+00:00:57,530 --> 00:01:00,765
+where the drive and the shaft are in contact via brushes.
+
+21
+00:01:00,765 --> 00:01:04,955
+This lack of contact allows brushless motors to spin faster and more efficiently.
+
+22
+00:01:04,955 --> 00:01:07,975
+As far as the discussion of motors goes, I'm going to leave it at that.
+
+23
+00:01:07,975 --> 00:01:12,235
+But check out the links below to learn more about brushed versus brushless motors.
+
+24
+00:01:12,235 --> 00:01:14,965
+And that takes us to the next component of the quadrotor,
+
+25
+00:01:14,965 --> 00:01:18,415
+which is called the electronic speed controller, or ESC.
+
+26
+00:01:18,415 --> 00:01:23,065
+Each of the four ESCs in your quadrotor receives a signal from the autopilot saying,
+
+27
+00:01:23,065 --> 00:01:26,215
+spin that particular motor at a particular rpm.
+
+28
+00:01:26,215 --> 00:01:29,635
+And then the ESC oscillates the magnetic field at the appropriate rate,
+
+29
+00:01:29,635 --> 00:01:31,135
+in order to spin the motor.
+
+30
+00:01:31,135 --> 00:01:33,085
+So now you've got your motor's spinning,
+
+31
+00:01:33,085 --> 00:01:35,575
+and the whole point is for your motors to spin your propellers.
+
+32
+00:01:35,575 --> 00:01:37,940
+So, up next, propellers.
+

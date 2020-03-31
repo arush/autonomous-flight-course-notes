@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:02,970
+From geodetic coordinates, the first thing you usually want to
+
+2
+00:00:02,970 --> 00:00:06,300
+do is convert to a linearized Cartesian coordinate frame,
+
+3
+00:00:06,299 --> 00:00:10,640
+the so-called Earth-centered Earth-fixed or ECEF frame.
+
+4
+00:00:10,640 --> 00:00:13,380
+The key idea with the ECEF frame is that every point in
+
+5
+00:00:13,380 --> 00:00:17,060
+space is represented as x, y, and z.
+
+6
+00:00:17,059 --> 00:00:19,500
+What is really most useful is a coordinate system that
+
+7
+00:00:19,500 --> 00:00:22,855
+actually has its origin somewhere on the surface of the earth.
+
+8
+00:00:22,855 --> 00:00:25,769
+That could be your takeoff point
+
+9
+00:00:25,769 --> 00:00:29,030
+or maybe it's home-based or some other convenient location.
+
+10
+00:00:29,030 --> 00:00:32,605
+In this frame, the z coordinate is the height above the surface of the earth
+
+11
+00:00:32,604 --> 00:00:37,324
+while x and y basically tell you how far you are laterally from the origin of the frame.
+
+12
+00:00:37,325 --> 00:00:40,470
+And with that, you have a local ECEF frame.
+
+13
+00:00:40,469 --> 00:00:42,390
+So, next comes the choice of how to represent
+
+14
+00:00:42,390 --> 00:00:44,649
+this frame with respect to the geodetic frame.
+
+15
+00:00:44,649 --> 00:00:47,198
+The x and y axes now define a plane that's
+
+16
+00:00:47,198 --> 00:00:49,829
+tangent to the surface of the earth, and in principle,
+
+17
+00:00:49,829 --> 00:00:52,795
+I could choose to have those axes point at any direction where
+
+18
+00:00:52,795 --> 00:00:55,359
+the most common representation using aeronautics
+
+19
+00:00:55,359 --> 00:00:58,829
+is having x point north, then y point east.
+
+20
+00:00:58,829 --> 00:01:01,640
+Wait a second, that's not east, that's east.
+
+21
+00:01:01,640 --> 00:01:03,750
+That means, z has to point down.
+
+22
+00:01:03,750 --> 00:01:06,060
+It might seem counter-intuitive to have z point
+
+23
+00:01:06,060 --> 00:01:08,995
+down instead of up to indicate altitude above the earth,
+
+24
+00:01:08,995 --> 00:01:11,355
+but in this case, that would leave you with
+
+25
+00:01:11,355 --> 00:01:15,125
+a left-handed coordinate system which is not standard for aeronautics.
+
+26
+00:01:15,125 --> 00:01:18,480
+So instead, we let z be positive downward and we have
+
+27
+00:01:18,480 --> 00:01:22,890
+the so-called North East Down or NED coordinate frame.
+
+28
+00:01:22,890 --> 00:01:25,849
+This is the most common local frame used in aeronautics and is what
+
+29
+00:01:25,849 --> 00:01:29,069
+we'll be using as our local ECEF frame throughout this program.
+

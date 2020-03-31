@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:02,160
+The last thing you need to do is put
+
+2
+00:00:02,160 --> 00:00:05,345
+kinematic constraints and obstacles back into the planning problem.
+
+3
+00:00:05,345 --> 00:00:07,250
+In the last few exercises,
+
+4
+00:00:07,250 --> 00:00:09,720
+you've just been worrying about looking for control sequences that
+
+5
+00:00:09,720 --> 00:00:13,148
+satisfy the differential constraints of the Duban's car model,
+
+6
+00:00:13,148 --> 00:00:16,560
+but you also need to look for control sequences that don't hit things.
+
+7
+00:00:16,560 --> 00:00:19,710
+You can incorporate obstacles in two places.
+
+8
+00:00:19,710 --> 00:00:23,640
+Given a graph or tree of possible curves that your vehicle might be following,
+
+9
+00:00:23,640 --> 00:00:25,785
+first, when you sample new state X2,
+
+10
+00:00:25,785 --> 00:00:27,900
+you can check for kinematic feasibility.
+
+11
+00:00:27,900 --> 00:00:30,600
+And then, more importantly, secondly,
+
+12
+00:00:30,600 --> 00:00:33,345
+when you're attempting to steer to this point using the steer function,
+
+13
+00:00:33,345 --> 00:00:36,720
+you can actually modify the simulate function to check at
+
+14
+00:00:36,720 --> 00:00:40,725
+each step along the way whether you're in collision on your way to X_new.
+
+15
+00:00:40,725 --> 00:00:45,210
+What you're really doing inside simulate is walking along this curve here.
+
+16
+00:00:45,210 --> 00:00:47,270
+And just as in the problematic road map,
+
+17
+00:00:47,270 --> 00:00:51,300
+you can test for kinematic feasibility at each step along its edge.
+
+18
+00:00:51,300 --> 00:00:52,860
+What if you hit something? Do you
+
+19
+00:00:52,860 --> 00:00:54,720
+throw the edge away if you're going to have a collision?
+
+20
+00:00:54,720 --> 00:00:58,635
+No. In fact, if there is an obstacle here that you would hit,
+
+21
+00:00:58,635 --> 00:01:01,815
+then you simply stop and put X_new right there,
+
+22
+00:01:01,815 --> 00:01:05,850
+and you start propagating all the way horizonty and keep X_new,
+
+23
+00:01:05,850 --> 00:01:07,710
+the last state that was feasible.
+
+24
+00:01:07,710 --> 00:01:10,967
+And with that, you've extended your RT implementation,
+
+25
+00:01:10,967 --> 00:01:13,455
+where you started with randomly sampled states,
+
+26
+00:01:13,455 --> 00:01:18,090
+growing the graph, trying to steer towards the samples without collision.
+
+27
+00:01:18,090 --> 00:01:19,260
+Now it's your turn to implement.
+

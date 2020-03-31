@@ -1,0 +1,212 @@
+1
+00:00:00,000 --> 00:00:02,430
+Restrictions on the states that a vehicle can
+
+2
+00:00:02,430 --> 00:00:05,235
+physically be in are called kinematic constraints.
+
+3
+00:00:05,235 --> 00:00:09,900
+In other words, these are constraints on motion that aren't a result of force or mass.
+
+4
+00:00:09,900 --> 00:00:11,730
+Kinematic constraints are generally,
+
+5
+00:00:11,730 --> 00:00:14,610
+a function of geometry and for flying cars,
+
+6
+00:00:14,610 --> 00:00:19,715
+they arise primarily as a result of the distribution of obstacles in the environment.
+
+7
+00:00:19,715 --> 00:00:23,010
+You can think of the kinematic constraints as defining the boundary
+
+8
+00:00:23,010 --> 00:00:27,055
+between the feasible and infeasible parts of your configuration space.
+
+9
+00:00:27,055 --> 00:00:31,680
+Any feasible motion plan must satisfy the kinematic constraints.
+
+10
+00:00:31,680 --> 00:00:34,830
+There are, however, other constraints on motion that can arise from
+
+11
+00:00:34,830 --> 00:00:38,905
+how a vehicle can move through space or what maneuvers it can perform.
+
+12
+00:00:38,905 --> 00:00:42,700
+A quadrotor is a pretty amazing vehicle in that it can
+
+13
+00:00:42,700 --> 00:00:46,705
+more or less move in any direction, regardless of orientation.
+
+14
+00:00:46,705 --> 00:00:51,710
+A car on the other hand does have a set of constraints on allowable motion.
+
+15
+00:00:51,710 --> 00:00:55,235
+Still ignoring properties such as mass or the forces acting on the vehicles,
+
+16
+00:00:55,235 --> 00:00:57,110
+cars or at least most cars,
+
+17
+00:00:57,110 --> 00:00:59,525
+cannot move in arbitrary directions.
+
+18
+00:00:59,525 --> 00:01:02,420
+Cars are restricted to forward and backwards motion along
+
+19
+00:01:02,420 --> 00:01:06,455
+a line or an arc defined by the steering angle of the wheels.
+
+20
+00:01:06,455 --> 00:01:09,155
+The constraints induced by your car steering mechanism
+
+21
+00:01:09,155 --> 00:01:13,520
+restrict the allowable changes to the state in configuration space.
+
+22
+00:01:13,520 --> 00:01:17,990
+So, for example, just because your car is sitting next to an open parking spot,
+
+23
+00:01:17,990 --> 00:01:20,365
+doesn't mean the parking problem is easy.
+
+24
+00:01:20,365 --> 00:01:22,655
+If you don't consider restrictions on steering,
+
+25
+00:01:22,655 --> 00:01:25,985
+then your motion planner might think that an action to the right like
+
+26
+00:01:25,985 --> 00:01:30,665
+this is perfectly feasible in terms of the kinematic constraints of the environment.
+
+27
+00:01:30,665 --> 00:01:32,330
+But in this case,
+
+28
+00:01:32,330 --> 00:01:34,790
+it's the constraints on what your car can do in terms of
+
+29
+00:01:34,790 --> 00:01:38,210
+the allowable motion that makes this problem hard.
+
+30
+00:01:38,210 --> 00:01:42,500
+It's really about restrictions on how the vehicle is allowed to change its state.
+
+31
+00:01:42,500 --> 00:01:45,080
+These restrictions are called differential constraints,
+
+32
+00:01:45,080 --> 00:01:47,015
+and as the name suggests,
+
+33
+00:01:47,015 --> 00:01:49,915
+these are constraints on the derivative of the state.
+
+34
+00:01:49,915 --> 00:01:53,960
+So far, we have ignored differential constraints in our planning algorithms.
+
+35
+00:01:53,960 --> 00:01:56,345
+We assumed that as long as a straight line exists
+
+36
+00:01:56,345 --> 00:01:59,180
+between two states through the free part of the configuration space,
+
+37
+00:01:59,180 --> 00:02:03,500
+that it's feasible to include a motion between those states as part of the plan.
+
+38
+00:02:03,500 --> 00:02:07,895
+It turns out that's actually a pretty reasonable assumption for a slow moving quadrotor.
+
+39
+00:02:07,895 --> 00:02:12,455
+A vehicle of no differential constraints of any kind is called a holonomic vehicle.
+
+40
+00:02:12,455 --> 00:02:14,375
+The fact that all vehicles have mass,
+
+41
+00:02:14,375 --> 00:02:16,670
+implies that there is always a constraint on how
+
+42
+00:02:16,670 --> 00:02:19,445
+fast a vehicle can accelerate or decelerate.
+
+43
+00:02:19,445 --> 00:02:21,755
+But for vehicles like quadrotors,
+
+44
+00:02:21,755 --> 00:02:24,870
+we can often ignore these kinds of constraints.
+
+45
+00:02:24,870 --> 00:02:26,390
+Vehicles that seem to have
+
+46
+00:02:26,390 --> 00:02:30,010
+no different constraints like quadrotors are called quasi-holonomic.
+
+47
+00:02:30,010 --> 00:02:31,640
+And for these types of vehicles,
+
+48
+00:02:31,640 --> 00:02:34,210
+solving the planning problem is often quite easy.
+
+49
+00:02:34,210 --> 00:02:36,220
+But for vehicles that aren't Quasi-Holonomic,
+
+50
+00:02:36,220 --> 00:02:41,125
+you need to think about allowable motions as part of the planning problem.
+
+51
+00:02:41,125 --> 00:02:44,110
+When your quadrotor is moving at a significant velocity,
+
+52
+00:02:44,110 --> 00:02:47,590
+you can no longer treat it as a Quasi-Holonomic vehicle.
+
+53
+00:02:47,590 --> 00:02:51,280
+And next, we'll look at how to include its dynamics in your planning solution.
+

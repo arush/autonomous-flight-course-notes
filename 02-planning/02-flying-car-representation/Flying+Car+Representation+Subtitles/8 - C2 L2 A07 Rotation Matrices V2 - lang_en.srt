@@ -1,0 +1,112 @@
+1
+00:00:00,000 --> 00:00:04,974
+Now, let's take a closer look at the mathematical gimbal lock property of Euler angles.
+
+2
+00:00:04,974 --> 00:00:06,269
+Given a coordinate system,
+
+3
+00:00:06,269 --> 00:00:10,859
+I can represent the orientation of some point in space by an actual rotation matrix.
+
+4
+00:00:10,859 --> 00:00:14,714
+So, I have my vehicle which is at some location in a particular frame,
+
+5
+00:00:14,714 --> 00:00:16,905
+let's say it's the local ECF frame,
+
+6
+00:00:16,905 --> 00:00:19,740
+and I can represent the orientation of the vehicle as
+
+7
+00:00:19,739 --> 00:00:24,070
+corresponding to a rotation in that frame driven by rotation matrix.
+
+8
+00:00:24,070 --> 00:00:26,429
+Here are the three different rotation matrices
+
+9
+00:00:26,429 --> 00:00:29,554
+corresponding to a roll rotation about the x-axis,
+
+10
+00:00:29,554 --> 00:00:31,920
+a pitch rotation about the y-axis,
+
+11
+00:00:31,920 --> 00:00:34,200
+and yaw rotation about the z-axis.
+
+12
+00:00:34,200 --> 00:00:39,090
+With these matrices, I can represent any attitude of the vehicle as a sequence of roll,
+
+13
+00:00:39,090 --> 00:00:41,045
+pitch, and yaw rotations.
+
+14
+00:00:41,045 --> 00:00:43,675
+And to move the vehicle to a new orientation,
+
+15
+00:00:43,674 --> 00:00:47,634
+I then multiply these matrices together to get my new representation.
+
+16
+00:00:47,634 --> 00:00:51,250
+The order in which I apply these rotations matters, as we said a few times.
+
+17
+00:00:51,250 --> 00:00:54,000
+Then under certain conditions, I'll run into gimbal lock.
+
+18
+00:00:54,000 --> 00:00:55,920
+But another concern is that this is now
+
+19
+00:00:55,920 --> 00:00:58,140
+an over parameterized system ready to
+
+20
+00:00:58,140 --> 00:01:01,215
+carry around nine numbers in order to represent my orientation,
+
+21
+00:01:01,215 --> 00:01:04,954
+which does have some modest storage implications.
+
+22
+00:01:04,954 --> 00:01:07,469
+Despite these drawbacks, Euler angles are still used in
+
+23
+00:01:07,469 --> 00:01:11,400
+many aeronautics applications because they are intuitive and useful,
+
+24
+00:01:11,400 --> 00:01:14,690
+for example, in communication with a human pilot.
+
+25
+00:01:14,689 --> 00:01:17,280
+In this program, to run your calculations,
+
+26
+00:01:17,280 --> 00:01:19,920
+you'll be converting your Euler angles into quaternions,
+
+27
+00:01:19,920 --> 00:01:22,305
+which are a much more elegant representation
+
+28
+00:01:22,305 --> 00:01:25,000
+that will simplify your life and your computation.
+

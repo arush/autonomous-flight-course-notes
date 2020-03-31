@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:03,900
+Let's start by looking at the most basic kind of 3D representation,
+
+2
+00:00:03,900 --> 00:00:08,940
+which is a grid with one cell per discrete X, Y, Z coordinate.
+
+3
+00:00:08,940 --> 00:00:12,645
+So here, I've got my X Y and Z coordinate axes,
+
+4
+00:00:12,645 --> 00:00:15,075
+and I'll have cells in a 3D grid like this.
+
+5
+00:00:15,075 --> 00:00:16,710
+And just like in the 2D case,
+
+6
+00:00:16,710 --> 00:00:19,455
+I'll label each cell as feasible or infeasible,
+
+7
+00:00:19,455 --> 00:00:21,020
+free space or obstacle.
+
+8
+00:00:21,020 --> 00:00:23,290
+3D cells are often called voxels,
+
+9
+00:00:23,290 --> 00:00:24,955
+which derives from pixels.
+
+10
+00:00:24,955 --> 00:00:27,160
+Pixel is short for picture element,
+
+11
+00:00:27,160 --> 00:00:29,230
+and voxel is short for volume element.
+
+12
+00:00:29,230 --> 00:00:31,960
+So, a voxel is the 3D version of a pixel.
+
+13
+00:00:31,960 --> 00:00:35,455
+In this sense, a 3D grid map is often called the voxel map.
+
+14
+00:00:35,455 --> 00:00:39,340
+You can build a voxel map from obstacle polyhedra using ray
+
+15
+00:00:39,340 --> 00:00:43,510
+tracing like the Bresenham line drawing algorithm just as you did in 2D.
+
+16
+00:00:43,510 --> 00:00:46,060
+Once you have a voxel map with obstacles labeled,
+
+17
+00:00:46,060 --> 00:00:47,605
+then you can use it for planning.
+
+18
+00:00:47,605 --> 00:00:51,715
+And so, having extended your statespace into this 3D grid,
+
+19
+00:00:51,715 --> 00:00:54,250
+you can use your planning algorithms like A* to
+
+20
+00:00:54,250 --> 00:00:57,505
+expand partial paths toward a goal just as in 2D.
+
+21
+00:00:57,505 --> 00:01:00,850
+Solving the planning problem into 3D grid does not require
+
+22
+00:01:00,850 --> 00:01:04,945
+much of anything new in terms of changes to your code that you used for the 2D case,
+
+23
+00:01:04,945 --> 00:01:07,465
+but the problem with this kind of representation
+
+24
+00:01:07,465 --> 00:01:11,140
+is these kinds of grids are considerably memory-intensive to store,
+
+25
+00:01:11,140 --> 00:01:15,550
+especially if you're trying to map a large volume at high resolution.
+
+26
+00:01:15,550 --> 00:01:17,095
+In this next exercise,
+
+27
+00:01:17,095 --> 00:01:21,660
+you'll get a chance to play with solving the planning problem using a 3D grid.
+

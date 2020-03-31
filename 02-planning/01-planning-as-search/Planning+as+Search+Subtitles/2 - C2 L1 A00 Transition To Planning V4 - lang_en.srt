@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:02,430
+In the last project, you implemented
+
+2
+00:00:02,430 --> 00:00:05,835
+event-driven programming to control a quadrotor in simulation.
+
+3
+00:00:05,835 --> 00:00:09,450
+You gave your quad a set of instructions to follow: takeoff,
+
+4
+00:00:09,450 --> 00:00:11,055
+assent to a particular altitude,
+
+5
+00:00:11,055 --> 00:00:13,410
+fly a specific path, then land.
+
+6
+00:00:13,410 --> 00:00:16,200
+In doing this, you executed your first flight plan.
+
+7
+00:00:16,200 --> 00:00:18,960
+Nice work. Now, we're going to dive into
+
+8
+00:00:18,960 --> 00:00:21,840
+the details of constructing more complicated flight plans.
+
+9
+00:00:21,840 --> 00:00:25,650
+And in the next project, you'll implement a motion planning algorithm that allows you
+
+10
+00:00:25,650 --> 00:00:30,020
+to automatically generate a flight plan using a 3D map of the world.
+

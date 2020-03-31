@@ -1,0 +1,64 @@
+1
+00:00:00,000 --> 00:00:03,870
+In this lesson, we covered the foundations of solving the planning problem.
+
+2
+00:00:03,870 --> 00:00:07,770
+You looked at how to set up your search space which involve discretizing the world
+
+3
+00:00:07,770 --> 00:00:11,910
+into a set of individual states with a start and goal state for your vehicle.
+
+4
+00:00:11,910 --> 00:00:15,855
+You defined actions that describe how your vehicle moves from state to state.
+
+5
+00:00:15,855 --> 00:00:19,635
+And finally, you assigned a cost to each action that describes how
+
+6
+00:00:19,635 --> 00:00:23,630
+difficult or complex each action is relative to all the others.
+
+7
+00:00:23,630 --> 00:00:26,695
+After that, we looked at heuristics for estimating
+
+8
+00:00:26,695 --> 00:00:30,520
+the total cost remaining from the last state of a partial plan to the goal.
+
+9
+00:00:30,520 --> 00:00:35,140
+With a cost function and a heuristic that was both admissible and consistent in hand,
+
+10
+00:00:35,140 --> 00:00:37,930
+you implemented the famous A* algorithm to
+
+11
+00:00:37,930 --> 00:00:41,005
+utilize a map of the world to make your search more efficient.
+
+12
+00:00:41,005 --> 00:00:43,090
+These concepts are really at the heart of
+
+13
+00:00:43,090 --> 00:00:46,750
+any autonomous system when it comes to solving the planning problem,
+
+14
+00:00:46,750 --> 00:00:49,120
+but this is just the beginning.
+
+15
+00:00:49,120 --> 00:00:52,570
+Next up, we'll be looking at how to represent your vehicle within
+
+16
+00:00:52,570 --> 00:00:56,380
+the search space and other clever ways of discretizing your world.
+

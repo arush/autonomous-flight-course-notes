@@ -1,0 +1,20 @@
+1
+00:00:00,000 --> 00:00:02,400
+Welcome to 3D motion planning.
+
+2
+00:00:02,400 --> 00:00:05,780
+It's all about a drone finding it's way about it's environment.
+
+3
+00:00:05,780 --> 00:00:08,430
+In the beginning we are going to cheat a little bit and start in
+
+4
+00:00:08,430 --> 00:00:11,820
+2D, learning about an algorithm called A star search.
+
+5
+00:00:11,820 --> 00:00:16,080
+Later, we're going to analyze this into 3D so drones find their way around.
+

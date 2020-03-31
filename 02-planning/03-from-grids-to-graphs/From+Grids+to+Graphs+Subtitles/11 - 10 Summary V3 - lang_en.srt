@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:04,800
+In this lesson, you've expanded your set of tools for discretizing your environment.
+
+2
+00:00:04,800 --> 00:00:09,150
+You've seen how a path that you planned through a grid can be simplified
+
+3
+00:00:09,150 --> 00:00:13,845
+or condensed into a series of waypoints by finding connections through free space.
+
+4
+00:00:13,845 --> 00:00:16,065
+You also saw that if you like,
+
+5
+00:00:16,065 --> 00:00:19,740
+you can toss out the grid-based discretization entirely and directly
+
+6
+00:00:19,740 --> 00:00:24,420
+construct a graph of nodes connected by edges that represent your search space.
+
+7
+00:00:24,420 --> 00:00:26,040
+There are tradeoffs, however,
+
+8
+00:00:26,040 --> 00:00:30,470
+between using grids versus graphs when it comes to solving the planning problem,
+
+9
+00:00:30,470 --> 00:00:34,090
+and you need to ensure whatever representation you choose,
+
+10
+00:00:34,090 --> 00:00:37,675
+that it satisfies your requirements for completeness and optimality.
+
+11
+00:00:37,675 --> 00:00:39,745
+In real-world robotics applications,
+
+12
+00:00:39,745 --> 00:00:44,185
+there's typically no one right answer for how to represent your planning problem.
+
+13
+00:00:44,185 --> 00:00:45,565
+And in many cases,
+
+14
+00:00:45,565 --> 00:00:49,465
+using some combination of grid and graph-based representations
+
+15
+00:00:49,465 --> 00:00:53,710
+as you did with the medial axis transform can give you the best of both worlds.
+
+16
+00:00:53,710 --> 00:00:56,410
+So far, we've been working in two dimensions,
+
+17
+00:00:56,410 --> 00:00:59,935
+but all of these techniques are equally valid in three dimensions.
+
+18
+00:00:59,935 --> 00:01:01,890
+So that's where we're headed next.
+

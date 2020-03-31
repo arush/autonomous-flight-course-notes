@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:03,700
+So, the world is a continuous space.
+
+2
+00:00:03,700 --> 00:00:07,870
+There's infinitely many places where a drone could be.
+
+3
+00:00:07,870 --> 00:00:11,020
+And to make this computation interactable what we've done is we've
+
+4
+00:00:11,020 --> 00:00:14,780
+chop the world into little kind of blocks called a grid.
+
+5
+00:00:14,780 --> 00:00:17,790
+And then we believe that inside the grid,
+
+6
+00:00:17,790 --> 00:00:20,965
+the detail doesn't matter, and the we have finally many of these boxes.
+
+7
+00:00:20,965 --> 00:00:26,020
+Problem with that is for a three dimensional space as big as your city,
+
+8
+00:00:26,020 --> 00:00:29,940
+you have an awfully many grid blocks to represent.
+
+9
+00:00:29,940 --> 00:00:33,445
+And that means a lot of storage and lot of computation.
+
+10
+00:00:33,445 --> 00:00:38,120
+Now, people discritize the space in different ways.
+
+11
+00:00:38,120 --> 00:00:40,840
+Grid is just one is a uniform discritization,
+
+12
+00:00:40,840 --> 00:00:43,630
+but sometimes it makes sense to discritize in different means.
+
+13
+00:00:43,630 --> 00:00:47,860
+For example, you might talk about intersections and road segments.
+
+14
+00:00:47,860 --> 00:00:50,810
+Those are typically thought as a graph.
+
+15
+00:00:50,810 --> 00:00:55,960
+A graph is a discritize of space with discrete notes that correspond,
+
+16
+00:00:55,960 --> 00:00:59,775
+for example, to intersections and discrete arcs in between.
+
+17
+00:00:59,775 --> 00:01:01,900
+And you might say, "That's crazy for the skyward."
+
+18
+00:01:01,900 --> 00:01:04,750
+If you fly a viewer plane today in
+
+19
+00:01:04,750 --> 00:01:08,650
+the United States or anywhere in the world you'll find that the FAA,
+
+20
+00:01:08,650 --> 00:01:11,370
+the Federal Aviation Authority or whoever it
+
+21
+00:01:11,370 --> 00:01:14,910
+is has already chopped your sky into a graph.
+
+22
+00:01:14,910 --> 00:01:19,330
+There is Jet ways and Victor Vaisse and via points and
+
+23
+00:01:19,330 --> 00:01:22,090
+view hours that define an invisible graph in
+
+24
+00:01:22,090 --> 00:01:25,200
+our sky and on in which each commercial plane flies.
+

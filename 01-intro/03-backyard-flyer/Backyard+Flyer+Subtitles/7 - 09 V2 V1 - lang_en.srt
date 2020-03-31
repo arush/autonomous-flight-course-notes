@@ -1,0 +1,356 @@
+1
+00:00:00,810 --> 00:00:05,470
+To help you understand how to write code within this event-driven paradigm,
+
+2
+00:00:05,469 --> 00:00:09,745
+I've written a really simple flight plan in a program called upanddown.py,
+
+3
+00:00:09,743 --> 00:00:11,573
+and I'm going to show you that code in just a second
+
+4
+00:00:11,573 --> 00:00:13,673
+but first I want to show you what that code does,
+
+5
+00:00:13,675 --> 00:00:16,089
+and the name I give it away.
+
+6
+00:00:16,088 --> 00:00:25,059
+But if I run upanddown.py you can see the rotor starts arm,
+
+7
+00:00:25,059 --> 00:00:26,585
+the drone takes off,
+
+8
+00:00:26,585 --> 00:00:29,304
+flies back down and then turns off.
+
+9
+00:00:29,303 --> 00:00:32,364
+Now, this is a very simple flight plan but
+
+10
+00:00:32,365 --> 00:00:35,905
+let's take a look at the event-driven code that actually caused it to happen.
+
+11
+00:00:35,905 --> 00:00:40,910
+So here is upanddown.py and as you can see it's just over 100 lines of
+
+12
+00:00:40,908 --> 00:00:44,223
+code which may seem kind of verbose for
+
+13
+00:00:44,225 --> 00:00:48,350
+how simple it is but this verbosity actually has a reason.
+
+14
+00:00:48,350 --> 00:00:50,945
+So let's talk about how this code works.
+
+15
+00:00:50,945 --> 00:00:55,880
+At the top you can see there's a lot of imports as is often the case with a Python file.
+
+16
+00:00:55,880 --> 00:00:57,800
+We can ignore those for now.
+
+17
+00:00:57,798 --> 00:01:02,899
+Likewise with this phases class we don't need to pay too much attention to it just yet,
+
+18
+00:01:02,899 --> 00:01:05,810
+though we will shortly and then there's this up and down
+
+19
+00:01:05,810 --> 00:01:10,100
+flyer class and it inherits from this drone super class.
+
+20
+00:01:10,099 --> 00:01:14,030
+This is Python notation for defining a class and saying what super class
+
+21
+00:01:14,030 --> 00:01:16,079
+is and this drone class is something that
+
+22
+00:01:16,078 --> 00:01:18,178
+we're providing for you and it's really pretty powerful.
+
+23
+00:01:18,180 --> 00:01:20,220
+It's got a lot of high level commands that allow you
+
+24
+00:01:20,218 --> 00:01:23,026
+to control the position of the drone,
+
+25
+00:01:23,027 --> 00:01:27,689
+it let's you set different way points and other sorts of high level commands like that.
+
+26
+00:01:27,688 --> 00:01:29,428
+You'll be using this class throughout the new node
+
+27
+00:01:29,430 --> 00:01:31,380
+but let's not worry about all that just
+
+28
+00:01:31,379 --> 00:01:35,069
+yet because for now I really want to focus on this initializer,
+
+29
+00:01:35,069 --> 00:01:36,823
+the constructor for the class.
+
+30
+00:01:36,825 --> 00:01:41,460
+And let me just walk through line by line really quick how this initializer works.
+
+31
+00:01:41,459 --> 00:01:45,314
+So first we call the super class initializer.
+
+32
+00:01:45,313 --> 00:01:48,282
+This is pretty standard.
+
+33
+00:01:48,284 --> 00:01:50,000
+Next we've got this boilerplate.
+
+34
+00:01:50,000 --> 00:01:53,569
+This target position is going to be used by the super class to
+
+35
+00:01:53,569 --> 00:01:56,989
+navigate to different way points and also there's
+
+36
+00:01:56,989 --> 00:01:58,039
+some logic checks in
+
+37
+00:01:58,040 --> 00:02:04,190
+the super class drone that only begin flying if the drone is declared to be in a mission.
+
+38
+00:02:04,188 --> 00:02:06,423
+So we need to set this to true.
+
+39
+00:02:06,424 --> 00:02:11,750
+Again I want to ignore this flight face stuff for now and really
+
+40
+00:02:11,750 --> 00:02:13,310
+focus on what's similar to
+
+41
+00:02:13,310 --> 00:02:17,074
+that chat barcode you just set which is this callback registration part.
+
+42
+00:02:17,074 --> 00:02:20,644
+And as you can see this looks almost identical to the chat barcode.
+
+43
+00:02:20,645 --> 00:02:23,295
+We're calling a function that's called register callback.
+
+44
+00:02:23,294 --> 00:02:29,814
+It takes a message as first argument and then a callback function as a second argument.
+
+45
+00:02:29,813 --> 00:02:33,310
+So what this line of code is saying is any time we
+
+46
+00:02:33,310 --> 00:02:36,490
+get a local position update from the autopilot we want to call
+
+47
+00:02:36,490 --> 00:02:39,790
+this function local position callback and we've got something similar
+
+48
+00:02:39,788 --> 00:02:43,688
+going on when we get local velocity updates or state updates.
+
+49
+00:02:43,688 --> 00:02:45,848
+So from a high level you can see this code is
+
+50
+00:02:45,848 --> 00:02:48,310
+actually pretty similar to the chat bar since during
+
+51
+00:02:48,310 --> 00:02:49,900
+initialization we just register
+
+52
+00:02:49,900 --> 00:02:53,468
+particular callback functions to certain events or messages.
+
+53
+00:02:53,468 --> 00:02:57,519
+Now I'm going to peek into this local position callback in just a second.
+
+54
+00:02:57,520 --> 00:03:00,060
+But first I want you to think about when
+
+55
+00:03:00,060 --> 00:03:02,878
+this function is called and what it's responsible for doing.
+
+56
+00:03:02,878 --> 00:03:06,959
+Since I'm registering this function to this local position update,
+
+57
+00:03:06,960 --> 00:03:11,040
+I'm going to be getting local position updates from the autopilot many times
+
+58
+00:03:11,038 --> 00:03:14,668
+a second and most of the actual way point following logic
+
+59
+00:03:14,669 --> 00:03:17,234
+is actually handled in the drone super class.
+
+60
+00:03:17,235 --> 00:03:21,480
+So what this function is responsible for doing is implementing any logic that's
+
+61
+00:03:21,479 --> 00:03:25,979
+particular to this particular flight plan going up and then going down.
+
+62
+00:03:25,979 --> 00:03:30,477
+Since going up requires going up until we reach a certain target altitude,
+
+63
+00:03:30,478 --> 00:03:32,955
+that's what I have to check for in this callback.
+
+64
+00:03:32,955 --> 00:03:35,765
+So let's see how that's implemented.
+
+65
+00:03:35,764 --> 00:03:38,634
+And as you can see
+
+66
+00:03:38,633 --> 00:03:42,818
+this flight face stuff is showing up again and this is probably starting to make
+
+67
+00:03:42,818 --> 00:03:45,488
+a little more sense now if the flight phase is
+
+68
+00:03:45,490 --> 00:03:49,885
+the takeoff phase or that's when we're performing this altitude check.
+
+69
+00:03:49,883 --> 00:03:54,068
+So the first thing that happens is this coordinate conversion and this is a little funny.
+
+70
+00:03:54,068 --> 00:03:55,688
+What's going on here is there are
+
+71
+00:03:55,688 --> 00:03:58,628
+two different coordinate systems that are trying to play
+
+72
+00:03:58,628 --> 00:04:03,893
+nicely together and for one of them the altitude and the z-axis goes up,
+
+73
+00:04:03,895 --> 00:04:06,909
+for positive and for the other one the z-axis goes down for positive.
+
+74
+00:04:06,908 --> 00:04:09,459
+So we're just making a little correction there.
+
+75
+00:04:09,460 --> 00:04:12,550
+And then the interesting logic happens down here where we're
+
+76
+00:04:12,550 --> 00:04:15,060
+checking to see if the altitude is greater than
+
+77
+00:04:15,060 --> 00:04:21,555
+95% of the target altitude and if it is we begin this landing transition.
+
+78
+00:04:21,555 --> 00:04:24,480
+And really this is sort of how we're going to think
+
+79
+00:04:24,480 --> 00:04:27,960
+about how flight works in this event-driven paradigm.
+
+80
+00:04:27,959 --> 00:04:31,439
+We've got these callbacks and depending on the state we're in,
+
+81
+00:04:31,439 --> 00:04:35,399
+we do some logic and then perform state transitions.
+
+82
+00:04:35,399 --> 00:04:39,658
+So hopefully this event-driven portion of the code is starting to make some sense.
+
+83
+00:04:39,660 --> 00:04:43,230
+The other thing that's important to understand about this code in which we are going
+
+84
+00:04:43,230 --> 00:04:46,910
+to be working with shortly is this idea of phases or states.
+
+85
+00:04:46,910 --> 00:04:50,935
+Once you get a sense for how these phases and these callback functions,
+
+86
+00:04:50,935 --> 00:04:54,970
+messages and transition functions all interact with each other you'll be able to start
+
+87
+00:04:54,970 --> 00:04:56,995
+implementing your own flight plans that
+
+88
+00:04:56,995 --> 00:04:59,740
+play nicely within this whole event-driven framework.
+
+89
+00:04:59,740 --> 00:05:03,829
+So now I'd like to look a little bit more into this phases class.
+

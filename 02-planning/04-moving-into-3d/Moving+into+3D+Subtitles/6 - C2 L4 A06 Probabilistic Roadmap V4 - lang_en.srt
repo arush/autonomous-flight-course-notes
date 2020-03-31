@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:02,610
+Now that you have a way to tell whether or not
+
+2
+00:00:02,610 --> 00:00:05,670
+a random sample is inside one of your obstacle polygons,
+
+3
+00:00:05,670 --> 00:00:09,600
+you basically have what you need in order to build a 3D graph
+
+4
+00:00:09,600 --> 00:00:13,722
+based representation of the feasible parts of the configuration space.
+
+5
+00:00:13,722 --> 00:00:18,005
+What we're going to look at here is a method called the Probabilistic Roadmap,
+
+6
+00:00:18,005 --> 00:00:22,110
+which is an algorithm for constructing a planning problem representation.
+
+7
+00:00:22,110 --> 00:00:26,095
+In short, this algorithm consists of three steps.
+
+8
+00:00:26,095 --> 00:00:29,010
+First, sample states at random in the environment.
+
+9
+00:00:29,010 --> 00:00:32,490
+Next, discard states that are in collision with obstacles.
+
+10
+00:00:32,490 --> 00:00:36,955
+And finally, build the graph and run search to plan a path through it.
+
+11
+00:00:36,955 --> 00:00:39,740
+Let's take a closer look at each of these steps.
+
+12
+00:00:39,740 --> 00:00:43,288
+So, you already know how to sample states at random,
+
+13
+00:00:43,288 --> 00:00:46,070
+and discard those that lie within obstacle polyhedra.
+
+14
+00:00:46,070 --> 00:00:49,325
+And now, those are your states for your planning problem,
+
+15
+00:00:49,325 --> 00:00:51,725
+but you also need the actions.
+
+16
+00:00:51,725 --> 00:00:53,990
+And for your graph, remember the actions are
+
+17
+00:00:53,990 --> 00:00:57,125
+the edges that you can travel along from state to state.
+
+18
+00:00:57,125 --> 00:01:01,670
+So, in 2D, you used a line drawing algorithm through the grid,
+
+19
+00:01:01,670 --> 00:01:04,153
+and you can use the same approach here.
+
+20
+00:01:04,153 --> 00:01:07,190
+You don't actually need to explicitly construct a 3D grid,
+
+21
+00:01:07,190 --> 00:01:11,315
+but rather just step along a discretized line and check for collisions.
+
+22
+00:01:11,315 --> 00:01:15,600
+In principle, you can use the same Bresenham algorithm the same line
+
+23
+00:01:15,600 --> 00:01:17,520
+drawing algorithm that you used before to
+
+24
+00:01:17,520 --> 00:01:20,370
+check to see if a line exists through free space.
+
+25
+00:01:20,370 --> 00:01:24,345
+All you need to do is for each discrete state along this edge,
+
+26
+00:01:24,345 --> 00:01:27,315
+check to see if it's inside an obstacle polygon.
+
+27
+00:01:27,315 --> 00:01:32,010
+As you run the line drawing algorithm from point p1 to p2,
+
+28
+00:01:32,010 --> 00:01:37,215
+you just keep checking to see if the point is inside any of the obstacle polygons.
+
+29
+00:01:37,215 --> 00:01:40,050
+And here, you can see that you are constructing a graph
+
+30
+00:01:40,050 --> 00:01:43,185
+that captures the conductivity of the free space.
+
+31
+00:01:43,185 --> 00:01:46,560
+This graph is not going to necessarily allow you to express
+
+32
+00:01:46,560 --> 00:01:51,425
+the optimal plan in terms of true minimum distance or minimum time or minimum cost,
+
+33
+00:01:51,425 --> 00:01:53,660
+but it's going to be a very efficient way to find
+
+34
+00:01:53,660 --> 00:01:56,680
+a trajectory through the 3D environment.
+
+35
+00:01:56,680 --> 00:01:59,045
+As an implementer and a designer of algorithms,
+
+36
+00:01:59,045 --> 00:02:01,370
+you're going to have to make design decisions in
+
+37
+00:02:01,370 --> 00:02:04,070
+terms of whether actually discretizing the edges and
+
+38
+00:02:04,070 --> 00:02:09,275
+testing whether or not each point is inside an obstacle is more efficient than testing.
+
+39
+00:02:09,275 --> 00:02:14,810
+For example, for the intersection of a line segment with any of the known obstacles.
+
+40
+00:02:14,810 --> 00:02:18,165
+These decisions could depend on the complexity,
+
+41
+00:02:18,165 --> 00:02:22,770
+length scale, and size of the environment, among other things.
+
+42
+00:02:22,770 --> 00:02:27,254
+To summarize, your graph construction algorithm looks like the following.
+
+43
+00:02:27,254 --> 00:02:32,423
+Sample states randomly, discard samples that are inside or too close to obstacles,
+
+44
+00:02:32,423 --> 00:02:35,650
+build the graph, and search through it to find a plan.
+
+45
+00:02:35,650 --> 00:02:38,485
+This method is called the probabilistic roadmap.
+
+46
+00:02:38,485 --> 00:02:40,195
+It's not a planning algorithm.
+
+47
+00:02:40,195 --> 00:02:43,930
+So much as an algorithm for constructing a planning problem representation.
+
+48
+00:02:43,930 --> 00:02:46,675
+One of the nice properties of the probabilistic roadmap
+
+49
+00:02:46,675 --> 00:02:49,735
+is that if you're careful about how you sample those points,
+
+50
+00:02:49,735 --> 00:02:52,345
+then in the limit of an infinite number of samples,
+
+51
+00:02:52,345 --> 00:02:56,295
+you're guaranteed to converge to a graph that contains all feasible paths.
+
+52
+00:02:56,295 --> 00:02:59,550
+This is what's known as being asymptotically complete.
+
+53
+00:02:59,550 --> 00:03:01,670
+Another nice property is that,
+
+54
+00:03:01,670 --> 00:03:03,595
+if you're careful about how you add the edges,
+
+55
+00:03:03,595 --> 00:03:07,395
+you're also guaranteed in the limit of an infinite number of samples,
+
+56
+00:03:07,395 --> 00:03:10,365
+to converge to a graph that contains the optimal path.
+
+57
+00:03:10,365 --> 00:03:13,720
+This is what's known as being asymptotically optimal.
+
+58
+00:03:13,720 --> 00:03:17,940
+So, random sampling techniques are surprisingly powerful way to construct
+
+59
+00:03:17,940 --> 00:03:19,950
+plan representations that will allow you to
+
+60
+00:03:19,950 --> 00:03:22,880
+search in high dimensional spaces efficiently.
+

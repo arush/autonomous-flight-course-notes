@@ -1,0 +1,312 @@
+1
+00:00:00,000 --> 00:00:05,865
+It is my really great pleasure to introduce the three instructors in this course.
+
+2
+00:00:05,865 --> 00:00:08,985
+Angela, from Germany originally but at Toronto now.
+
+3
+00:00:08,985 --> 00:00:13,890
+Angela heads the Dynamic Systems Lab at the Institute for Aerospace Studies at
+
+4
+00:00:13,890 --> 00:00:16,350
+the University of Toronto and she's also
+
+5
+00:00:16,350 --> 00:00:20,130
+the Associate Director of the Center for Aerobotics Research and Education.
+
+6
+00:00:20,130 --> 00:00:22,650
+I had to cheat because the title is longer than
+
+7
+00:00:22,650 --> 00:00:25,860
+any other title I've seen in my life. So, what does it mean? What do you do?
+
+8
+00:00:25,860 --> 00:00:31,125
+So, I'm leading a team conducting research at the interface of robotics,
+
+9
+00:00:31,125 --> 00:00:32,805
+controls, and machine learning.
+
+10
+00:00:32,805 --> 00:00:34,455
+And what this means is,
+
+11
+00:00:34,455 --> 00:00:39,345
+we built robotic systems that can learn from experience and from each other,
+
+12
+00:00:39,345 --> 00:00:41,850
+and the goal is that they, through that,
+
+13
+00:00:41,850 --> 00:00:43,485
+can do tasks better,
+
+14
+00:00:43,485 --> 00:00:46,980
+operate more safely and are generally more independent.
+
+15
+00:00:46,980 --> 00:00:50,475
+That's exciting because even if you got 10,000 Amazon drones in the sky,
+
+16
+00:00:50,475 --> 00:00:52,680
+if this one learn something about the world,
+
+17
+00:00:52,680 --> 00:00:55,710
+all the 9,999 others will learn the same thing.
+
+18
+00:00:55,710 --> 00:00:57,840
+That would be one of the ideas.
+
+19
+00:00:57,840 --> 00:01:00,300
+That's great. Nick, Nick Roy,
+
+20
+00:01:00,300 --> 00:01:02,010
+we've known each other for a long time because we've
+
+21
+00:01:02,010 --> 00:01:03,750
+worked together at Carnegie Mellon University
+
+22
+00:01:03,750 --> 00:01:07,710
+but he's now Professor of Aeronautics and Astronauts at MIT,
+
+23
+00:01:07,710 --> 00:01:10,110
+and he leads a group of researchers in CSAIL,
+
+24
+00:01:10,110 --> 00:01:12,360
+MIT's Artificial Intelligence Lab. What do you do?
+
+25
+00:01:12,360 --> 00:01:15,870
+Well, to first-order, I'm
+
+26
+00:01:15,870 --> 00:01:17,640
+very lucky to have a great group of students and
+
+27
+00:01:17,640 --> 00:01:20,415
+post-docs and I do PR and fundraising for them.
+
+28
+00:01:20,415 --> 00:01:24,100
+But more specifically, what we do is
+
+29
+00:01:24,100 --> 00:01:27,265
+we look at a lot of related issues to what Angela was mentioning.
+
+30
+00:01:27,265 --> 00:01:30,940
+Issues of vehicles, how they navigate in complicated,
+
+31
+00:01:30,940 --> 00:01:34,630
+cluttered environments where you don't have external infrastructure like GPS, et cetera.
+
+32
+00:01:34,630 --> 00:01:37,240
+We look at the issues of how these vehicles understand what's
+
+33
+00:01:37,240 --> 00:01:40,195
+happening around them especially in a human-centered environment.
+
+34
+00:01:40,195 --> 00:01:43,060
+They need to be able to interpret what's happening around them,
+
+35
+00:01:43,060 --> 00:01:44,365
+understand what people want,
+
+36
+00:01:44,365 --> 00:01:46,780
+and make safe and reliable decisions.
+
+37
+00:01:46,780 --> 00:01:49,900
+Now, together, we're building the Nanodegree program on
+
+38
+00:01:49,900 --> 00:01:53,410
+flying cars and flying cars is a bit of a misnomer.
+
+39
+00:01:53,410 --> 00:01:55,060
+It's not going to look like cars with bumpers,
+
+40
+00:01:55,060 --> 00:01:57,820
+but the field of flying
+
+41
+00:01:57,820 --> 00:02:01,265
+vehicles is becoming incredibly hot in Silicon Valley and around the world,
+
+42
+00:02:01,265 --> 00:02:03,890
+and I'm super delighted we could attract
+
+43
+00:02:03,890 --> 00:02:08,360
+two super stellar professors to teach this business program with us.
+
+44
+00:02:08,360 --> 00:02:11,630
+So, we came here together because we are building this joint Nanodegree,
+
+45
+00:02:11,630 --> 00:02:16,520
+it's the world's first educational program on flying cars and hopefully,
+
+46
+00:02:16,520 --> 00:02:18,260
+in a good Udacity fashion,
+
+47
+00:02:18,260 --> 00:02:19,580
+we will teach more students
+
+48
+00:02:19,580 --> 00:02:21,860
+these technologies and all universities in the world combined.
+
+49
+00:02:21,860 --> 00:02:26,270
+Let's find out. But I wanted to ask both of you a bit
+
+50
+00:02:26,270 --> 00:02:28,850
+about what you're actually teaching and about the interesting problems
+
+51
+00:02:28,850 --> 00:02:31,550
+are for students. Maybe start with Nick?
+
+52
+00:02:31,550 --> 00:02:32,536
+Okay.
+
+53
+00:02:32,536 --> 00:02:36,705
+So for me, the flying car is a great aspirational goal.
+
+54
+00:02:36,705 --> 00:02:38,205
+We've got a long way to go.
+
+55
+00:02:38,205 --> 00:02:41,790
+The real content that I want students
+
+56
+00:02:41,790 --> 00:02:45,975
+to get from this is addressing the challenges of making these vehicles smarter.
+
+57
+00:02:45,975 --> 00:02:49,500
+So, one of the dirty little secrets of any unmanned system,
+
+58
+00:02:49,500 --> 00:02:50,580
+whether it's on air, on the ground,
+
+59
+00:02:50,580 --> 00:02:51,720
+is the total labor,
+
+60
+00:02:51,720 --> 00:02:54,135
+human labor required to operate that unmanned system.
+
+61
+00:02:54,135 --> 00:02:56,385
+These vehicles are fundamentally really dumb.
+
+62
+00:02:56,385 --> 00:02:58,140
+All they do is get from point A to point B.
+
+63
+00:02:58,140 --> 00:03:01,320
+They can't react to the unexpected and in the ways that people can.
+
+64
+00:03:01,320 --> 00:03:03,915
+They can't adjust what they're doing.
+
+65
+00:03:03,915 --> 00:03:05,310
+That kind of intelligence,
+
+66
+00:03:05,310 --> 00:03:06,780
+that kind of reasoning, that kind of autonomy,
+
+67
+00:03:06,780 --> 00:03:10,620
+is core to what we're trying to teach for enabling flying cars.
+
+68
+00:03:10,620 --> 00:03:11,670
+Great.
+
+69
+00:03:11,670 --> 00:03:16,110
+So, what I'm really excited about in this Nanodegree is that we really teach
+
+70
+00:03:16,110 --> 00:03:18,570
+the fundamentals on how the physics of
+
+71
+00:03:18,570 --> 00:03:21,435
+these vehicles were both fixed-wing and multi-rotor.
+
+72
+00:03:21,435 --> 00:03:24,855
+But then, take it all the way to a real implementation
+
+73
+00:03:24,855 --> 00:03:28,980
+either in a high-fidelity simulator or the real drone itself.
+
+74
+00:03:28,980 --> 00:03:34,410
+And I think, both skills really are needed to bring the field forward in the future.
+
+75
+00:03:34,410 --> 00:03:40,185
+And I'm so excited that both of you are such great instructors in our Nanodegree program.
+
+76
+00:03:40,185 --> 00:03:41,475
+And for you who are watching,
+
+77
+00:03:41,475 --> 00:03:43,710
+if you're interested in becoming a student, enroll or apply,
+
+78
+00:03:43,710 --> 00:03:47,500
+and I guess, I'll see you in class.
+

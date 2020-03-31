@@ -1,0 +1,80 @@
+1
+00:00:00,000 --> 00:00:04,004
+What you've seen over the course of the last few lessons is that really,
+
+2
+00:00:04,004 --> 00:00:06,484
+there could be as many as three stages of planning.
+
+3
+00:00:06,485 --> 00:00:08,820
+There is a proximate global planning that takes into account
+
+4
+00:00:08,820 --> 00:00:12,690
+the full length scale of where the vehicle needs to go in order to complete its mission.
+
+5
+00:00:12,689 --> 00:00:15,869
+This stage will include some approximate model of the obstacles and
+
+6
+00:00:15,869 --> 00:00:21,030
+free space which could be a 2D or 3D or even two and a half D map.
+
+7
+00:00:21,030 --> 00:00:24,210
+A good global planning strategy might feature a global plan in 2D,
+
+8
+00:00:24,210 --> 00:00:25,620
+but along the way,
+
+9
+00:00:25,620 --> 00:00:29,325
+you can have a receding horizon 3D planner or second planner.
+
+10
+00:00:29,324 --> 00:00:31,559
+With this second planner, you're attempting to follow
+
+11
+00:00:31,559 --> 00:00:34,530
+the rough outline of the global plan but at the same time,
+
+12
+00:00:34,530 --> 00:00:38,039
+avoiding local obstacles and responding to the unexpected.
+
+13
+00:00:38,039 --> 00:00:41,964
+Beyond that, you can implement the third potential field planner for
+
+14
+00:00:41,965 --> 00:00:43,740
+local obstacle void at high speed
+
+15
+00:00:43,740 --> 00:00:47,250
+including known obstacles and things that are not already in the map.
+
+16
+00:00:47,250 --> 00:00:49,619
+By combining all three of these planning layers,
+
+17
+00:00:49,619 --> 00:00:53,804
+you'll have the ability to implement different kinds of planners all working together
+
+18
+00:00:53,804 --> 00:00:58,500
+with each one offering different trade-offs in terms of planning efficiency,
+
+19
+00:00:58,500 --> 00:01:03,149
+response time, complexity, and how much information is available ahead of
+
+20
+00:01:03,149 --> 00:01:08,010
+time which will give your vehicle maximum flexibility and maximum reliability.
+

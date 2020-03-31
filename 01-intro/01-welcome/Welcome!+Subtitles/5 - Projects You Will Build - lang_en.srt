@@ -1,0 +1,308 @@
+1
+00:00:03,960 --> 00:00:06,605
+We have a vision for the future.
+
+2
+00:00:06,605 --> 00:00:07,975
+In that flying cars,
+
+3
+00:00:07,975 --> 00:00:09,730
+and flight is going to be a part of
+
+4
+00:00:09,730 --> 00:00:13,060
+the transportation network to an even greater degree than it is already,
+
+5
+00:00:13,060 --> 00:00:14,510
+and there are technical challenges,
+
+6
+00:00:14,510 --> 00:00:18,535
+and there's a need for people trained in specific foundational concepts,
+
+7
+00:00:18,535 --> 00:00:23,290
+and future-looking, forward-facing concepts that people still need to know now,
+
+8
+00:00:23,290 --> 00:00:24,565
+in order to develop that technology.
+
+9
+00:00:24,565 --> 00:00:28,060
+The flying car nanodegree is Udacity's sense of what
+
+10
+00:00:28,060 --> 00:00:32,765
+the concepts are the people need to know in order to make flying cars a reality.
+
+11
+00:00:32,765 --> 00:00:35,080
+A lot of the development will be in the context
+
+12
+00:00:35,080 --> 00:00:37,770
+of a smaller scale drone because of what people have right now,
+
+13
+00:00:37,770 --> 00:00:40,780
+the issues are same really at every level at every size of a vehicle.
+
+14
+00:00:40,780 --> 00:00:44,290
+This program is unique because it includes
+
+15
+00:00:44,290 --> 00:00:49,435
+the fundamentals about the vehicle dynamics both multirotor and fixed-wing,
+
+16
+00:00:49,435 --> 00:00:54,511
+but then carries this through to real practical implementation.
+
+17
+00:00:54,511 --> 00:00:59,090
+So you will implement your own controller as the major and mission planner.
+
+18
+00:00:59,090 --> 00:01:01,340
+The students are going to develop a variety of skills.
+
+19
+00:01:01,340 --> 00:01:04,480
+We're going to begin very simply with just giving students
+
+20
+00:01:04,480 --> 00:01:09,330
+a project that shows how you command a simple drone.
+
+21
+00:01:09,330 --> 00:01:10,810
+How does a vehicle know where it is?
+
+22
+00:01:10,810 --> 00:01:12,275
+How does it execute a flight plan,
+
+23
+00:01:12,275 --> 00:01:14,335
+and how does it decide what that flight plan should be?
+
+24
+00:01:14,335 --> 00:01:16,060
+And so, the very first skill is just like,
+
+25
+00:01:16,060 --> 00:01:19,585
+what are the mechanics of actually getting an air vehicle under control?
+
+26
+00:01:19,585 --> 00:01:20,980
+Even if it's only in simulation,
+
+27
+00:01:20,980 --> 00:01:23,140
+everybody will have gone through the experience of connecting
+
+28
+00:01:23,140 --> 00:01:25,945
+to a UAV or a drone of some kind,
+
+29
+00:01:25,945 --> 00:01:28,000
+and putting it through its paces.
+
+30
+00:01:28,000 --> 00:01:31,350
+We're sort of setting it up as just like a little flight in your backyard.
+
+31
+00:01:31,350 --> 00:01:33,540
+In fact, we're calling the project, the backyard flight.
+
+32
+00:01:33,540 --> 00:01:36,620
+The second project the students will be looking at is 3D motion planning.
+
+33
+00:01:36,620 --> 00:01:39,070
+How do you generate a plan that is ideally suited for
+
+34
+00:01:39,070 --> 00:01:42,438
+staying as far away from buildings and other obstacles as possible?
+
+35
+00:01:42,438 --> 00:01:44,159
+And also, how do you set up the planning problem so
+
+36
+00:01:44,159 --> 00:01:47,850
+the vehicle for replanned as quickly as possible, if necessary.
+
+37
+00:01:47,850 --> 00:01:49,480
+So we really want students to be thinking about
+
+38
+00:01:49,480 --> 00:01:52,260
+all these different tradeoffs as they build towards that first project.
+
+39
+00:01:52,260 --> 00:01:53,680
+So in the controls project,
+
+40
+00:01:53,680 --> 00:01:58,270
+students will learn to implement a flight controller from scratch,
+
+41
+00:01:58,270 --> 00:02:00,445
+that will stabilize the vehicle,
+
+42
+00:02:00,445 --> 00:02:03,090
+and allow the vehicle to follow a path.
+
+43
+00:02:03,090 --> 00:02:04,780
+Then we'll start to drill down a little bit more
+
+44
+00:02:04,780 --> 00:02:07,050
+into how the vehicle is actually executing those flight plans.
+
+45
+00:02:07,050 --> 00:02:09,335
+How does the vehicle know where it is?
+
+46
+00:02:09,335 --> 00:02:11,725
+How does the vehicle take in sensor data,
+
+47
+00:02:11,725 --> 00:02:13,285
+GPS, and other kinds of data,
+
+48
+00:02:13,285 --> 00:02:16,150
+and then construct a consistent estimate of where it is,
+
+49
+00:02:16,150 --> 00:02:17,710
+and what its attitude is in space?
+
+50
+00:02:17,710 --> 00:02:21,355
+For robots to understand the world, it needs sensors,
+
+51
+00:02:21,355 --> 00:02:29,035
+and state estimation is the field that describes how different sensor information,
+
+52
+00:02:29,035 --> 00:02:33,528
+and sources of information can be best combined to make sense of the world.
+
+53
+00:02:33,528 --> 00:02:35,230
+So in the state estimation project,
+
+54
+00:02:35,230 --> 00:02:40,150
+students will design an algorithm that uses sensor data from GPS
+
+55
+00:02:40,150 --> 00:02:45,445
+and IMU to estimate the position and orientation of our flying robot.
+
+56
+00:02:45,445 --> 00:02:48,190
+In term two, we're going to dramatically expand the scope
+
+57
+00:02:48,190 --> 00:02:52,590
+of technical challenges that the students are going to be thinking about.
+
+58
+00:02:52,590 --> 00:02:55,165
+We are going to really make sure that the students
+
+59
+00:02:55,165 --> 00:02:57,895
+understand some of the low-level and foundational concepts.
+
+60
+00:02:57,895 --> 00:03:01,744
+We're going to move away from the very simple drone quadrotor model.
+
+61
+00:03:01,744 --> 00:03:05,230
+Look at the challenges of modeling the dynamics of a fixed-wing aircraft,
+
+62
+00:03:05,230 --> 00:03:10,600
+and a hybrid aircraft that can either go into full aerodynamic flight,
+
+63
+00:03:10,600 --> 00:03:12,680
+or go into hover, and so on and so forth.
+
+64
+00:03:12,680 --> 00:03:14,290
+Later on in the course,
+
+65
+00:03:14,290 --> 00:03:18,385
+we will also study how we can coordinate a whole fleet of
+
+66
+00:03:18,385 --> 00:03:23,420
+drones to achieve a task together such as delivering packages to customers.
+
+67
+00:03:23,420 --> 00:03:27,875
+To people who want to get a start in robotics,
+
+68
+00:03:27,875 --> 00:03:29,840
+or aerial robotics, frankly,
+
+69
+00:03:29,840 --> 00:03:34,490
+there's no better way than sitting down and starting to just implement simple things.
+
+70
+00:03:34,490 --> 00:03:38,045
+Having that comfort with just implementing things and trying things,
+
+71
+00:03:38,045 --> 00:03:41,585
+is a great foundation for coming into the Udacity Course.
+
+72
+00:03:41,585 --> 00:03:44,435
+There's really a tremendous amount of autonomy
+
+73
+00:03:44,435 --> 00:03:47,540
+and intelligence required to get us from one
+
+74
+00:03:47,540 --> 00:03:50,560
+off prototype demonstrations to the kind of reliability
+
+75
+00:03:50,560 --> 00:03:54,050
+that is going to allow a scalable, reliable, operable service.
+
+76
+00:03:54,050 --> 00:03:57,590
+My prediction for the future is that 80 percent of
+
+77
+00:03:57,590 --> 00:04:04,590
+all transportation of people and goods can be autonomous in the next 30 years.
+

@@ -1,0 +1,164 @@
+1
+00:00:00,000 --> 00:00:01,620
+In the last exercise,
+
+2
+00:00:01,620 --> 00:00:03,990
+you wrote a method called simulate that allows you to
+
+3
+00:00:03,990 --> 00:00:06,750
+predict where the vehicle will end up given an initial state,
+
+4
+00:00:06,750 --> 00:00:09,780
+and some controls, steering angle, and velocity.
+
+5
+00:00:09,780 --> 00:00:13,560
+The next thing to do is to actually incorporate this into your planner.
+
+6
+00:00:13,560 --> 00:00:15,684
+As you moved from 2D to 3D,
+
+7
+00:00:15,684 --> 00:00:18,300
+you saw that a discrete grid would be unwieldy,
+
+8
+00:00:18,300 --> 00:00:19,815
+and we switched to graph-based methods,
+
+9
+00:00:19,815 --> 00:00:21,480
+like the probabilistic roadmap.
+
+10
+00:00:21,480 --> 00:00:25,080
+The way the probabilistic roadmap worked is that we assumed that we
+
+11
+00:00:25,080 --> 00:00:28,440
+could get from any state to any other state along a straight line,
+
+12
+00:00:28,440 --> 00:00:30,390
+so long as obstacles weren't in the way.
+
+13
+00:00:30,390 --> 00:00:33,660
+That is, given sample states X1 and X2,
+
+14
+00:00:33,660 --> 00:00:36,050
+we can draw an edge, and decide that the edge
+
+15
+00:00:36,050 --> 00:00:38,990
+is valid if no kinematic constraint is violated.
+
+16
+00:00:38,990 --> 00:00:42,815
+In doing this, we ignored orientation, velocity,
+
+17
+00:00:42,815 --> 00:00:47,090
+inertia, and even what the controls needed to be in order to make that edge happen.
+
+18
+00:00:47,090 --> 00:00:50,480
+Now, because we have more complicated differential constraints,
+
+19
+00:00:50,480 --> 00:00:53,000
+to see if you can add an edge between two states,
+
+20
+00:00:53,000 --> 00:00:56,690
+you need to know what controls can get you from X1 to X2.
+
+21
+00:00:56,690 --> 00:00:58,370
+Or in other words, you need to know
+
+22
+00:00:58,370 --> 00:01:01,385
+what setting of the velocity and steering angle you need.
+
+23
+00:01:01,385 --> 00:01:05,195
+So, let's say that the curve trajectory you want to follow looks like this.
+
+24
+00:01:05,195 --> 00:01:09,155
+Not only do you need to know what controls will get you from X1 to X2,
+
+25
+00:01:09,155 --> 00:01:11,090
+but also whether any obstacles,
+
+26
+00:01:11,090 --> 00:01:14,270
+any kinematic constraints are violated along that trajectory.
+
+27
+00:01:14,270 --> 00:01:16,220
+How do we solve for the controls?
+
+28
+00:01:16,220 --> 00:01:18,450
+Given a pair of states X1 and X2,
+
+29
+00:01:18,450 --> 00:01:23,765
+solving for the control that gives the solution to get from X1 to X2 is, in general,
+
+30
+00:01:23,765 --> 00:01:26,630
+a two-point boundary value problem in differential equations,
+
+31
+00:01:26,630 --> 00:01:29,795
+and can be very difficult to solve for a lot of real systems.
+
+32
+00:01:29,795 --> 00:01:31,715
+There may even be multiple solutions,
+
+33
+00:01:31,715 --> 00:01:34,635
+some of which are collision-free, and some of which are not.
+
+34
+00:01:34,635 --> 00:01:37,600
+Instead of trying to solve the boundary value problem,
+
+35
+00:01:37,600 --> 00:01:40,730
+which can be as hard as the original planning problem itself,
+
+36
+00:01:40,730 --> 00:01:45,670
+let's do what seems like a crazy thing and just guess at a set of controls,
+
+37
+00:01:45,670 --> 00:01:47,875
+and see how close we get to X2.
+
+38
+00:01:47,875 --> 00:01:50,020
+We'll call this process of guessing
+
+39
+00:01:50,020 --> 00:01:53,845
+a control sequence to get from X1 to X2, the steer function.
+
+40
+00:01:53,845 --> 00:01:56,305
+Given X1 and some X2,
+
+41
+00:01:56,305 --> 00:02:00,340
+we'll guess U_s and U_phi and see where we end up.
+

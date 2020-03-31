@@ -1,0 +1,504 @@
+1
+00:00:00,000 --> 00:00:03,330
+So let's head back to that settings tab and let's make sure
+
+2
+00:00:03,330 --> 00:00:06,974
+that we've got our autopilot configured in the way we want.
+
+3
+00:00:06,974 --> 00:00:11,114
+First thing down this list of interests is the sensors tab.
+
+4
+00:00:11,115 --> 00:00:13,095
+Just say okay to that.
+
+5
+00:00:13,095 --> 00:00:17,774
+In the sensors, it's going to tell you the state of calibration for our compass,
+
+6
+00:00:17,774 --> 00:00:19,529
+or gyro, the accelerometers,
+
+7
+00:00:19,530 --> 00:00:21,780
+what we define as level,
+
+8
+00:00:21,780 --> 00:00:24,630
+and here you'll see you've got green dots down the line
+
+9
+00:00:24,629 --> 00:00:27,869
+which means everything has been calibrated and taken care of.
+
+10
+00:00:27,870 --> 00:00:30,160
+However, as I mentioned,
+
+11
+00:00:30,160 --> 00:00:32,884
+if you just installed the autopilot,
+
+12
+00:00:32,884 --> 00:00:35,134
+these may have some red dots appear.
+
+13
+00:00:35,134 --> 00:00:36,524
+And in those cases,
+
+14
+00:00:36,524 --> 00:00:40,325
+what you'll need to do is click the appropriate sensor,
+
+15
+00:00:40,325 --> 00:00:42,410
+and walk through the configuration.
+
+16
+00:00:42,409 --> 00:00:43,879
+In this window here,
+
+17
+00:00:43,880 --> 00:00:46,108
+it'll show you the steps you need to take,
+
+18
+00:00:46,107 --> 00:00:48,844
+and it will walk you through the calibration process.
+
+19
+00:00:48,844 --> 00:00:50,960
+So the next one down the line is radio.
+
+20
+00:00:50,960 --> 00:00:56,420
+And the intel arrow should already come configured with the radio calibrations,
+
+21
+00:00:56,420 --> 00:01:00,185
+but in case it isn't or if you have your own drone,
+
+22
+00:01:00,185 --> 00:01:02,638
+you'll want to go ahead and make sure you calibrate the radio,
+
+23
+00:01:02,637 --> 00:01:05,855
+and once again it will walk you through that calibration process.
+
+24
+00:01:05,855 --> 00:01:09,020
+We're taking a quick stop through this page though because it's
+
+25
+00:01:09,019 --> 00:01:12,724
+a great way to monitor and look to make sure that everything's working.
+
+26
+00:01:12,724 --> 00:01:18,515
+So, for example as I move the throttle we'll see that throttle dot increase and decrease,
+
+27
+00:01:18,515 --> 00:01:21,769
+and the same for roll, pitch, and yaw.
+
+28
+00:01:21,769 --> 00:01:26,569
+Why we stopped here is before we go on to configuring our flight modes,
+
+29
+00:01:26,569 --> 00:01:29,414
+we want to know what switches we have access to.
+
+30
+00:01:29,415 --> 00:01:33,355
+And you may not know exactly how the radio is configured so that we can do is we can
+
+31
+00:01:33,355 --> 00:01:37,060
+go through and toggle some of the different switches on our radio.
+
+32
+00:01:37,060 --> 00:01:39,234
+For example, as I toggle this one,
+
+33
+00:01:39,234 --> 00:01:43,539
+we notice that channel five moves.
+
+34
+00:01:43,540 --> 00:01:46,420
+And we get actually an urgent notification,
+
+35
+00:01:46,420 --> 00:01:48,640
+which we'll ignore for the moment.
+
+36
+00:01:48,640 --> 00:01:51,465
+And as I change this switch,
+
+37
+00:01:51,465 --> 00:01:53,879
+I've got channel seven.
+
+38
+00:01:53,879 --> 00:01:55,329
+As I move the other switches,
+
+39
+00:01:55,329 --> 00:01:58,569
+I don't see other channels go so that tells me I have channels
+
+40
+00:01:58,569 --> 00:02:03,654
+five and seven have switches that will allow me to configure my flight modes,
+
+41
+00:02:03,655 --> 00:02:06,724
+which we'll go ahead and do now.
+
+42
+00:02:06,724 --> 00:02:10,935
+So, most likely when you came to the flight modes tab,
+
+43
+00:02:10,935 --> 00:02:12,884
+you were visited with a screen like this.
+
+44
+00:02:12,884 --> 00:02:17,069
+And it allows you to assign different flight modes to those three positions.
+
+45
+00:02:17,069 --> 00:02:22,544
+However it's a little bit limited because it only allows us to choose three options.
+
+46
+00:02:22,544 --> 00:02:27,030
+So what we're gonna do is use this multi-channel mode selection.
+
+47
+00:02:27,030 --> 00:02:29,520
+This allows us to couple switches on
+
+48
+00:02:29,520 --> 00:02:34,550
+channel five and seven to give us a wider range of flight mode options.
+
+49
+00:02:34,550 --> 00:02:38,735
+So we're gonna go ahead and do that and you'll see in the position I have it here,
+
+50
+00:02:38,735 --> 00:02:40,655
+it says it's stabilized main.
+
+51
+00:02:40,655 --> 00:02:43,039
+So now what happens is that channel five
+
+52
+00:02:43,039 --> 00:02:45,590
+switch which is a three positions which allows us
+
+53
+00:02:45,590 --> 00:02:50,650
+to choose between main, assisted, and mission.
+
+54
+00:02:50,650 --> 00:02:52,039
+We won't be using mission,
+
+55
+00:02:52,039 --> 00:02:55,250
+this is the PX4 mode that allows you to
+
+56
+00:02:55,250 --> 00:03:00,050
+execute those missions that you can configure up in this A to B tab.
+
+57
+00:03:00,050 --> 00:03:05,885
+Assist now defaults to using channel seven that second switch,
+
+58
+00:03:05,884 --> 00:03:11,754
+to be able to configure a second kind of set of flight modes.
+
+59
+00:03:11,754 --> 00:03:14,349
+So in this case, we can be in
+
+60
+00:03:14,349 --> 00:03:17,949
+an assisted mode in either altitude hold or position control.
+
+61
+00:03:17,949 --> 00:03:19,569
+And that's the way I have it configured.
+
+62
+00:03:19,569 --> 00:03:24,174
+I've changed, you can slide these for changing the thresholds.
+
+63
+00:03:24,175 --> 00:03:27,340
+So I can toggle between altitude and position control now,
+
+64
+00:03:27,340 --> 00:03:30,564
+and then finally I've set the last position in the switch
+
+65
+00:03:30,564 --> 00:03:35,620
+to be, I set it to channel seven to be off board control.
+
+66
+00:03:35,620 --> 00:03:38,200
+And you'll keep seeing as we get these notifications
+
+67
+00:03:38,199 --> 00:03:41,424
+reject position control or reject off-board control.
+
+68
+00:03:41,425 --> 00:03:43,795
+We can go ahead and take a look at those.
+
+69
+00:03:43,794 --> 00:03:47,959
+The reason those are being rejected right now is that we don't have GPS.
+
+70
+00:03:47,960 --> 00:03:51,305
+In order to be in either position control or off-board,
+
+71
+00:03:51,305 --> 00:03:56,120
+the autopilot is using GPS in the loop to make decisions.
+
+72
+00:03:56,120 --> 00:04:00,275
+So, it won't allow you to be in those modes if you don't have GPS.
+
+73
+00:04:00,275 --> 00:04:02,569
+Altitude hold actually just uses
+
+74
+00:04:02,569 --> 00:04:06,349
+the barometer on-board so it doesn't need GPS in order to work,
+
+75
+00:04:06,349 --> 00:04:09,259
+which is why it allows us to go into altitude hold.
+
+76
+00:04:09,259 --> 00:04:12,289
+Well let's bring it back into manual and I don't know if you've
+
+77
+00:04:12,289 --> 00:04:15,215
+noticed up here as I switch through these,
+
+78
+00:04:15,215 --> 00:04:18,709
+the mode is displayed appropriately at the top.
+
+79
+00:04:18,709 --> 00:04:22,214
+So now we have our switches configured,
+
+80
+00:04:22,214 --> 00:04:25,169
+and that allows us to switch through the different flight modes which will
+
+81
+00:04:25,170 --> 00:04:28,935
+be tremendously helpful when we go outside and actually fly.
+
+82
+00:04:28,935 --> 00:04:32,925
+The next one that we're going to look at is power.
+
+83
+00:04:32,925 --> 00:04:36,424
+And this is just to make sure that if you're flying a three-cell battery,
+
+84
+00:04:36,423 --> 00:04:39,890
+you've properly marked up three-cells or if you're flying a four-cell battery,
+
+85
+00:04:39,891 --> 00:04:41,760
+you've made that four-cells.
+
+86
+00:04:41,759 --> 00:04:45,389
+This just makes it possible for
+
+87
+00:04:45,389 --> 00:04:50,414
+the battery status to display correct information about the percentage.
+
+88
+00:04:50,415 --> 00:04:52,814
+If you have the wrong configuration here,
+
+89
+00:04:52,814 --> 00:04:58,115
+it may overestimate or underestimate the amount of flight time that you have remaining.
+
+90
+00:04:58,115 --> 00:05:02,139
+Finally, we're going to make a couple optional changes.
+
+91
+00:05:02,139 --> 00:05:04,300
+We're going to go down to this parameters tab.
+
+92
+00:05:04,300 --> 00:05:10,915
+And this lists all the different possible parameters for the PX4 autopilot.
+
+93
+00:05:10,915 --> 00:05:13,420
+I'll leave it to you to kind of flip through
+
+94
+00:05:13,420 --> 00:05:16,210
+and get an idea of what different options there are,
+
+95
+00:05:16,209 --> 00:05:18,189
+but what we're going to go through is we're going to go
+
+96
+00:05:18,189 --> 00:05:20,800
+into this multicopter position control.
+
+97
+00:05:20,800 --> 00:05:23,650
+These are the parameters that dictate the behavior of
+
+98
+00:05:23,649 --> 00:05:27,939
+our drone when it's under position control or autonomous control.
+
+99
+00:05:27,939 --> 00:05:30,879
+So really this is a lot of dictation of
+
+100
+00:05:30,879 --> 00:05:34,295
+the behavior that will happen when your script is running.
+
+101
+00:05:34,295 --> 00:05:38,025
+I'm going to make two changes in this file,
+
+102
+00:05:38,024 --> 00:05:42,914
+purely for point of view safety and just to slow things down a little bit.
+
+103
+00:05:42,915 --> 00:05:47,040
+It'll give you more time to kind of react if something goes wrong,
+
+104
+00:05:47,040 --> 00:05:51,439
+and just more time to enjoy watching Backyard Flyer do its thing.
+
+105
+00:05:51,439 --> 00:05:56,785
+So we're going to go ahead and change this MPC_XY_CRUISE.
+
+106
+00:05:56,785 --> 00:05:58,990
+So this is the cruise velocity.
+
+107
+00:05:58,990 --> 00:06:03,129
+This is the speed at which it's going to move in the XY plane.
+
+108
+00:06:03,129 --> 00:06:05,725
+And we're going to bring that down to four meters per second,
+
+109
+00:06:05,725 --> 00:06:08,890
+which sounds slow but it definitely allows you
+
+110
+00:06:08,889 --> 00:06:13,870
+to really watch and see what's happening with the drone while it's flying.
+
+111
+00:06:13,870 --> 00:06:16,209
+So we'll hit save on that,
+
+112
+00:06:16,209 --> 00:06:19,495
+and then we'll go down and change that maximum velocity.
+
+113
+00:06:19,495 --> 00:06:23,072
+We'll bring that down to five meters per second,
+
+114
+00:06:23,072 --> 00:06:25,000
+and we'll go ahead and save that.
+
+115
+00:06:25,000 --> 00:06:28,709
+As you get more comfortable with flying your drone,
+
+116
+00:06:28,709 --> 00:06:31,620
+feel free to increase these numbers and see just how
+
+117
+00:06:31,620 --> 00:06:34,949
+quickly the arrow can actually fly the Backyard Flyer loop.
+
+118
+00:06:34,949 --> 00:06:38,084
+But for now, we'll keep things nice and slow.
+
+119
+00:06:38,084 --> 00:06:40,814
+So with those last configuration changes made,
+
+120
+00:06:40,814 --> 00:06:42,975
+we are good to go.
+
+121
+00:06:42,975 --> 00:06:44,445
+We're ready to fly,
+
+122
+00:06:44,444 --> 00:06:46,844
+provided we were outside with GPS.
+
+123
+00:06:46,845 --> 00:06:50,070
+And now we can move on to making some changes to
+
+124
+00:06:50,069 --> 00:06:53,909
+the Backyard Flyer script to make sure it connects with our drone,
+
+125
+00:06:53,910 --> 00:06:58,035
+and we'll change a couple of the state machine elements.
+
+126
+00:06:58,035 --> 00:07:00,420
+But that's for the next video.
+

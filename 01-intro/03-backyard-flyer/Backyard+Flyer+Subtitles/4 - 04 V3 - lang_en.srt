@@ -1,0 +1,140 @@
+1
+00:00:00,000 --> 00:00:05,280
+When you control a drone in the way you just did using a keyboard or a remote control,
+
+2
+00:00:05,280 --> 00:00:07,545
+you control it at a very high level.
+
+3
+00:00:07,545 --> 00:00:09,420
+You tell the drone to go forward,
+
+4
+00:00:09,420 --> 00:00:12,365
+but you don't tell it how to go forward.
+
+5
+00:00:12,365 --> 00:00:15,345
+For example, you don't tell it how fast to spin its rotors.
+
+6
+00:00:15,345 --> 00:00:18,940
+You leave that level of decision making to the autopilot.
+
+7
+00:00:18,940 --> 00:00:22,080
+These high level commands that control a human operated drone,
+
+8
+00:00:22,080 --> 00:00:23,910
+are really similar to the commands that
+
+9
+00:00:23,910 --> 00:00:26,580
+a flight computer would issue in an autonomous drone.
+
+10
+00:00:26,580 --> 00:00:30,085
+And that means they're similar to the commands that you will be programming shortly.
+
+11
+00:00:30,085 --> 00:00:32,813
+Before we jump into programming an actual drone,
+
+12
+00:00:32,813 --> 00:00:35,610
+let's review how information flows in a drone.
+
+13
+00:00:35,610 --> 00:00:37,305
+At the heart of the vehicle,
+
+14
+00:00:37,305 --> 00:00:40,315
+at the very lowest level, is the autopilot,
+
+15
+00:00:40,315 --> 00:00:43,080
+and the autopilot controls the motor speeds of
+
+16
+00:00:43,080 --> 00:00:46,435
+the four rotors and these rotors speed control the attitude,
+
+17
+00:00:46,435 --> 00:00:48,565
+thrust vector, and moments of the drone.
+
+18
+00:00:48,565 --> 00:00:51,510
+And generally, we do not modify the autopilot.
+
+19
+00:00:51,510 --> 00:00:55,815
+Most of the time, you'll be writing programs that run on the flight computer,
+
+20
+00:00:55,815 --> 00:00:58,665
+and these are higher level programs that, for example,
+
+21
+00:00:58,665 --> 00:01:00,900
+might decide where the vehicle should go next,
+
+22
+00:01:00,900 --> 00:01:04,410
+and then guide the vehicle along a sequence of waypoints by properly
+
+23
+00:01:04,410 --> 00:01:08,265
+setting the vehicle's target position which it communicates to the autopilot.
+
+24
+00:01:08,265 --> 00:01:10,920
+The autopilot in turn is responsible for relaying back
+
+25
+00:01:10,920 --> 00:01:14,400
+crucial information like GPS measurements and data from
+
+26
+00:01:14,400 --> 00:01:17,340
+the onboard inertial measurement unit which includes data from
+
+27
+00:01:17,340 --> 00:01:20,985
+the onboard accelerometers, magnetometers, and rate gyros.
+
+28
+00:01:20,985 --> 00:01:25,270
+And all of this communication happens over some sort of connection.
+
+29
+00:01:25,270 --> 00:01:26,430
+And in a real drone,
+
+30
+00:01:26,430 --> 00:01:28,235
+that might be a USB connection.
+
+31
+00:01:28,235 --> 00:01:30,210
+And in the simulator you'll be working with,
+
+32
+00:01:30,210 --> 00:01:34,815
+this will be some subclass of a connection class that we're providing for you.
+
+33
+00:01:34,815 --> 00:01:39,105
+So your job in developing software for a drone or a flying car,
+
+34
+00:01:39,105 --> 00:01:43,920
+is likely to be writing the programs that run up here on the flight computer.
+
+35
+00:01:43,920 --> 00:01:49,470
+And in this lesson, You'll get your first chance to do exactly that in our simulator.
+

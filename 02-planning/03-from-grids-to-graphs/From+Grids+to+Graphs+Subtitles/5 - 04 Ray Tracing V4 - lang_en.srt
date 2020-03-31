@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:04,470
+The collinearity test is one way to identify which cells don't actually need to be
+
+2
+00:00:04,470 --> 00:00:09,360
+used in order to express the path, but it doesn't necessarily lead to the optimal result.
+
+3
+00:00:09,360 --> 00:00:14,325
+You saw that one representation of this simple path is to go to here, and here,
+
+4
+00:00:14,325 --> 00:00:16,590
+and then down to the goal, but you could imagine
+
+5
+00:00:16,590 --> 00:00:19,175
+an even more efficient approximation of this path.
+
+6
+00:00:19,175 --> 00:00:20,550
+Which is to go from start,
+
+7
+00:00:20,550 --> 00:00:22,080
+cut across through here,
+
+8
+00:00:22,080 --> 00:00:23,703
+and then cut down to the goal.
+
+9
+00:00:23,703 --> 00:00:26,950
+Now, a collinearity test is not going to tell you that you don't actually
+
+10
+00:00:26,950 --> 00:00:30,670
+need to go up to this intermediate state here but can cut right across.
+
+11
+00:00:30,670 --> 00:00:32,920
+But clearly this path here is still very much in
+
+12
+00:00:32,920 --> 00:00:36,445
+free space and this path here is also in free space.
+
+13
+00:00:36,445 --> 00:00:38,830
+In order to find line segments that approximate
+
+14
+00:00:38,830 --> 00:00:43,435
+our original sequence of grid cells and ensure that the path is still in free space,
+
+15
+00:00:43,435 --> 00:00:45,550
+we'll use a technique called ray tracing.
+
+16
+00:00:45,550 --> 00:00:50,050
+For this first segment, what we want to do is to determine what grid cells lie on
+
+17
+00:00:50,050 --> 00:00:54,850
+the line from the start state up to here and are they in free space or collision.
+
+18
+00:00:54,850 --> 00:00:57,970
+Given two points, for instance P1 and P2,
+
+19
+00:00:57,970 --> 00:00:59,720
+which cells lie along that line?
+
+20
+00:00:59,720 --> 00:01:05,388
+Well, if P1 is at location X1,Y1 and P2 is at X2, Y2,
+
+21
+00:01:05,388 --> 00:01:07,800
+then any point on that line,
+
+22
+00:01:07,800 --> 00:01:15,116
+y of x is going to be given by Y2 minus Y1 over X2 minus X1 times X plus Y1.
+
+23
+00:01:15,116 --> 00:01:17,010
+Just the equation of the line.
+
+24
+00:01:17,010 --> 00:01:21,990
+You can then iterate X from X1 to X2 and evaluate each pair X,
+
+25
+00:01:21,990 --> 00:01:23,980
+Y of X for collision.
+
+26
+00:01:23,980 --> 00:01:27,315
+If you'd get from X1 to X2 and every value X,
+
+27
+00:01:27,315 --> 00:01:29,072
+Y of X is not in collision,
+
+28
+00:01:29,072 --> 00:01:30,330
+not inside an obstacle,
+
+29
+00:01:30,330 --> 00:01:34,050
+then you know that the entire line must lie entirely in free space.
+
+30
+00:01:34,050 --> 00:01:35,762
+You can start with X1,
+
+31
+00:01:35,762 --> 00:01:37,970
+then X1 plus one, X1 plus two,
+
+32
+00:01:37,970 --> 00:01:39,950
+all the way to X2 and you can look at
+
+33
+00:01:39,950 --> 00:01:44,548
+the corresponding Y-values and check to see if each cell is in collision.
+
+34
+00:01:44,548 --> 00:01:48,680
+And in this case, what you'd see is that when you get to X1 plus two Y of X1 plus two,
+
+35
+00:01:48,680 --> 00:01:50,840
+right here, you can see you're in collision.
+
+36
+00:01:50,840 --> 00:01:54,650
+Your ray tracing method will tell you that this line is in collision and you cannot
+
+37
+00:01:54,650 --> 00:01:59,150
+in fact fly in a straight line from this point here to this point here.
+

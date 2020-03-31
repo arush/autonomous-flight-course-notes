@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:02,895
+Using the techniques presented in previous lessons,
+
+2
+00:00:02,895 --> 00:00:04,965
+we saw that in a grid world like this,
+
+3
+00:00:04,965 --> 00:00:06,735
+place an obstacle right here,
+
+4
+00:00:06,735 --> 00:00:08,853
+you can find a plan that takes the vehicle,
+
+5
+00:00:08,853 --> 00:00:13,780
+for instance, up and over a sequence of cells and then down.
+
+6
+00:00:13,780 --> 00:00:16,940
+Now, let's think about what this plan actually means.
+
+7
+00:00:16,940 --> 00:00:18,465
+If you send this plan,
+
+8
+00:00:18,465 --> 00:00:20,824
+the sequence of grid cells to the autopilot,
+
+9
+00:00:20,824 --> 00:00:23,105
+what you're really asking the vehicle to do
+
+10
+00:00:23,105 --> 00:00:26,530
+this to travel through a sequence of short goals.
+
+11
+00:00:26,530 --> 00:00:28,550
+So, you're telling the autopilot to go from
+
+12
+00:00:28,550 --> 00:00:31,933
+the start location up to some intermediate goal and then stop.
+
+13
+00:00:31,933 --> 00:00:36,560
+The vehicle asked to turn and it goes to the next intermediate goal and stops again,
+
+14
+00:00:36,560 --> 00:00:40,620
+and it goes to the next cell and stops and then over and stop and then over and stop and
+
+15
+00:00:40,620 --> 00:00:45,085
+then turn again and go down and then finally arrive at the final goal.
+
+16
+00:00:45,085 --> 00:00:46,930
+What a cumbersome plan.
+
+17
+00:00:46,930 --> 00:00:48,830
+Now, the reason that the autopilot is going to
+
+18
+00:00:48,830 --> 00:00:51,005
+stop in each grid cell is because remember,
+
+19
+00:00:51,005 --> 00:00:54,105
+the autopilot is just the lizard brain of the vehicle.
+
+20
+00:00:54,105 --> 00:00:57,470
+What's really happening is that the flight computer is sending
+
+21
+00:00:57,470 --> 00:01:02,330
+the autopilot the next goal or waypoint one location at a time.
+
+22
+00:01:02,330 --> 00:01:06,170
+What we really want the vehicle to do in this case is to go up,
+
+23
+00:01:06,170 --> 00:01:09,575
+then turn and travel a long distance to the next goal,
+
+24
+00:01:09,575 --> 00:01:11,960
+and then turn and then go down.
+
+25
+00:01:11,960 --> 00:01:15,845
+We don't really want so much a sequence of grid cells for the vehicle to follow.
+
+26
+00:01:15,845 --> 00:01:19,685
+What we really want is a sequence of waypoints for the vehicle to travel between,
+
+27
+00:01:19,685 --> 00:01:21,860
+rather than all of these grid cells.
+
+28
+00:01:21,860 --> 00:01:24,545
+We'd rather tell the vehicle to travel to one, two,
+
+29
+00:01:24,545 --> 00:01:28,190
+three waypoints and the autopilot will have
+
+30
+00:01:28,190 --> 00:01:30,050
+a lot easier time following this plan of
+
+31
+00:01:30,050 --> 00:01:33,310
+just a few waypoints than the original series of grid cells.
+
+32
+00:01:33,310 --> 00:01:35,000
+The question that arises then is
+
+33
+00:01:35,000 --> 00:01:39,975
+how do I take that sequence of grid cells and turn it into a sequence of waypoints?
+
+34
+00:01:39,975 --> 00:01:41,585
+There's more than one way to go about this,
+
+35
+00:01:41,585 --> 00:01:44,270
+but next we'll look at a simple test you can use to
+
+36
+00:01:44,270 --> 00:01:47,285
+remove intermediate grid cells that lie along a line
+
+37
+00:01:47,285 --> 00:01:49,610
+and find a set of waypoints that approximates
+
+38
+00:01:49,610 --> 00:01:54,000
+the original plan and still keeps the vehicle safe and collision free.
+

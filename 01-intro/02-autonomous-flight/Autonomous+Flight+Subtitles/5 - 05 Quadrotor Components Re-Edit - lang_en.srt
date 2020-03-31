@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:03,399
+To get some intuition about how a quadrotor works,
+
+2
+00:00:03,399 --> 00:00:05,205
+let's build one up piece by piece.
+
+3
+00:00:05,205 --> 00:00:08,310
+To start with, let's take a single rotor and
+
+4
+00:00:08,310 --> 00:00:11,609
+attach it to a mass representing the body or frame of the vehicle.
+
+5
+00:00:11,609 --> 00:00:13,899
+This is the simplest possible helicopter.
+
+6
+00:00:13,900 --> 00:00:16,719
+But what happens when the rotor spins?
+
+7
+00:00:16,719 --> 00:00:20,149
+In this configuration, the spinning rotor has angular momentum.
+
+8
+00:00:20,149 --> 00:00:22,439
+And through the conservation of angular momentum,
+
+9
+00:00:22,440 --> 00:00:24,740
+it will induce a torque on the masses attach to,
+
+10
+00:00:24,739 --> 00:00:27,792
+causing it to spin as well in the opposite direction.
+
+11
+00:00:27,792 --> 00:00:29,614
+Not a great flying machine just yet.
+
+12
+00:00:29,614 --> 00:00:34,549
+This is why a single rotor helicopter has a tail rotor mounted at 90 degrees to
+
+13
+00:00:34,549 --> 00:00:36,500
+the main propeller to exert a torque in
+
+14
+00:00:36,500 --> 00:00:40,085
+the opposite direction and keep the whole thing from spinning out of control.
+
+15
+00:00:40,085 --> 00:00:43,730
+This is the most common design of manned helicopter vehicles.
+
+16
+00:00:43,729 --> 00:00:45,469
+But, instead of a tail rotor,
+
+17
+00:00:45,469 --> 00:00:50,119
+you could introduce another propeller spinning in the opposite direction like this.
+
+18
+00:00:50,119 --> 00:00:52,778
+Now, you have a dual-prop helicopter,
+
+19
+00:00:52,779 --> 00:00:54,755
+also known as counter-rotating propellers.
+
+20
+00:00:54,755 --> 00:00:58,429
+And the net angular momentum from each of the rotors cancels each other out.
+
+21
+00:00:58,429 --> 00:01:01,677
+This is an example of a dual propeller helicopter right here.
+
+22
+00:01:01,677 --> 00:01:04,099
+Now, we could talk about adding a third rotor and
+
+23
+00:01:04,099 --> 00:01:07,009
+how you could go about balancing out the torques from three rotors.
+
+24
+00:01:07,010 --> 00:01:09,109
+But instead, we're going to skip over that in
+
+25
+00:01:09,109 --> 00:01:13,370
+favor of going right to the symmetric simplicity of the quadrotor.
+
+26
+00:01:13,370 --> 00:01:18,260
+Quadrotor consists of four rotors attached to a frame usually in an X shape like this.
+
+27
+00:01:18,260 --> 00:01:22,700
+Rotors that sit opposite from one another on the frame spin in the same direction.
+
+28
+00:01:22,700 --> 00:01:24,500
+And the two pairs of motors spin in
+
+29
+00:01:24,500 --> 00:01:28,560
+opposite directions so that when they're all spinning at the same speed,
+
+30
+00:01:28,560 --> 00:01:31,260
+the vehicle can hover with a net torque of zero.
+
+31
+00:01:31,260 --> 00:01:35,550
+So, your basic quad now consists of a frame and four propellers.
+
+32
+00:01:35,549 --> 00:01:39,280
+You'll also need motors to drive each of the propellers,
+
+33
+00:01:39,281 --> 00:01:42,570
+an autopilot and flight computer to decide what the motor should do,
+
+34
+00:01:42,569 --> 00:01:46,964
+sensors like GPS, an inertial measurement unit or IMU,
+
+35
+00:01:46,965 --> 00:01:48,623
+a camera to observe your surroundings,
+
+36
+00:01:48,623 --> 00:01:50,362
+and a battery to power everything.
+
+37
+00:01:50,362 --> 00:01:53,144
+And with that, you have a fully functional quadrotor drone.
+
+38
+00:01:53,144 --> 00:01:56,129
+But the best way to understand how something works is to
+
+39
+00:01:56,129 --> 00:01:59,369
+take it apart and investigate each of the components in detail.
+
+40
+00:01:59,370 --> 00:02:01,170
+So that's what we'll do next.
+

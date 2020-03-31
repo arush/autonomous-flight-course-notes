@@ -1,0 +1,112 @@
+1
+00:00:00,000 --> 00:00:03,399
+The autopilot is a computer that is responsible for knowing
+
+2
+00:00:03,399 --> 00:00:06,564
+just how much thrust to apply to each motor in order to hover,
+
+3
+00:00:06,565 --> 00:00:09,214
+pitch, roll or yod a vehicle.
+
+4
+00:00:09,214 --> 00:00:12,070
+The autopilot is responsible for adjusting that thrust in order to
+
+5
+00:00:12,070 --> 00:00:15,198
+level out once the vehicle is moving at a particular speed,
+
+6
+00:00:15,198 --> 00:00:17,829
+and then once it gets close to its destination to
+
+7
+00:00:17,829 --> 00:00:20,324
+pitch backwards in order to decelerate and stop.
+
+8
+00:00:20,324 --> 00:00:22,285
+So, we're always moving the vehicle body.
+
+9
+00:00:22,285 --> 00:00:24,280
+We're pitching it forward and backward,
+
+10
+00:00:24,280 --> 00:00:28,006
+we're rolling it left and right in order to move from one place to another.
+
+11
+00:00:28,006 --> 00:00:30,594
+So how can the autopilot, a piece of electronics,
+
+12
+00:00:30,594 --> 00:00:32,618
+actually know how to control the speed of
+
+13
+00:00:32,618 --> 00:00:35,984
+the different propellers in order to achieve the desired result?
+
+14
+00:00:35,984 --> 00:00:39,039
+To make this happen, the autopilot first needs to know about
+
+15
+00:00:39,039 --> 00:00:41,289
+the current thrust vector magnitude and
+
+16
+00:00:41,289 --> 00:00:43,149
+direction and then make
+
+17
+00:00:43,149 --> 00:00:45,923
+small adjustments to the speed of each of the four spinning motors,
+
+18
+00:00:45,923 --> 00:00:49,524
+in order to make sure that the intended thrust vector matches what you want.
+
+19
+00:00:49,524 --> 00:00:52,000
+But it's not possible for the autopilot to figure
+
+20
+00:00:52,000 --> 00:00:54,189
+out how fast the vehicle is going or what
+
+21
+00:00:54,189 --> 00:00:56,289
+the total thrust is without actually
+
+22
+00:00:56,289 --> 00:00:59,594
+knowing something first about the attitude of the vehicle.
+
+23
+00:00:59,594 --> 00:01:01,304
+So, we've arrived at a conundrum.
+
+24
+00:01:01,304 --> 00:01:04,299
+The autopilot is required to control the vehicle attitude,
+
+25
+00:01:04,299 --> 00:01:06,295
+but in order to apply proper control,
+
+26
+00:01:06,295 --> 00:01:08,829
+it must first know the attitude of the vehicle.
+
+27
+00:01:08,828 --> 00:01:11,238
+So, how can the autopilot get this information?
+
+28
+00:01:11,239 --> 00:01:13,000
+Well, that requires sensors.
+

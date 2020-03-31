@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:04,394
+The next component of your quadrotor to think about is the power supply, the battery.
+
+2
+00:00:04,394 --> 00:00:07,184
+Most quadrotors and other electric propulsion aircraft
+
+3
+00:00:07,184 --> 00:00:10,214
+use lithium polymer or LiPo batteries, like this one.
+
+4
+00:00:10,214 --> 00:00:15,660
+These are basically the same battery technology that's in your cell phone or your laptop.
+
+5
+00:00:15,660 --> 00:00:19,170
+However, quadrotor batteries are a little bit different in
+
+6
+00:00:19,170 --> 00:00:23,538
+their design because they need to be able to discharge very quickly.
+
+7
+00:00:23,538 --> 00:00:25,530
+This makes them a lot more dangerous than
+
+8
+00:00:25,530 --> 00:00:28,109
+the batteries in your laptop or your cell phones.
+
+9
+00:00:28,109 --> 00:00:32,780
+And consequently, LiPo batteries also have to be charged very carefully.
+
+10
+00:00:32,780 --> 00:00:35,314
+It's worth noting that in most quadrotor batteries,
+
+11
+00:00:35,314 --> 00:00:38,000
+there are actually multiple batteries in one.
+
+12
+00:00:38,000 --> 00:00:40,429
+And so you have to think about making sure that
+
+13
+00:00:40,429 --> 00:00:43,715
+each cell of the battery is charged the same as the others,
+
+14
+00:00:43,715 --> 00:00:47,240
+so that one cell of the battery isn't discharging into another.
+
+15
+00:00:47,240 --> 00:00:52,445
+We'll talk more about safety and balancing batteries later on in the program.
+
+16
+00:00:52,445 --> 00:00:55,460
+For now, suffice it to say that in choosing a battery,
+
+17
+00:00:55,460 --> 00:00:56,750
+you just need to make sure it has
+
+18
+00:00:56,750 --> 00:01:00,005
+enough capacity to fly the kinds of missions you want to fly,
+
+19
+00:01:00,005 --> 00:01:01,880
+which means first and foremost,
+
+20
+00:01:01,880 --> 00:01:05,483
+that it has enough power to lift the vehicle and payload,
+
+21
+00:01:05,483 --> 00:01:08,910
+but also that it be able to comfortably last for the duration of the mission.
+

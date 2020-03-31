@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:02,850
+There are a couple of more key ideas that we need to
+
+2
+00:00:02,850 --> 00:00:06,869
+consider about the vehicle representation in order to get to planning.
+
+3
+00:00:06,870 --> 00:00:09,390
+You now know that you can represent the location of
+
+4
+00:00:09,390 --> 00:00:13,015
+your vehicle as a reference point in some coordinate frame.
+
+5
+00:00:13,015 --> 00:00:17,640
+For the most part, we'll be considering the local ECEF frame for planning and you
+
+6
+00:00:17,640 --> 00:00:22,824
+can represent your vehicles orientation in that local ECEF frame as a reference vector.
+
+7
+00:00:22,824 --> 00:00:26,259
+So, you have your vehicle in a local ECEF coordinate frame,
+
+8
+00:00:26,260 --> 00:00:29,820
+it's got some reference location point, it's got some orientation.
+
+9
+00:00:29,820 --> 00:00:33,365
+And next, you can think about actual motion of the vehicle
+
+10
+00:00:33,365 --> 00:00:38,010
+as basically just changes to the reference point in your coordinate system.
+
+11
+00:00:38,009 --> 00:00:39,719
+So for instance, if the vehicle is at
+
+12
+00:00:39,719 --> 00:00:43,789
+some location 'x' sub 'b' and is going to move to some new location,
+
+13
+00:00:43,789 --> 00:00:47,789
+let's call it 'x' sub 'b' prime then we can think of the new location of
+
+14
+00:00:47,789 --> 00:00:51,924
+the vehicle is equal to the previous location plus this transformation vector.
+
+15
+00:00:51,924 --> 00:00:54,809
+If you want your vehicle to not only translate to a new location,
+
+16
+00:00:54,810 --> 00:00:57,870
+but also to rotate to some new orientation then
+
+17
+00:00:57,869 --> 00:01:01,244
+you'll construct a corresponding quaternion 'q' sub theta
+
+18
+00:01:01,244 --> 00:01:03,890
+and you can now think of your new orientation as equal to
+
+19
+00:01:03,890 --> 00:01:08,385
+'q' sub theta times the original orientation times 'q' sub theta prime.
+
+20
+00:01:08,385 --> 00:01:10,094
+And so it's as simple as that.
+
+21
+00:01:10,094 --> 00:01:11,489
+Every time your vehicle goes through
+
+22
+00:01:11,489 --> 00:01:14,834
+a transformation of position and orientation during planning,
+
+23
+00:01:14,834 --> 00:01:17,009
+you're just applying a translation to
+
+24
+00:01:17,010 --> 00:01:20,844
+the reference points and a rotation to the reference orientation.
+
+25
+00:01:20,844 --> 00:01:25,000
+You can sequence these changes together over time to create a plan.
+

@@ -1,0 +1,212 @@
+1
+00:00:00,000 --> 00:00:02,370
+You've now got a bunch more tools in your kit for
+
+2
+00:00:02,370 --> 00:00:05,880
+planning but when it comes to executing a plan,
+
+3
+00:00:05,880 --> 00:00:08,940
+one issue that we've ignored so far is how to execute the plan
+
+4
+00:00:08,940 --> 00:00:12,435
+smoothly without actually stopping at each waypoint.
+
+5
+00:00:12,435 --> 00:00:16,320
+At this point, your planning solution looks more or less like this.
+
+6
+00:00:16,320 --> 00:00:19,710
+You have an environment with some obstacles and a plan consisting of
+
+7
+00:00:19,710 --> 00:00:23,100
+a set of waypoints and just like in the very first project,
+
+8
+00:00:23,100 --> 00:00:27,270
+you have a finite state machine that takes you from waypoint to waypoint.
+
+9
+00:00:27,270 --> 00:00:32,010
+This is a perfectly reasonable starting point but for outdoor flight in the real-world,
+
+10
+00:00:32,010 --> 00:00:36,840
+your vehicle will be relying on the GPS to track its position in the geodetic frame.
+
+11
+00:00:36,840 --> 00:00:40,545
+There are a lot of ways in which this position estimate can be imprecise.
+
+12
+00:00:40,545 --> 00:00:44,475
+The quality of the GPS estimate can be affected by a lot of factors,
+
+13
+00:00:44,475 --> 00:00:46,260
+such as the quality of electronics,
+
+14
+00:00:46,260 --> 00:00:49,740
+the local environment, even changes in the atmosphere.
+
+15
+00:00:49,740 --> 00:00:52,440
+As a result, most hobbyists GPS receivers
+
+16
+00:00:52,440 --> 00:00:55,358
+are really only accurate to a dozen meters or so,
+
+17
+00:00:55,358 --> 00:00:58,084
+and the errors in the GPS can change over time.
+
+18
+00:00:58,084 --> 00:01:00,450
+To your autopilot, GPS errors
+
+19
+00:01:00,450 --> 00:01:03,240
+are going to make it look like the waypoints are actually moving.
+
+20
+00:01:03,240 --> 00:01:04,661
+To deal with this issue,
+
+21
+00:01:04,661 --> 00:01:07,740
+you'll generally have your autopilot setup to get as close
+
+22
+00:01:07,740 --> 00:01:11,295
+as possible to the commanded waypoint within a certain radius.
+
+23
+00:01:11,295 --> 00:01:13,296
+For the mavlink autopilot,
+
+24
+00:01:13,296 --> 00:01:16,995
+this is known as the acceptance radius and is given in meters.
+
+25
+00:01:16,995 --> 00:01:18,825
+As a natural consequence,
+
+26
+00:01:18,825 --> 00:01:22,110
+if your acceptance radius is on the same order or smaller,
+
+27
+00:01:22,110 --> 00:01:25,860
+then the typical GPS errors then as you move from waypoint to waypoint,
+
+28
+00:01:25,860 --> 00:01:28,200
+the vehicle can spend a lot of time chasing
+
+29
+00:01:28,200 --> 00:01:31,725
+a waypoint that seems to be jumping around and changing location.
+
+30
+00:01:31,725 --> 00:01:35,310
+In order to have better control over what it actually means to
+
+31
+00:01:35,310 --> 00:01:38,925
+arrive at a waypoint and handle noise in your position estimates,
+
+32
+00:01:38,925 --> 00:01:41,475
+you can introduce something called a deadband,
+
+33
+00:01:41,475 --> 00:01:44,000
+which is a region of input values.
+
+34
+00:01:44,000 --> 00:01:46,230
+In this case, GPS measurements of the vehicles
+
+35
+00:01:46,230 --> 00:01:49,710
+position where the control system will take no action.
+
+36
+00:01:49,710 --> 00:01:54,930
+For example, you can think of the acceptance radius around each waypoint as a deadband.
+
+37
+00:01:54,930 --> 00:01:58,065
+Once the vehicle is inside the acceptance radius,
+
+38
+00:01:58,065 --> 00:02:02,235
+it will take no further control action to try to move closer to the waypoint.
+
+39
+00:02:02,235 --> 00:02:05,025
+Once your vehicle reaches a deadband, for example,
+
+40
+00:02:05,025 --> 00:02:07,680
+you can explicitly tell the autopilot to stop
+
+41
+00:02:07,680 --> 00:02:10,890
+trying to arrive at that waypoint and move on to the next one.
+
+42
+00:02:10,890 --> 00:02:13,050
+In many cases, you won't want
+
+43
+00:02:13,050 --> 00:02:16,995
+the same size acceptance radius or deadband for all waypoints.
+
+44
+00:02:16,995 --> 00:02:21,120
+For instance, you might want to make intermediate waypoints
+
+45
+00:02:21,120 --> 00:02:25,350
+have wider deadbands where you move onto the next waypoint sooner,
+
+46
+00:02:25,350 --> 00:02:28,695
+than when you're trying to stop precisely at the goal waypoint.
+
+47
+00:02:28,695 --> 00:02:31,950
+You could even make your deadbands be a function of velocity.
+
+48
+00:02:31,950 --> 00:02:36,270
+If you're moving fast, expand the deadbands and only enforce
+
+49
+00:02:36,270 --> 00:02:41,618
+greater position accuracy when you're moving slowly or attempting to stop.
+
+50
+00:02:41,618 --> 00:02:45,000
+You can think about ways in which you might modify your state machine to
+
+51
+00:02:45,000 --> 00:02:49,350
+ensure the right logic of a deadband around each waypoint.
+
+52
+00:02:49,350 --> 00:02:50,734
+In the next exercise,
+
+53
+00:02:50,734 --> 00:02:55,190
+you'll get a chance to play with different deadband logic in your project code
+

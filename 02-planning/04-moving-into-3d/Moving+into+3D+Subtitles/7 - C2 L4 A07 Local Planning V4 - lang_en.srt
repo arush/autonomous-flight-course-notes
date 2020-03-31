@@ -1,0 +1,244 @@
+1
+00:00:00,000 --> 00:00:03,990
+The probabilistic road map is a great way to find feasible plans through
+
+2
+00:00:03,990 --> 00:00:06,690
+a full 3D environment without incurring
+
+3
+00:00:06,690 --> 00:00:10,350
+the costs of building and maintaining a dense 3D grid map.
+
+4
+00:00:10,350 --> 00:00:13,965
+But it's not a silver bullet especially over long time scales.
+
+5
+00:00:13,965 --> 00:00:15,774
+Why is that?
+
+6
+00:00:15,774 --> 00:00:19,500
+Well, let's think about the two sources of computational complexity.
+
+7
+00:00:19,500 --> 00:00:22,335
+The first is the cost of building the model.
+
+8
+00:00:22,335 --> 00:00:25,640
+And the second, is the cost of planning through the model.
+
+9
+00:00:25,640 --> 00:00:28,570
+I can build the probabilistic road map by sampling
+
+10
+00:00:28,570 --> 00:00:31,840
+points and building a graph around the obstacles, that's one phase.
+
+11
+00:00:31,840 --> 00:00:34,788
+If I know the environment perfectly ahead of time,
+
+12
+00:00:34,788 --> 00:00:37,105
+and the positions of obstacles don't change,
+
+13
+00:00:37,105 --> 00:00:39,835
+then I only need to build that graph once.
+
+14
+00:00:39,835 --> 00:00:43,312
+In the real world, that turns out to be a terrible assumption.
+
+15
+00:00:43,312 --> 00:00:45,100
+Obstacles appear and disappear,
+
+16
+00:00:45,100 --> 00:00:47,425
+and you need to be ready for the unexpected.
+
+17
+00:00:47,425 --> 00:00:51,205
+But, assuming that the environment is relatively fixed,
+
+18
+00:00:51,205 --> 00:00:54,865
+you're only going to run the probabilistic road map algorithm once.
+
+19
+00:00:54,865 --> 00:00:57,355
+Then, to find an actual plan,
+
+20
+00:00:57,355 --> 00:01:00,010
+you run search on the graph using something like A* to
+
+21
+00:01:00,010 --> 00:01:02,760
+find a plan from the start to the goal.
+
+22
+00:01:02,760 --> 00:01:06,295
+In reality, you're likely to run A* multiple times.
+
+23
+00:01:06,295 --> 00:01:08,635
+This is what's known as multiple query planning,
+
+24
+00:01:08,635 --> 00:01:10,810
+the opposite being single query planning.
+
+25
+00:01:10,810 --> 00:01:15,280
+And what that means for a fixed graph that you built using the probabilistic road map,
+
+26
+00:01:15,280 --> 00:01:19,408
+is that your computational cost will be dominated by the search.
+
+27
+00:01:19,408 --> 00:01:21,160
+From your implementation of A*,
+
+28
+00:01:21,160 --> 00:01:25,725
+you'll recall that the computational cost of the search is of order b to the d,
+
+29
+00:01:25,725 --> 00:01:29,950
+where for our road map the branching term b is the maximum number of edges out of a node.
+
+30
+00:01:29,950 --> 00:01:34,455
+And d, is the number of edges you have to travel to get from the start to the goal,
+
+31
+00:01:34,455 --> 00:01:36,550
+which is the length of the plan.
+
+32
+00:01:36,550 --> 00:01:38,650
+The best that you can do in terms of reducing
+
+33
+00:01:38,650 --> 00:01:41,550
+computational complexity given a fixed graph,
+
+34
+00:01:41,550 --> 00:01:45,288
+is reducing the branching factor and the total length of the plan.
+
+35
+00:01:45,288 --> 00:01:47,815
+You can try to find edges there as long as possible,
+
+36
+00:01:47,815 --> 00:01:49,672
+but if the environment doesn't cooperate,
+
+37
+00:01:49,672 --> 00:01:53,800
+then you're still going to pay in terms of computational complexity.
+
+38
+00:01:53,800 --> 00:01:55,972
+What else might you do?
+
+39
+00:01:55,972 --> 00:01:59,080
+Well, a common idea in planning and control is
+
+40
+00:01:59,080 --> 00:02:02,280
+to recognize the planning the entire trajectory from start to goal,
+
+41
+00:02:02,280 --> 00:02:04,240
+considering all state variables and
+
+42
+00:02:04,240 --> 00:02:08,245
+all possible features of the environment is often the wrong thing to do.
+
+43
+00:02:08,245 --> 00:02:12,582
+For instance, planning the entire trajectory in 3D, maybe overkill,
+
+44
+00:02:12,582 --> 00:02:16,885
+especially if they're obstacles that are going to pop up along the way.
+
+45
+00:02:16,885 --> 00:02:22,345
+A better strategy is to plan an approximate root in 2D using a coarse grid to graph,
+
+46
+00:02:22,345 --> 00:02:24,291
+and then as the vehicle travels,
+
+47
+00:02:24,291 --> 00:02:26,770
+keep improving that plan after some distance or
+
+48
+00:02:26,770 --> 00:02:29,995
+horizon using the global plan as a heuristic.
+
+49
+00:02:29,995 --> 00:02:32,268
+Given some obstacles like this,
+
+50
+00:02:32,268 --> 00:02:35,320
+you might plan a course trajectory to travel around the obstacles,
+
+51
+00:02:35,320 --> 00:02:37,960
+and then in a local region around the vehicle,
+
+52
+00:02:37,960 --> 00:02:40,660
+you could do higher resolution obstacle avoidance,
+
+53
+00:02:40,660 --> 00:02:43,763
+and that local plan might be a 3D plan.
+
+54
+00:02:43,763 --> 00:02:45,348
+As your vehicle moves,
+
+55
+00:02:45,348 --> 00:02:47,380
+you move the local region around with you,
+
+56
+00:02:47,380 --> 00:02:51,370
+doing the 3D planning in that small footprint.
+
+57
+00:02:51,370 --> 00:02:53,230
+The fact that the region in which you're constructing
+
+58
+00:02:53,230 --> 00:02:55,345
+the local plan moves as the vehicle is moving
+
+59
+00:02:55,345 --> 00:02:59,935
+is why this two level approach is often referred to as receding horizon planning.
+
+60
+00:02:59,935 --> 00:03:04,870
+And, there's a very similar concept in control called receding horizon control.
+
+61
+00:03:04,870 --> 00:03:07,900
+Next, we'll look at an example of how this works.
+

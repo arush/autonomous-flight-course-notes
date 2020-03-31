@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:03,569
+Okay, I've said that in our simple grid world example,
+
+2
+00:00:03,569 --> 00:00:07,580
+a plan is a sequence of states from the start state to the goal state.
+
+3
+00:00:07,580 --> 00:00:09,599
+How do I build that plan?
+
+4
+00:00:09,599 --> 00:00:12,974
+The process of building a plan is the essence of the search process.
+
+5
+00:00:12,974 --> 00:00:16,649
+The way that I'm going to conduct a search is by taking a partial plan,
+
+6
+00:00:16,649 --> 00:00:18,750
+applying an action, and adding
+
+7
+00:00:18,750 --> 00:00:23,115
+the resulting state to the end of the previous plan to get a new partial plan.
+
+8
+00:00:23,114 --> 00:00:25,109
+Let's look at an example.
+
+9
+00:00:25,109 --> 00:00:27,890
+Imagine that we have a simple 2D grid world
+
+10
+00:00:27,890 --> 00:00:30,570
+and we have a start state and we have a goal state.
+
+11
+00:00:30,570 --> 00:00:34,740
+And we start with a very simple initial plan of just being at the start state.
+
+12
+00:00:34,740 --> 00:00:37,395
+One state sequence is still a sequence.
+
+13
+00:00:37,395 --> 00:00:41,560
+Now, let's imagine that I only have one possible action which is to move right,
+
+14
+00:00:41,560 --> 00:00:44,300
+and so I always apply the same action.
+
+15
+00:00:44,299 --> 00:00:46,859
+I take my initial partial plan of being at the start state,
+
+16
+00:00:46,859 --> 00:00:49,269
+and I move right and end up here.
+
+17
+00:00:49,270 --> 00:00:51,179
+That's a new partial plan.
+
+18
+00:00:51,179 --> 00:00:54,854
+It doesn't get me all the way to the goal but it is a partial plan.
+
+19
+00:00:54,854 --> 00:00:56,579
+Let's do the same thing over again.
+
+20
+00:00:56,579 --> 00:00:59,379
+Apply my action, I end up with this state.
+
+21
+00:00:59,380 --> 00:01:00,945
+Now, I have a new partial plan.
+
+22
+00:01:00,945 --> 00:01:02,935
+Start, right, right.
+
+23
+00:01:02,935 --> 00:01:07,510
+I do that a couple more times and I end up with a plan that looks like start state,
+
+24
+00:01:07,510 --> 00:01:10,715
+right, right, right Goals state.
+
+25
+00:01:10,715 --> 00:01:12,120
+That's a successful plan.
+
+26
+00:01:12,120 --> 00:01:15,910
+Now, it's a silly plan because I only ever considered moving right.
+
+27
+00:01:15,909 --> 00:01:19,765
+And I got lucky that I didn't have to turn or go around any obstacles.
+
+28
+00:01:19,765 --> 00:01:21,375
+The next thing we want to look at is,
+
+29
+00:01:21,375 --> 00:01:24,000
+how do we incorporate the other actions that we might need to
+
+30
+00:01:24,000 --> 00:01:26,670
+take in order to get more complicated plans,
+
+31
+00:01:26,670 --> 00:01:29,000
+and plans that move around obstacles?
+

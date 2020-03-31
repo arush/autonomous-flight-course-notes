@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:02,359
+Throughout the process of building out a plan,
+
+2
+00:00:02,359 --> 00:00:04,730
+I'm maintaining a list of partial plans and
+
+3
+00:00:04,730 --> 00:00:08,530
+expanding each one of them one by one to update my list.
+
+4
+00:00:08,529 --> 00:00:09,889
+The thing to think about now is,
+
+5
+00:00:09,890 --> 00:00:12,200
+which is the best choice for the next partial plan to
+
+6
+00:00:12,199 --> 00:00:15,834
+expand from the list of partial plans I have so far?
+
+7
+00:00:15,835 --> 00:00:18,045
+Well, there are a few options here.
+
+8
+00:00:18,045 --> 00:00:20,645
+If, for example, I prefer shorter plans,
+
+9
+00:00:20,644 --> 00:00:22,699
+then the best choice is to always expand
+
+10
+00:00:22,699 --> 00:00:26,530
+the shortest plan that I have so far in my list of partial plans.
+
+11
+00:00:26,530 --> 00:00:28,550
+The process of always choosing to expand
+
+12
+00:00:28,550 --> 00:00:31,699
+the shortest partial plan is called Breadth-First Search.
+
+13
+00:00:31,699 --> 00:00:34,460
+This algorithm has the nice property that it's guaranteed to find
+
+14
+00:00:34,460 --> 00:00:38,984
+the shortest path from start to goal first before any other paths.
+
+15
+00:00:38,984 --> 00:00:42,289
+That means that as soon as you find a plan from the start to the goal,
+
+16
+00:00:42,289 --> 00:00:44,894
+you know you've found the shortest one.
+
+17
+00:00:44,895 --> 00:00:48,880
+One other wrinkle is that we should modify how our visited list works.
+
+18
+00:00:48,880 --> 00:00:51,315
+If you think about how Breadth-First Search works,
+
+19
+00:00:51,314 --> 00:00:54,214
+if we extend a partial path from some state,
+
+20
+00:00:54,215 --> 00:00:57,170
+it must not only be the lowest cost path on the stack,
+
+21
+00:00:57,170 --> 00:01:01,429
+but it must also represent the lowest cost path to that state.
+
+22
+00:01:01,429 --> 00:01:04,879
+We don't actually know which partial path is the lowest cost path to
+
+23
+00:01:04,879 --> 00:01:09,634
+a state until we take the partial path off the stack ending in that state.
+
+24
+00:01:09,635 --> 00:01:13,400
+The modification to our visited list is therefore the only label a state as
+
+25
+00:01:13,400 --> 00:01:15,770
+visited once we pick a partial path off
+
+26
+00:01:15,769 --> 00:01:19,250
+the stack and create new partial paths from that state.
+
+27
+00:01:19,250 --> 00:01:23,394
+While Breadth-First Search has this nice property of finding the shortest path,
+
+28
+00:01:23,394 --> 00:01:26,839
+the downside is that it can end up keeping around an awful lot of
+
+29
+00:01:26,840 --> 00:01:31,655
+partial plans as it's trying to expand the path away from the start towards the goal.
+
+30
+00:01:31,655 --> 00:01:33,704
+It can be very intensive in terms of memory or
+
+31
+00:01:33,704 --> 00:01:36,799
+storage which could be computationally costly too.
+
+32
+00:01:36,799 --> 00:01:38,869
+Another approach is to simply expand
+
+33
+00:01:38,870 --> 00:01:42,200
+a partial plan using some action and if that action is successful,
+
+34
+00:01:42,200 --> 00:01:45,609
+keep applying that action to try to make progress towards the goal.
+
+35
+00:01:45,609 --> 00:01:47,840
+Kind of like you saw in a previous example when I
+
+36
+00:01:47,840 --> 00:01:51,260
+kept expanding the plan using just the move right action.
+
+37
+00:01:51,260 --> 00:01:54,140
+That particular approach is called Depth-First Search.
+
+38
+00:01:54,140 --> 00:01:57,019
+The problem with Depth-First Search is that while it works really
+
+39
+00:01:57,019 --> 00:02:00,375
+well if you get lucky and find a good action to keep using,
+
+40
+00:02:00,375 --> 00:02:03,155
+you never know when you find a successful plan to the goal if
+
+41
+00:02:03,155 --> 00:02:07,079
+that's the shortest possible plan or the best plan in any sense.
+
+42
+00:02:07,079 --> 00:02:09,859
+And sometimes, you can be really unlucky and keep
+
+43
+00:02:09,860 --> 00:02:13,960
+successfully applying an action but not making any progress towards the goal.
+
+44
+00:02:13,960 --> 00:02:17,930
+What we would like to do is devise a method that's sort of a hybrid of Breadth-First and
+
+45
+00:02:17,930 --> 00:02:22,025
+Depth-First Search and then takes advantage of the fact that in motion planning problems,
+
+46
+00:02:22,025 --> 00:02:24,170
+especially for things like flying cars.
+
+47
+00:02:24,169 --> 00:02:26,809
+We actually have some information about
+
+48
+00:02:26,810 --> 00:02:31,199
+which direction we need to go in order to make progress towards the goal,
+
+49
+00:02:31,199 --> 00:02:33,905
+which is to say, we have a map.
+
+50
+00:02:33,905 --> 00:02:35,990
+And we should be using that knowledge of
+
+51
+00:02:35,990 --> 00:02:39,379
+our environment in deciding which partial plan to expand next.
+

@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:03,315
+Planning is a core capability of any autonomous vehicle.
+
+2
+00:00:03,315 --> 00:00:06,273
+But in reality, it's also central to your everyday life.
+
+3
+00:00:06,273 --> 00:00:09,240
+Before you leave your house to go somewhere, you make a plan.
+
+4
+00:00:09,240 --> 00:00:12,660
+In many cases, it might not even occur to you that you've made a plan.
+
+5
+00:00:12,660 --> 00:00:14,820
+But, in fact, throughout the day,
+
+6
+00:00:14,820 --> 00:00:17,490
+you're coming up with a detailed series of actions you need
+
+7
+00:00:17,490 --> 00:00:20,355
+to take to get from wherever you are to wherever you're going.
+
+8
+00:00:20,355 --> 00:00:22,740
+Flying cars operate in much the same way.
+
+9
+00:00:22,740 --> 00:00:26,850
+Suppose your flying car is located somewhere in the city and
+
+10
+00:00:26,850 --> 00:00:31,020
+is tasked with flying to some other location or series of locations.
+
+11
+00:00:31,020 --> 00:00:33,885
+Before setting out, it needs to make a plan,
+
+12
+00:00:33,885 --> 00:00:36,210
+which will require making decisions about
+
+13
+00:00:36,210 --> 00:00:38,640
+which path to take based on where obstacles or
+
+14
+00:00:38,640 --> 00:00:42,795
+no fly zones are and any other factors you want to take into account.
+
+15
+00:00:42,795 --> 00:00:47,145
+For example, you might want your flying car to focus on fuel efficiency,
+
+16
+00:00:47,145 --> 00:00:52,455
+or speed, or maybe even take the smoothest possible path to ensure passenger comfort.
+
+17
+00:00:52,455 --> 00:00:55,470
+Even more complicated, the flying car
+
+18
+00:00:55,470 --> 00:00:58,410
+might not know everything about the state of the world ahead of time.
+
+19
+00:00:58,410 --> 00:01:00,690
+A good planner might consider
+
+20
+00:01:00,690 --> 00:01:04,935
+possible contingencies and take various uncertainties into account.
+
+21
+00:01:04,935 --> 00:01:09,825
+Finally, there's more to planning than simply navigating and finding motion plans.
+
+22
+00:01:09,825 --> 00:01:12,291
+For example, for delivery vehicles,
+
+23
+00:01:12,291 --> 00:01:15,253
+there are decisions to be made about what order to make deliveries,
+
+24
+00:01:15,253 --> 00:01:17,770
+when to return home for fuel, and so on.
+
+25
+00:01:17,770 --> 00:01:21,475
+In this module, we'll focus on the 3D motion planning problem.
+
+26
+00:01:21,475 --> 00:01:25,180
+But in later modules, we'll look at these higher level mission planning problems.
+
+27
+00:01:25,180 --> 00:01:28,270
+All of these things taken together form the planning problem.
+
+28
+00:01:28,270 --> 00:01:29,576
+And at the end of the day,
+
+29
+00:01:29,576 --> 00:01:31,480
+solving the planning problem mostly comes
+
+30
+00:01:31,480 --> 00:01:34,135
+down to setting up what's known as your search space,
+
+31
+00:01:34,135 --> 00:01:37,020
+and then conducting a search through that space.
+
+32
+00:01:37,020 --> 00:01:40,025
+In this module, I'll be showing you how to represent
+
+33
+00:01:40,025 --> 00:01:44,765
+the 3D motion planning problem and how to conduct a search to find a viable plan.
+
+34
+00:01:44,765 --> 00:01:49,130
+We'll start off by solving some relatively simple two-dimensional planning problems,
+
+35
+00:01:49,130 --> 00:01:53,330
+and we'll talk about different ways to solve these problems efficiently.
+
+36
+00:01:53,330 --> 00:01:56,720
+However, 3D motion planning makes us think
+
+37
+00:01:56,720 --> 00:02:00,050
+about how we actually represent the vehicle and the world,
+
+38
+00:02:00,050 --> 00:02:02,705
+and we'll look at different representations.
+
+39
+00:02:02,705 --> 00:02:05,930
+Air vehicles often have complex dynamics.
+
+40
+00:02:05,930 --> 00:02:08,120
+They can't always move in arbitrary ways.
+
+41
+00:02:08,120 --> 00:02:12,350
+And we'll look at putting the dynamic constraints of the vehicle into the planner.
+
+42
+00:02:12,350 --> 00:02:15,450
+Finally, we'll examine some practical considerations to
+
+43
+00:02:15,450 --> 00:02:18,945
+keep in mind when executing a plan within a finite state machine.
+
+44
+00:02:18,945 --> 00:02:20,490
+At the end of these lessons,
+
+45
+00:02:20,490 --> 00:02:23,010
+you'll get to test your skills by implementing
+
+46
+00:02:23,010 --> 00:02:26,540
+a 3D path planning algorithm for your quadcopter.
+

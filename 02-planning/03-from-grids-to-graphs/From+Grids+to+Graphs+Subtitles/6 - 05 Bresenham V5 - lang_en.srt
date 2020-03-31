@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:03,465
+Now, although that ray tracing algorithm works very well,
+
+2
+00:00:03,465 --> 00:00:06,120
+there is one minor problem which is that,
+
+3
+00:00:06,120 --> 00:00:09,690
+calculating the y coordinate for any given x is really
+
+4
+00:00:09,690 --> 00:00:16,155
+a floor operation on y2 minus y1 over x2 minus x1 times x plus y1.
+
+5
+00:00:16,155 --> 00:00:19,830
+And this term here involves a number of floating point operations,
+
+6
+00:00:19,830 --> 00:00:22,950
+even if we catch the slope here and just
+
+7
+00:00:22,950 --> 00:00:26,385
+multiply that single floating point number times the integer x,
+
+8
+00:00:26,385 --> 00:00:28,395
+that's a floating point multiplication.
+
+9
+00:00:28,395 --> 00:00:30,570
+And then, we have to take a floor of that in order to
+
+10
+00:00:30,570 --> 00:00:32,710
+figure out the integer value of y of x,
+
+11
+00:00:32,710 --> 00:00:36,435
+including the integer coordinates, x and y, in the grid.
+
+12
+00:00:36,435 --> 00:00:38,650
+And those floating point operations,
+
+13
+00:00:38,650 --> 00:00:40,440
+the floating point multiplication,
+
+14
+00:00:40,440 --> 00:00:45,220
+and the truncation in the floor have historically been quite computationally expensive.
+
+15
+00:00:45,220 --> 00:00:48,000
+A modern CPU, these operations may no longer be
+
+16
+00:00:48,000 --> 00:00:50,790
+a big deal but on a low-power flight computer,
+
+17
+00:00:50,790 --> 00:00:52,140
+you typically want to reduce
+
+18
+00:00:52,140 --> 00:00:56,145
+floating point operations and use integer arithmetic, as much as possible.
+
+19
+00:00:56,145 --> 00:01:00,410
+The same thing has been true in computer graphics for a long time as well.
+
+20
+00:01:00,410 --> 00:01:03,090
+And in 1965, Bresenham developed
+
+21
+00:01:03,090 --> 00:01:05,430
+a much more efficient ray tracing algorithm
+
+22
+00:01:05,430 --> 00:01:08,690
+that uses only integer addition and subtraction.
+
+23
+00:01:08,690 --> 00:01:11,430
+The key idea is it will compute an increment for
+
+24
+00:01:11,430 --> 00:01:14,945
+both x and y as we iterate from x1 to x2.
+
+25
+00:01:14,945 --> 00:01:18,480
+So, again, if I have a point p1 and a point p2,
+
+26
+00:01:18,480 --> 00:01:23,830
+I can iterate from x1 to x1 plus one to x1 plus two all the way to x2.
+
+27
+00:01:23,830 --> 00:01:27,255
+And rather than calculating the value y of x1 plus one,
+
+28
+00:01:27,255 --> 00:01:29,570
+y of x1 plus two, and so on,
+
+29
+00:01:29,570 --> 00:01:32,970
+I'm going to store an increment for x and an increment for y,
+
+30
+00:01:32,970 --> 00:01:35,550
+and I'm going to store whether or not that increment is
+
+31
+00:01:35,550 --> 00:01:39,205
+above or below the line of y plus 0.5.
+
+32
+00:01:39,205 --> 00:01:43,215
+So, given the current value x and y and the line slope m,
+
+33
+00:01:43,215 --> 00:01:44,940
+I'm going to ask the question,
+
+34
+00:01:44,940 --> 00:01:46,890
+is x1 plus one,
+
+35
+00:01:46,890 --> 00:01:51,075
+y plus m above x plus one, y plus 0.5?
+
+36
+00:01:51,075 --> 00:01:54,405
+And the idea is that, if I'm right here at x,y,
+
+37
+00:01:54,405 --> 00:01:56,580
+and I want to know whether the value of y plus m,
+
+38
+00:01:56,580 --> 00:01:58,067
+is going to be this here,
+
+39
+00:01:58,067 --> 00:02:00,930
+the value of y plus m is less than y plus 0.5,
+
+40
+00:02:00,930 --> 00:02:04,110
+as it is right here, then I will not increment y.
+
+41
+00:02:04,110 --> 00:02:07,860
+On the other hand, if it's above that value, then I do increment y.
+
+42
+00:02:07,860 --> 00:02:10,565
+What I need to do is define some terms.
+
+43
+00:02:10,565 --> 00:02:13,690
+First of all, if y plus m is above y plus 0.5,
+
+44
+00:02:13,690 --> 00:02:16,490
+then set x equal to x plus one, y equal to y plus one.
+
+45
+00:02:16,490 --> 00:02:18,900
+Otherwise, set x equal x plus one,
+
+46
+00:02:18,900 --> 00:02:21,210
+leave y as it is, y equals y.
+
+47
+00:02:21,210 --> 00:02:24,725
+The idea is that these calculations can be done using integer arithmetic.
+
+48
+00:02:24,725 --> 00:02:27,465
+This might look like it requires a floating point operation
+
+49
+00:02:27,465 --> 00:02:31,230
+but if you double all the quantities then everything works out using integers.
+
+50
+00:02:31,230 --> 00:02:33,585
+This process can be done extremely efficiently
+
+51
+00:02:33,585 --> 00:02:37,000
+and this entire algorithm is known as Bresenham's algorithm.
+

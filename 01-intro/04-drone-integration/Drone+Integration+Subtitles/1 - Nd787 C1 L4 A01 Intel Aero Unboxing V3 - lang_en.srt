@@ -1,0 +1,812 @@
+1
+00:00:00,000 --> 00:00:02,549
+Now, that you've been through the backyard Flyer Project,
+
+2
+00:00:02,549 --> 00:00:07,290
+you've had a chance to implement a simple planning, control strategy for your vehicle,
+
+3
+00:00:07,290 --> 00:00:08,970
+but only in simulation.
+
+4
+00:00:08,970 --> 00:00:11,899
+We set it up, so that you can also run it on a real vehicle.
+
+5
+00:00:11,898 --> 00:00:14,868
+And to help me get your software onto a real vehicle,
+
+6
+00:00:14,868 --> 00:00:17,114
+I'd like to introduce my friend, Adrien.
+
+7
+00:00:17,114 --> 00:00:20,099
+Adrien, you are a Ph.D. student at Stanford, right?
+
+8
+00:00:20,100 --> 00:00:22,400
+I am, by practice.
+
+9
+00:00:22,399 --> 00:00:23,549
+Yep, but you're also a drone expert.
+
+10
+00:00:23,550 --> 00:00:26,150
+I am. Well, expert, it's a tough word to use.
+
+11
+00:00:26,149 --> 00:00:28,670
+I've been around drones for quite a while.
+
+12
+00:00:28,670 --> 00:00:31,710
+So since, I've been about 12, I've been flying.
+
+13
+00:00:31,710 --> 00:00:33,259
+Initially, it was just fixed wings.
+
+14
+00:00:33,259 --> 00:00:34,829
+I used to build some of them, and then,
+
+15
+00:00:34,829 --> 00:00:38,589
+realized that I enjoyed flying them a lot more than building them.
+
+16
+00:00:38,590 --> 00:00:42,300
+And it was easier to just buy them, and then fly them.
+
+17
+00:00:42,299 --> 00:00:48,134
+And I used to do kind of tricks and acrobatics basically with fixed wings.
+
+18
+00:00:48,134 --> 00:00:50,489
+And then, five years ago,
+
+19
+00:00:50,490 --> 00:00:52,140
+when I started at Stanford,
+
+20
+00:00:52,140 --> 00:00:55,859
+I found a project that required using, kind of a quadcopter.
+
+21
+00:00:55,859 --> 00:00:57,299
+And I figured, well,
+
+22
+00:00:57,299 --> 00:00:59,939
+if I'm going to kind of do something on a quadcopter,
+
+23
+00:00:59,939 --> 00:01:01,695
+I should probably learn how to fly those.
+
+24
+00:01:01,695 --> 00:01:04,980
+So, I've been flying quads for the past, probably five years.
+
+25
+00:01:04,980 --> 00:01:07,930
+Do you know Adam Bry from Skydio from under the program?
+
+26
+00:01:07,930 --> 00:01:09,083
+I'm not familiar.
+
+27
+00:01:09,082 --> 00:01:10,560
+I think I've heard his name before but.
+
+28
+00:01:10,560 --> 00:01:14,049
+Yes, he's a former grad student of mine and he's background is very similar to yours.
+
+29
+00:01:14,049 --> 00:01:16,709
+He started building vehicles and he's very young,
+
+30
+00:01:16,709 --> 00:01:19,244
+and competed and then,
+
+31
+00:01:19,245 --> 00:01:22,155
+went to grad school and worked with me for a while.
+
+32
+00:01:22,155 --> 00:01:24,329
+So, Adrien, what we got here?
+
+33
+00:01:24,329 --> 00:01:26,370
+This is the Intel Aero.
+
+34
+00:01:26,370 --> 00:01:28,314
+It's called the Ready to Fly Drone.
+
+35
+00:01:28,314 --> 00:01:31,015
+So, it's about everything you need to fly, right in the box.
+
+36
+00:01:31,015 --> 00:01:32,745
+It comes all together as one piece.
+
+37
+00:01:32,745 --> 00:01:36,475
+But this is just one of many different types of drones.
+
+38
+00:01:36,474 --> 00:01:38,819
+There is somewhere, kind of much more do it yourself,
+
+39
+00:01:38,819 --> 00:01:41,914
+where you buy a frame here, and an autopilot there, and you put it together.
+
+40
+00:01:41,915 --> 00:01:43,925
+But this is what we're going to work with today.
+
+41
+00:01:43,924 --> 00:01:47,414
+I should note that while we're working with this today for our script,
+
+42
+00:01:47,415 --> 00:01:50,580
+that same script is going to be able to work with any
+
+43
+00:01:50,579 --> 00:01:53,579
+of the PX4 family of drones, right out of the box.
+
+44
+00:01:53,579 --> 00:01:57,435
+And we're working to try and get integration to maybe some of those other platforms,
+
+45
+00:01:57,435 --> 00:01:59,210
+like what you see from Parrot or DJI,
+
+46
+00:01:59,209 --> 00:02:00,864
+or some other manufacturers.
+
+47
+00:02:00,864 --> 00:02:03,664
+So, this is just an option. If you happen to have a drone,
+
+48
+00:02:03,665 --> 00:02:07,950
+the software that you've written so far should work on one family of drones,
+
+49
+00:02:07,950 --> 00:02:10,525
+and we'll try and make it work for everybody's drones.
+
+50
+00:02:10,525 --> 00:02:11,879
+All right. Can we open it up?
+
+51
+00:02:11,879 --> 00:02:12,930
+Let's do it.
+
+52
+00:02:12,930 --> 00:02:18,025
+All right. Man, this thing is really sealed tight.
+
+53
+00:02:18,025 --> 00:02:21,395
+I wish there was some way that we could get this box cover off.
+
+54
+00:02:21,395 --> 00:02:25,250
+Thanks box fairy, that was awesome. All right, what do we have here?
+
+55
+00:02:25,250 --> 00:02:27,312
+So, we've got our instruction manuals on top.
+
+56
+00:02:27,312 --> 00:02:28,109
+Instructions?
+
+57
+00:02:28,110 --> 00:02:30,600
+Which you should read.
+
+58
+00:02:30,599 --> 00:02:34,245
+And then, we've got our drone and our remote control.
+
+59
+00:02:34,245 --> 00:02:35,740
+Everything we're going to need to fly it.
+
+60
+00:02:35,740 --> 00:02:38,210
+All right. Let's take the drone out first.
+
+61
+00:02:38,210 --> 00:02:39,540
+Put that there.
+
+62
+00:02:39,539 --> 00:02:44,829
+Do you want to grab the, and there is one extra box right there, as well.
+
+63
+00:02:44,830 --> 00:02:46,594
+Box of tricks.
+
+64
+00:02:46,594 --> 00:02:47,594
+All right.
+
+65
+00:02:47,594 --> 00:02:50,210
+So, this should look fairly similar.
+
+66
+00:02:50,210 --> 00:02:52,969
+It's got all the main components that you've already learned about.
+
+67
+00:02:52,969 --> 00:02:53,129
+Okay.
+
+68
+00:02:53,129 --> 00:02:56,490
+We've got our frame, that carries the four motors.
+
+69
+00:02:56,490 --> 00:02:58,740
+Here, the speed control as we talked about,
+
+70
+00:02:58,740 --> 00:03:00,855
+that control the motors, are a little bit hidden.
+
+71
+00:03:00,854 --> 00:03:02,938
+If we flipped them upside down, you can see them.
+
+72
+00:03:02,938 --> 00:03:05,014
+There's one for each motor, one in each arm.
+
+73
+00:03:05,014 --> 00:03:08,639
+And then, we've got this big box in the center and that's
+
+74
+00:03:08,639 --> 00:03:12,404
+actually a combination autopilot and full computer.
+
+75
+00:03:12,405 --> 00:03:13,860
+So, in addition to being able to have
+
+76
+00:03:13,860 --> 00:03:16,410
+all those functionality that you get from an autopilot,
+
+77
+00:03:16,409 --> 00:03:18,549
+keep it stable and allow you to fly,
+
+78
+00:03:18,550 --> 00:03:19,920
+we have, what they call,
+
+79
+00:03:19,919 --> 00:03:21,664
+a companion computer on-board.
+
+80
+00:03:21,664 --> 00:03:23,129
+So, that's actually running on Ubuntu,
+
+81
+00:03:23,129 --> 00:03:25,514
+and you can run quite a lot of stuff on there,
+
+82
+00:03:25,514 --> 00:03:27,764
+and that's going to be for later down the road.
+
+83
+00:03:27,764 --> 00:03:29,189
+But for this first project,
+
+84
+00:03:29,189 --> 00:03:31,409
+we're not necessarily going to be using that.
+
+85
+00:03:31,409 --> 00:03:34,030
+All right, terrific. What's that?
+
+86
+00:03:34,030 --> 00:03:35,925
+That's a power module.
+
+87
+00:03:35,925 --> 00:03:37,170
+So, what that's taking
+
+88
+00:03:37,169 --> 00:03:40,854
+is going to be the power from the battery and converting the voltages
+
+89
+00:03:40,854 --> 00:03:44,819
+it needs for the computer to run and for all the motors.
+
+90
+00:03:44,819 --> 00:03:45,219
+Okay.
+
+91
+00:03:45,219 --> 00:03:48,590
+And then, this big guy here is our GPS antenna.
+
+92
+00:03:48,590 --> 00:03:49,590
+Let me screw that in there.
+
+93
+00:03:49,590 --> 00:03:51,509
+And it sits on a mass,
+
+94
+00:03:51,509 --> 00:03:54,344
+nice and far from all the noise that you get,
+
+95
+00:03:54,344 --> 00:03:58,530
+all that kind of radio frequency interference that is generated by the motors,
+
+96
+00:03:58,530 --> 00:04:00,537
+the speed control is by the computer, that's
+
+97
+00:04:00,537 --> 00:04:04,745
+so we can get kind of a clean GPS signal for positioning.
+
+98
+00:04:04,745 --> 00:04:06,545
+So, we've got our vehicle.
+
+99
+00:04:06,544 --> 00:04:06,786
+Yeah.
+
+100
+00:04:06,786 --> 00:04:10,875
+And we can't fly the vehicle without some way to give control commands.
+
+101
+00:04:10,875 --> 00:04:13,680
+And that's what our remote control is for.
+
+102
+00:04:13,680 --> 00:04:13,820
+Excellent.
+
+103
+00:04:13,820 --> 00:04:16,055
+There's a lot of switches and knobs on there,
+
+104
+00:04:16,055 --> 00:04:19,980
+but for the most part, the important ones are the joysticks.
+
+105
+00:04:19,980 --> 00:04:22,485
+Much like you would with a kind of game controller.
+
+106
+00:04:22,485 --> 00:04:25,814
+You've got throttle, for up down.
+
+107
+00:04:25,814 --> 00:04:28,649
+That's yaw to rotates our vehicle.
+
+108
+00:04:28,649 --> 00:04:30,539
+We've got roll and pitch.
+
+109
+00:04:30,540 --> 00:04:33,138
+So, that's going to be a way for us to physically,
+
+110
+00:04:33,137 --> 00:04:35,279
+as a pilot, input commands to the vehicle.
+
+111
+00:04:35,279 --> 00:04:37,030
+Although, with the software the students had written,
+
+112
+00:04:37,031 --> 00:04:38,639
+they shouldn't need to use this very much.
+
+113
+00:04:38,639 --> 00:04:39,689
+Correct.
+
+114
+00:04:39,689 --> 00:04:40,879
+Will they need it all?
+
+115
+00:04:40,879 --> 00:04:43,949
+They will need it to do some startup procedures.
+
+116
+00:04:43,949 --> 00:04:49,762
+It's always safest to be able to have a way to fall back to manual control of vehicle.
+
+117
+00:04:49,762 --> 00:04:53,324
+In case something goes wrong with the script or some odd behavior,
+
+118
+00:04:53,324 --> 00:04:55,860
+you want to be able to flip back and take control yourself.
+
+119
+00:04:55,860 --> 00:04:57,879
+Okay. So, we'll hold on to this.
+
+120
+00:04:57,879 --> 00:05:02,009
+And the last thing we have is propellers.
+
+121
+00:05:02,009 --> 00:05:04,699
+Comes with plenty of spares.
+
+122
+00:05:04,699 --> 00:05:09,354
+Not that any student has taken our Nanodegree would ever need a spare propeller.
+
+123
+00:05:09,355 --> 00:05:12,379
+So, we have two black and two silver. All right.
+
+124
+00:05:12,379 --> 00:05:14,259
+And you'll see, they are color coordinated,
+
+125
+00:05:14,259 --> 00:05:15,724
+and part of that,
+
+126
+00:05:15,725 --> 00:05:17,564
+so the silver ones are going to go on the white tops,
+
+127
+00:05:17,564 --> 00:05:19,209
+black ones are going to go on black tops.
+
+128
+00:05:19,209 --> 00:05:20,454
+And part of that is,
+
+129
+00:05:20,454 --> 00:05:23,305
+since they're rotating in different directions,
+
+130
+00:05:23,305 --> 00:05:26,355
+you want the propeller to lock into the motor
+
+131
+00:05:26,355 --> 00:05:30,410
+in a direction such that as the motor spinning, it won't unscrew.
+
+132
+00:05:30,410 --> 00:05:33,920
+So, that's why it keeps it easy to color coordinate.
+
+133
+00:05:33,920 --> 00:05:40,210
+So normally, we wouldn't be really putting the propellers on indoors.
+
+134
+00:05:40,209 --> 00:05:42,444
+Usually, you're going to do that outside, just before you take off.
+
+135
+00:05:42,444 --> 00:05:44,894
+But just to demonstrate what it looks like fully built,
+
+136
+00:05:44,894 --> 00:05:48,019
+here is our quad almost all ready to go.
+
+137
+00:05:48,019 --> 00:05:51,000
+You at least, would probably never want to have the props on,
+
+138
+00:05:51,000 --> 00:05:54,120
+when the battery is in, until you were actually ready to fly.
+
+139
+00:05:54,120 --> 00:05:54,360
+Yeah.
+
+140
+00:05:54,360 --> 00:05:58,089
+Safety. Speaking of which, the battery.
+
+141
+00:05:58,089 --> 00:06:02,199
+So, that is one thing that doesn't come when you purchase an Intel Aero.
+
+142
+00:06:02,199 --> 00:06:04,185
+So, you need to make sure that,
+
+143
+00:06:04,185 --> 00:06:07,064
+in addition to buying everything you see here,
+
+144
+00:06:07,064 --> 00:06:11,574
+you buy either a 3-cell or a 4-cell lithium polymer battery.
+
+145
+00:06:11,574 --> 00:06:13,379
+Do you need to buy battery for this, as well?
+
+146
+00:06:13,379 --> 00:06:14,569
+Comes with batteries.
+
+147
+00:06:14,569 --> 00:06:15,949
+This one comes with batteries.
+
+148
+00:06:15,949 --> 00:06:17,279
+But the vehicle itself, does not.
+
+149
+00:06:17,279 --> 00:06:17,759
+Correct.
+
+150
+00:06:17,759 --> 00:06:20,039
+All right. So, if you want to get your laptop,
+
+151
+00:06:20,040 --> 00:06:21,359
+we can order a battery from Amazon.
+
+152
+00:06:21,358 --> 00:06:23,634
+It'll be here in two business days?
+
+153
+00:06:23,634 --> 00:06:26,319
+I wonder if there's an easier way to get a battery.
+
+154
+00:06:26,319 --> 00:06:30,224
+Awesome. Thanks, battery fairy. There we go.
+
+155
+00:06:30,225 --> 00:06:33,240
+So, this is a 3-cell battery,
+
+156
+00:06:33,240 --> 00:06:36,115
+that is going to work with our quad.
+
+157
+00:06:36,115 --> 00:06:37,379
+When you say 3-cells,
+
+158
+00:06:37,379 --> 00:06:39,884
+there's actually a three different batteries inside there.
+
+159
+00:06:39,884 --> 00:06:43,935
+That's correct. And this will actually work with something also called the 4-cell.
+
+160
+00:06:43,935 --> 00:06:47,610
+which brings us to a conversation of what does 3-cell,
+
+161
+00:06:47,610 --> 00:06:49,285
+4-cell even mean.
+
+162
+00:06:49,285 --> 00:06:51,095
+So, with lithium polymer batteries,
+
+163
+00:06:51,095 --> 00:06:54,365
+they're a little bit different than most of the different batteries that,
+
+164
+00:06:54,365 --> 00:06:55,470
+for example what's in here.
+
+165
+00:06:55,470 --> 00:06:58,260
+Looks like four regular double A batteries.
+
+166
+00:06:58,259 --> 00:07:00,629
+And the remote control needs four batteries.
+
+167
+00:07:00,629 --> 00:07:01,860
+This thing needs basically,
+
+168
+00:07:01,860 --> 00:07:04,634
+the equivalent of putting three in a row or four together.
+
+169
+00:07:04,634 --> 00:07:08,414
+And what that's going to do is, just change the voltage that the battery is running at.
+
+170
+00:07:08,415 --> 00:07:13,350
+Motors and speed controllers are paired to work at specific voltages.
+
+171
+00:07:13,350 --> 00:07:17,520
+And so, you can get batteries in a different set of voltages.
+
+172
+00:07:17,519 --> 00:07:19,430
+Does that make it hard to charge the battery?
+
+173
+00:07:19,430 --> 00:07:21,180
+It does mean that when you charge the battery,
+
+174
+00:07:21,180 --> 00:07:24,660
+you needed to charge it for a specific voltage.
+
+175
+00:07:24,660 --> 00:07:27,300
+So, in this case, I need to charge it as a 3-cell battery.
+
+176
+00:07:27,300 --> 00:07:29,649
+If I start to charge it as a four-cell battery,
+
+177
+00:07:29,649 --> 00:07:33,670
+that's when you can start to damage the battery and can cause other problems.
+
+178
+00:07:33,670 --> 00:07:35,444
+So, battery safety is a big deal.
+
+179
+00:07:35,444 --> 00:07:37,894
+And so, you do need to have the right charger.
+
+180
+00:07:37,894 --> 00:07:41,865
+And if your battery ever becomes puffy and looks a little angry,
+
+181
+00:07:41,865 --> 00:07:43,535
+you need to dispose of it carefully.
+
+182
+00:07:43,535 --> 00:07:46,465
+Disposing it carefully means different things in different places,
+
+183
+00:07:46,464 --> 00:07:49,679
+so you should either check with your local health and safety officer,
+
+184
+00:07:49,680 --> 00:07:52,365
+if you're at a company, or you should consult
+
+185
+00:07:52,365 --> 00:07:55,910
+your city on how to dispose of damaged lithium polymer batteries.
+
+186
+00:07:55,910 --> 00:07:58,965
+They are very high energy density, very high power density.
+
+187
+00:07:58,964 --> 00:08:03,099
+They're basically, like little munitions and they will explode if you're not careful.
+
+188
+00:08:03,100 --> 00:08:06,375
+And in addition to charging at the right voltage,
+
+189
+00:08:06,375 --> 00:08:09,855
+there's this other big number that you usually see when you're buying batteries.
+
+190
+00:08:09,855 --> 00:08:13,134
+So, this is called a three-cell 4,000 milliamp power.
+
+191
+00:08:13,134 --> 00:08:16,615
+Now, at 4,000 milliamp power is capacity. It's duration.
+
+192
+00:08:16,615 --> 00:08:19,535
+How long will effectively we'll be able to fly,
+
+193
+00:08:19,535 --> 00:08:21,515
+basically it's four amp powers.
+
+194
+00:08:21,514 --> 00:08:23,694
+Bigger the number, the longer you can fly.
+
+195
+00:08:23,694 --> 00:08:25,365
+But when you charge,
+
+196
+00:08:25,365 --> 00:08:27,400
+it's also going to be a function of this number,
+
+197
+00:08:27,399 --> 00:08:28,750
+in addition to that voltage.
+
+198
+00:08:28,750 --> 00:08:33,029
+So, for example, this 4,000 milliamp power battery,
+
+199
+00:08:33,029 --> 00:08:35,845
+you can charge safely at four amps.
+
+200
+00:08:35,845 --> 00:08:38,940
+Once you start to push it to five, six, seven amps,
+
+201
+00:08:38,940 --> 00:08:42,810
+that's when you can, again start to damage or destroy the battery.
+
+202
+00:08:42,809 --> 00:08:44,907
+You're also perfectly safe to charge it at one amp.
+
+203
+00:08:44,908 --> 00:08:48,000
+It'll just take four times as long to charge. Great.
+

@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:01,812
+Can I go ahead and fly?
+
+2
+00:00:01,812 --> 00:00:04,070
+Still one more thing.
+
+3
+00:00:04,070 --> 00:00:07,530
+We've talked that there are different kinds of control modes.
+
+4
+00:00:07,530 --> 00:00:09,929
+There are different ways that you can fly or
+
+5
+00:00:09,929 --> 00:00:12,765
+different ways that your input can affect the vehicle.
+
+6
+00:00:12,765 --> 00:00:15,044
+One of the most basic ways is manual,
+
+7
+00:00:15,044 --> 00:00:19,259
+which means every piece of information I put in is going directly,
+
+8
+00:00:19,260 --> 00:00:21,105
+more or less, to the motors.
+
+9
+00:00:21,105 --> 00:00:23,810
+It means that it's not going to try and hold the position.
+
+10
+00:00:23,809 --> 00:00:25,834
+It's not going to try and hold an altitude.
+
+11
+00:00:25,835 --> 00:00:27,690
+It'll drift, it'll bounce around.
+
+12
+00:00:27,690 --> 00:00:29,790
+So that's kind of the lowest level of control.
+
+13
+00:00:29,789 --> 00:00:32,207
+But the attitude loop is all the way running.
+
+14
+00:00:32,207 --> 00:00:32,601
+Correct, yes.
+
+15
+00:00:32,601 --> 00:00:34,914
+So the vehicles, you don't have to worry about keeping the vehicle level.
+
+16
+00:00:34,914 --> 00:00:35,390
+Correct.
+
+17
+00:00:35,390 --> 00:00:36,487
+That part will always work.
+
+18
+00:00:36,487 --> 00:00:39,994
+Yes. And then, there are a couple other modes that
+
+19
+00:00:39,994 --> 00:00:45,059
+I've configured the arrow to use that I recommend.
+
+20
+00:00:45,060 --> 00:00:46,830
+One is called altitude control.
+
+21
+00:00:46,829 --> 00:00:48,585
+So, what that does is it takes
+
+22
+00:00:48,585 --> 00:00:50,957
+you having to worry about the throttle out of the equation.
+
+23
+00:00:50,957 --> 00:00:52,549
+It holds a fixed altitude.
+
+24
+00:00:52,549 --> 00:00:57,797
+So while you're flying you can then focus on just where its horizontal position.
+
+25
+00:00:57,798 --> 00:00:59,825
+Note, that it still will drift with the wind.
+
+26
+00:00:59,825 --> 00:01:01,750
+It's not trying to hold this specific position.
+
+27
+00:01:01,750 --> 00:01:03,914
+So on a windy day, you've got to be careful,
+
+28
+00:01:03,914 --> 00:01:06,914
+or else it will get away from you.
+
+29
+00:01:06,915 --> 00:01:08,720
+The next one is position control.
+
+30
+00:01:08,719 --> 00:01:10,469
+And what now, we're doing is adding
+
+31
+00:01:10,469 --> 00:01:14,370
+just one more control loop that the autopilot is taking care of.
+
+32
+00:01:14,370 --> 00:01:15,870
+It's going to try and hold the position.
+
+33
+00:01:15,870 --> 00:01:18,150
+So now my commands are really just moving
+
+34
+00:01:18,150 --> 00:01:20,385
+around this fixed point that it's going to hold.
+
+35
+00:01:20,385 --> 00:01:23,025
+So on a windy day, should stay fixed.
+
+36
+00:01:23,025 --> 00:01:26,805
+The last mode, this can be of interest to something called off-board control,
+
+37
+00:01:26,805 --> 00:01:28,800
+and that's you as a pilot,
+
+38
+00:01:28,799 --> 00:01:32,024
+releasing control to the computer,
+
+39
+00:01:32,025 --> 00:01:33,939
+to our backyard flyers script.
+
+40
+00:01:33,938 --> 00:01:35,689
+So it's always called off-board mode, I know that.
+
+41
+00:01:35,689 --> 00:01:38,536
+It's kind of a misnomer, cause its really it's on-board control, isn't it?
+
+42
+00:01:38,537 --> 00:01:41,700
+That's well, I mean, it's off-board of the main auto pilot board,
+
+43
+00:01:41,700 --> 00:01:43,049
+it's a secondary computer.
+
+44
+00:01:43,049 --> 00:01:45,036
+Off-board this, on-board there.
+
+45
+00:01:45,036 --> 00:01:45,849
+Yeah. Correct.
+
+46
+00:01:45,849 --> 00:01:47,206
+Very good.
+
+47
+00:01:47,206 --> 00:01:50,159
+And so one thing that we can do is we've got
+
+48
+00:01:50,159 --> 00:01:53,444
+some of these switches are set up to change between those modes.
+
+49
+00:01:53,444 --> 00:01:57,864
+So we can look on the ground station to make sure that as I flip the switches,
+
+50
+00:01:57,864 --> 00:02:00,149
+it's correctly cycling between
+
+51
+00:02:00,150 --> 00:02:05,000
+the desired modes and rejecting the modes that it can't go into yet.
+

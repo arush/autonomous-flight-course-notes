@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:02,097
+Before we do go outside,
+
+2
+00:00:02,097 --> 00:00:05,096
+in addition to all the common sense safety things we've been talking about,
+
+3
+00:00:05,097 --> 00:00:07,665
+there are some regulatory issues you need to be aware of.
+
+4
+00:00:07,665 --> 00:00:09,435
+Depending on which country you're in,
+
+5
+00:00:09,435 --> 00:00:11,745
+and even depending on which part of which country you're in,
+
+6
+00:00:11,744 --> 00:00:13,231
+the rules may be different.
+
+7
+00:00:13,231 --> 00:00:16,769
+And so, the first thing you have to do is, know before you fly.
+
+8
+00:00:16,769 --> 00:00:21,780
+In the US, it's important that you follow the part 107 rules.
+
+9
+00:00:21,780 --> 00:00:22,890
+Which means that you,
+
+10
+00:00:22,890 --> 00:00:24,510
+as a pilot, especially,
+
+11
+00:00:24,510 --> 00:00:28,500
+if you're doing anything that is not just your personal hobbyist entertainment,
+
+12
+00:00:28,500 --> 00:00:32,627
+need to have an actual pilot's license for an autonomous vehicle.
+
+13
+00:00:32,627 --> 00:00:34,230
+And you can go on the FAA website,
+
+14
+00:00:34,229 --> 00:00:36,709
+and you take a paper test and then, you're good to go.
+
+15
+00:00:36,710 --> 00:00:39,365
+And if you are a hobbyist, you don't even need the part 107 license.
+
+16
+00:00:39,365 --> 00:00:41,160
+But it's really important that you actually
+
+17
+00:00:41,159 --> 00:00:45,019
+understand whether or not you're allowed to fly where you're planning to fly.
+
+18
+00:00:45,020 --> 00:00:46,450
+A good guideline is,
+
+19
+00:00:46,450 --> 00:00:49,248
+Adrien already mentioned, don't fly over people, don't fly over buildings.
+
+20
+00:00:49,247 --> 00:00:50,460
+Another important guideline is,
+
+21
+00:00:50,460 --> 00:00:52,064
+don't fly near airports.
+
+22
+00:00:52,064 --> 00:00:54,629
+Again, in the US, there are restrictions on how
+
+23
+00:00:54,630 --> 00:00:57,030
+close you can be to different kinds of airports,
+
+24
+00:00:57,030 --> 00:00:58,944
+and you need to know what those are.
+
+25
+00:00:58,944 --> 00:01:00,810
+And in other countries, it may be different.
+
+26
+00:01:00,810 --> 00:01:02,405
+Other regulatory issues?
+
+27
+00:01:02,405 --> 00:01:03,495
+The only thing that I would add is,
+
+28
+00:01:03,494 --> 00:01:05,370
+if you're strictly doing this as a hobbyist,
+
+29
+00:01:05,370 --> 00:01:08,192
+as you pointed out, you don't need to get a specific license.
+
+30
+00:01:08,192 --> 00:01:11,370
+But you do need to follow a community set of guidelines if there are.
+
+31
+00:01:11,370 --> 00:01:12,725
+So you can check out,
+
+32
+00:01:12,724 --> 00:01:14,414
+there's the Academy of Model Aeronautics.
+
+33
+00:01:14,415 --> 00:01:17,220
+They've got a lot of rules or guidelines,
+
+34
+00:01:17,219 --> 00:01:18,944
+and then, either way,
+
+35
+00:01:18,944 --> 00:01:21,245
+you do need, what they call register your drone.
+
+36
+00:01:21,245 --> 00:01:23,069
+It's a fairly painless process.
+
+37
+00:01:23,069 --> 00:01:25,119
+You go online, you put your name,
+
+38
+00:01:25,120 --> 00:01:26,365
+what kind of vehicle it is,
+
+39
+00:01:26,364 --> 00:01:30,000
+and you get a registration number that should be taped somewhere on the drone.
+

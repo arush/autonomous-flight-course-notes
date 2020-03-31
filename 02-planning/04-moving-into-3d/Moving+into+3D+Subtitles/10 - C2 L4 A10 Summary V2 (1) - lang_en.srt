@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:02,040
+In this lesson, you crossed
+
+2
+00:00:02,040 --> 00:00:04,780
+the threshold into the third dimension of the planning problem.
+
+3
+00:00:04,780 --> 00:00:08,520
+We looked at the fact that while 3D grids are highly expressive geometry,
+
+4
+00:00:08,520 --> 00:00:11,115
+they can be prohibitively expensive to store in memory.
+
+5
+00:00:11,115 --> 00:00:14,415
+You saw that if you're willing to give up a bit of that expressiveness,
+
+6
+00:00:14,415 --> 00:00:16,470
+you can get a huge advantage by going to
+
+7
+00:00:16,470 --> 00:00:18,930
+a two and a half D representation of the problem.
+
+8
+00:00:18,930 --> 00:00:20,805
+We looked at how you can use
+
+9
+00:00:20,805 --> 00:00:24,705
+random sampling to generate a representation of your state space,
+
+10
+00:00:24,705 --> 00:00:27,345
+and how, through connecting those random states with edges,
+
+11
+00:00:27,345 --> 00:00:31,155
+you can form a probabilistic road map representation of your planning problem.
+
+12
+00:00:31,155 --> 00:00:34,560
+With the tools in this lesson combined with previous lessons,
+
+13
+00:00:34,560 --> 00:00:38,520
+you've actually got what you need to implement a receding horizon planning solution,
+
+14
+00:00:38,520 --> 00:00:42,324
+where you create a course plan or heuristic over your entire space in 2D
+
+15
+00:00:42,324 --> 00:00:46,950
+then continuously re-plan over a local volume as you execute your flight plan.
+
+16
+00:00:46,950 --> 00:00:50,670
+And with that, you're ready to complete the 3D motion planning project.
+
+17
+00:00:50,670 --> 00:00:53,160
+You can actually skip the next lesson as it is not
+
+18
+00:00:53,160 --> 00:00:55,770
+required to implement a passing solution of the project.
+
+19
+00:00:55,770 --> 00:00:59,115
+That said, if you want to take your planning project above and beyond,
+
+20
+00:00:59,115 --> 00:01:00,600
+then consider including some of
+
+21
+00:01:00,600 --> 00:01:04,110
+the advanced methods in the next lesson in your implementation.
+

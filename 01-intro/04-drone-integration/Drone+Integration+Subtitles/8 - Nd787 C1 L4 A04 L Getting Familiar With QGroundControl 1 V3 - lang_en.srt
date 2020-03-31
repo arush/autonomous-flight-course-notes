@@ -1,0 +1,364 @@
+1
+00:00:00,000 --> 00:00:04,049
+Alright. So, one of the things we'll do to test out and
+
+2
+00:00:04,049 --> 00:00:07,094
+make sure everything is running properly on the autopilot is,
+
+3
+00:00:07,094 --> 00:00:09,929
+I'm opening up a piece of software called, QGroundControl.
+
+4
+00:00:09,929 --> 00:00:12,750
+This is an open-source ground station software.
+
+5
+00:00:12,750 --> 00:00:16,890
+It's not like the simulator or what you've been interacting,
+
+6
+00:00:16,890 --> 00:00:20,880
+what the students have been interacting with the simulator,
+
+7
+00:00:20,879 --> 00:00:22,500
+and during the project.
+
+8
+00:00:22,500 --> 00:00:25,589
+This is an open-source ground station that's used commonly
+
+9
+00:00:25,589 --> 00:00:30,195
+for a lot of these more DIY style drones.
+
+10
+00:00:30,195 --> 00:00:32,909
+And what it does is, it gives us state information.
+
+11
+00:00:32,909 --> 00:00:38,854
+It allows us to actually even see things like attitude information in real-time,
+
+12
+00:00:38,854 --> 00:00:44,719
+and other configurations that we might have to change from the defaults.
+
+13
+00:00:44,719 --> 00:00:47,909
+This is the basic interface for QGroundControl,
+
+14
+00:00:47,909 --> 00:00:50,704
+and we've got our main window with our map,
+
+15
+00:00:50,704 --> 00:00:52,564
+that's going to display where our drone is,
+
+16
+00:00:52,564 --> 00:00:54,844
+and we've got a couple of tabs along the top.
+
+17
+00:00:54,844 --> 00:00:58,685
+But really, there's not too much to look at until we connect a vehicle.
+
+18
+00:00:58,685 --> 00:01:01,250
+So, let's go ahead and turn on our arrow,
+
+19
+00:01:01,250 --> 00:01:04,799
+make sure remote control first and no propellers.
+
+20
+00:01:04,799 --> 00:01:06,670
+And once that's on,
+
+21
+00:01:06,670 --> 00:01:10,135
+and up and running, let's connect to its network.
+
+22
+00:01:10,135 --> 00:01:12,550
+Once its connected, QGroundControl will
+
+23
+00:01:12,549 --> 00:01:15,519
+automatically see that a new drone has been connected,
+
+24
+00:01:15,519 --> 00:01:17,575
+and will ask us to connect.
+
+25
+00:01:17,575 --> 00:01:20,950
+So, we'll go ahead and allow that connection, and now,
+
+26
+00:01:20,950 --> 00:01:23,484
+you'll see we've got a few more options along the top,
+
+27
+00:01:23,484 --> 00:01:25,254
+and we've got this green loading bar.
+
+28
+00:01:25,254 --> 00:01:27,399
+Once that green bar goes all the way across,
+
+29
+00:01:27,400 --> 00:01:29,935
+it means that all the parameters and settings
+
+30
+00:01:29,935 --> 00:01:32,650
+from the drone have been downloaded into QGroundControl.
+
+31
+00:01:32,650 --> 00:01:36,700
+So, just to walk through the interface that we have in front of us here,
+
+32
+00:01:36,700 --> 00:01:40,770
+I'm going to start from the top bar and work my way across.
+
+33
+00:01:40,769 --> 00:01:43,009
+This "Q" button here,
+
+34
+00:01:43,010 --> 00:01:47,675
+this purple "Q" button is configuration files for Q ground control itself,
+
+35
+00:01:47,674 --> 00:01:50,674
+and also communication links.
+
+36
+00:01:50,674 --> 00:01:53,584
+So, if it didn't automatically connect,
+
+37
+00:01:53,584 --> 00:01:56,629
+this is where you can manually add different types of links,
+
+38
+00:01:56,629 --> 00:01:58,339
+whether it's a serial connection,
+
+39
+00:01:58,340 --> 00:02:00,094
+if you're using something like
+
+40
+00:02:00,094 --> 00:02:06,804
+a 3DR radio to connect to your drone or an internet-based connection.
+
+41
+00:02:06,805 --> 00:02:10,050
+The next tab is going to be settings,
+
+42
+00:02:10,050 --> 00:02:12,465
+and this is where you'll find all the information
+
+43
+00:02:12,465 --> 00:02:15,182
+about the autopilot settings and configurations.
+
+44
+00:02:15,181 --> 00:02:17,474
+This is just a summary page that shows us
+
+45
+00:02:17,474 --> 00:02:21,659
+the quick view of all the different states and important information.
+
+46
+00:02:21,659 --> 00:02:25,259
+You'll see there's a bunch of green dots along these tabs,
+
+47
+00:02:25,259 --> 00:02:27,768
+and that tells us things are configured and ready to go.
+
+48
+00:02:27,768 --> 00:02:30,000
+If you just installed the autopilot,
+
+49
+00:02:30,000 --> 00:02:31,500
+you may notice some red circles,
+
+50
+00:02:31,500 --> 00:02:33,960
+and that tells you that you need to configure
+
+51
+00:02:33,960 --> 00:02:37,724
+some parameters before the autopilot will let you take off.
+
+52
+00:02:37,724 --> 00:02:41,939
+We got a whole list of different possible settings that we can look into,
+
+53
+00:02:41,939 --> 00:02:45,125
+which we'll come back to in a minute.
+
+54
+00:02:45,125 --> 00:02:48,500
+The next tab is for being able to do
+
+55
+00:02:48,500 --> 00:02:53,810
+high-level planning to use the autopilot's inbuilt mission handling.
+
+56
+00:02:53,810 --> 00:02:57,259
+We're actually not going to be using this tab for this Nanodegree,
+
+57
+00:02:57,259 --> 00:03:00,364
+however, feel free to explore this on your own.
+
+58
+00:03:00,365 --> 00:03:03,350
+The next tab is our main flight tab, and this is,
+
+59
+00:03:03,349 --> 00:03:07,356
+that's going to show us where our drone is currently on the map,
+
+60
+00:03:07,356 --> 00:03:14,074
+and information like our current orientation and heading speed, and other information.
+
+61
+00:03:14,074 --> 00:03:19,359
+And finally, this tab allows us to connect and look at logs that are on board the vehicle.
+
+62
+00:03:19,360 --> 00:03:23,085
+Again, we won't make too much use of this tab throughout this Nanodegree,
+
+63
+00:03:23,085 --> 00:03:25,770
+but it's just so you know it's there.
+
+64
+00:03:25,770 --> 00:03:30,240
+Next, we have a bull horn for messages.
+
+65
+00:03:30,240 --> 00:03:32,219
+Right now, there's no messages from the drone,
+
+66
+00:03:32,219 --> 00:03:35,219
+but this is where important information, for example,
+
+67
+00:03:35,219 --> 00:03:37,229
+it telling you something isn't calibrated,
+
+68
+00:03:37,229 --> 00:03:40,979
+or mode changes will appear here.
+
+69
+00:03:40,979 --> 00:03:43,744
+Next, we have our GPS status.
+
+70
+00:03:43,745 --> 00:03:45,525
+Right now, we are inside,
+
+71
+00:03:45,525 --> 00:03:49,167
+so it's going to show us that we're not connected to any GPS signals.
+
+72
+00:03:49,167 --> 00:03:51,870
+But normally, what you're going to be looking for before you take off,
+
+73
+00:03:51,870 --> 00:03:55,389
+that you've got to account in above,
+
+74
+00:03:55,389 --> 00:03:57,570
+probably eight is what you'll see,
+
+75
+00:03:57,569 --> 00:04:01,289
+and these numbers will be much smaller around one or two.
+
+76
+00:04:01,289 --> 00:04:05,384
+This tells us the controller information,
+
+77
+00:04:05,384 --> 00:04:08,084
+the connection status to the remote control,
+
+78
+00:04:08,085 --> 00:04:12,270
+which is on, but seems to be not providing data at the moment.
+
+79
+00:04:12,270 --> 00:04:14,385
+And finally, our battery status.
+
+80
+00:04:14,384 --> 00:04:16,589
+So, this is the voltage of our current battery,
+
+81
+00:04:16,589 --> 00:04:20,883
+and it's going to go from 100 percent to somewhere around 30,
+
+82
+00:04:20,884 --> 00:04:23,699
+40 percent, you should most definitely be landing.
+
+83
+00:04:23,699 --> 00:04:26,579
+This is our current flight mode that we have.
+
+84
+00:04:26,579 --> 00:04:27,959
+Right now, we're in manual,
+
+85
+00:04:27,959 --> 00:04:31,864
+which means that the pilot has the most basic amount of control,
+
+86
+00:04:31,865 --> 00:04:34,870
+and we'll be able to cycle through those different modes,
+
+87
+00:04:34,870 --> 00:04:38,170
+things like altitude hold or position hold that we've mentioned
+
+88
+00:04:38,170 --> 00:04:41,845
+before as we change through those modes with our remote control,
+
+89
+00:04:41,845 --> 00:04:43,750
+that will be updated here accordingly.
+
+90
+00:04:43,750 --> 00:04:46,660
+Finally, the armed versus disarmed state,
+
+91
+00:04:46,660 --> 00:04:51,200
+and that tells us, "Are the motors ready to spin and take commands?"
+

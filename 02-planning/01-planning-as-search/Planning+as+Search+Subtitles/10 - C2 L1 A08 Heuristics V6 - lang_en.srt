@@ -1,0 +1,168 @@
+1
+00:00:00,000 --> 00:00:01,965
+We now have a notion of cost,
+
+2
+00:00:01,965 --> 00:00:05,955
+a function that provides a measure of how good or bad a partial plan is.
+
+3
+00:00:05,955 --> 00:00:10,004
+We can start to add in some guidance about how to make progress towards the goal.
+
+4
+00:00:10,005 --> 00:00:11,500
+Given a map of the world,
+
+5
+00:00:11,500 --> 00:00:13,754
+I can make a rough estimate of how far it is,
+
+6
+00:00:13,755 --> 00:00:16,260
+or in other words, how much it's going to cost to get
+
+7
+00:00:16,260 --> 00:00:19,060
+from the last state in any given partial plan to the goal.
+
+8
+00:00:19,059 --> 00:00:21,599
+In much the same way, you decide which way to go
+
+9
+00:00:21,600 --> 00:00:24,650
+when walking through the city on your way to your destination.
+
+10
+00:00:24,649 --> 00:00:27,299
+There are a couple of common ways to do this.
+
+11
+00:00:27,300 --> 00:00:30,824
+One example is estimating that the remaining cost to get to the goal,
+
+12
+00:00:30,824 --> 00:00:35,100
+is the euclidean distance from the last state in the partial plan to the goal state.
+
+13
+00:00:35,100 --> 00:00:37,905
+In our grid world, that looks like this.
+
+14
+00:00:37,905 --> 00:00:41,085
+Now, the value in each cell is the euclidean distance to the goal,
+
+15
+00:00:41,085 --> 00:00:45,395
+or in other words, the square root of the sum of the square of the x and y distances.
+
+16
+00:00:45,395 --> 00:00:47,220
+Such an estimate ignores obstacles,
+
+17
+00:00:47,219 --> 00:00:48,899
+and is going to be an underestimate,
+
+18
+00:00:48,899 --> 00:00:51,030
+but it will tell you whether the last state in
+
+19
+00:00:51,030 --> 00:00:54,179
+the partial plan is making progress towards the goal,
+
+20
+00:00:54,179 --> 00:00:58,979
+because progress means that the euclidean distance will get smaller and smaller.
+
+21
+00:00:58,979 --> 00:01:01,559
+Similarly, if you're moving away from the goal,
+
+22
+00:01:01,560 --> 00:01:03,990
+the euclidean distance will get larger.
+
+23
+00:01:03,990 --> 00:01:06,615
+Another common choice is the so called Manhattan distance,
+
+24
+00:01:06,614 --> 00:01:10,814
+which is just the sum of the x and y distances remaining to get to the goal.
+
+25
+00:01:10,814 --> 00:01:14,879
+The name comes from assuming you need to move through your grid based discritization,
+
+26
+00:01:14,879 --> 00:01:17,560
+like you would move through the city of Manhattan.
+
+27
+00:01:17,560 --> 00:01:20,609
+Lineally along the streets to form square blocks.
+
+28
+00:01:20,609 --> 00:01:23,849
+These distance estimates are what are known as heuristics,
+
+29
+00:01:23,849 --> 00:01:29,019
+and they help tremendously in finding a solution to the planning problem efficiently.
+
+30
+00:01:29,019 --> 00:01:31,875
+Your heuristic estimate doesn't have to be perfect,
+
+31
+00:01:31,875 --> 00:01:34,545
+but it does need to have one important property,
+
+32
+00:01:34,545 --> 00:01:39,375
+which is that it does need to always be an underestimate of the true cost.
+
+33
+00:01:39,375 --> 00:01:44,060
+This property of being an underestimate is known as being admissible.
+
+34
+00:01:44,060 --> 00:01:48,225
+One way to ensure that your heuristic is admissible is to ignore obstacles,
+
+35
+00:01:48,224 --> 00:01:52,219
+which is to say ignore the cost of going around obstacles.
+
+36
+00:01:52,219 --> 00:01:54,852
+The important thing about being at admissible heuristic,
+
+37
+00:01:54,852 --> 00:01:59,459
+is that if we incorporate the heuristic into our notion of the total cost of a plan,
+
+38
+00:01:59,459 --> 00:02:02,250
+they will never ignore plans or fail to expand plans,
+
+39
+00:02:02,250 --> 00:02:04,230
+because we overestimated their cost,
+
+40
+00:02:04,230 --> 00:02:08,825
+which ensures that we'll always find the lowest cost plan from start to goal.
+
+41
+00:02:08,824 --> 00:02:11,149
+We've got a cost function and a heuristic.
+
+42
+00:02:11,150 --> 00:02:14,000
+It's time to combine them to solve our planning problem.
+

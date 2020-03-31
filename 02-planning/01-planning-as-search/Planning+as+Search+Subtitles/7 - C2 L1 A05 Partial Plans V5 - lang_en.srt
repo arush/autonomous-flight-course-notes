@@ -1,0 +1,212 @@
+1
+00:00:00,000 --> 00:00:04,594
+Let's go back to our grid world example where I have my start state and my goal state.
+
+2
+00:00:04,594 --> 00:00:07,869
+But now, let's put an obstacle right in the middle.
+
+3
+00:00:07,870 --> 00:00:11,099
+What happens now is that grid cell becomes infeasible.
+
+4
+00:00:11,099 --> 00:00:15,015
+I have my array in memory of all my grid cells where zeros indicate
+
+5
+00:00:15,015 --> 00:00:20,070
+freespace and ones are infeasible space and that one cell is now labeled as infeasible,
+
+6
+00:00:20,070 --> 00:00:23,594
+which means that actions are not allowed to move into that cell.
+
+7
+00:00:23,594 --> 00:00:26,085
+Let's run the same planning process as before.
+
+8
+00:00:26,085 --> 00:00:29,420
+I take my initial partial plan, just the start state,
+
+9
+00:00:29,420 --> 00:00:33,719
+and I apply the action of moving one step to the right and I end up here.
+
+10
+00:00:33,719 --> 00:00:37,170
+Very good. I have a new partial plan just as I did before,
+
+11
+00:00:37,170 --> 00:00:39,890
+start state right here.
+
+12
+00:00:39,890 --> 00:00:42,965
+If I try to apply the same action to move right again
+
+13
+00:00:42,965 --> 00:00:46,445
+I now run into the obstacle here. What do I do now?
+
+14
+00:00:46,445 --> 00:00:51,619
+Well, really, what I should be doing is every time I expand a partial plan I should
+
+15
+00:00:51,619 --> 00:00:56,614
+be expanding all possible actions and expanding any partial plan gives me,
+
+16
+00:00:56,615 --> 00:00:58,200
+in this 2D example,
+
+17
+00:00:58,200 --> 00:01:00,560
+as many as four new partial plans because I have
+
+18
+00:01:00,560 --> 00:01:03,200
+four actions or if there's an obstacle in the way,
+
+19
+00:01:03,200 --> 00:01:04,640
+I don't get as many.
+
+20
+00:01:04,640 --> 00:01:08,909
+What I should have done, is it when I tried to expand my partial plan from the start,
+
+21
+00:01:08,909 --> 00:01:11,479
+is not just create a partial plan for moving right,
+
+22
+00:01:11,480 --> 00:01:14,000
+but also create partial plans that move left,
+
+23
+00:01:14,000 --> 00:01:16,534
+move up, move down from start as well.
+
+24
+00:01:16,534 --> 00:01:19,759
+Then from here, I should have had plans that moved up and
+
+25
+00:01:19,760 --> 00:01:23,710
+down as well as a plan that tried to move into the obstacle and failed.
+
+26
+00:01:23,709 --> 00:01:27,934
+Really, what I'm doing is I'm constructing a list of partial plans as I go,
+
+27
+00:01:27,935 --> 00:01:30,275
+and every time I want to consider a new plan,
+
+28
+00:01:30,275 --> 00:01:32,685
+I pick one partial plan from my list and I
+
+29
+00:01:32,685 --> 00:01:36,109
+apply all feasible actions to the last state of that partial plan.
+
+30
+00:01:36,109 --> 00:01:38,689
+Through that process, I get a new set of
+
+31
+00:01:38,689 --> 00:01:41,465
+partial plans to add to my list of possible plans.
+
+32
+00:01:41,465 --> 00:01:43,579
+To explore all possible plans,
+
+33
+00:01:43,579 --> 00:01:45,914
+I need to be doing this from the very beginning.
+
+34
+00:01:45,915 --> 00:01:48,410
+And this is really how search works.
+
+35
+00:01:48,409 --> 00:01:49,504
+I have my initial state,
+
+36
+00:01:49,504 --> 00:01:52,759
+my start state and I apply all possible actions.
+
+37
+00:01:52,760 --> 00:01:55,500
+In this case, one that moves left from the start,
+
+38
+00:01:55,500 --> 00:01:58,750
+one that moves right, one that moves up one that moves down.
+
+39
+00:01:58,750 --> 00:02:00,394
+I have four partial plans.
+
+40
+00:02:00,394 --> 00:02:02,524
+I pick one, I expand it,
+
+41
+00:02:02,525 --> 00:02:04,305
+and repeat the process.
+
+42
+00:02:04,305 --> 00:02:07,100
+In this case, I get two new partial plans because
+
+43
+00:02:07,099 --> 00:02:10,870
+moving to the right is infeasible and to the left is where I came from.
+
+44
+00:02:10,870 --> 00:02:13,844
+Oh, that's one other wrinkle we have to think about.
+
+45
+00:02:13,844 --> 00:02:17,810
+Notice that if I have a partial path from the start moving right one state,
+
+46
+00:02:17,810 --> 00:02:22,900
+a perfectly reasonable expansion of that partial path is to then move left.
+
+47
+00:02:22,900 --> 00:02:25,129
+The plan would be move right,
+
+48
+00:02:25,129 --> 00:02:29,159
+then move left, taking you back to the start. That's a dumb plan.
+
+49
+00:02:29,159 --> 00:02:34,400
+And in fact, any plan that returns to a previously visited state is a bad plan.
+
+50
+00:02:34,400 --> 00:02:38,390
+If every time we find a path to a state we added to a visited list we
+
+51
+00:02:38,389 --> 00:02:42,974
+can avoid creating new partial plans that are simply different routes to the same state.
+
+52
+00:02:42,974 --> 00:02:45,919
+Ultimately, I'm generating a list of partial plans that
+
+53
+00:02:45,919 --> 00:02:50,000
+don't revisit previous locations and don't run into obstacles.
+

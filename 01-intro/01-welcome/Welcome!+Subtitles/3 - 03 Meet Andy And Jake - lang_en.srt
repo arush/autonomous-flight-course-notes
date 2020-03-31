@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:03,330
+Hello and welcome to the Flying Car Nanodegree Program.
+
+2
+00:00:03,330 --> 00:00:07,185
+We'll get you coding up self-flying drones and flying car fleets in no time.
+
+3
+00:00:07,184 --> 00:00:11,445
+But before diving in, we want to say hello and give a quick program overview.
+
+4
+00:00:11,445 --> 00:00:13,365
+So, to start, hi.
+
+5
+00:00:13,365 --> 00:00:17,265
+I'm Jake and I'm the product lead for the Flying Car Nanodegree Program.
+
+6
+00:00:17,265 --> 00:00:22,125
+Before joining Udacity, I was a computer science PhD candidate at Stanford University,
+
+7
+00:00:22,125 --> 00:00:25,230
+where I specialized in AI, robotics, and perception.
+
+8
+00:00:25,230 --> 00:00:28,500
+As product lead, I make sure everything from classroom content,
+
+9
+00:00:28,500 --> 00:00:30,030
+to your career prospects,
+
+10
+00:00:30,030 --> 00:00:32,039
+to the curriculum are top notch.
+
+11
+00:00:32,039 --> 00:00:33,359
+And speaking of curriculum-
+
+12
+00:00:33,359 --> 00:00:36,884
+Hi. I'm Andy and I'm the program curriculum lead.
+
+13
+00:00:36,884 --> 00:00:38,609
+I studied physics at MIT,
+
+14
+00:00:38,609 --> 00:00:41,594
+and I've been involved at Udacity since basically day one.
+
+15
+00:00:41,594 --> 00:00:43,439
+I've worked on everything from psychology,
+
+16
+00:00:43,439 --> 00:00:45,179
+to physics, to self-driving cars.
+
+17
+00:00:45,179 --> 00:00:47,460
+And as curriculum lead for this program,
+
+18
+00:00:47,460 --> 00:00:49,799
+I work directly with our instructors to make sure
+
+19
+00:00:49,799 --> 00:00:52,349
+you get the best educational experience possible.
+
+20
+00:00:52,350 --> 00:00:53,910
+Great.
+
+21
+00:00:53,909 --> 00:00:56,905
+Now that you've met Sebastian, Andy, and myself,
+
+22
+00:00:56,905 --> 00:00:58,079
+in the rest of this lesson,
+
+23
+00:00:58,079 --> 00:01:00,412
+you'll meet our other amazing instructors,
+
+24
+00:01:00,412 --> 00:01:01,979
+learn about how the program works,
+
+25
+00:01:01,979 --> 00:01:03,644
+and wrap up with a little fun.
+
+26
+00:01:03,645 --> 00:01:07,750
+We're thrilled to be working with you and welcome to the program.
+

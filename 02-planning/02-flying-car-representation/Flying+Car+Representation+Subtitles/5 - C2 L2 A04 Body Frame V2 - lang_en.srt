@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:04,005
+One last coordinate frame that we're going to keep track of is the body frame.
+
+2
+00:00:04,005 --> 00:00:07,575
+The origin of the body frame is going to be some point on the vehicle.
+
+3
+00:00:07,575 --> 00:00:08,955
+Could be for example,
+
+4
+00:00:08,955 --> 00:00:11,940
+the center of mass, or it could be some other location.
+
+5
+00:00:11,940 --> 00:00:15,040
+All of the other points in the body frame are defined relative to that origin.
+
+6
+00:00:15,040 --> 00:00:16,710
+If the vehicle moves,
+
+7
+00:00:16,710 --> 00:00:17,870
+the body frame moves with it.
+
+8
+00:00:17,870 --> 00:00:20,550
+There are two main reasons we need a body frame.
+
+9
+00:00:20,550 --> 00:00:24,840
+One is that the body frame is a really useful and convenient way of keeping track of
+
+10
+00:00:24,840 --> 00:00:29,385
+the relative distances between different elements of the vehicle like the sensors.
+
+11
+00:00:29,385 --> 00:00:32,280
+So, I might have a camera on the front of the vehicle,
+
+12
+00:00:32,280 --> 00:00:34,020
+I might have an IMU at the tail,
+
+13
+00:00:34,020 --> 00:00:36,735
+I might have air sensors on the wings and so on.
+
+14
+00:00:36,735 --> 00:00:39,540
+Knowing where all of these sensors are relative to one
+
+15
+00:00:39,540 --> 00:00:42,270
+another in the body frame is very important
+
+16
+00:00:42,270 --> 00:00:44,625
+for fusing all the sensor measurements together
+
+17
+00:00:44,625 --> 00:00:48,045
+into a consistent estimate of where the vehicle is.
+
+18
+00:00:48,045 --> 00:00:52,020
+The second reason the body frame is important is that this is often
+
+19
+00:00:52,020 --> 00:00:54,360
+the best coordinate frame for representing
+
+20
+00:00:54,360 --> 00:00:57,675
+control inputs such as velocities and accelerations.
+
+21
+00:00:57,675 --> 00:01:00,510
+For example, for a fixed-wing vehicle,
+
+22
+00:01:00,510 --> 00:01:03,870
+it's easiest to think of the throttle just changing the magnitude of
+
+23
+00:01:03,870 --> 00:01:07,440
+the thrust vector that is fixed along the x axis in the body frame.
+
+24
+00:01:07,440 --> 00:01:11,220
+As the vehicle is moving and rotating that thrust vector changes,
+
+25
+00:01:11,220 --> 00:01:13,165
+which way it points in the external world,
+
+26
+00:01:13,165 --> 00:01:15,710
+but it's going to stay constant in the body frame.
+
+27
+00:01:15,710 --> 00:01:20,280
+It's a lot harder to think of the throttle as a three-dimensional control input.
+

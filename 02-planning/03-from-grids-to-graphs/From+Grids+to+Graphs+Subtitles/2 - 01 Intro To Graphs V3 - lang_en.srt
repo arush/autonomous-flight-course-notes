@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:03,375
+In the previous lesson, we saw how to take a set of obstacles,
+
+2
+00:00:03,375 --> 00:00:06,240
+and render them into a discrete grid with each cell
+
+3
+00:00:06,240 --> 00:00:09,880
+marked as feasible or infeasible based on the location of obstacles.
+
+4
+00:00:09,880 --> 00:00:14,110
+And that labelled grid then became your state space for the planning process.
+
+5
+00:00:14,110 --> 00:00:17,090
+You've seen that you can use an algorithm like A* to find
+
+6
+00:00:17,090 --> 00:00:18,990
+a minimum cost sequence or grid cells that
+
+7
+00:00:18,990 --> 00:00:22,710
+represents the path that you want your vehicle to follow.
+
+8
+00:00:22,710 --> 00:00:25,650
+Turns out however, that representing a plan is a sequence of
+
+9
+00:00:25,650 --> 00:00:30,390
+discrete grid cells isn't really the best plan for a vehicle to follow.
+
+10
+00:00:30,390 --> 00:00:34,225
+Fact, given your autopilot a list of all the grid cells in a path,
+
+11
+00:00:34,225 --> 00:00:36,720
+it's a bit like someone giving you directions to walk to
+
+12
+00:00:36,720 --> 00:00:39,820
+the local supermarket by saying something like, "Open the door,
+
+13
+00:00:39,820 --> 00:00:42,100
+step out of the house by putting your left foot forward,
+
+14
+00:00:42,100 --> 00:00:43,910
+and do the same with your right foot,
+
+15
+00:00:43,910 --> 00:00:45,360
+then again with your left foot,
+
+16
+00:00:45,360 --> 00:00:47,145
+and again with your right."
+
+17
+00:00:47,145 --> 00:00:50,245
+Rather than just saying, "Head down to the corner.
+
+18
+00:00:50,245 --> 00:00:53,155
+Make a left, and go up half a block."
+
+19
+00:00:53,155 --> 00:00:57,660
+In this lesson, the first thing we're going to look at is how to convert your list of
+
+20
+00:00:57,660 --> 00:01:02,830
+grid cells into a better plan that represents what you actually want the vehicle to do.
+
+21
+00:01:02,830 --> 00:01:05,250
+After that, we'll look at new ways to discretize
+
+22
+00:01:05,250 --> 00:01:08,410
+your world that don't rely on a grid representation.
+
+23
+00:01:08,410 --> 00:01:11,675
+And you'll see that how you choose to represent obstacles and
+
+24
+00:01:11,675 --> 00:01:16,425
+freespace really has an impact on your ability to find not just collision free plans,
+
+25
+00:01:16,425 --> 00:01:19,000
+but optimal plans. Let's get started.
+

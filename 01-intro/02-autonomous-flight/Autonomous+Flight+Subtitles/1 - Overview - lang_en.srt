@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:03,758
+In this lesson, I'm going to start off by giving you a little bit of
+
+2
+00:00:03,758 --> 00:00:06,849
+history and the context around autonomous flying robots.
+
+3
+00:00:06,849 --> 00:00:11,178
+This program is all about flying cars which present their own set of challenges,
+
+4
+00:00:11,178 --> 00:00:14,200
+but autonomous flying machines are not necessarily a new thing.
+
+5
+00:00:14,198 --> 00:00:16,838
+In fact, if you've ever been on an airplane,
+
+6
+00:00:16,838 --> 00:00:19,523
+you've traveled inside of an autonomous flying robot.
+
+7
+00:00:19,524 --> 00:00:22,359
+So, I'll talk a little bit about the history of
+
+8
+00:00:22,359 --> 00:00:26,679
+flight and where we're at today on the cusp of a transportation revolution.
+
+9
+00:00:26,678 --> 00:00:30,279
+After that, I'll introduce the experimental platform you'll be
+
+10
+00:00:30,280 --> 00:00:34,225
+working with and the projects for this program, the quadrotor drone.
+
+11
+00:00:34,225 --> 00:00:38,030
+I'll go over the main components of the quadrotor and how each needs to be
+
+12
+00:00:38,030 --> 00:00:42,386
+selected considering the task or mission you want your drone to do.
+
+13
+00:00:42,386 --> 00:00:47,554
+With this bit of background on autonomous flight and basic knowledge about quadrotors,
+
+14
+00:00:47,554 --> 00:00:50,450
+you'll be ready to move on to the next lesson where
+
+15
+00:00:50,450 --> 00:00:54,230
+you'll write code to fly autonomously in a simulator.
+

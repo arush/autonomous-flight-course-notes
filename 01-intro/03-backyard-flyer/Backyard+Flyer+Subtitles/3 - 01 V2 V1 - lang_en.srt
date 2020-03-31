@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:02,213
+Now, before we continue,
+
+2
+00:00:02,213 --> 00:00:03,700
+I'd like to show you what the code you're
+
+3
+00:00:03,700 --> 00:00:06,355
+eventually going to write is actually going to do.
+
+4
+00:00:06,355 --> 00:00:11,320
+And here, I have a simulator window open and it's open next to a terminal.
+
+5
+00:00:11,320 --> 00:00:14,845
+In the actual interface you use it might actually look a little bit different,
+
+6
+00:00:14,845 --> 00:00:17,185
+but as you can see,
+
+7
+00:00:17,184 --> 00:00:19,899
+when I do an LS here,
+
+8
+00:00:19,899 --> 00:00:23,259
+you can see I have this file called backyard_flyer.py,
+
+9
+00:00:23,260 --> 00:00:26,800
+and that's the one you're going to complete at the end of this lesson.
+
+10
+00:00:26,800 --> 00:00:32,094
+And this file actually has code which controls this drone.
+
+11
+00:00:32,094 --> 00:00:38,640
+So let me just run that for you now without showing you what the actual code looks like.
+
+12
+00:00:39,500 --> 00:00:45,340
+So if I hit Enter, you can see what happens.
+
+13
+00:00:45,340 --> 00:00:47,470
+So the drone arms,
+
+14
+00:00:47,469 --> 00:00:49,134
+and it takes off,
+
+15
+00:00:49,134 --> 00:00:52,548
+goes forward, turns right,
+
+16
+00:00:52,548 --> 00:00:54,658
+then it goes backwards,
+
+17
+00:00:54,658 --> 00:00:56,548
+and to complete square,
+
+18
+00:00:56,548 --> 00:00:58,500
+it slides to the left,
+
+19
+00:00:58,500 --> 00:01:01,350
+stops in place, and lands.
+
+20
+00:01:01,350 --> 00:01:03,270
+Now, this square path that
+
+21
+00:01:03,270 --> 00:01:07,020
+this drone flew is not the interesting thing about this project,
+
+22
+00:01:07,019 --> 00:01:08,670
+though I do think it's pretty cool to see
+
+23
+00:01:08,670 --> 00:01:11,174
+the drone actually flying in the square that I programmed.
+
+24
+00:01:11,174 --> 00:01:14,340
+What's interesting about this project is the code,
+
+25
+00:01:14,340 --> 00:01:15,810
+and more specifically,
+
+26
+00:01:15,810 --> 00:01:19,799
+the programming paradigm behind the code that allowed all of this to happen.
+
+27
+00:01:19,799 --> 00:01:23,480
+And that is exactly what you're going to be learning in the rest of this lesson.
+

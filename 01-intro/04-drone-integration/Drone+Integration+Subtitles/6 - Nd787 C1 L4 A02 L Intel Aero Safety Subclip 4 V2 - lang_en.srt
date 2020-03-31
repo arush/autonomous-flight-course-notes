@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:03,075
+As a pilot, even for an autonomous vehicle like this,
+
+2
+00:00:03,075 --> 00:00:05,835
+you want to first check the air space to make sure it's clear.
+
+3
+00:00:05,835 --> 00:00:07,830
+You want to know if there are other drones in the area that you
+
+4
+00:00:07,830 --> 00:00:10,012
+need to avoid or other aircraft of any kind.
+
+5
+00:00:10,012 --> 00:00:12,449
+The other thing is that, if is anybody with you on the ground,
+
+6
+00:00:12,449 --> 00:00:13,829
+you want to make sure they know where to be.
+
+7
+00:00:13,830 --> 00:00:16,545
+They should never be between you and the drone.
+
+8
+00:00:16,545 --> 00:00:19,410
+You should always be able to see your vehicle at all times.
+
+9
+00:00:19,410 --> 00:00:22,640
+Ideally, there's a line on the ground that people know to stay behind.
+
+10
+00:00:22,640 --> 00:00:26,149
+Yep, and also in addition to that line,
+
+11
+00:00:26,149 --> 00:00:29,309
+don't fly over people or over buildings,
+
+12
+00:00:29,309 --> 00:00:31,349
+and try and find open space.
+
+13
+00:00:31,350 --> 00:00:32,440
+Good.
+

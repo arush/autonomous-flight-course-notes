@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,094
+Okay. Today my job is to make you think like a drone.
+
+2
+00:00:04,094 --> 00:00:08,040
+You might think a drone moves in a three-dimensional space x,
+
+3
+00:00:08,040 --> 00:00:10,905
+y, and z, and that is correct.
+
+4
+00:00:10,905 --> 00:00:13,470
+But on top of it, there's more state variables,
+
+5
+00:00:13,470 --> 00:00:15,040
+they're called rotation angles.
+
+6
+00:00:15,040 --> 00:00:18,480
+There is pitch, there's row,
+
+7
+00:00:18,480 --> 00:00:20,400
+and the third one is yaw,
+
+8
+00:00:20,400 --> 00:00:23,100
+where the drone rotates on its own center.
+
+9
+00:00:23,100 --> 00:00:26,955
+These three rotation angles are the subject of what we're going to do next.
+
+10
+00:00:26,955 --> 00:00:29,429
+We're going to look into all angles,
+
+11
+00:00:29,429 --> 00:00:33,300
+rotation matrices, and something completely crazy,
+
+12
+00:00:33,300 --> 00:00:36,570
+something called quaternions. Have fun.
+

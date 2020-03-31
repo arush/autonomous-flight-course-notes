@@ -1,0 +1,208 @@
+1
+00:00:00,000 --> 00:00:03,435
+It's important to notice that as we're going through this waypoint extraction,
+
+2
+00:00:03,435 --> 00:00:05,580
+we're doing an awful lot of work in order to get
+
+3
+00:00:05,580 --> 00:00:07,830
+at a sparse set of waypoints connected by
+
+4
+00:00:07,830 --> 00:00:10,230
+relatively long distances to get
+
+5
+00:00:10,230 --> 00:00:13,740
+the vehicle through the free part of the configuration space.
+
+6
+00:00:13,740 --> 00:00:17,620
+We started in each of the previous cases by discretizing our world into a grid,
+
+7
+00:00:17,620 --> 00:00:19,410
+but now we're going to look at a different way of
+
+8
+00:00:19,410 --> 00:00:22,690
+discretizing the world into a graph rather than a grid.
+
+9
+00:00:22,690 --> 00:00:25,245
+If you're not already familiar with graph representations,
+
+10
+00:00:25,245 --> 00:00:27,150
+don't worry, they're easy to understand.
+
+11
+00:00:27,150 --> 00:00:31,125
+In general, you can think of a graph as a collection of what are called nodes.
+
+12
+00:00:31,125 --> 00:00:34,815
+To form a graph, you'll connect these nodes with lines called edges.
+
+13
+00:00:34,815 --> 00:00:38,680
+Creating a graph like this is another way of discretizing your environment,
+
+14
+00:00:38,680 --> 00:00:41,535
+where now the nodes are like grid cell locations or states,
+
+15
+00:00:41,535 --> 00:00:44,520
+and the edges show where an action connects to states.
+
+16
+00:00:44,520 --> 00:00:48,865
+Instead of forming a plan that traverses across a grid cell by cell,
+
+17
+00:00:48,865 --> 00:00:54,300
+you can form a plan that traverses a graph by moving from node to node via edges.
+
+18
+00:00:54,300 --> 00:00:56,790
+Remember, what you need to solve the planning problem.
+
+19
+00:00:56,790 --> 00:00:58,785
+You need to define a state space,
+
+20
+00:00:58,785 --> 00:01:01,590
+a set of actions to move through your state space,
+
+21
+00:01:01,590 --> 00:01:05,040
+a cost function that captures the cost of each action,
+
+22
+00:01:05,040 --> 00:01:07,615
+as well as start state and a goal state.
+
+23
+00:01:07,615 --> 00:01:09,045
+And once you've got all that,
+
+24
+00:01:09,045 --> 00:01:11,550
+you need some way of searching for the sequence of
+
+25
+00:01:11,550 --> 00:01:14,880
+actions that take you from start to goal,
+
+26
+00:01:14,880 --> 00:01:17,940
+you could define a graph through your environment whatever you like.
+
+27
+00:01:17,940 --> 00:01:20,640
+But in some cases your environment may
+
+28
+00:01:20,640 --> 00:01:24,660
+feature a sort of natural underlying graph structure.
+
+29
+00:01:24,660 --> 00:01:27,930
+When you think about it, most urban environments actually have
+
+30
+00:01:27,930 --> 00:01:31,575
+a set of waypoints already encoded in their layout which is to say,
+
+31
+00:01:31,575 --> 00:01:33,990
+the road network in any city is effectively
+
+32
+00:01:33,990 --> 00:01:38,580
+a graph where the roads are edges connecting nodes at each intersection.
+
+33
+00:01:38,580 --> 00:01:42,030
+The convenient thing about how we've set up the planning problem with A*,
+
+34
+00:01:42,030 --> 00:01:44,970
+in terms of states and actions that take us from state to state,
+
+35
+00:01:44,970 --> 00:01:49,130
+is that we really don't care whether it's a grid or a sparse graph.
+
+36
+00:01:49,130 --> 00:01:51,510
+That means you can very easily take all of
+
+37
+00:01:51,510 --> 00:01:54,120
+the code that you've written so far in the previous exercises,
+
+38
+00:01:54,120 --> 00:01:58,857
+and replace the grid based representation with a graph based representation.
+
+39
+00:01:58,857 --> 00:02:02,550
+What modifications would you need to make to your planner in that case?
+
+40
+00:02:02,550 --> 00:02:05,730
+Really, the only modification is that when you extend
+
+41
+00:02:05,730 --> 00:02:09,900
+a partial plan rather than expanding into adjacent grid cells,
+
+42
+00:02:09,900 --> 00:02:13,885
+you expand to all possible nodes reachable via edges.
+
+43
+00:02:13,885 --> 00:02:15,300
+If you have a start location and
+
+44
+00:02:15,300 --> 00:02:19,170
+a goal location and your graph is defined by a road network like this,
+
+45
+00:02:19,170 --> 00:02:24,015
+then you would extend from the start to these nodes choosing this direction to expand,
+
+46
+00:02:24,015 --> 00:02:28,480
+then expanding your partial plan again like this and so on until you reach the goal.
+
+47
+00:02:28,480 --> 00:02:31,320
+You can include a similar heuristic of an estimated distance to
+
+48
+00:02:31,320 --> 00:02:35,680
+go and your A* algorithm will work more or less unchanged.
+
+49
+00:02:35,680 --> 00:02:38,160
+A road network is just one example of how
+
+50
+00:02:38,160 --> 00:02:41,195
+you might discretizing an urban environment into a graph.
+
+51
+00:02:41,195 --> 00:02:43,890
+But next we'll look at other ways you can think of
+
+52
+00:02:43,890 --> 00:02:47,060
+implementing a graph based representation of your state space.
+

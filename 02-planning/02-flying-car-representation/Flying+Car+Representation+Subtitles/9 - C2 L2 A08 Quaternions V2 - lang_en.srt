@@ -1,0 +1,200 @@
+1
+00:00:00,000 --> 00:00:02,260
+In 1843 in Dublin,
+
+2
+00:00:02,260 --> 00:00:05,100
+William Rowan Hamilton had an epiphany so
+
+3
+00:00:05,100 --> 00:00:08,835
+profound he felt compelled to scroll it into the Broome bridge.
+
+4
+00:00:08,835 --> 00:00:14,495
+I squared equals J squared equals K squared equals IJK equals minus one.
+
+5
+00:00:14,495 --> 00:00:16,477
+So what the heck does that even mean?
+
+6
+00:00:16,477 --> 00:00:19,845
+Well, for starters we're talking about quaternions here and I,
+
+7
+00:00:19,845 --> 00:00:22,080
+J and K are all imaginary numbers,
+
+8
+00:00:22,080 --> 00:00:25,835
+which means that they do strange things like squared to negative one.
+
+9
+00:00:25,835 --> 00:00:30,420
+A single quaternion basically accomplishes the same thing mathematically as a series
+
+10
+00:00:30,420 --> 00:00:35,190
+of rotation matrix multiplications but in a much more compact form.
+
+11
+00:00:35,190 --> 00:00:40,815
+I can represent a quaternion as a scalar quantity A and then three numbers B C and D,
+
+12
+00:00:40,815 --> 00:00:45,220
+which when those three are taken together are the vector component of the quaternion.
+
+13
+00:00:45,220 --> 00:00:49,255
+You can think of the vector component as representing the magnitude in each of the I,
+
+14
+00:00:49,255 --> 00:00:51,140
+J and K directions.
+
+15
+00:00:51,140 --> 00:00:54,975
+So this is just mathematical notation and is not very intuitive,
+
+16
+00:00:54,975 --> 00:00:58,260
+but this compact representation is equivalent to a composition of
+
+17
+00:00:58,260 --> 00:01:01,380
+three rotation matrices and can be used just
+
+18
+00:01:01,380 --> 00:01:04,823
+as well to describe the orientation of your vehicle.
+
+19
+00:01:04,823 --> 00:01:07,380
+And when it comes to changes in orientation,
+
+20
+00:01:07,380 --> 00:01:11,375
+the interesting thing about quaternions is that if I have a unit quaternion,
+
+21
+00:01:11,375 --> 00:01:13,440
+which is to say the square root of the sum of
+
+22
+00:01:13,440 --> 00:01:16,785
+the squares of the scalar and the vector component is equal to one,
+
+23
+00:01:16,785 --> 00:01:21,600
+then my quaternion Q corresponds to a unique rotation in
+
+24
+00:01:21,600 --> 00:01:24,960
+three dimensional space and that means I can use
+
+25
+00:01:24,960 --> 00:01:30,074
+quaternions to represent changes in the orientation of my vehicle as well.
+
+26
+00:01:30,074 --> 00:01:34,230
+To perform a rotation, you'll need a unit quaternion and it's inverse.
+
+27
+00:01:34,230 --> 00:01:37,443
+The inverse of a unit quaternion is pretty simple.
+
+28
+00:01:37,443 --> 00:01:40,890
+Just write the same thing with minus signs where the plus signs were.
+
+29
+00:01:40,890 --> 00:01:42,780
+And now for example,
+
+30
+00:01:42,780 --> 00:01:45,600
+if I have some point on the body frame of the vehicle and I
+
+31
+00:01:45,600 --> 00:01:49,020
+pre and post multiply by the quaternion and its inverse,
+
+32
+00:01:49,020 --> 00:01:51,600
+then I get out some new point which is a result of
+
+33
+00:01:51,600 --> 00:01:55,489
+rotating by whatever rotation is encoded in that quaternion.
+
+34
+00:01:55,489 --> 00:01:59,610
+I can also multiply quaternions together to compose multiple rotations,
+
+35
+00:01:59,610 --> 00:02:03,840
+and I can convert from Euler angles to quaternions and back again.
+
+36
+00:02:03,840 --> 00:02:07,245
+For computation, the quaternion representation
+
+37
+00:02:07,245 --> 00:02:11,220
+is better than both the Euler angles and rotation matrices in
+
+38
+00:02:11,220 --> 00:02:13,620
+that it avoids some of the problems associated with
+
+39
+00:02:13,620 --> 00:02:18,830
+these other representations such as substantial over parameterization and gimbal lock.
+
+40
+00:02:18,830 --> 00:02:21,690
+Still, it's often useful to convert back to
+
+41
+00:02:21,690 --> 00:02:26,495
+Euler angles to be able to present a more human readable version of what's going on.
+
+42
+00:02:26,495 --> 00:02:29,715
+So here are the quaternion representations of roll,
+
+43
+00:02:29,715 --> 00:02:32,460
+pitch and yaw, and these equations
+
+44
+00:02:32,460 --> 00:02:36,705
+here show how to convert from quaternions back to Euler angles.
+
+45
+00:02:36,705 --> 00:02:41,610
+Similarly, you can recover rotation matrices from A,
+
+46
+00:02:41,610 --> 00:02:43,585
+B and C like this.
+
+47
+00:02:43,585 --> 00:02:46,620
+For the most part, this will all be going on under the hood in
+
+48
+00:02:46,620 --> 00:02:49,725
+your code and you don't need to worry too much about these equations,
+
+49
+00:02:49,725 --> 00:02:52,980
+but it's just worth keeping in mind the conversion between
+
+50
+00:02:52,980 --> 00:02:57,000
+quaternions and the more familiar Euler angles is pretty easy.
+

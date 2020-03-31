@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:04,929
+The frame for your quad is really just a rigid mount for the motors and electronics.
+
+2
+00:00:04,929 --> 00:00:07,740
+For the vast majority of quadrotor helicopters,
+
+3
+00:00:07,740 --> 00:00:10,185
+there really isn't anything that special about the frame.
+
+4
+00:00:10,185 --> 00:00:13,105
+It's just the base to which everything else is connected.
+
+5
+00:00:13,105 --> 00:00:16,269
+The frame has to be strong enough to support the components of the vehicle,
+
+6
+00:00:16,268 --> 00:00:18,338
+yet light enough that it can be lifted along with
+
+7
+00:00:18,338 --> 00:00:21,238
+all the other components by the motors and propellers.
+
+8
+00:00:21,239 --> 00:00:23,138
+But other than that, you don't need to worry
+
+9
+00:00:23,140 --> 00:00:26,274
+much about aerodynamics or other complications.
+
+10
+00:00:26,274 --> 00:00:28,478
+That said, there are people working on
+
+11
+00:00:28,480 --> 00:00:31,469
+different materials and different designs for frames.
+
+12
+00:00:31,469 --> 00:00:35,950
+So, I don't mean to say that there aren't a lot of interesting questions to be answered,
+
+13
+00:00:35,950 --> 00:00:37,359
+but frankly, you can make
+
+14
+00:00:37,359 --> 00:00:41,094
+a perfectly serviceable quadrotor frame out of household materials.
+
+15
+00:00:41,094 --> 00:00:42,609
+There's even a company out there that sells
+
+16
+00:00:42,609 --> 00:00:45,125
+drone kits where you build the frame out of Lego.
+
+17
+00:00:45,125 --> 00:00:49,899
+The simplicity of the frame is one of the big differences between multi rotor drones and
+
+18
+00:00:49,899 --> 00:00:53,439
+other more conventional aircraft where things like
+
+19
+00:00:53,439 --> 00:00:57,179
+aerodynamics and structural integrity are a much bigger concern.
+

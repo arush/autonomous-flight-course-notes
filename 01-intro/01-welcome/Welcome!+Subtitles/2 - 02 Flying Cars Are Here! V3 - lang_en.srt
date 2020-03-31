@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:02,010
+Hello. My name is Sebastian Thrun.
+
+2
+00:00:02,010 --> 00:00:04,740
+I'm founder of Udacity and I'm one of the instructors in
+
+3
+00:00:04,740 --> 00:00:08,265
+our new Nanodegree that we called Flying Cars.
+
+4
+00:00:08,265 --> 00:00:10,680
+Flying cars is a bit of a misnomer.
+
+5
+00:00:10,680 --> 00:00:12,975
+This is about drones, about anything flying.
+
+6
+00:00:12,975 --> 00:00:15,420
+But there's a nascent new industry here in
+
+7
+00:00:15,420 --> 00:00:17,845
+Silicon Valley and around the world that looks into
+
+8
+00:00:17,845 --> 00:00:24,015
+flight as a transportation medium for goods and people on a daily basis.
+
+9
+00:00:24,015 --> 00:00:26,730
+Now, we have the chance here at Udacity in Silicon Valley,
+
+10
+00:00:26,730 --> 00:00:28,710
+to be at the heart of innovation.
+
+11
+00:00:28,710 --> 00:00:31,350
+And we see things that others don't quite see yet.
+
+12
+00:00:31,350 --> 00:00:35,870
+Ten years ago, we saw that self-driving cars would become a big topic, and guess what?
+
+13
+00:00:35,870 --> 00:00:38,485
+It's become the biggest topic in Silicon Valley today.
+
+14
+00:00:38,485 --> 00:00:40,530
+I predict in five years time,
+
+15
+00:00:40,530 --> 00:00:44,865
+flying vehicles will be the biggest topic in Silicon Valley innovation.
+
+16
+00:00:44,865 --> 00:00:46,605
+And the reason I believe is this,
+
+17
+00:00:46,605 --> 00:00:49,095
+transportation is a huge industry,
+
+18
+00:00:49,095 --> 00:00:51,287
+really important for people,
+
+19
+00:00:51,287 --> 00:00:55,182
+but the ground is very limited in transportation.
+
+20
+00:00:55,182 --> 00:00:56,750
+If we could build vehicles,
+
+21
+00:00:56,750 --> 00:00:58,995
+it would easy to go off vertically,
+
+22
+00:00:58,995 --> 00:01:01,285
+fly us to where we want to go, and land.
+
+23
+00:01:01,285 --> 00:01:04,065
+You could go faster, of course.
+
+24
+00:01:04,065 --> 00:01:09,245
+We could be safer because of fewer things to hit in the sky than on the ground.
+
+25
+00:01:09,245 --> 00:01:13,505
+And we will be environmentally more friendly and use less energy.
+
+26
+00:01:13,505 --> 00:01:16,850
+And the last thing is a bit of a surprise but if you look at the modern aircraft,
+
+27
+00:01:16,850 --> 00:01:18,795
+when a modern aircraft loses its power,
+
+28
+00:01:18,795 --> 00:01:22,695
+it glides down at a glide ratio of about one-to-15 or so,.
+
+29
+00:01:22,695 --> 00:01:28,590
+which means, the energy consumption used for lift for keeping a flying vehicle in the air
+
+30
+00:01:28,590 --> 00:01:34,611
+is only a 15th of the energy used to combat the air, which is what we call drag.
+
+31
+00:01:34,611 --> 00:01:38,850
+Now, we've built this Nanodegree to be the first in the world to teach flying cars.
+
+32
+00:01:38,850 --> 00:01:40,530
+There's no other place I can
+
+33
+00:01:40,530 --> 00:01:43,620
+imagine that would teach that material that we're teaching here.
+
+34
+00:01:43,620 --> 00:01:46,285
+And once students graduate from this class,
+
+35
+00:01:46,285 --> 00:01:48,360
+easily find a job, and can tell you,
+
+36
+00:01:48,360 --> 00:01:49,660
+former company Kitty Hawk,
+
+37
+00:01:49,660 --> 00:01:51,880
+they are desperately looking for people to hire.
+
+38
+00:01:51,880 --> 00:01:56,175
+And we put together a skill set and set of instructors who are world class.
+
+39
+00:01:56,175 --> 00:01:58,425
+This new industry is small today.
+
+40
+00:01:58,425 --> 00:01:59,940
+It's going to be big tomorrow.
+
+41
+00:01:59,940 --> 00:02:03,900
+Amazon, Google, and others will use drone-based systems.
+
+42
+00:02:03,900 --> 00:02:06,198
+Others will follow. Your pizza will fly in.
+
+43
+00:02:06,198 --> 00:02:09,782
+It sounds all like science fiction but the chance you get in this Nanodegree
+
+44
+00:02:09,782 --> 00:02:14,980
+is to really become part of that science fiction and make the future.
+

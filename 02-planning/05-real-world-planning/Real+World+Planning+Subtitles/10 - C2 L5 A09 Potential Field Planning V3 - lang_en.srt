@@ -1,0 +1,296 @@
+1
+00:00:00,000 --> 00:00:01,950
+In most of our planning so far,
+
+2
+00:00:01,950 --> 00:00:03,480
+we have assumed that the map is
+
+3
+00:00:03,480 --> 00:00:06,510
+a perfect model of the environment the vehicle is flying in.
+
+4
+00:00:06,510 --> 00:00:08,790
+But of course, we said a few times that that is
+
+5
+00:00:08,790 --> 00:00:12,120
+a risky assumption not suitable for real-world applications.
+
+6
+00:00:12,120 --> 00:00:15,120
+The obstacles in the environment can change for any number of reasons.
+
+7
+00:00:15,120 --> 00:00:17,825
+Buildings get put up or taken down all the time,
+
+8
+00:00:17,825 --> 00:00:21,405
+trees grow, there may be things moving around like other flying cars.
+
+9
+00:00:21,405 --> 00:00:24,210
+Assuming that you have some sensor onboard to
+
+10
+00:00:24,210 --> 00:00:27,150
+measure the position of obstacles in the local 3D environment,
+
+11
+00:00:27,150 --> 00:00:28,695
+this could be a lidar,
+
+12
+00:00:28,695 --> 00:00:30,540
+or depth camera for example,
+
+13
+00:00:30,540 --> 00:00:33,720
+one thing you could do is continually update
+
+14
+00:00:33,720 --> 00:00:37,890
+the local map in your receding horizon planner and replan with each update.
+
+15
+00:00:37,890 --> 00:00:40,605
+But replaning can take some time,
+
+16
+00:00:40,605 --> 00:00:43,440
+and full replanning may not always be necessary.
+
+17
+00:00:43,440 --> 00:00:47,123
+Nearly always, even with unexpected obstacles,
+
+18
+00:00:47,123 --> 00:00:49,500
+the original plan is close to correct.
+
+19
+00:00:49,500 --> 00:00:51,660
+The appearance of an unexpected obstacle may
+
+20
+00:00:51,660 --> 00:00:54,285
+require just a local perturbation to the original plan,
+
+21
+00:00:54,285 --> 00:00:57,105
+to dodge around the unexpected tree or flying car.
+
+22
+00:00:57,105 --> 00:00:59,820
+There is an efficient way to think about obstacles,
+
+23
+00:00:59,820 --> 00:01:02,370
+that makes it easy to dodge around them without having to
+
+24
+00:01:02,370 --> 00:01:05,145
+incur the full cost of replanning.
+
+25
+00:01:05,145 --> 00:01:08,540
+Let's assume, we have our original plan as a set of waypoints.
+
+26
+00:01:08,540 --> 00:01:10,750
+You can then think of the next waypoint as
+
+27
+00:01:10,750 --> 00:01:14,110
+the potential field exerting an attractive force on the vehicle,
+
+28
+00:01:14,110 --> 00:01:16,840
+essentially pulling the vehicle downhill toward it.
+
+29
+00:01:16,840 --> 00:01:20,605
+Let's set that potential to be a quadratic function of the distance to the goal,
+
+30
+00:01:20,605 --> 00:01:23,110
+so that the attractive potential is some factor
+
+31
+00:01:23,110 --> 00:01:26,854
+alpha times one half times the distance to the goal squared.
+
+32
+00:01:26,854 --> 00:01:29,920
+That defines a quadratic potential surface like the one shown here.
+
+33
+00:01:29,920 --> 00:01:33,220
+And whenever we think about moving around in a potential,
+
+34
+00:01:33,220 --> 00:01:37,515
+what that potential does is exert a force which is the derivative of the potential.
+
+35
+00:01:37,515 --> 00:01:40,180
+Which in this case, is the derivative of alpha times one half,
+
+36
+00:01:40,180 --> 00:01:41,980
+times the distance squared,
+
+37
+00:01:41,980 --> 00:01:45,210
+or simply alpha times the distance to the goal.
+
+38
+00:01:45,210 --> 00:01:47,880
+The alpha term is just some constant we can choose to
+
+39
+00:01:47,880 --> 00:01:51,050
+control how strong the pull of the goal is.
+
+40
+00:01:51,050 --> 00:01:52,890
+We can also think of each obstacle point as
+
+41
+00:01:52,890 --> 00:01:55,080
+exerting a repulsive force in the flight vehicle,
+
+42
+00:01:55,080 --> 00:01:57,750
+pushing the vehicle away from the obstacle.
+
+43
+00:01:57,750 --> 00:02:00,495
+In order to make this a repulsive potential,
+
+44
+00:02:00,495 --> 00:02:03,960
+we'll have it depend on the inverse of the distance to the obstacle,
+
+45
+00:02:03,960 --> 00:02:09,060
+and we'll define a distance Q_max beyond which will set the obstacle potential to zero.
+
+46
+00:02:09,060 --> 00:02:11,925
+Meaning that if you steer well clear of obstacles,
+
+47
+00:02:11,925 --> 00:02:13,500
+you don't feel the potential.
+
+48
+00:02:13,500 --> 00:02:17,820
+Again, the force exerted by obstacles is just the derivative of the potential,
+
+49
+00:02:17,820 --> 00:02:22,560
+and now beta is a constant you can use to set the strength of the obstacle potential.
+
+50
+00:02:22,560 --> 00:02:26,190
+If you now add up the attractive and repulsive forces,
+
+51
+00:02:26,190 --> 00:02:28,620
+you get a net force vector that always
+
+52
+00:02:28,620 --> 00:02:31,905
+pushes the vehicle towards the goal and away from obstacles.
+
+53
+00:02:31,905 --> 00:02:35,310
+Remember, this isn't a true force like wind or gravity.
+
+54
+00:02:35,310 --> 00:02:39,390
+But if you tell the autopilot to steer toward the direction of this force vector,
+
+55
+00:02:39,390 --> 00:02:43,485
+the vehicle will make progress toward the goal while dodging obstacles.
+
+56
+00:02:43,485 --> 00:02:46,155
+If you think of the vehicles eventual path
+
+57
+00:02:46,155 --> 00:02:48,570
+as the integral of the forces at each time instant,
+
+58
+00:02:48,570 --> 00:02:52,260
+then you'll recognize that the forces are a source of potential energy and,
+
+59
+00:02:52,260 --> 00:02:55,245
+this technique is known as potential field motion planning.
+
+60
+00:02:55,245 --> 00:02:57,220
+It's a really old idea,
+
+61
+00:02:57,220 --> 00:03:00,590
+but was originally invented for cruise missiles traveling at high speed
+
+62
+00:03:00,590 --> 00:03:04,406
+that needed to plan motions to avoid obstacles very quickly.
+
+63
+00:03:04,406 --> 00:03:07,340
+It's a great way for any fast-moving flight vehicle to
+
+64
+00:03:07,340 --> 00:03:11,285
+efficiently plan to dodge obstacles. There is one wrinkle.
+
+65
+00:03:11,285 --> 00:03:13,490
+Like any energy potential field,
+
+66
+00:03:13,490 --> 00:03:16,085
+the motion planning potential field can have local minimum.
+
+67
+00:03:16,085 --> 00:03:19,535
+Places, where the notional force vectors all cancel each other out,
+
+68
+00:03:19,535 --> 00:03:21,410
+leaving the vehicle motionless.
+
+69
+00:03:21,410 --> 00:03:26,120
+In these cases, there's nothing the vehicle can do except stop forward motion,
+
+70
+00:03:26,120 --> 00:03:28,610
+and do a full replan. So part of
+
+71
+00:03:28,610 --> 00:03:32,190
+potential field planning is being careful to check for local minimum.
+
+72
+00:03:32,190 --> 00:03:33,820
+In the next exercise,
+
+73
+00:03:33,820 --> 00:03:36,040
+you'll get a chance to try this out for yourself,
+
+74
+00:03:36,040 --> 00:03:39,070
+when you implement your own potential field motion planner.
+

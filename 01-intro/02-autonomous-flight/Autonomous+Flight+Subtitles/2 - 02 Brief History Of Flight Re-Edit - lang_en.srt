@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:03,330
+Orville and Wilbur Wright were the first people to fly a manned and powered
+
+2
+00:00:03,330 --> 00:00:06,795
+airplane back in 1903 near Kitty Hawk, North Carolina.
+
+3
+00:00:06,795 --> 00:00:10,590
+Many people before them had been trying to figure out how to fly.
+
+4
+00:00:10,590 --> 00:00:11,910
+But no one else had succeeded,
+
+5
+00:00:11,910 --> 00:00:15,390
+because they were attempting to make planes that were very stable and easy to control.
+
+6
+00:00:15,390 --> 00:00:18,210
+These earlier planes were designed to keep flying and
+
+7
+00:00:18,210 --> 00:00:21,435
+just needed the pilot to steer, as if navigating a ship.
+
+8
+00:00:21,435 --> 00:00:24,315
+The Wright brothers spent time watching how birds fly,
+
+9
+00:00:24,315 --> 00:00:27,090
+lying on their backs out on the sand dunes near Kitty Hawk,
+
+10
+00:00:27,090 --> 00:00:29,870
+watching the buzzards wheel around up in the sky.
+
+11
+00:00:29,870 --> 00:00:33,775
+They noticed that the bird swooped and turned by constantly adjusting themselves,
+
+12
+00:00:33,775 --> 00:00:35,097
+reacting to the wind,
+
+13
+00:00:35,097 --> 00:00:36,670
+doing things like changing the shape of
+
+14
+00:00:36,670 --> 00:00:39,790
+their wings to induce a bank maneuver in a given direction.
+
+15
+00:00:39,790 --> 00:00:42,550
+The key thing they discovered by watching the birds,
+
+16
+00:00:42,550 --> 00:00:45,370
+was that stable flight requires active control.
+
+17
+00:00:45,370 --> 00:00:50,290
+Previous aircraft designs that had attempted to enable passive stability had failed,
+
+18
+00:00:50,290 --> 00:00:52,210
+because flight is inherently dynamic.
+
+19
+00:00:52,210 --> 00:00:54,637
+The Wright brothers design their airplane,
+
+20
+00:00:54,637 --> 00:00:56,125
+not to be particularly stable,
+
+21
+00:00:56,125 --> 00:01:00,220
+but it gave the pilot much more control through things like adjustable wings
+
+22
+00:01:00,220 --> 00:01:02,495
+that'll let the pilot fly just like a bird.
+
+23
+00:01:02,495 --> 00:01:05,430
+These adjustable wings and other controls that they had,
+
+24
+00:01:05,430 --> 00:01:08,880
+they were the early forerunners of modern control surfaces like ailerons.
+
+25
+00:01:08,880 --> 00:01:10,860
+The sacrifice of stability in exchange for
+
+26
+00:01:10,860 --> 00:01:13,605
+greater control is what made the first flight successful.
+
+27
+00:01:13,605 --> 00:01:16,005
+Once the Wright brothers were in the air, however,
+
+28
+00:01:16,005 --> 00:01:19,410
+they found that controlling the aircraft had built and navigating in flight.
+
+29
+00:01:19,410 --> 00:01:21,870
+These are really complicated tasks to do together,
+
+30
+00:01:21,870 --> 00:01:25,440
+and required the pilot to be simultaneously keeping the aircraft level,
+
+31
+00:01:25,440 --> 00:01:27,255
+while maintaining a particular heading,
+
+32
+00:01:27,255 --> 00:01:30,105
+and keeping an eye on the ground to know where they were on the map.
+
+33
+00:01:30,105 --> 00:01:34,845
+The Wright Brothers and other folks struggled with how to make flying less complicated.
+
+34
+00:01:34,845 --> 00:01:38,055
+And just about 10 years later, in 1912,
+
+35
+00:01:38,055 --> 00:01:41,130
+Elmer Sperry invented the very first autopilot known as
+
+36
+00:01:41,130 --> 00:01:45,600
+the Mechanical Mike which was basically a device with a couple of gyroscopes inside,
+
+37
+00:01:45,600 --> 00:01:48,405
+that allowed for monitoring the heading and pitch of the aircraft
+
+38
+00:01:48,405 --> 00:01:51,780
+in order to automatically stay on a level and stable trajectory.
+
+39
+00:01:51,780 --> 00:01:54,225
+Airplanes were not yet completely autonomous.
+
+40
+00:01:54,225 --> 00:01:55,485
+But as you can already see,
+
+41
+00:01:55,485 --> 00:01:56,940
+more than 100 years ago,
+
+42
+00:01:56,940 --> 00:01:59,880
+we'd begun building semi-autonomous flying machines.
+
+43
+00:01:59,880 --> 00:02:04,525
+The past century has seen dramatic improvements to autopilot technology.
+
+44
+00:02:04,525 --> 00:02:06,915
+And now, commercial aircraft routinely fly for
+
+45
+00:02:06,915 --> 00:02:09,705
+hours at a time in fully autonomous autopilot mode.
+
+46
+00:02:09,705 --> 00:02:12,270
+And the military flies planes with no pilot on board at all.
+

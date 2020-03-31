@@ -1,0 +1,168 @@
+1
+00:00:00,000 --> 00:00:03,839
+Because of the complexity and memory storage requirements of maintaining
+
+2
+00:00:03,839 --> 00:00:08,655
+a dense 3D grid of the configuration space with free and occupied cells,
+
+3
+00:00:08,654 --> 00:00:12,059
+a common alternative is to use so-called two and a half D maps,
+
+4
+00:00:12,060 --> 00:00:14,580
+where we assume that every obstacle extends from
+
+5
+00:00:14,580 --> 00:00:18,030
+the ground plane up to some height with nothing above it.
+
+6
+00:00:18,030 --> 00:00:21,870
+This means that you can actually store your planning map as a 2D map.
+
+7
+00:00:21,870 --> 00:00:26,199
+But instead of each cell being labeled with whether or not that cell is feasible,
+
+8
+00:00:26,199 --> 00:00:29,310
+each cell is labeled with the height of the obstacle,
+
+9
+00:00:29,309 --> 00:00:30,599
+or in other words,
+
+10
+00:00:30,600 --> 00:00:33,840
+the minimum altitude at which that cell becomes feasible.
+
+11
+00:00:33,840 --> 00:00:36,140
+This is essentially the representation that
+
+12
+00:00:36,140 --> 00:00:38,630
+you'll be working with in the upcoming project,
+
+13
+00:00:38,630 --> 00:00:42,109
+which consists of a polygon representation of
+
+14
+00:00:42,109 --> 00:00:44,210
+the ground plane footprint of each building in
+
+15
+00:00:44,210 --> 00:00:47,090
+the environment and the height of the building.
+
+16
+00:00:47,090 --> 00:00:50,435
+For example, the representation of a house
+
+17
+00:00:50,435 --> 00:00:53,855
+which has a pitched roof might look something like this,
+
+18
+00:00:53,854 --> 00:00:58,609
+where each one of these columns represents the height at which flight becomes feasible.
+
+19
+00:00:58,609 --> 00:01:00,740
+In the case where there are no obstacles,
+
+20
+00:01:00,740 --> 00:01:04,040
+then the minimum feasible altitude for those cells will be zero.
+
+21
+00:01:04,040 --> 00:01:08,930
+And again, we're not representing these columns as actual columns inside a 3D grid.
+
+22
+00:01:08,930 --> 00:01:13,545
+We're just representing the XY location of each polygon and the corresponding height.
+
+23
+00:01:13,545 --> 00:01:18,090
+Notice that what we've done here is implicitly separate the plan space, x, y,
+
+24
+00:01:18,090 --> 00:01:22,005
+z from the representation required to check if moves are feasible,
+
+25
+00:01:22,004 --> 00:01:25,469
+the x, y, and minimum flight altitude at each point.
+
+26
+00:01:25,469 --> 00:01:29,039
+This type of map works really well for a lot of flight applications.
+
+27
+00:01:29,040 --> 00:01:31,073
+In your planning solution in this case,
+
+28
+00:01:31,072 --> 00:01:32,954
+the state of the vehicle along the path
+
+29
+00:01:32,954 --> 00:01:35,730
+encodes the planned flight altitude of that location,
+
+30
+00:01:35,730 --> 00:01:37,980
+and that means that unsurprisingly,
+
+31
+00:01:37,980 --> 00:01:40,770
+your flight plans in 3D will often be longer than
+
+32
+00:01:40,769 --> 00:01:44,899
+2D plans because you need to take actions to change altitude.
+
+33
+00:01:44,900 --> 00:01:49,359
+In 3D, you might have a flight plan that goes up and over then down,
+
+34
+00:01:49,359 --> 00:01:51,004
+as the vehicle flies over this house.
+
+35
+00:01:51,004 --> 00:01:55,039
+But the storage required in the case of a two and a half D map representation
+
+36
+00:01:55,040 --> 00:01:59,570
+to check if a plan move is feasible is no worse than it was before on a 2D grid.
+
+37
+00:01:59,569 --> 00:02:02,269
+One drawback of this representation is that you
+
+38
+00:02:02,269 --> 00:02:04,954
+do lose the ability to represent complex geometry.
+
+39
+00:02:04,954 --> 00:02:07,609
+You can no longer represent the freespace, for example,
+
+40
+00:02:07,609 --> 00:02:10,685
+under the tree branches or under bridges.
+
+41
+00:02:10,685 --> 00:02:14,210
+For flying cars, that's probably okay because you can usually
+
+42
+00:02:14,210 --> 00:02:18,090
+assume that you don't want your flying car flying under a bridge or under a tree.
+

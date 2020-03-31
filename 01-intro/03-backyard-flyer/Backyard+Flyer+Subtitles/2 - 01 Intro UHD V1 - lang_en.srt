@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:02,835
+Welcome back. When you first get a new drone,
+
+2
+00:00:02,835 --> 00:00:05,669
+you're going to want to bring it outside and get it flying.
+
+3
+00:00:05,669 --> 00:00:08,560
+And in this lesson, which we're calling Backyard Flyer,
+
+4
+00:00:08,560 --> 00:00:11,345
+you will simulate doing exactly that.
+
+5
+00:00:11,345 --> 00:00:13,020
+Now, to simulate this experience,
+
+6
+00:00:13,019 --> 00:00:15,134
+you're going to be working with the same simulator
+
+7
+00:00:15,134 --> 00:00:17,304
+you'll be using throughout this program.
+
+8
+00:00:17,304 --> 00:00:19,545
+The drone you'll be controlling in this simulator
+
+9
+00:00:19,545 --> 00:00:21,870
+can actually be controlled with Python code.
+
+10
+00:00:21,870 --> 00:00:24,865
+And later, you'll be using C++ as well.
+
+11
+00:00:24,864 --> 00:00:28,500
+Now, the primary learning objective for this lesson is for you to understand at
+
+12
+00:00:28,500 --> 00:00:34,204
+a high level how this Python drone control code actually interacts with the simulator.
+
+13
+00:00:34,204 --> 00:00:36,449
+By the end of this lesson, you'll be able to write
+
+14
+00:00:36,450 --> 00:00:39,398
+code in what's called an event-driven paradigm,
+
+15
+00:00:39,398 --> 00:00:44,000
+and that code will actually control a drone to fly in whatever flight path you choose.
+

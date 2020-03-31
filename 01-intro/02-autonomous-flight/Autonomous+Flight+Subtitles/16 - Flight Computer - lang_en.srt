@@ -1,0 +1,244 @@
+1
+00:00:00,000 --> 00:00:04,380
+So, now you have a quadrotor consisting of an airframe with motors,
+
+2
+00:00:04,380 --> 00:00:06,638
+and propellers, and speed controllers,
+
+3
+00:00:06,638 --> 00:00:09,540
+being driven by an autopilot to adjust the vehicle attitude,
+
+4
+00:00:09,540 --> 00:00:11,880
+which is constantly being measured by the IMU,
+
+5
+00:00:11,880 --> 00:00:14,190
+and your position is provided by GPS.
+
+6
+00:00:14,190 --> 00:00:17,040
+But then what? How do you execute a mission?
+
+7
+00:00:17,040 --> 00:00:19,640
+Of course, you could just have a human pilot,
+
+8
+00:00:19,640 --> 00:00:22,095
+but this program is all about autonomous flight.
+
+9
+00:00:22,095 --> 00:00:23,955
+So how do you replace the human?
+
+10
+00:00:23,955 --> 00:00:26,550
+Well, you need a brain on board of course,
+
+11
+00:00:26,550 --> 00:00:29,280
+and the flight computer will be the brain for the vehicle.
+
+12
+00:00:29,280 --> 00:00:31,425
+The flight computer, like this one,
+
+13
+00:00:31,425 --> 00:00:35,670
+is generally responsible for all parts of the mission including for example,
+
+14
+00:00:35,670 --> 00:00:38,670
+planning a safe trajectory through obstacles and managing
+
+15
+00:00:38,670 --> 00:00:42,527
+the payload or position estimation when GPS's flaking them.
+
+16
+00:00:42,527 --> 00:00:44,295
+If the flight computer is the brain,
+
+17
+00:00:44,295 --> 00:00:48,000
+you can think of the autopilot as more like the spinal cord or lizard
+
+18
+00:00:48,000 --> 00:00:52,058
+brain stem of the vehicle responsible for lower level processes.
+
+19
+00:00:52,058 --> 00:00:54,870
+And then, the flight computer is responsible for
+
+20
+00:00:54,870 --> 00:00:58,725
+higher level functions like deciding what the vehicle should do next,
+
+21
+00:00:58,725 --> 00:01:01,875
+and how it should respond to new information.
+
+22
+00:01:01,875 --> 00:01:03,375
+There are in fact,
+
+23
+00:01:03,375 --> 00:01:08,640
+multiple levels of control on any autonomous system and drones are no exception.
+
+24
+00:01:08,640 --> 00:01:10,410
+The way the whole system;
+
+25
+00:01:10,410 --> 00:01:13,460
+the flight computer, autopilot, sensors,
+
+26
+00:01:13,460 --> 00:01:15,740
+and mechanical parts function together
+
+27
+00:01:15,740 --> 00:01:18,590
+is through a series of what are known as control loops.
+
+28
+00:01:18,590 --> 00:01:20,510
+So let's draw this out.
+
+29
+00:01:20,510 --> 00:01:23,099
+First, you have your autopilot,
+
+30
+00:01:23,099 --> 00:01:26,360
+which is getting information about attitude from the IMU.
+
+31
+00:01:26,360 --> 00:01:31,130
+It compares that with a target attitude and send's small adjustments to the motors,
+
+32
+00:01:31,130 --> 00:01:33,843
+which act to change the attitude of the quad,
+
+33
+00:01:33,843 --> 00:01:37,595
+and the cycle continues with the IMU making a new measurement.
+
+34
+00:01:37,595 --> 00:01:40,330
+So, this is the attitude control loop,
+
+35
+00:01:40,330 --> 00:01:42,410
+where the autopilot is constantly updating the motor
+
+36
+00:01:42,410 --> 00:01:45,305
+thrusts based on sensor data from the IMU.
+
+37
+00:01:45,305 --> 00:01:47,970
+This loop is always running in the background and just like
+
+38
+00:01:47,970 --> 00:01:52,095
+your brainstem keeps your vital organs working without you having to pay attention.
+
+39
+00:01:52,095 --> 00:01:53,666
+On top of that,
+
+40
+00:01:53,666 --> 00:01:55,125
+there's a position control loop.
+
+41
+00:01:55,125 --> 00:01:56,805
+Sometimes it's in the autopilot,
+
+42
+00:01:56,805 --> 00:02:00,600
+but more often it's in the flight computer where the position control loop is receiving
+
+43
+00:02:00,600 --> 00:02:04,755
+information about the vehicle position from GPS or other sensors,
+
+44
+00:02:04,755 --> 00:02:09,345
+and computing a target thrust vector in order to move to the desired position.
+
+45
+00:02:09,345 --> 00:02:12,735
+That thrust vector command is then sent to the autopilot loop,
+
+46
+00:02:12,735 --> 00:02:15,540
+which in turn adjusts the motor thrusts to achieve
+
+47
+00:02:15,540 --> 00:02:19,860
+that new attitude and the cycle continues with the GPS making new measurements.
+
+48
+00:02:19,860 --> 00:02:23,690
+These loops do not need to be synchronized and most often they're not.
+
+49
+00:02:23,690 --> 00:02:28,210
+The autopilot loop might be executing at 50 cycles per second or 50 hertz.
+
+50
+00:02:28,210 --> 00:02:31,090
+While the position loop might only be executing a few times per second.
+
+51
+00:02:31,090 --> 00:02:34,525
+So the way this works is that for instance,
+
+52
+00:02:34,525 --> 00:02:36,670
+if the mission is to inspect a wind turbine,
+
+53
+00:02:36,670 --> 00:02:40,825
+the flight computer will be responsible for working out how to fly that mission
+
+54
+00:02:40,825 --> 00:02:43,060
+or in other words what the vehicle trajectory should
+
+55
+00:02:43,060 --> 00:02:45,790
+look like as a series of positions in space.
+
+56
+00:02:45,790 --> 00:02:48,430
+And the autopilot will be responsible for executing
+
+57
+00:02:48,430 --> 00:02:50,890
+that plan as it gets regular updates from
+
+58
+00:02:50,890 --> 00:02:52,840
+the flight computer on how to adjust
+
+59
+00:02:52,840 --> 00:02:56,808
+the thrust vector to arrive at the desired series of positions.
+
+60
+00:02:56,808 --> 00:02:57,874
+And there you have it.
+
+61
+00:02:57,874 --> 00:02:59,690
+Your quadrotor has a brain!
+

@@ -1,0 +1,280 @@
+1
+00:00:00,000 --> 00:00:01,860
+In solving the planning problem,
+
+2
+00:00:01,860 --> 00:00:03,645
+we've ignored the mass of the vehicle,
+
+3
+00:00:03,645 --> 00:00:05,745
+and force is acting on it like gravity.
+
+4
+00:00:05,745 --> 00:00:08,414
+But when you include forces and mass in your planning problem,
+
+5
+00:00:08,414 --> 00:00:10,349
+even when there aren't a lot of obstacles
+
+6
+00:00:10,349 --> 00:00:13,035
+around with complicated passages to fly through,
+
+7
+00:00:13,035 --> 00:00:16,859
+you still need to think about issues like planning to fly slowly enough,
+
+8
+00:00:16,859 --> 00:00:21,195
+that you have sufficient room to stop when you get close to an obstacle or waypoint.
+
+9
+00:00:21,195 --> 00:00:25,289
+Remember, that the attitude of the vehicle directs the thrust vector.
+
+10
+00:00:25,289 --> 00:00:27,689
+And so, you have to think about how quickly you can rotate
+
+11
+00:00:27,690 --> 00:00:30,545
+the vehicle to accelerate or decelerate.
+
+12
+00:00:30,545 --> 00:00:33,340
+The constraints on a vehicle's motion that result from
+
+13
+00:00:33,340 --> 00:00:37,240
+the vehicle's mass and forces acting on it are known as dynamic constraints.
+
+14
+00:00:37,240 --> 00:00:38,980
+And dynamic constraints generally,
+
+15
+00:00:38,979 --> 00:00:41,515
+show up as a form of differential constraint.
+
+16
+00:00:41,515 --> 00:00:45,895
+While there may be other differential constraints related to how the vehicle moves,
+
+17
+00:00:45,895 --> 00:00:49,765
+like the steering mechanism on a car for example, in this lesson,
+
+18
+00:00:49,765 --> 00:00:51,759
+we're going to look at how to find plans for
+
+19
+00:00:51,759 --> 00:00:54,839
+vehicles that have differential constraints of all kinds.
+
+20
+00:00:54,840 --> 00:00:59,175
+The first thing you need to work out is how to specify differential constraints.
+
+21
+00:00:59,174 --> 00:01:00,899
+In some cases, it's easy.
+
+22
+00:01:00,899 --> 00:01:03,449
+For example, imagine a vehicle flying in
+
+23
+00:01:03,450 --> 00:01:06,480
+a strong prevailing wind blowing in the positive x direction.
+
+24
+00:01:06,480 --> 00:01:10,230
+If your constraint is that you must be able to tolerate any crosswind velocity,
+
+25
+00:01:10,230 --> 00:01:11,730
+but you can never fly upwind,
+
+26
+00:01:11,730 --> 00:01:15,840
+then this constraint can be written as a derivative on x is greater than zero.
+
+27
+00:01:15,840 --> 00:01:17,820
+Now, for a flying car,
+
+28
+00:01:17,819 --> 00:01:20,084
+you might also have acceleration constraints,
+
+29
+00:01:20,084 --> 00:01:24,164
+which are constraints on how quickly you can accelerate or decelerate.
+
+30
+00:01:24,165 --> 00:01:28,895
+Acceleration constraints are a function of the second derivative of the state.
+
+31
+00:01:28,894 --> 00:01:33,354
+A common form of differential constraint is what's called the vehicle model.
+
+32
+00:01:33,355 --> 00:01:36,085
+The vehicle model addresses questions like,
+
+33
+00:01:36,084 --> 00:01:39,625
+"What motion is the vehicle capable of given its current state?
+
+34
+00:01:39,625 --> 00:01:41,680
+How do you specify the possible trajectories
+
+35
+00:01:41,680 --> 00:01:44,095
+the vehicle can take from its current state?"
+
+36
+00:01:44,094 --> 00:01:48,310
+This is usually written as a differential equation or set of equations.
+
+37
+00:01:48,310 --> 00:01:51,340
+For instance, suppose you have a vehicle that is
+
+38
+00:01:51,340 --> 00:01:55,195
+constrained to fly in a counterclockwise motion in a circle.
+
+39
+00:01:55,194 --> 00:02:00,369
+We can write a model for this as x-dot is equal to minus y and y-dot is equal to x.
+
+40
+00:02:00,370 --> 00:02:02,710
+In this case, the vehicle is constrained to fly in
+
+41
+00:02:02,709 --> 00:02:05,144
+a circle of unit radius centered at the origin.
+
+42
+00:02:05,144 --> 00:02:09,004
+This model says that the vehicle motion has to always be tangent to the circle.
+
+43
+00:02:09,004 --> 00:02:14,074
+These sorts of equations are often how we specify how a flight vehicle is able to move.
+
+44
+00:02:14,074 --> 00:02:18,259
+A challenge with specifying the motion of the vehicle this way is that you can no
+
+45
+00:02:18,259 --> 00:02:20,149
+longer do simple line drawing to check
+
+46
+00:02:20,150 --> 00:02:22,909
+whether a path between two states is in free space.
+
+47
+00:02:22,909 --> 00:02:27,770
+You have to integrate the model forward to know what the path is going to look like.
+
+48
+00:02:27,770 --> 00:02:29,784
+Integration can be complicated,
+
+49
+00:02:29,784 --> 00:02:32,990
+especially for nonlinear dynamics models like this.
+
+50
+00:02:32,990 --> 00:02:34,550
+If you're lucky, you can solve
+
+51
+00:02:34,550 --> 00:02:37,745
+the differential equations explicitly for the state at any time t,
+
+52
+00:02:37,745 --> 00:02:40,980
+but if not, you have to use a numerical integration scheme.
+
+53
+00:02:40,979 --> 00:02:44,935
+The simplest integration scheme is to assume a linear approximation,
+
+54
+00:02:44,935 --> 00:02:48,640
+so that you can write this dynamics model as a set of difference equations,
+
+55
+00:02:48,639 --> 00:02:52,929
+such as xt plus one is equal to xt plus yt, delta-t.
+
+56
+00:02:52,930 --> 00:02:55,465
+In this case, you have to pick some value of delta-t.
+
+57
+00:02:55,465 --> 00:02:57,594
+The larger the value you pick for delta-t,
+
+58
+00:02:57,594 --> 00:03:01,164
+the worse your linear approximation is going to be for nonlinear systems.
+
+59
+00:03:01,164 --> 00:03:04,164
+So, for this model constraining the vehicle to fly in a circle,
+
+60
+00:03:04,164 --> 00:03:08,829
+the linear approximation would look like a series of straight line segments like this.
+
+61
+00:03:08,830 --> 00:03:12,520
+Similarly, yt is equal to yt plus xt
+
+62
+00:03:12,520 --> 00:03:16,855
+times delta-t. Small values of delta-t are going to be a better approximation again,
+
+63
+00:03:16,854 --> 00:03:18,699
+but more computationally demanding.
+
+64
+00:03:18,699 --> 00:03:21,129
+Large values of delta-t are easier to simulate,
+
+65
+00:03:21,129 --> 00:03:22,734
+but a worse approximation.
+
+66
+00:03:22,735 --> 00:03:24,655
+To apply this approximation,
+
+67
+00:03:24,655 --> 00:03:28,284
+you would need to iterate on xt and yt from say,
+
+68
+00:03:28,284 --> 00:03:30,460
+zero to some point in the future.
+
+69
+00:03:30,460 --> 00:03:33,310
+In the next exercise, you'll get a chance to implement
+
+70
+00:03:33,310 --> 00:03:37,659
+an integration scheme for a dynamics model using the linear approximation.
+

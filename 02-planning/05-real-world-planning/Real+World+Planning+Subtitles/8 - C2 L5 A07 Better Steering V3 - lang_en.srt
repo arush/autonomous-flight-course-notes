@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:04,365
+At this point, you may have noticed that your steer function is really rather naive,
+
+2
+00:00:04,365 --> 00:00:06,255
+just randomly sampling controls,
+
+3
+00:00:06,255 --> 00:00:08,670
+and then this has a significant impact on how
+
+4
+00:00:08,670 --> 00:00:11,840
+well your tree makes progress from the start to the goal.
+
+5
+00:00:11,840 --> 00:00:14,940
+Again, in general, solving for the controls that will allow
+
+6
+00:00:14,940 --> 00:00:18,240
+you to find an edge between any pair of states is a hard problem.
+
+7
+00:00:18,240 --> 00:00:19,920
+But for this specific dynamics model,
+
+8
+00:00:19,920 --> 00:00:22,230
+it turns out you can be a fair bit smarter about
+
+9
+00:00:22,230 --> 00:00:25,155
+how you choose controls to get from X1 to X2.
+
+10
+00:00:25,155 --> 00:00:28,410
+You can use geometry to see if the sample point X2 is within
+
+11
+00:00:28,410 --> 00:00:32,445
+the reachable half circle from the nearest point in the current tree, X_near.
+
+12
+00:00:32,445 --> 00:00:34,920
+You can solve for these three angles exactly.
+
+13
+00:00:34,920 --> 00:00:36,660
+This is not quite a half circle,
+
+14
+00:00:36,660 --> 00:00:39,060
+but all of the points in this area form the set of
+
+15
+00:00:39,060 --> 00:00:41,595
+feasible points reachable by the Dubin's car model,
+
+16
+00:00:41,595 --> 00:00:45,105
+with our max horizon t as a function of the maximum velocity,
+
+17
+00:00:45,105 --> 00:00:48,990
+and the horizon t. Any point that lies inside this region here,
+
+18
+00:00:48,990 --> 00:00:51,510
+is reachable with a single setting of controls.
+
+19
+00:00:51,510 --> 00:00:53,205
+And we can solve for those.
+
+20
+00:00:53,205 --> 00:00:55,850
+If X2 is not in the reachable half circle,
+
+21
+00:00:55,850 --> 00:00:57,395
+we can choose the max.
+
+22
+00:00:57,395 --> 00:00:59,310
+The point that's either going to lie on this side,
+
+23
+00:00:59,310 --> 00:01:02,205
+so that X2 lines up over here, or on this side.
+
+24
+00:01:02,205 --> 00:01:05,266
+Then we want to set the steering angle in this direction,
+
+25
+00:01:05,266 --> 00:01:06,713
+so it lies over here,
+
+26
+00:01:06,713 --> 00:01:08,745
+or set the steering angle in this direction,
+
+27
+00:01:08,745 --> 00:01:10,410
+so we make progress towards here.
+
+28
+00:01:10,410 --> 00:01:13,050
+And we can actually modify our steer function to
+
+29
+00:01:13,050 --> 00:01:15,540
+return a maximum value for the steering angle,
+
+30
+00:01:15,540 --> 00:01:19,320
+to make progress towards this half plane or this half plane.
+
+31
+00:01:19,320 --> 00:01:20,430
+In the next exercise,
+
+32
+00:01:20,430 --> 00:01:23,000
+you'll implement this modification to your steer function.
+

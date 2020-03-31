@@ -1,0 +1,124 @@
+1
+00:00:01,360 --> 00:00:04,054
+I am firmly convinced,
+
+2
+00:00:04,054 --> 00:00:05,493
+that in the future,
+
+3
+00:00:05,495 --> 00:00:09,504
+the majority of urban transportation will take place in the air.
+
+4
+00:00:09,505 --> 00:00:12,845
+It's something that, we a society,
+
+5
+00:00:12,845 --> 00:00:15,245
+have wanted for over 100 years.
+
+6
+00:00:15,243 --> 00:00:18,934
+Little kids grow up drawing pictures of flying cars,
+
+7
+00:00:18,934 --> 00:00:21,859
+building them out of lego, and dream of having their own one day.
+
+8
+00:00:21,859 --> 00:00:25,225
+We called it flying cars because it's our aspiration,
+
+9
+00:00:25,225 --> 00:00:27,037
+we really want to change the world with flight.
+
+10
+00:00:27,036 --> 00:00:28,820
+It might start with the Amazon and Google
+
+11
+00:00:28,820 --> 00:00:31,699
+package delivery but it's going to go to people.
+
+12
+00:00:31,699 --> 00:00:34,939
+We're already seeing it happen with self driving cars.
+
+13
+00:00:34,939 --> 00:00:38,359
+We've already seen it happen with little drones.
+
+14
+00:00:38,359 --> 00:00:43,185
+These different kinds of technologies are enabling new kinds of transportation.
+
+15
+00:00:43,185 --> 00:00:46,789
+We are going to cover drone technology with variety levels.
+
+16
+00:00:46,789 --> 00:00:49,009
+We're going to spend some time talking obviously
+
+17
+00:00:49,009 --> 00:00:52,219
+about the higher level autonomy and the mission planning.
+
+18
+00:00:52,219 --> 00:00:53,899
+Really what this course is about,
+
+19
+00:00:53,899 --> 00:00:57,429
+is giving students the chance to implement algorithms
+
+20
+00:00:57,429 --> 00:01:01,240
+and ideas and technical concepts on aircrafts.
+
+21
+00:01:01,240 --> 00:01:04,484
+What we want to do is we're going to try and make that future happen sooner by
+
+22
+00:01:04,483 --> 00:01:08,233
+training future engineers in the technologies needed to make that vision happen.
+
+23
+00:01:08,233 --> 00:01:10,669
+Udacity is a great starting point for
+
+24
+00:01:10,670 --> 00:01:12,855
+anybody who wants to learn more about these technologies,
+
+25
+00:01:12,855 --> 00:01:14,570
+more about this application domain,
+
+26
+00:01:14,569 --> 00:01:17,183
+and more about flying vehicles.
+
+27
+00:01:17,185 --> 00:01:19,295
+This is something that no one talks about.
+
+28
+00:01:19,295 --> 00:01:21,150
+But I promise, in a few years time,
+
+29
+00:01:21,150 --> 00:01:23,005
+it'll be the hottest topic on the planet.
+
+30
+00:01:23,004 --> 00:01:25,549
+So, come to the skies with us by
+
+31
+00:01:25,549 --> 00:01:29,759
+applying this world's first flying car nanodegree program.
+

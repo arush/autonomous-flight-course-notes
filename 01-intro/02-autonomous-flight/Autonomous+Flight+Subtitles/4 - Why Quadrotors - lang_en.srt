@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:05,350
+We'll be using the quadrotor drone as our test platform for learning about flying cars.
+
+2
+00:00:05,350 --> 00:00:07,330
+But first, I figure we should pause for
+
+3
+00:00:07,330 --> 00:00:10,060
+a moment and talk about just what to call these things.
+
+4
+00:00:10,060 --> 00:00:12,175
+Within the world of flying robots,
+
+5
+00:00:12,175 --> 00:00:16,120
+you'll hear people argue about whether the proper name is UAV or UAS,
+
+6
+00:00:16,120 --> 00:00:20,050
+which stands for unmanned aerial vehicle or unmanned aerial system.
+
+7
+00:00:20,050 --> 00:00:22,330
+You'll also hear the names quadrotor,
+
+8
+00:00:22,330 --> 00:00:26,020
+quadcopter, multirotor, and drone used to describe these.
+
+9
+00:00:26,020 --> 00:00:29,815
+For our purposes, the name is not particularly relevant, call it what you will.
+
+10
+00:00:29,815 --> 00:00:33,010
+We'll be working with a small helicopter that has four rotors.
+
+11
+00:00:33,010 --> 00:00:37,050
+I might sometimes called the drone a quadrotor or maybe even just a quad,
+
+12
+00:00:37,050 --> 00:00:39,660
+but just know that I'm always referring to the same thing.
+
+13
+00:00:39,660 --> 00:00:42,135
+You might also wonder why four rotors,
+
+14
+00:00:42,135 --> 00:00:45,015
+why not three or six or eight?
+
+15
+00:00:45,015 --> 00:00:47,730
+The truth is that other multi rotor configurations
+
+16
+00:00:47,730 --> 00:00:50,040
+would be equally valid as an experimental platform.
+
+17
+00:00:50,040 --> 00:00:52,770
+But the convenience symmetry of quadrotors and
+
+18
+00:00:52,770 --> 00:00:55,515
+the fact that they are the most common drones available for purchase,
+
+19
+00:00:55,515 --> 00:00:57,615
+make them an obvious choice for this program.
+
+20
+00:00:57,615 --> 00:01:01,020
+So, why are people talking so much about drones these days?
+
+21
+00:01:01,020 --> 00:01:03,690
+Well, a couple of things have changed in recent years.
+
+22
+00:01:03,690 --> 00:01:06,919
+They make this an exciting time to be working on them.
+
+23
+00:01:06,919 --> 00:01:11,760
+One is that we now have low cost high power microelectronics that have allowed us to take
+
+24
+00:01:11,760 --> 00:01:14,514
+the autopilots that have kept aircraft flying on
+
+25
+00:01:14,514 --> 00:01:17,910
+a straight and level for many decades and make them much cheaper,
+
+26
+00:01:17,910 --> 00:01:22,380
+smaller, and lighter so that we can put them on much smaller aircraft.
+
+27
+00:01:22,380 --> 00:01:26,610
+We want these tiny aircraft to perform more and more complicated missions so that as
+
+28
+00:01:26,610 --> 00:01:27,660
+we take the human pilot out of
+
+29
+00:01:27,660 --> 00:01:30,765
+the equation we need to replace that human with a computer.
+
+30
+00:01:30,765 --> 00:01:33,240
+So another advantage of cheap microelectronics
+
+31
+00:01:33,240 --> 00:01:35,760
+is that small computers are widely available and
+
+32
+00:01:35,760 --> 00:01:38,160
+capable of performing complex in-flight data
+
+33
+00:01:38,160 --> 00:01:41,085
+crunching tasks that used to require a human brain.
+
+34
+00:01:41,085 --> 00:01:44,100
+Another thing that has changed is how we power our aircraft.
+
+35
+00:01:44,100 --> 00:01:47,160
+Most aircraft for the past 100 years had been powered using
+
+36
+00:01:47,160 --> 00:01:50,320
+carbon-based fuels such as jet fuel or gasoline.
+
+37
+00:01:50,320 --> 00:01:53,230
+But now we have access to high energy density batteries and
+
+38
+00:01:53,230 --> 00:01:57,370
+high power density batteries that can be used to power small aircraft like a quadrotor.
+
+39
+00:01:57,370 --> 00:02:01,180
+And finally, a major development in the last 30 years or so has
+
+40
+00:02:01,180 --> 00:02:04,870
+been the availability of the global positioning system or GPS.
+
+41
+00:02:04,870 --> 00:02:08,020
+A small drone can now be outfitted with a GPS receiver and get
+
+42
+00:02:08,020 --> 00:02:12,895
+constant updates on its position which is a tremendous aid to autonomous navigation.
+
+43
+00:02:12,895 --> 00:02:14,605
+So with the advent of
+
+44
+00:02:14,605 --> 00:02:18,130
+powerful lightweight computers and batteries as well as GPS for navigation,
+
+45
+00:02:18,130 --> 00:02:21,160
+we're at an amazing moment in history where tiny flying machines can
+
+46
+00:02:21,160 --> 00:02:24,580
+autonomously perform incredibly complex tasks and that is
+
+47
+00:02:24,580 --> 00:02:26,650
+why the modern quadrotor drone serves as
+
+48
+00:02:26,650 --> 00:02:31,450
+a perfect test platform for developing algorithms to control the flying car.
+
+49
+00:02:31,450 --> 00:02:35,050
+Now, you might already own a quadcopter or you might be
+
+50
+00:02:35,050 --> 00:02:39,205
+considering building one to test your code on as you go through this program.
+
+51
+00:02:39,205 --> 00:02:41,200
+So next, I'll talk a bit about
+
+52
+00:02:41,200 --> 00:02:44,740
+the various components that make up a quadrotor drone and what
+
+53
+00:02:44,740 --> 00:02:47,590
+the trade-offs are in each case when deciding
+
+54
+00:02:47,590 --> 00:02:51,770
+which components to select if you decide to build your own drone.
+

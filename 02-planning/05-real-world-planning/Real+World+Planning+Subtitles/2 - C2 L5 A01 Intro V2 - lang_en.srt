@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:02,991
+With the exercises you've completed in the previous lessons,
+
+2
+00:00:02,991 --> 00:00:06,580
+you're ready to tackle the final 3D motion planning project.
+
+3
+00:00:06,580 --> 00:00:09,179
+If you're ready to dive in and complete the project,
+
+4
+00:00:09,179 --> 00:00:10,469
+just go ahead and skip to
+
+5
+00:00:10,470 --> 00:00:13,855
+the next lesson where you will find instructions for getting started.
+
+6
+00:00:13,855 --> 00:00:15,660
+In this lesson, I'll present
+
+7
+00:00:15,660 --> 00:00:19,949
+some more advanced methods to take your project implementation above and beyond.
+
+8
+00:00:19,949 --> 00:00:24,759
+But feel free to skip ahead or just come back to it later when you have some time.
+
+9
+00:00:24,760 --> 00:00:27,350
+Okay, you're still here I see.
+
+10
+00:00:27,350 --> 00:00:29,965
+Well then, let's get right into it.
+
+11
+00:00:29,964 --> 00:00:31,734
+In most of the lessons so far,
+
+12
+00:00:31,734 --> 00:00:34,854
+we have assumed an idealized version of reality in physics.
+
+13
+00:00:34,854 --> 00:00:37,759
+We have assumed the vehicle knows exactly where it is in the world.
+
+14
+00:00:37,759 --> 00:00:39,460
+We have assumed the vehicle knows exactly where
+
+15
+00:00:39,460 --> 00:00:41,844
+every obstacle is in the world ahead of time,
+
+16
+00:00:41,844 --> 00:00:44,019
+and we've assumed that the vehicle was able
+
+17
+00:00:44,020 --> 00:00:46,685
+to follow a trajectory through the world perfectly.
+
+18
+00:00:46,685 --> 00:00:49,030
+We've also assumed that as long as a path exists through
+
+19
+00:00:49,030 --> 00:00:52,750
+free space that we can command the vehicle to follow that path.
+
+20
+00:00:52,750 --> 00:00:54,340
+In the real world,
+
+21
+00:00:54,340 --> 00:00:56,230
+all of these assumptions break down.
+
+22
+00:00:56,229 --> 00:01:00,284
+The information available in a map ahead of time is usually imperfect.
+
+23
+00:01:00,284 --> 00:01:03,129
+And we've talked a little bit about what to do when obstacles
+
+24
+00:01:03,130 --> 00:01:06,415
+appear or are missing from the map at the time of flight.
+
+25
+00:01:06,415 --> 00:01:09,845
+Sensor measurements like GPS have inherent errors.
+
+26
+00:01:09,844 --> 00:01:11,679
+We talked about what to do when
+
+27
+00:01:11,680 --> 00:01:16,080
+environmental conditions can make following a trajectory challenging.
+
+28
+00:01:16,079 --> 00:01:19,929
+A final issue is that all vehicles have constraints on
+
+29
+00:01:19,930 --> 00:01:25,105
+how they can move and you need to include those constraints in your planning solution.
+
+30
+00:01:25,105 --> 00:01:27,560
+So, in this lesson, we'll touch on a couple
+
+31
+00:01:27,560 --> 00:01:30,600
+more of these elements of real world planning so that
+
+32
+00:01:30,599 --> 00:01:32,799
+you have the tools you need to take
+
+33
+00:01:32,799 --> 00:01:37,000
+your project implementation to the next level and deploy it on real hardware.
+

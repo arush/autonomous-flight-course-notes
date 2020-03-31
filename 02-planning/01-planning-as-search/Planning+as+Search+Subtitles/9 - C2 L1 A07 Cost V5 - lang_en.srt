@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:04,469
+Before I can incorporate any guidance about how to make useful progress towards the goal,
+
+2
+00:00:04,469 --> 00:00:07,650
+I need to add the notion of a cost function to my search process.
+
+3
+00:00:07,650 --> 00:00:08,890
+Up to this point,
+
+4
+00:00:08,890 --> 00:00:11,415
+I have assumed that every action had the same cost,
+
+5
+00:00:11,414 --> 00:00:13,469
+and I've been assuming that the length of
+
+6
+00:00:13,470 --> 00:00:16,245
+the plan was exactly the same thing as the cost of a plan.
+
+7
+00:00:16,245 --> 00:00:18,095
+But that might not be the case.
+
+8
+00:00:18,094 --> 00:00:20,535
+Some actions might actually cost more than others.
+
+9
+00:00:20,535 --> 00:00:22,500
+For instance, in our grid example,
+
+10
+00:00:22,500 --> 00:00:25,289
+you've seen plans that consist of motions moving right,
+
+11
+00:00:25,289 --> 00:00:27,359
+left, up, and down.
+
+12
+00:00:27,359 --> 00:00:29,210
+But what about diagonal actions?
+
+13
+00:00:29,210 --> 00:00:31,295
+Well, in the simplest sense,
+
+14
+00:00:31,295 --> 00:00:34,800
+a diagonal motion on a grid traverses a distance of square root two,
+
+15
+00:00:34,799 --> 00:00:38,789
+compared to lateral and vertical motions that traverse a distance of one.
+
+16
+00:00:38,789 --> 00:00:40,439
+We could say that in this case,
+
+17
+00:00:40,439 --> 00:00:42,089
+diagonal motions have a cost of root two.
+
+18
+00:00:42,090 --> 00:00:44,190
+With a cost function,
+
+19
+00:00:44,189 --> 00:00:48,085
+which is really just the cost associated with all the actions and a partial plan,
+
+20
+00:00:48,085 --> 00:00:53,100
+I can add up these costs and use them as a way to compare different plans.
+
+21
+00:00:53,100 --> 00:00:57,195
+If my ultimate goal is to find the lowest cost plan as part of a search process,
+
+22
+00:00:57,195 --> 00:01:01,034
+then instead of expanding the shortest plan or the most recent plan,
+
+23
+00:01:01,034 --> 00:01:04,090
+I could be thinking about expanding the lowest cost plan.
+
+24
+00:01:04,090 --> 00:01:07,530
+This particular algorithm is called uniform cost and it's guaranteed
+
+25
+00:01:07,530 --> 00:01:11,730
+to find the lowest cost plan first as part of the search process.
+
+26
+00:01:11,730 --> 00:01:14,010
+Next, we'll look at how to incorporate your map
+
+27
+00:01:14,010 --> 00:01:17,000
+of the environment in guiding the search process.
+

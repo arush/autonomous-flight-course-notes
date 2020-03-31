@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:02,940
+When you enroll in Udacity Nanodegree Program,
+
+2
+00:00:02,940 --> 00:00:05,099
+you become part of a global community.
+
+3
+00:00:05,099 --> 00:00:07,134
+You can connect instantly with thousands of
+
+4
+00:00:07,134 --> 00:00:09,759
+amazing people in our Flying Car Slack Community.
+
+5
+00:00:09,759 --> 00:00:12,108
+So, be sure to keep in touch on Slack and you never know,
+
+6
+00:00:12,108 --> 00:00:15,880
+you might even find a study group to collaborate with in your hometown.
+
+7
+00:00:15,880 --> 00:00:17,880
+And in addition to that student community,
+
+8
+00:00:17,879 --> 00:00:21,689
+Udacity has dedicated resources set up for you to succeed.
+
+9
+00:00:21,690 --> 00:00:24,045
+For one, whenever you submit your projects,
+
+10
+00:00:24,045 --> 00:00:27,640
+they will be reviewed by real human experts not just some bots.
+
+11
+00:00:27,640 --> 00:00:30,089
+And whenever you have additional flying car questions,
+
+12
+00:00:30,089 --> 00:00:31,629
+well, we have a team for that too.
+
+13
+00:00:31,629 --> 00:00:34,905
+Hi, I'm Tucker, I'm Aurina, and I'm Lisbeth.
+
+14
+00:00:34,905 --> 00:00:36,664
+And we're the student experience team.
+
+15
+00:00:36,664 --> 00:00:40,379
+We'll always be monitoring Slack and ready to answer any questions you have.
+
+16
+00:00:40,380 --> 00:00:41,760
+And know that there are
+
+17
+00:00:41,759 --> 00:00:46,244
+so many more Udacity team members ready to help you on everything from exercises,
+
+18
+00:00:46,244 --> 00:00:49,214
+to meet-ups, to careers, and beyond.
+
+19
+00:00:49,215 --> 00:00:53,000
+So on behalf of all of us, welcome to Udacity.
+

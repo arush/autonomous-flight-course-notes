@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:02,520
+Now it's time to tackle your first project.
+
+2
+00:00:02,520 --> 00:00:04,230
+I'm joined now by my colleague, Andy,
+
+3
+00:00:04,230 --> 00:00:06,960
+who's here to help you get up and running. Pleasure to have you with us, Andy.
+
+4
+00:00:06,960 --> 00:00:09,150
+Thank you, Nick. It is a pleasure to be here.
+
+5
+00:00:09,150 --> 00:00:13,405
+In this project, you'll program a quadrotor to fly autonomously in a simulator.
+
+6
+00:00:13,404 --> 00:00:15,919
+The central theme of this project is a new way of thinking
+
+7
+00:00:15,919 --> 00:00:18,739
+about how to write programs for autonomous vehicles.
+
+8
+00:00:18,739 --> 00:00:20,779
+It's called event-driven programming,
+
+9
+00:00:20,780 --> 00:00:23,705
+and you might have seen it before in other settings.
+
+10
+00:00:23,704 --> 00:00:27,214
+Graphical user interfaces are written as event-driven programs,
+
+11
+00:00:27,214 --> 00:00:29,539
+and lots of other robot systems are too.
+
+12
+00:00:29,539 --> 00:00:32,450
+But there are some important wrinkles in writing programs for
+
+13
+00:00:32,450 --> 00:00:36,050
+autonomous vehicles that need to operate for a long time,
+
+14
+00:00:36,049 --> 00:00:40,885
+travel long distances, and respond to all kinds of things in the outside world.
+
+15
+00:00:40,886 --> 00:00:42,230
+When you finish this project,
+
+16
+00:00:42,229 --> 00:00:44,839
+you'll have the foundation you need to be set up
+
+17
+00:00:44,840 --> 00:00:47,570
+for success in the projects throughout the rest of the program.
+
+18
+00:00:47,570 --> 00:00:48,979
+So where are we going to start next, Andy?
+
+19
+00:00:48,979 --> 00:00:52,484
+Well, if you're not familiar with event-driven programming,
+
+20
+00:00:52,484 --> 00:00:54,299
+it can be a bit confusing at first.
+
+21
+00:00:54,299 --> 00:00:57,179
+So, we're going to start off by explaining the key concepts
+
+22
+00:00:57,179 --> 00:01:00,375
+behind this entirely new way of thinking about programming.
+
+23
+00:01:00,375 --> 00:01:02,549
+Next, we're going to show you how to actually
+
+24
+00:01:02,549 --> 00:01:05,594
+implement event-driven programming in Python code.
+
+25
+00:01:05,594 --> 00:01:09,194
+And that code will actually control your quadrotor in a simulator.
+
+26
+00:01:09,194 --> 00:01:11,504
+But by far the best part is,
+
+27
+00:01:11,504 --> 00:01:13,319
+once you've actually completed the project,
+
+28
+00:01:13,319 --> 00:01:16,829
+we're going to show you how to put that code onto a real quadcopter.
+
+29
+00:01:16,829 --> 00:01:19,530
+That sounds fantastic. Let's get started.
+

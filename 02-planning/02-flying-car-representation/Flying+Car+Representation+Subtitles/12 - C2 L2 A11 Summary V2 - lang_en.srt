@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:02,370
+In this lesson, I've covered the basics of
+
+2
+00:00:02,370 --> 00:00:06,330
+vehicle representation which is a key concept in robotics applications of all kinds.
+
+3
+00:00:06,330 --> 00:00:08,474
+But in particular, for flying cars,
+
+4
+00:00:08,474 --> 00:00:10,289
+where you'll need to plan a path from
+
+5
+00:00:10,289 --> 00:00:14,375
+one place to another while avoiding obstacles along the way.
+
+6
+00:00:14,375 --> 00:00:15,480
+We started out by looking at
+
+7
+00:00:15,480 --> 00:00:18,625
+the coordinate systems that you'll be dealing with in this program.
+
+8
+00:00:18,625 --> 00:00:20,579
+These include the geodetic frame,
+
+9
+00:00:20,579 --> 00:00:22,139
+which is a spherical latitude and
+
+10
+00:00:22,140 --> 00:00:25,399
+longitude frame covering the entire surface of the earth.
+
+11
+00:00:25,399 --> 00:00:29,684
+Then, your local Earth-Center Earth-Fixed or ECEF frame,
+
+12
+00:00:29,684 --> 00:00:31,919
+which is a more convenient Cartesian frame for
+
+13
+00:00:31,920 --> 00:00:34,289
+representimg motion within your local environment.
+
+14
+00:00:34,289 --> 00:00:36,149
+And finally, the body frame,
+
+15
+00:00:36,149 --> 00:00:38,365
+which allows you to define where things are
+
+16
+00:00:38,365 --> 00:00:41,640
+with respect to one another on the body of your vehicle.
+
+17
+00:00:41,640 --> 00:00:44,700
+Next, we looked at vehicle orientations and how you
+
+18
+00:00:44,700 --> 00:00:48,015
+can describe changes in orientation using Euler angles,
+
+19
+00:00:48,015 --> 00:00:50,664
+and rotation matrices, or quaternions.
+
+20
+00:00:50,664 --> 00:00:54,450
+In this program, you'll be converting back and forth between Euler angles and
+
+21
+00:00:54,450 --> 00:00:58,859
+quaternions to take advantage of the mathematical simplicity of quaternions,
+
+22
+00:00:58,859 --> 00:01:01,575
+and the intuitive nature of Euler angles.
+
+23
+00:01:01,575 --> 00:01:04,260
+With position and orientation defined,
+
+24
+00:01:04,260 --> 00:01:06,660
+we looked at how you can describe the motion of
+
+25
+00:01:06,659 --> 00:01:11,409
+your vehicle using transformations of position and orientation.
+
+26
+00:01:11,409 --> 00:01:13,799
+And finally, we explored how
+
+27
+00:01:13,799 --> 00:01:17,009
+the physical shape of your vehicle can be taken into consideration to
+
+28
+00:01:17,010 --> 00:01:19,920
+define a configuration space which is the parameter space
+
+29
+00:01:19,920 --> 00:01:23,000
+that allows you to treat your vehicle as a simple point.
+

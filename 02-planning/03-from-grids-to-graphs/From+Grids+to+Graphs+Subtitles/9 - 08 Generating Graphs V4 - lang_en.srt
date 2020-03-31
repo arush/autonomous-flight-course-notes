@@ -1,0 +1,244 @@
+1
+00:00:00,000 --> 00:00:03,720
+One of the most well-known techniques for extracting a graph that is
+
+2
+00:00:03,720 --> 00:00:08,035
+kind of like a roadmap through an environment is what's known as the Voronoi diagram.
+
+3
+00:00:08,035 --> 00:00:09,600
+In its most basic form,
+
+4
+00:00:09,600 --> 00:00:14,070
+the Voronoi diagram is a graph that breaks up a space into regions around a set of
+
+5
+00:00:14,070 --> 00:00:16,290
+seed points so that all the points in
+
+6
+00:00:16,290 --> 00:00:20,530
+a given region are closer to the same seed point than any other seed.
+
+7
+00:00:20,530 --> 00:00:22,125
+That might seem pretty esoteric,
+
+8
+00:00:22,125 --> 00:00:25,770
+but let's imagine that we have a set of points that represent the location of obstacles.
+
+9
+00:00:25,770 --> 00:00:29,250
+The Voronoi diagram then partitions the space into regions or
+
+10
+00:00:29,250 --> 00:00:31,710
+Voronoi cells where all the locations within
+
+11
+00:00:31,710 --> 00:00:35,605
+a given cell are closest to exactly one seed or one obstacle.
+
+12
+00:00:35,605 --> 00:00:36,900
+In other words, in this case,
+
+13
+00:00:36,900 --> 00:00:38,820
+where each seed point represents an obstacle,
+
+14
+00:00:38,820 --> 00:00:41,310
+then the Voronoi cell around each obstacle would contain
+
+15
+00:00:41,310 --> 00:00:44,835
+all locations that are closest to it. Let's draw this out once.
+
+16
+00:00:44,835 --> 00:00:47,400
+If these points represent my obstacles,
+
+17
+00:00:47,400 --> 00:00:50,040
+then I partition the space to look like this.
+
+18
+00:00:50,040 --> 00:00:53,550
+All locations in this region here are closest to this obstacle.
+
+19
+00:00:53,550 --> 00:00:57,910
+Similarly, all locations in this region here are closest to this obstacle.
+
+20
+00:00:57,910 --> 00:01:01,235
+The useful thing for us is actually the boundaries of the Voronoi cells.
+
+21
+00:01:01,235 --> 00:01:05,385
+The boundaries constitute lines that are equidistant from a pair of obstacles.
+
+22
+00:01:05,385 --> 00:01:09,030
+You can imagine using the Voronoi graph for planning where
+
+23
+00:01:09,030 --> 00:01:12,825
+the cell boundaries constitute edges in the graph that you can travel along.
+
+24
+00:01:12,825 --> 00:01:15,390
+And where these edges meet are the nodes
+
+25
+00:01:15,390 --> 00:01:18,210
+or waypoints that the vehicle could be traveling to.
+
+26
+00:01:18,210 --> 00:01:22,290
+And you could now perform search through this Voronoi graph in order to find
+
+27
+00:01:22,290 --> 00:01:27,060
+a collision-free path from some start location to a goal location.
+
+28
+00:01:27,060 --> 00:01:29,730
+What's really compelling about Voronoi graphs for things like
+
+29
+00:01:29,730 --> 00:01:32,580
+flying cars is that these edges represent,
+
+30
+00:01:32,580 --> 00:01:35,349
+in some sense, the safest path,
+
+31
+00:01:35,349 --> 00:01:37,875
+the one that is maximally far from obstacles.
+
+32
+00:01:37,875 --> 00:01:40,890
+But, one of the challenges of using Voronoi graphs
+
+33
+00:01:40,890 --> 00:01:43,995
+in the real world is that we don't have point obstacles.
+
+34
+00:01:43,995 --> 00:01:46,085
+We have polygons or polyhedra.
+
+35
+00:01:46,085 --> 00:01:50,580
+And so, the exact construction of a Voronoi graph around obstacles is non-trivial.
+
+36
+00:01:50,580 --> 00:01:54,235
+Although the Voronoi diagram is easy to understand but hard to compute,
+
+37
+00:01:54,235 --> 00:01:57,690
+it's a specific form of a more general idea called the medial axis,
+
+38
+00:01:57,690 --> 00:02:00,210
+which is actually easier for us to compute given
+
+39
+00:02:00,210 --> 00:02:03,260
+the kinds of maps that we typically have for navigation.
+
+40
+00:02:03,260 --> 00:02:07,630
+The medial axis method uses the same intuition that a good graph for
+
+41
+00:02:07,630 --> 00:02:10,030
+navigation is one where the middle of the quarter
+
+42
+00:02:10,030 --> 00:02:13,280
+between obstacles is a good place to put edges.
+
+43
+00:02:13,280 --> 00:02:15,510
+With the medial axis transform,
+
+44
+00:02:15,510 --> 00:02:19,005
+you'll get something that looks basically like a Voronoi graph and
+
+45
+00:02:19,005 --> 00:02:23,040
+then naturally encodes safety in the construction of the graph.
+
+46
+00:02:23,040 --> 00:02:27,420
+Here's a scenario where I have an environment including some obstacles.
+
+47
+00:02:27,420 --> 00:02:30,240
+And I'll start again with a grid-based discretization that
+
+48
+00:02:30,240 --> 00:02:34,235
+encodes each cell as being feasible or infeasible.
+
+49
+00:02:34,235 --> 00:02:36,450
+The way the medial access transform works is that you
+
+50
+00:02:36,450 --> 00:02:39,365
+start in the free space adjacent to obstacles and
+
+51
+00:02:39,365 --> 00:02:42,060
+iteratively step away from the obstacles until you
+
+52
+00:02:42,060 --> 00:02:45,855
+find cells that are equidistant from two different obstacles.
+
+53
+00:02:45,855 --> 00:02:47,790
+Once you have explored the entire grid,
+
+54
+00:02:47,790 --> 00:02:52,545
+you've identified all cells that lie along the medial axis between obstacles.
+
+55
+00:02:52,545 --> 00:02:55,920
+Then, using present hand or another tracing method,
+
+56
+00:02:55,920 --> 00:02:58,110
+you can condense the list of cells representing
+
+57
+00:02:58,110 --> 00:03:01,600
+the medial axis into a graph of waypoints and edges.
+
+58
+00:03:01,600 --> 00:03:04,380
+Both the Voronoi graph and the medial access
+
+59
+00:03:04,380 --> 00:03:08,520
+transform our classic algorithms with a wide range of applications.
+
+60
+00:03:08,520 --> 00:03:10,400
+In the next set of exercises,
+
+61
+00:03:10,400 --> 00:03:15,000
+you'll get a chance to construct Voronoi graphs and perform a medial axis transform.
+

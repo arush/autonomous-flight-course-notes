@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:05,009
+There's a huge variety of aircraft designs that could be used to make a flying car.
+
+2
+00:00:05,009 --> 00:00:07,125
+When most people think of flying cars,
+
+3
+00:00:07,125 --> 00:00:10,515
+they often think of literally a car with wings and propellers.
+
+4
+00:00:10,515 --> 00:00:12,825
+In reality, flying cars will not look like this,
+
+5
+00:00:12,824 --> 00:00:14,459
+but it's an interesting starting point.
+
+6
+00:00:14,460 --> 00:00:17,940
+Real flying cars will have wings or propellers or both.
+
+7
+00:00:17,940 --> 00:00:20,714
+Basically, they could be like normal airplanes,
+
+8
+00:00:20,714 --> 00:00:22,739
+what we call fixed-wing aircraft,
+
+9
+00:00:22,739 --> 00:00:25,184
+or they might look more like a helicopter,
+
+10
+00:00:25,184 --> 00:00:27,644
+which is often referred to as a rotary-wing aircraft.
+
+11
+00:00:27,644 --> 00:00:29,640
+Did you know that the rotating blades are actually
+
+12
+00:00:29,640 --> 00:00:31,905
+acting as wings to keep the aircraft in the air?
+
+13
+00:00:31,905 --> 00:00:35,520
+Fixed-wing aircraft do have a huge advantage in terms of efficiency,
+
+14
+00:00:35,520 --> 00:00:39,675
+allowing them to go much faster and fly much further than rotary-wing aircraft.
+
+15
+00:00:39,674 --> 00:00:43,469
+But helicopters have a much bigger advantage for flying cars in
+
+16
+00:00:43,469 --> 00:00:47,579
+that they can take off and land vertically or what we call VTOL capability.
+
+17
+00:00:47,579 --> 00:00:50,219
+Remember that fixed-wing aircraft requires a runway.
+
+18
+00:00:50,219 --> 00:00:52,379
+Being able to take off and land vertically is
+
+19
+00:00:52,380 --> 00:00:55,740
+a huge advantage when operating in complex urban environments,
+
+20
+00:00:55,740 --> 00:00:58,020
+which is exactly where flying cars will be operating.
+
+21
+00:00:58,020 --> 00:01:01,425
+Helicopters are not the only vehicles that are capable of VTOL, mind you.
+
+22
+00:01:01,424 --> 00:01:03,599
+There are aircraft that can rotate their propellers,
+
+23
+00:01:03,600 --> 00:01:06,105
+like the V-22 Osprey used by the US Marines.
+
+24
+00:01:06,105 --> 00:01:07,410
+There are aircraft that can vector
+
+25
+00:01:07,409 --> 00:01:09,795
+the engine thrust downwards, like the Harrier Jump Jet.
+
+26
+00:01:09,795 --> 00:01:11,920
+There are aircraft that have two propulsion systems,
+
+27
+00:01:11,920 --> 00:01:14,329
+like the F-35B with its lift fan.
+
+28
+00:01:14,329 --> 00:01:17,899
+Or aircraft that are actually designed to sit on their tail at takeoff,
+
+29
+00:01:17,900 --> 00:01:20,765
+and then pitch over into forward flight once they're in the air.
+
+30
+00:01:20,765 --> 00:01:23,885
+These aircraft have different tradeoffs in terms of stability and control.
+
+31
+00:01:23,885 --> 00:01:25,505
+And, as the Wright brothers discovered,
+
+32
+00:01:25,504 --> 00:01:27,109
+this tradeoff really matters.
+
+33
+00:01:27,109 --> 00:01:29,299
+For flying cars, the jury is still out on what
+
+34
+00:01:29,299 --> 00:01:32,344
+the best vehicle design type or morphology is going to be.
+
+35
+00:01:32,344 --> 00:01:35,734
+In this program, we're going to begin with a multi-rotor vehicle,
+
+36
+00:01:35,734 --> 00:01:37,189
+but in term two of the program,
+
+37
+00:01:37,189 --> 00:01:39,519
+we'll study fixed-wing aircraft as well.
+

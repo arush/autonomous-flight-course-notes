@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:04,300
+Gravity provides an acceleration that always tells us which way down is.
+
+2
+00:00:04,300 --> 00:00:06,630
+And accelerometers can measure that acceleration.
+
+3
+00:00:06,630 --> 00:00:09,860
+In an IMU, there are three accelerometers at right angles to each other,
+
+4
+00:00:09,860 --> 00:00:12,605
+so that they can measure the acceleration in the X,
+
+5
+00:00:12,605 --> 00:00:15,605
+Y, and the Z directions simultaneously.
+
+6
+00:00:15,605 --> 00:00:17,345
+If we calibrate the accelerometers,
+
+7
+00:00:17,345 --> 00:00:21,350
+when we know we're experiencing acceleration only due to gravity,
+
+8
+00:00:21,350 --> 00:00:23,580
+like when we're sitting on the ground,
+
+9
+00:00:23,580 --> 00:00:26,410
+then we can use the knowledge of which way gravity is
+
+10
+00:00:26,410 --> 00:00:30,250
+pointing as a reference for the gyroscopes to figure out our attitude.
+
+11
+00:00:30,250 --> 00:00:32,620
+So the accelerometers give us a way to figure out which way
+
+12
+00:00:32,620 --> 00:00:35,650
+down is using gravity as a reference, and then,
+
+13
+00:00:35,650 --> 00:00:39,655
+we can use the gyros to figure out what the attitude of the vehicle must be,
+
+14
+00:00:39,655 --> 00:00:41,380
+even when we're accelerating in
+
+15
+00:00:41,380 --> 00:00:45,340
+other directions and when we no longer have a clean reference to gravity.
+
+16
+00:00:45,340 --> 00:00:48,700
+The original IMUs used for flight actually had
+
+17
+00:00:48,700 --> 00:00:52,280
+spinning tops and springs serving as the gyros and accelerometers.
+
+18
+00:00:52,280 --> 00:00:54,565
+But now, with advances in technology,
+
+19
+00:00:54,565 --> 00:00:57,460
+we're able to make very small IMUs that don't have
+
+20
+00:00:57,460 --> 00:01:01,870
+spinning tops for gyroscopes or complicated springs for accelerometers.
+
+21
+00:01:01,870 --> 00:01:04,690
+In fact, one of the big advances in IMU technology in
+
+22
+00:01:04,690 --> 00:01:09,535
+the last 20 years is the advent of micro electro mechanical systems or MEMS,
+
+23
+00:01:09,535 --> 00:01:13,450
+that basically allow us to put the equivalent of three spinning tops and
+
+24
+00:01:13,450 --> 00:01:18,100
+three accelerometers onto a tiny chip and put it inside small consumer electronics,
+
+25
+00:01:18,100 --> 00:01:21,125
+like a drone autopilot or your smartphone.
+
+26
+00:01:21,125 --> 00:01:24,874
+So, now that we have the IMU that allows us to work at our attitude,
+
+27
+00:01:24,874 --> 00:01:27,130
+then we can use the autopilot to adjust the thrust on
+
+28
+00:01:27,130 --> 00:01:30,635
+the various propellers in order to move in the direction that we want.
+
+29
+00:01:30,635 --> 00:01:32,410
+But, how do we actually know where we
+
+30
+00:01:32,410 --> 00:01:35,395
+are or how we're making progress toward our destination?
+
+31
+00:01:35,395 --> 00:01:37,990
+Well, there are many options but the easiest way to
+
+32
+00:01:37,990 --> 00:01:41,000
+measure position is simply with a GPS receiver.
+

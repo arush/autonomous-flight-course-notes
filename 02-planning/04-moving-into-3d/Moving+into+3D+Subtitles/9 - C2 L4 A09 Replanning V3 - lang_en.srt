@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:03,589
+Just as obstacles can pop up or disappear,
+
+2
+00:00:03,589 --> 00:00:05,865
+small inaccuracies in the position estimate
+
+3
+00:00:05,865 --> 00:00:08,609
+are another source of uncertainty for flying car.
+
+4
+00:00:08,609 --> 00:00:12,299
+A real flying car is always going to encounter small disturbances and things
+
+5
+00:00:12,300 --> 00:00:16,679
+like how its rotors move or small disturbances from the environment like wind.
+
+6
+00:00:16,679 --> 00:00:19,725
+This means that no matter how good the autopilot is,
+
+7
+00:00:19,725 --> 00:00:23,060
+a real vehicle will never track a path perfectly.
+
+8
+00:00:23,059 --> 00:00:24,989
+Dealing with small disturbances can
+
+9
+00:00:24,989 --> 00:00:27,639
+often be taken care of with a minor course correction.
+
+10
+00:00:27,640 --> 00:00:29,774
+But in the case of large disturbances,
+
+11
+00:00:29,774 --> 00:00:32,960
+your planner may have to take more significant action.
+
+12
+00:00:32,960 --> 00:00:35,700
+For example, suppose that your vehicle is hit by
+
+13
+00:00:35,700 --> 00:00:38,785
+a gust of wind or a steady prevailing wind and blown
+
+14
+00:00:38,784 --> 00:00:41,819
+far enough off course that there is now a building or
+
+15
+00:00:41,820 --> 00:00:45,344
+some other obstacle in the way on the path to the next waypoint,
+
+16
+00:00:45,344 --> 00:00:50,429
+your planner will need to re-plan and that isn't always an instantaneous process.
+
+17
+00:00:50,429 --> 00:00:52,500
+So before re-planning, your state machine
+
+18
+00:00:52,500 --> 00:00:54,884
+may need to stop the vehicle and go into a hover,
+
+19
+00:00:54,884 --> 00:00:56,817
+or for a fixed-wing vehicle,
+
+20
+00:00:56,817 --> 00:01:00,030
+do some other safety maneuver like go into a loiter pattern.
+
+21
+00:01:00,030 --> 00:01:03,630
+The main point is that when a real flying vehicle is enroute to a waypoint,
+
+22
+00:01:03,630 --> 00:01:05,665
+it needs to be constantly checking if
+
+23
+00:01:05,665 --> 00:01:09,758
+the flight path is still feasible from its current position.
+
+24
+00:01:09,757 --> 00:01:10,984
+In the next lesson,
+
+25
+00:01:10,984 --> 00:01:13,125
+you'll get a chance to see the effect of wind
+
+26
+00:01:13,125 --> 00:01:16,000
+on your vehicle and detect the need to re-plan.
+

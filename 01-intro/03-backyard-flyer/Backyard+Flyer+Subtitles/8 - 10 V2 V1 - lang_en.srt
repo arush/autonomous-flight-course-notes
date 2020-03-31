@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:04,280
+So, how do we actually use callbacks to execute a mission?
+
+2
+00:00:04,280 --> 00:00:05,790
+Well, when we're executing a mission,
+
+3
+00:00:05,790 --> 00:00:07,920
+it's important to realize that the vehicle actually
+
+4
+00:00:07,920 --> 00:00:10,425
+goes through a series of states or phases.
+
+5
+00:00:10,425 --> 00:00:12,750
+And I'm going to use the word phase here because
+
+6
+00:00:12,750 --> 00:00:16,050
+the word state is pretty overloaded with other meanings in this context.
+
+7
+00:00:16,050 --> 00:00:19,395
+And in general, there are many ways you can define your phases.
+
+8
+00:00:19,395 --> 00:00:21,510
+For now, I'm going to stick with the phases used in
+
+9
+00:00:21,510 --> 00:00:24,360
+that upanddown.py code that you just saw.
+
+10
+00:00:24,360 --> 00:00:27,700
+First, there's this manual phase.
+
+11
+00:00:27,700 --> 00:00:29,005
+And in this phase,
+
+12
+00:00:29,005 --> 00:00:30,715
+the vehicle's just sitting on the ground
+
+13
+00:00:30,715 --> 00:00:33,055
+and it's not being controlled by the Flight Controller.
+
+14
+00:00:33,055 --> 00:00:36,595
+This phase ends when the arming phase begins.
+
+15
+00:00:36,595 --> 00:00:38,980
+And this is just the phase where the flight computer
+
+16
+00:00:38,980 --> 00:00:41,860
+takes control of the drone, and gets the rotors spinning.
+
+17
+00:00:41,860 --> 00:00:46,915
+This phase ends when the rotors are up to speed and the takeoff phase can begin.
+
+18
+00:00:46,915 --> 00:00:50,215
+Now, takeoff involves the drone going straight up
+
+19
+00:00:50,215 --> 00:00:54,010
+and continuing straight up until it's reached its target height.
+
+20
+00:00:54,010 --> 00:00:58,165
+At that point, takeoff ends and landing begins.
+
+21
+00:00:58,165 --> 00:01:00,070
+And landing, as you might expect,
+
+22
+00:01:00,070 --> 00:01:02,575
+is just where the drone descends back to ground level.
+
+23
+00:01:02,575 --> 00:01:06,505
+And it continues descending until it gets sufficiently close to the ground.
+
+24
+00:01:06,505 --> 00:01:08,020
+And once that happens,
+
+25
+00:01:08,020 --> 00:01:10,030
+the disarming phase begins,
+
+26
+00:01:10,030 --> 00:01:14,815
+which is just where computer control is disabled and the motors are disarmed.
+
+27
+00:01:14,815 --> 00:01:18,610
+Now to really understand how these phases work in our code,
+
+28
+00:01:18,610 --> 00:01:23,200
+it's important to understand the transitions that occur from one state to another.
+
+29
+00:01:23,200 --> 00:01:26,905
+And in the code, each of these transitions is actually handled by
+
+30
+00:01:26,905 --> 00:01:32,170
+a particular function with names like arming transition or take-off transition.
+
+31
+00:01:32,170 --> 00:01:34,450
+So, the transition, for example,
+
+32
+00:01:34,450 --> 00:01:35,830
+from the takeoff state to
+
+33
+00:01:35,830 --> 00:01:39,475
+the landing state is handled by the landing transition function.
+
+34
+00:01:39,475 --> 00:01:41,020
+And in the previous video,
+
+35
+00:01:41,020 --> 00:01:42,850
+you saw that there were certain criteria that
+
+36
+00:01:42,850 --> 00:01:45,460
+had to be met in order for this transition to occur.
+
+37
+00:01:45,460 --> 00:01:50,095
+Namely, the drones height had to be greater than 95 percent of its target height.
+
+38
+00:01:50,095 --> 00:01:54,190
+Now, I'd like you to look through the full code for the up and down flyer class
+
+39
+00:01:54,190 --> 00:01:58,915
+and try to identify the criteria under which each of these states ends.
+
+40
+00:01:58,915 --> 00:02:02,065
+The real goal here is to really just read through the code and
+
+41
+00:02:02,065 --> 00:02:06,265
+understand how this relatively simple flight plan is actually implemented,
+
+42
+00:02:06,265 --> 00:02:07,585
+because once you've done that,
+
+43
+00:02:07,585 --> 00:02:10,010
+you'll be able to implement your own flight plan.
+

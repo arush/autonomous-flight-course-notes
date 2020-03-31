@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:02,460
+You now have a steer function that,
+
+2
+00:00:02,460 --> 00:00:05,865
+given some start state X1 and some destination state X2,
+
+3
+00:00:05,865 --> 00:00:10,890
+allows you to randomly guess a set of controls that will try to make progress towards X2.
+
+4
+00:00:10,890 --> 00:00:14,010
+I use the word "try" loosely. How do we use this?
+
+5
+00:00:14,010 --> 00:00:16,470
+Well, you're trying to answer the question of,
+
+6
+00:00:16,470 --> 00:00:19,787
+"Does there exist a set of controls that will get us from X1 to X2?"
+
+7
+00:00:19,787 --> 00:00:23,790
+And the steer function puts you at some point, for example, here.
+
+8
+00:00:23,790 --> 00:00:26,655
+If you're actually randomly sampling controls,
+
+9
+00:00:26,655 --> 00:00:29,550
+most of the time you'll end up with controls that will
+
+10
+00:00:29,550 --> 00:00:32,820
+not give you an edge from X1 all the way to X2,
+
+11
+00:00:32,820 --> 00:00:37,500
+but you will find an edge from X1 to some sample state that I'll call "X_new",
+
+12
+00:00:37,500 --> 00:00:40,110
+and you determine X_new by using
+
+13
+00:00:40,110 --> 00:00:44,895
+the simulate function to propagate the controls U-s and U-phi from X1.
+
+14
+00:00:44,895 --> 00:00:46,845
+To build a graph with this method,
+
+15
+00:00:46,845 --> 00:00:49,455
+rather than worrying about actually arriving at X2,
+
+16
+00:00:49,455 --> 00:00:52,140
+let's just throw away X2 and keep X_new.
+
+17
+00:00:52,140 --> 00:00:54,060
+Now you actually have a pair of states with an edge
+
+18
+00:00:54,060 --> 00:00:56,295
+between them and are labeled with the control.
+
+19
+00:00:56,295 --> 00:00:58,755
+So great, you have an edge in your graph.
+
+20
+00:00:58,755 --> 00:01:01,950
+The way that the probabilistic road map algorithm worked was by
+
+21
+00:01:01,950 --> 00:01:05,630
+sampling all the states first and then drawing edges between them.
+
+22
+00:01:05,630 --> 00:01:08,380
+In this case, you're not actually going to be able
+
+23
+00:01:08,380 --> 00:01:11,050
+to build a graph in two separate steps like that,
+
+24
+00:01:11,050 --> 00:01:13,135
+so let's do this iteratively.
+
+25
+00:01:13,135 --> 00:01:16,870
+Let's combine both the state sampling and edge creation.
+
+26
+00:01:16,870 --> 00:01:19,990
+The algorithm looks like this: sample state,
+
+27
+00:01:19,990 --> 00:01:22,945
+try to generate controls that'll steer towards that state,
+
+28
+00:01:22,945 --> 00:01:27,010
+simulate your X_new, and then add X_new to the graph along with
+
+29
+00:01:27,010 --> 00:01:31,600
+U_s and U_phi and discard the original sample state, then iterate.
+
+30
+00:01:31,600 --> 00:01:36,625
+This algorithm is what's known as the Rapidly-Exploring Random Tree or RRT.
+
+31
+00:01:36,625 --> 00:01:38,020
+The reason it's a tree,
+
+32
+00:01:38,020 --> 00:01:39,235
+as opposed to a graph,
+
+33
+00:01:39,235 --> 00:01:42,335
+is that it's not always the case that these edges are reversible.
+
+34
+00:01:42,335 --> 00:01:45,150
+If you're at X1 and you can get to X_new,
+
+35
+00:01:45,150 --> 00:01:49,800
+that does not necessarily mean that you know how to get from X_new back to X1.
+
+36
+00:01:49,800 --> 00:01:53,145
+Differential constraints may mean that those edges are not reversible.
+
+37
+00:01:53,145 --> 00:01:54,735
+It is very much a tree.
+
+38
+00:01:54,735 --> 00:01:56,220
+In the next exercise,
+
+39
+00:01:56,220 --> 00:01:58,500
+you'll get a chance to implement RRT and
+
+40
+00:01:58,500 --> 00:02:01,880
+generate a tree representation of your state-space.
+

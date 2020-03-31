@@ -1,0 +1,360 @@
+1
+00:00:00,000 --> 00:00:04,444
+A chatbot serves as a really good introduction to event-driven programming
+
+2
+00:00:04,444 --> 00:00:09,085
+because a conversation really can't be programmed as a sequence of statements.
+
+3
+00:00:09,085 --> 00:00:12,315
+I can't just say, every good chatbot must first say this,
+
+4
+00:00:12,315 --> 00:00:13,955
+then that, then that.
+
+5
+00:00:13,955 --> 00:00:18,965
+Instead, I really need to structure my program and my thinking differently.
+
+6
+00:00:18,965 --> 00:00:21,255
+I need to think about how this chatbot can respond
+
+7
+00:00:21,255 --> 00:00:24,415
+appropriately to input that I may have no control over.
+
+8
+00:00:24,415 --> 00:00:26,995
+So, this chatbot a code that I gave you has a structure that's
+
+9
+00:00:26,995 --> 00:00:30,360
+very similar to the code you'll write in the project at the end of this lesson.
+
+10
+00:00:30,360 --> 00:00:33,955
+And I'd like to just walk through some of the important parts now.
+
+11
+00:00:33,955 --> 00:00:35,480
+So, in this cell,
+
+12
+00:00:35,480 --> 00:00:38,248
+we have this class, EventDrivenChatBot.
+
+13
+00:00:38,248 --> 00:00:42,110
+And I'll walk through more of the wiring and how this all works in a second.
+
+14
+00:00:42,110 --> 00:00:45,110
+But for now, I'm just going to press shift and enter,
+
+15
+00:00:45,110 --> 00:00:46,735
+to execute that cell.
+
+16
+00:00:46,735 --> 00:00:48,970
+And now, I'm going to put my cursor in here,
+
+17
+00:00:48,970 --> 00:00:51,180
+and I just want to demonstrate the interface to
+
+18
+00:00:51,180 --> 00:00:55,625
+this chatbot that a consumer of this class might be using.
+
+19
+00:00:55,625 --> 00:01:02,900
+So, the first thing I want to do is instantiate it, just like this.
+
+20
+00:01:02,900 --> 00:01:05,860
+And now, I'm going to start sending messages to
+
+21
+00:01:05,860 --> 00:01:09,075
+the chatbot through the handle message method.
+
+22
+00:01:09,075 --> 00:01:12,745
+So here, I'm going to send it a message, "hi."
+
+23
+00:01:12,745 --> 00:01:14,695
+I'm going to press control and enter.
+
+24
+00:01:14,695 --> 00:01:17,455
+And sure enough, the chatbot up says hello back.
+
+25
+00:01:17,455 --> 00:01:20,330
+Next, I'm going to do something a little more interesting,
+
+26
+00:01:20,330 --> 00:01:23,030
+I'm going to ask the chatbot its age.
+
+27
+00:01:23,030 --> 00:01:27,335
+And as you can see, it actually responded with two different statements.
+
+28
+00:01:27,335 --> 00:01:29,710
+First, it said it's 38 seconds old,
+
+29
+00:01:29,710 --> 00:01:32,080
+and then it gave me this more precise definition of
+
+30
+00:01:32,080 --> 00:01:35,300
+its age with the seconds and the number of microseconds.
+
+31
+00:01:35,300 --> 00:01:37,620
+And under the hood,
+
+32
+00:01:37,620 --> 00:01:38,950
+That's because there are actually
+
+33
+00:01:38,950 --> 00:01:44,860
+two callback functions which were associated with this input message, age.
+
+34
+00:01:44,860 --> 00:01:47,725
+Now, let's walk through the wiring to understand how this all works.
+
+35
+00:01:47,725 --> 00:01:49,495
+So I'm going to scroll up and first,
+
+36
+00:01:49,495 --> 00:01:51,230
+just start with this handle message.
+
+37
+00:01:51,230 --> 00:01:53,340
+So, as you can see, it checks
+
+38
+00:01:53,340 --> 00:01:55,960
+this accepted messages dictionary to see if
+
+39
+00:01:55,960 --> 00:01:59,285
+this particular message is understood by the chatbot,
+
+40
+00:01:59,285 --> 00:02:02,920
+and if it's not, then it just apologizes and says, "I'm sorry.
+
+41
+00:02:02,920 --> 00:02:07,420
+I don't understand," message. But let's say that doesn't happen because otherwise,
+
+42
+00:02:07,420 --> 00:02:12,060
+it first collects all of the callback functions associated with this message,
+
+43
+00:02:12,060 --> 00:02:14,725
+and then for each of those callback functions,
+
+44
+00:02:14,725 --> 00:02:16,845
+well, it just calls that method.
+
+45
+00:02:16,845 --> 00:02:19,120
+And so maybe, you can start to see why callback is
+
+46
+00:02:19,120 --> 00:02:21,850
+really an appropriate name for these sorts of functions.
+
+47
+00:02:21,850 --> 00:02:25,310
+When I said, "hi" to the chatbot and it responded, "hello"
+
+48
+00:02:25,310 --> 00:02:27,550
+that's because some callback function that prints,
+
+49
+00:02:27,550 --> 00:02:29,180
+"Hello," must have been called.
+
+50
+00:02:29,180 --> 00:02:31,450
+And in fact, if we scroll up,
+
+51
+00:02:31,450 --> 00:02:35,725
+you can see this respond to greeting function does exactly that.
+
+52
+00:02:35,725 --> 00:02:38,320
+And when I asked the chatbot its age,
+
+53
+00:02:38,320 --> 00:02:40,160
+and it responded with two messages,
+
+54
+00:02:40,160 --> 00:02:42,610
+well, that's because both of these functions
+
+55
+00:02:42,610 --> 00:02:46,210
+were associated with that input message, age.
+
+56
+00:02:46,210 --> 00:02:49,360
+So, let's jump up to the constructor for this class to
+
+57
+00:02:49,360 --> 00:02:53,410
+understand how these messages actually got wired to these functions.
+
+58
+00:02:53,410 --> 00:02:55,660
+And as you can see,
+
+59
+00:02:55,660 --> 00:03:00,250
+in this init method and that's just Python syntax for this is the constructor,
+
+60
+00:03:00,250 --> 00:03:04,480
+this is going to be called when you do event driven chatbot parentheses.
+
+61
+00:03:04,480 --> 00:03:07,720
+So, this is a constructor and you can get to see initially,
+
+62
+00:03:07,720 --> 00:03:11,950
+it just creates this empty dictionary of excepting messages,
+
+63
+00:03:11,950 --> 00:03:16,640
+it sets its birth time which is used in the calculation of the age,
+
+64
+00:03:16,640 --> 00:03:18,650
+and then all of the wiring,
+
+65
+00:03:18,650 --> 00:03:21,935
+all of the registering of callbacks happens down here.
+
+66
+00:03:21,935 --> 00:03:27,010
+And sure enough, this message age is registered to two callbacks,
+
+67
+00:03:27,010 --> 00:03:28,383
+just like we would expect,
+
+68
+00:03:28,383 --> 00:03:33,415
+respond to each request and the detailed version of the same function.
+
+69
+00:03:33,415 --> 00:03:37,490
+Now, let's just dig in to register callback so we can see what it does.
+
+70
+00:03:37,490 --> 00:03:40,540
+As you can see the doc string tells us what it does,
+
+71
+00:03:40,540 --> 00:03:42,020
+as did the function name,
+
+72
+00:03:42,020 --> 00:03:44,660
+but it doesn't do much that's too fancy.
+
+73
+00:03:44,660 --> 00:03:47,495
+First, to check to see if this message is actually
+
+74
+00:03:47,495 --> 00:03:50,825
+already handled by this accepted messages dictionary,
+
+75
+00:03:50,825 --> 00:03:56,025
+and if not, it associates a value for this message which is just an empty list.
+
+76
+00:03:56,025 --> 00:03:58,205
+We're going to populate that list with callbacks,
+
+77
+00:03:58,205 --> 00:04:00,730
+and as you can see, that's what happens here.
+
+78
+00:04:00,730 --> 00:04:04,075
+We append the newest callback onto that list.
+
+79
+00:04:04,075 --> 00:04:05,810
+Now, the reason I showed you this code is not
+
+80
+00:04:05,810 --> 00:04:08,539
+because I think it's important that you learn about chatbot.
+
+81
+00:04:08,539 --> 00:04:10,370
+It's because a chatbot provides
+
+82
+00:04:10,370 --> 00:04:12,770
+a really good intuitive understanding for why you might
+
+83
+00:04:12,770 --> 00:04:15,650
+even want to use the event-driven programming to begin with,
+
+84
+00:04:15,650 --> 00:04:16,930
+and a little later in this lesson,
+
+85
+00:04:16,930 --> 00:04:19,415
+you're going to work with some code that's very similar,
+
+86
+00:04:19,415 --> 00:04:22,020
+except instead of processing text from a user,
+
+87
+00:04:22,020 --> 00:04:24,860
+we're going to be processing messages from the autopilot,
+
+88
+00:04:24,860 --> 00:04:26,240
+and about our drone's location,
+
+89
+00:04:26,240 --> 00:04:27,910
+velocity, and so on.
+
+90
+00:04:27,910 --> 00:04:30,000
+So, let's walk through some of that code right now.
+

@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:03,240
+Up to this point, you've been considering how you can find
+
+2
+00:00:03,240 --> 00:00:07,379
+a path from a start state to a goal state by connecting cells in a grid.
+
+3
+00:00:07,379 --> 00:00:08,984
+In the real world, however,
+
+4
+00:00:08,984 --> 00:00:11,369
+you need to take into account the fact that your vehicle has
+
+5
+00:00:11,369 --> 00:00:14,535
+physical size that occupies space in the world,
+
+6
+00:00:14,535 --> 00:00:17,280
+and not only that, it has an orientation which for
+
+7
+00:00:17,280 --> 00:00:20,475
+some kinds of vehicles can limit how and where it can move.
+
+8
+00:00:20,475 --> 00:00:24,145
+A big part of solving the planning problem is finding a way to represent the vehicle.
+
+9
+00:00:24,144 --> 00:00:26,414
+And for different kinds of representations,
+
+10
+00:00:26,414 --> 00:00:29,894
+particular algorithms can operate more or less efficiently.
+
+11
+00:00:29,894 --> 00:00:31,980
+So in this lesson, we'll take a look at how to
+
+12
+00:00:31,980 --> 00:00:35,765
+represent your vehicle's position and orientation within the world.
+
+13
+00:00:35,765 --> 00:00:37,244
+And then, how to incorporate
+
+14
+00:00:37,244 --> 00:00:41,509
+that information into your search space for solving the planning problem.
+
+15
+00:00:41,509 --> 00:00:43,034
+We'll start out by investigating
+
+16
+00:00:43,034 --> 00:00:45,179
+three different coordinate frames that come in
+
+17
+00:00:45,179 --> 00:00:47,850
+handy for representing your vehicle's position,
+
+18
+00:00:47,850 --> 00:00:50,844
+namely: the geodetic or global frame,
+
+19
+00:00:50,844 --> 00:00:53,100
+your local Cartesian coordinate frame,
+
+20
+00:00:53,100 --> 00:00:57,240
+and the body frame which is a coordinate frame attached to the vehicle itself.
+
+21
+00:00:57,240 --> 00:00:59,579
+After that, I'll show you how you can express
+
+22
+00:00:59,579 --> 00:01:02,070
+your vehicle's orientation using Euler angles and
+
+23
+00:01:02,070 --> 00:01:04,530
+rotation matrices and how life gets
+
+24
+00:01:04,530 --> 00:01:07,650
+so much simpler when you switch to using quaternions. What are those?
+
+25
+00:01:07,650 --> 00:01:12,030
+We'll find out. We'll combine these representations of position and orientation to
+
+26
+00:01:12,030 --> 00:01:14,129
+describe the motion through the physical world
+
+27
+00:01:14,129 --> 00:01:17,189
+as transformations of position and orientation.
+
+28
+00:01:17,189 --> 00:01:18,599
+And finally, we'll explore
+
+29
+00:01:18,599 --> 00:01:22,140
+the so-called configuration space of your planning problem which is
+
+30
+00:01:22,140 --> 00:01:24,000
+the parameter space where you incorporate
+
+31
+00:01:24,000 --> 00:01:28,250
+your vehicle's physical size and shape into your description of the environment.
+

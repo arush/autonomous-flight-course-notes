@@ -1,0 +1,264 @@
+1
+00:00:00,000 --> 00:00:02,459
+So, some of the basic controls you need to know just
+
+2
+00:00:02,459 --> 00:00:04,615
+to get started is arming and disarming.
+
+3
+00:00:04,615 --> 00:00:06,990
+So, that's going to be getting the motors ready to take
+
+4
+00:00:06,990 --> 00:00:09,518
+commands and releasing the motors from that state.
+
+5
+00:00:09,518 --> 00:00:14,070
+So, down into the right is going to arm the motors which gets them to start spinning.
+
+6
+00:00:14,070 --> 00:00:16,350
+And when you want to kind of turn everything off,
+
+7
+00:00:16,350 --> 00:00:17,810
+it's going be down and to the left.
+
+8
+00:00:17,809 --> 00:00:21,644
+And down to the right again to arm.
+
+9
+00:00:21,644 --> 00:00:26,300
+And I have throttle up and make the vehicle take off.
+
+10
+00:00:26,300 --> 00:00:29,574
+I can yaw and fly at high speed into the wall to the right,
+
+11
+00:00:29,574 --> 00:00:34,399
+fly at high speed into the wall to the left.
+
+12
+00:00:34,399 --> 00:00:39,449
+The only other set of switches on here that's going to be important to know,
+
+13
+00:00:39,450 --> 00:00:42,350
+are going to be the way we have it configured it's going to be these two switches.
+
+14
+00:00:42,350 --> 00:00:44,539
+Will the students running the same script have
+
+15
+00:00:44,539 --> 00:00:47,030
+the same configuration or do they have to know how to configure it?
+
+16
+00:00:47,030 --> 00:00:50,120
+One of the screencasts is to walk into the configuration,
+
+17
+00:00:50,119 --> 00:00:52,179
+so it's going to be through queue ground control.
+
+18
+00:00:52,179 --> 00:00:55,789
+We're actually able to change the configurations on the autopilot and one of them
+
+19
+00:00:55,789 --> 00:00:59,744
+is to configure the switches to be able to change different control modes.
+
+20
+00:00:59,744 --> 00:01:01,699
+So one of the things you're going to want to do is go through
+
+21
+00:01:01,700 --> 00:01:05,344
+that configuration process before you take your vehicle outside.
+
+22
+00:01:05,344 --> 00:01:07,939
+Very much so. So, we've got two sets of
+
+23
+00:01:07,939 --> 00:01:09,439
+switches are going to help us get
+
+24
+00:01:09,439 --> 00:01:11,719
+through all the different states that we're going to want.
+
+25
+00:01:11,719 --> 00:01:13,609
+When this switch is all the way towards you,
+
+26
+00:01:13,609 --> 00:01:15,450
+when both this switches are all the way towards you.
+
+27
+00:01:15,450 --> 00:01:16,730
+This one and this one.
+
+28
+00:01:16,730 --> 00:01:18,530
+Correct.
+
+29
+00:01:18,530 --> 00:01:20,625
+That's going to be manual control.
+
+30
+00:01:20,625 --> 00:01:24,484
+So, that's going to be the most basic amount of input that you can get.
+
+31
+00:01:24,484 --> 00:01:28,176
+This top switch in middle position,
+
+32
+00:01:28,176 --> 00:01:31,424
+is what we are going to call our main assisted modes.
+
+33
+00:01:31,424 --> 00:01:34,534
+So, middle position bottom that's going to be altitude mode.
+
+34
+00:01:34,534 --> 00:01:36,009
+So, the vehicle is going to try and hold
+
+35
+00:01:36,010 --> 00:01:39,140
+its altitude which means you don't have to worry as much about the throttling input.
+
+36
+00:01:39,140 --> 00:01:40,820
+But it will drift left and right. Correct.
+
+37
+00:01:40,819 --> 00:01:45,284
+Middle position is position control.
+
+38
+00:01:45,284 --> 00:01:48,500
+And that means it's going to be working to hold its position.
+
+39
+00:01:48,500 --> 00:01:51,137
+So, when you release your hand from all the commands,
+
+40
+00:01:51,137 --> 00:01:54,055
+it should hold where it is and not drift with any wind.
+
+41
+00:01:54,055 --> 00:01:57,208
+And then finally, when it's time to turn that script on
+
+42
+00:01:57,207 --> 00:01:59,900
+all the way up, puts it into off-board control.
+
+43
+00:01:59,900 --> 00:02:04,145
+So, that releases control from you the pilot, to the computer.
+
+44
+00:02:04,144 --> 00:02:11,316
+So, a process that I might go through is a fully manual mode.
+
+45
+00:02:11,316 --> 00:02:16,849
+Arming the vehicle, put it in an assist mode.
+
+46
+00:02:16,849 --> 00:02:19,313
+And now, I'm in off-board mode,
+
+47
+00:02:19,313 --> 00:02:22,219
+puts all the control, on-board the vehicle, and then we start our script.
+
+48
+00:02:22,219 --> 00:02:23,210
+Correct.
+
+49
+00:02:23,210 --> 00:02:24,640
+Very good.
+
+50
+00:02:24,639 --> 00:02:28,919
+Normally, you want to bring it back to manual before you disarm.
+
+51
+00:02:28,919 --> 00:02:30,379
+All right. Good point.
+
+52
+00:02:30,379 --> 00:02:32,924
+So, everything that we have here, this remote,
+
+53
+00:02:32,925 --> 00:02:36,570
+this vehicle, it's specifically for this this drone.
+
+54
+00:02:36,569 --> 00:02:38,430
+There are many different ones out there that you can get.
+
+55
+00:02:38,430 --> 00:02:40,885
+Most remotes actually do look more or less the same.
+
+56
+00:02:40,884 --> 00:02:44,549
+You're always have these two joysticks and some collection of switches.
+
+57
+00:02:44,550 --> 00:02:46,860
+So for your vehicle,
+
+58
+00:02:46,860 --> 00:02:48,925
+if you have your own custom build at home,
+
+59
+00:02:48,925 --> 00:02:50,778
+your switches may be configured differently,
+
+60
+00:02:50,777 --> 00:02:55,060
+and maybe you prefer to have right handed versus a left handed system.
+
+61
+00:02:55,060 --> 00:02:57,735
+But what's nice is with this autopilot,
+
+62
+00:02:57,735 --> 00:03:00,530
+if this doesn't really work for you in that screencast,
+
+63
+00:03:00,530 --> 00:03:02,334
+we'll show you how to configure it.
+
+64
+00:03:02,334 --> 00:03:04,979
+So, if you want to change up the switches,
+
+65
+00:03:04,979 --> 00:03:07,030
+you definitely can to something that's a little bit more your style.
+
+66
+00:03:07,030 --> 00:03:08,030
+Great.
+

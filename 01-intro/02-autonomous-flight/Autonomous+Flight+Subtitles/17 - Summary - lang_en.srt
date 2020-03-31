@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:02,459
+We started off this lesson with a bit of
+
+2
+00:00:02,459 --> 00:00:05,250
+a history of flight and in particular, autonomous flight.
+
+3
+00:00:05,250 --> 00:00:06,960
+Fast-forward to the modern day,
+
+4
+00:00:06,960 --> 00:00:09,705
+and we're on the cusp of a transformation in technology,
+
+5
+00:00:09,705 --> 00:00:11,835
+where flying cars will become a reality.
+
+6
+00:00:11,835 --> 00:00:16,065
+I introduced our test platform for studying autonomous flight, the quadrotor drone.
+
+7
+00:00:16,065 --> 00:00:19,650
+I covered the basics of what components go into a quadrotor and
+
+8
+00:00:19,649 --> 00:00:23,399
+how they function together as an autonomous flying machine.
+
+9
+00:00:23,399 --> 00:00:25,169
+While the sensors and
+
+10
+00:00:25,170 --> 00:00:28,785
+mechanical components of a drone are interesting in their own right,
+
+11
+00:00:28,785 --> 00:00:32,939
+the flight computer is the brain of the whole operation and really,
+
+12
+00:00:32,939 --> 00:00:35,085
+where the most exciting stuff happens.
+
+13
+00:00:35,085 --> 00:00:36,774
+So, in this program,
+
+14
+00:00:36,774 --> 00:00:40,158
+we'll be focused primarily on writing software for the flight computer.
+
+15
+00:00:40,158 --> 00:00:42,844
+We'll look at how to do basic autonomous flight,
+
+16
+00:00:42,844 --> 00:00:46,143
+3D motion planning, implementing different control loops,
+
+17
+00:00:46,145 --> 00:00:48,635
+state estimation, and much more.
+
+18
+00:00:48,634 --> 00:00:50,838
+That said, we won't lose sight of
+
+19
+00:00:50,840 --> 00:00:53,435
+the fact that the software you write for your flight computer,
+
+20
+00:00:53,435 --> 00:00:57,020
+needs to actually function on real hardware at the end of the day.
+
+21
+00:00:57,020 --> 00:00:59,240
+So, while the projects you complete for
+
+22
+00:00:59,240 --> 00:01:01,940
+this program will be carried out in a simulator at first,
+
+23
+00:01:01,939 --> 00:01:06,468
+we'll also be showing you how to port your project code onto a real vehicle,
+
+24
+00:01:06,468 --> 00:01:08,375
+should you be inspired to do so.
+
+25
+00:01:08,375 --> 00:01:13,019
+Next up, your first project: event-driven programming for autonomous flight.
+

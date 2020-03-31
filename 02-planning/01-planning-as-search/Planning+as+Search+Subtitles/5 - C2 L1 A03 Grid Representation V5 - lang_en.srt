@@ -1,0 +1,220 @@
+1
+00:00:00,000 --> 00:00:03,905
+What's the simplest representation I could choose for a search space?
+
+2
+00:00:03,905 --> 00:00:07,775
+Well, for starters, I'm going to ignore the vehicle's orientation.
+
+3
+00:00:07,775 --> 00:00:10,320
+I'll assume that the attitude of the vehicle doesn't matter,
+
+4
+00:00:10,320 --> 00:00:14,095
+and the vehicle is capable of moving in any direction at any point in time.
+
+5
+00:00:14,095 --> 00:00:18,005
+For now, I'll just consider a top-down two dimensional view of the world.
+
+6
+00:00:18,005 --> 00:00:19,340
+Then, I can put down
+
+7
+00:00:19,340 --> 00:00:22,995
+a regular grid-based discretization over the flight volume of the vehicle.
+
+8
+00:00:22,995 --> 00:00:25,115
+But now, I have a design issue,
+
+9
+00:00:25,115 --> 00:00:27,630
+which is how big to make the grid cells.
+
+10
+00:00:27,630 --> 00:00:29,930
+And that creates some issues in terms of how
+
+11
+00:00:29,930 --> 00:00:32,435
+computationally complex the planning problem is.
+
+12
+00:00:32,435 --> 00:00:34,175
+If I use a really fine grid,
+
+13
+00:00:34,175 --> 00:00:36,795
+I get better resolution of obstacles and freespace,
+
+14
+00:00:36,795 --> 00:00:40,545
+but solving the planning problem will be more computationally expensive.
+
+15
+00:00:40,545 --> 00:00:43,430
+If instead, I use a very coarse discretization.
+
+16
+00:00:43,430 --> 00:00:44,800
+I reduced computation time,
+
+17
+00:00:44,800 --> 00:00:49,230
+but might risk losing too much information regarding potential solutions.
+
+18
+00:00:49,230 --> 00:00:52,190
+Let me choose a grid resolution that seems to give
+
+19
+00:00:52,190 --> 00:00:55,260
+the right balance between resolution and speed,
+
+20
+00:00:55,260 --> 00:01:00,560
+and then I need to decide how I want to incorporate obstacles into this representation.
+
+21
+00:01:00,560 --> 00:01:02,840
+A common way to do this is to say that any
+
+22
+00:01:02,840 --> 00:01:06,035
+grid cell that contains an obstacle or part of an obstacle,
+
+23
+00:01:06,035 --> 00:01:10,425
+I'll label as off limits or infeasible shown here in red.
+
+24
+00:01:10,425 --> 00:01:13,580
+Now, the vehicle won't be allowed to enter these cells.
+
+25
+00:01:13,580 --> 00:01:16,215
+I'll label all the remaining grid cells as free space.
+
+26
+00:01:16,215 --> 00:01:17,765
+And that means that the plan,
+
+27
+00:01:17,765 --> 00:01:21,905
+given this representation, is a sequence of grid cells through the frees pace.
+
+28
+00:01:21,905 --> 00:01:25,610
+Those that don't contain obstacles from the start state to the goal state.
+
+29
+00:01:25,610 --> 00:01:29,390
+I now have the first three things I need for defining the search space.
+
+30
+00:01:29,390 --> 00:01:32,990
+I have my grid-based representation of the world, my start state,
+
+31
+00:01:32,990 --> 00:01:37,805
+which is whatever grid cell the vehicle happens to be in at the beginning of the mission,
+
+32
+00:01:37,805 --> 00:01:39,935
+and my goal state, which is
+
+33
+00:01:39,935 --> 00:01:44,010
+whatever grid cell contains the goal location for this mission.
+
+34
+00:01:44,010 --> 00:01:46,065
+The next thing I need is the action set.
+
+35
+00:01:46,065 --> 00:01:47,990
+Actions are, in this case,
+
+36
+00:01:47,990 --> 00:01:51,120
+whatever moves this from one grid cell to the next grid cell.
+
+37
+00:01:51,120 --> 00:01:53,000
+In a grid-based representation like this,
+
+38
+00:01:53,000 --> 00:01:55,715
+I can consider actions that move the vehicle right,
+
+39
+00:01:55,715 --> 00:01:57,725
+left up, or down,
+
+40
+00:01:57,725 --> 00:01:59,340
+or even diagonal motions,
+
+41
+00:01:59,340 --> 00:02:01,865
+if I want to allow for more complex plans.
+
+42
+00:02:01,865 --> 00:02:04,190
+The last thing I need is a cost function.
+
+43
+00:02:04,190 --> 00:02:07,820
+And to start with, I'll just choose something super simple.
+
+44
+00:02:07,820 --> 00:02:11,180
+I'll assume that every action has the same cost. A cost of one.
+
+45
+00:02:11,180 --> 00:02:14,755
+And with that, I have a complete representation of the problem.
+
+46
+00:02:14,755 --> 00:02:19,145
+But notice that I'm giving something up with this very simple representation.
+
+47
+00:02:19,145 --> 00:02:23,070
+There are going to be certain kinds of plans that I might not be able to capture.
+
+48
+00:02:23,070 --> 00:02:28,220
+For instance, if I have a course discretization where grid cells are relatively big,
+
+49
+00:02:28,220 --> 00:02:31,085
+and I have a small obstacle spanning several cells.
+
+50
+00:02:31,085 --> 00:02:34,025
+I'm going to label all those cells as infeasible.
+
+51
+00:02:34,025 --> 00:02:38,055
+Even though there may be a path that is feasible through those grid cells.
+
+52
+00:02:38,055 --> 00:02:41,885
+As a designer, when it comes to choosing a search space representation,
+
+53
+00:02:41,885 --> 00:02:46,250
+you have fundamental decisions to make in terms of how to discretize the world,
+
+54
+00:02:46,250 --> 00:02:47,480
+what actions are allowed,
+
+55
+00:02:47,480 --> 00:02:51,000
+and what the costs are that are associated with each action.
+
