@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:05,610
+The next sensor I want to discuss is the compass or magnetometer.
+
+2
+00:00:05,610 --> 00:00:08,910
+The magnetometer is able to make measurements of
+
+3
+00:00:08,910 --> 00:00:13,080
+the vehicle's yaw when we know the vehicle's pitch and roll.
+
+4
+00:00:13,080 --> 00:00:15,990
+And this measurement of yaw is very noisy,
+
+5
+00:00:15,990 --> 00:00:17,640
+but it's free of drift,
+
+6
+00:00:17,640 --> 00:00:22,199
+which means we can fuse it with integrated gyro measurements much
+
+7
+00:00:22,199 --> 00:00:27,869
+like how we fused accelerometer data with gyro data to measure roll and pitch.
+
+8
+00:00:27,870 --> 00:00:31,050
+So the first question we need to answer is,
+
+9
+00:00:31,050 --> 00:00:34,890
+how does a magnetometer actually measure yaw?
+
+10
+00:00:34,890 --> 00:00:39,765
+The most high-level explanation goes something like this.
+
+11
+00:00:39,765 --> 00:00:44,850
+One, the Earth has a magnetic field that always points north.
+
+12
+00:00:44,850 --> 00:00:49,170
+Two, a magnetometer measures magnetic fields.
+
+13
+00:00:49,170 --> 00:00:52,649
+Three, if we know roll and pitch,
+
+14
+00:00:52,649 --> 00:00:57,899
+we can measure yaw by using the previous two facts along with a bit of math.
+
+15
+00:00:57,899 --> 00:00:59,984
+Facts one and two,
+
+16
+00:00:59,984 --> 00:01:03,600
+we're going to take for granted for our purposes.
+
+17
+00:01:03,600 --> 00:01:06,150
+If you're interested in learning more about
+
+18
+00:01:06,150 --> 00:01:09,990
+magnetic fields or the physics underlying magnetometers,
+
+19
+00:01:09,989 --> 00:01:14,304
+we'll include links to some additional content below this video.
+
+20
+00:01:14,305 --> 00:01:17,430
+To understand the math of step three,
+
+21
+00:01:17,430 --> 00:01:20,310
+you can think of looking at it from above.
+
+22
+00:01:20,310 --> 00:01:24,090
+So this is a bot pointing forward from this point of view,
+
+23
+00:01:24,090 --> 00:01:27,674
+and the Earth's magnetic field vector points like this.
+
+24
+00:01:27,674 --> 00:01:31,228
+And this vector is a three dimensional vector,
+
+25
+00:01:31,228 --> 00:01:36,030
+so it might be pointing towards the ground or away from the ground as well,
+
+26
+00:01:36,030 --> 00:01:38,070
+but we actually don't care about that.
+
+27
+00:01:38,069 --> 00:01:41,459
+What's important is that and in the x-y plane at least,
+
+28
+00:01:41,459 --> 00:01:44,204
+we know that the vector is pointing north.
+
+29
+00:01:44,204 --> 00:01:47,549
+So we can compare the vehicles forward direction to
+
+30
+00:01:47,549 --> 00:01:51,840
+magnetic north and we see that they differ by the amount psi,
+
+31
+00:01:51,840 --> 00:01:54,135
+which is equal to the yaw angle.
+
+32
+00:01:54,135 --> 00:01:57,840
+Now, the magnetometer that the vehicle has on board,
+
+33
+00:01:57,840 --> 00:01:59,939
+it's going to measure the x, y,
+
+34
+00:01:59,939 --> 00:02:05,340
+z components of the magnetic field vector in the vehicle's body frame,
+
+35
+00:02:05,340 --> 00:02:12,870
+so it will measure some x-component and some y-component and also some set component.
+
+36
+00:02:12,870 --> 00:02:15,825
+But since roll and pitch are zero in this case,
+
+37
+00:02:15,824 --> 00:02:18,229
+we don't have to care about that.
+
+38
+00:02:18,229 --> 00:02:22,959
+Now, you can see that the tangent of this yaw angle psi is
+
+39
+00:02:22,960 --> 00:02:28,629
+just the negative y component of the magnetic field divided by the x component.
+
+40
+00:02:28,629 --> 00:02:34,995
+So the yaw angle can be measured by just taking the arctan of these components.
+
+41
+00:02:34,995 --> 00:02:41,545
+This math was pretty straight forward only because we assumed roll and pitch were zero,
+
+42
+00:02:41,544 --> 00:02:45,469
+which let us ignore the set component of the measured field.
+
+43
+00:02:45,469 --> 00:02:47,074
+In the general case,
+
+44
+00:02:47,074 --> 00:02:48,849
+the math gets more complicated,
+
+45
+00:02:48,849 --> 00:02:52,074
+but conceptually, nothing really changes.
+
+46
+00:02:52,074 --> 00:02:54,769
+As long as you know roll and pitch,
+
+47
+00:02:54,770 --> 00:02:58,080
+you can use a magnetometer to measure yaw.
+

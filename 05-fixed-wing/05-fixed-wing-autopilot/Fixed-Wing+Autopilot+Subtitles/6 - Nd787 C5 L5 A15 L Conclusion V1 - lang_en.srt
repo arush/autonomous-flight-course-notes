@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:02,940
+At this point, you're ready for the final project.
+
+2
+00:00:02,940 --> 00:00:06,959
+In this project, you'll use what you've learned about fixed-wing dynamics and control,
+
+3
+00:00:06,960 --> 00:00:09,769
+to implement an autopilot for a fixed-wing vehicle.
+
+4
+00:00:09,769 --> 00:00:13,869
+This autopilot will issue commands to the propulsion system and control surfaces,
+
+5
+00:00:13,869 --> 00:00:18,449
+to control a fixed-wing vehicle as it navigates from trim state to trim state.
+
+6
+00:00:18,449 --> 00:00:22,454
+The project is broken into scenarios which are meant to help you individually
+
+7
+00:00:22,454 --> 00:00:27,070
+isolate and tune all of the control loops that you learned about in this lesson.
+
+8
+00:00:27,070 --> 00:00:30,780
+You don't necessarily need to go through these scenarios in order,
+
+9
+00:00:30,780 --> 00:00:33,420
+but you'll probably find it easier to converge on
+
+10
+00:00:33,420 --> 00:00:37,280
+a working set of control parameters if you do. Good luck.
+

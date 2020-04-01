@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:03,660
+At this point, I want to emphasize that there's more than one way
+
+2
+00:00:03,660 --> 00:00:07,425
+to do an EKF for a quad in three-dimensions.
+
+3
+00:00:07,424 --> 00:00:10,394
+Every approach has to make some trade-offs.
+
+4
+00:00:10,394 --> 00:00:12,539
+Even in the design of this course,
+
+5
+00:00:12,539 --> 00:00:16,375
+we had a lot of discussion about the best way to do it.
+
+6
+00:00:16,375 --> 00:00:20,850
+The approach we ultimately chose is one reasonable option,
+
+7
+00:00:20,850 --> 00:00:25,830
+but it's not the only option and it's also not necessarily the best option.
+
+8
+00:00:25,829 --> 00:00:29,714
+The option we chose is the result of trade-offs between
+
+9
+00:00:29,714 --> 00:00:34,560
+implementation complexity, explainability, and functionality.
+
+10
+00:00:34,560 --> 00:00:41,340
+The two choices I want to explain are our choice of EKF state vector and input.
+
+11
+00:00:41,340 --> 00:00:45,945
+Almost everything else is a consequence of these two decisions.
+
+12
+00:00:45,945 --> 00:00:49,664
+So, first our choice of EKF state vector.
+
+13
+00:00:49,664 --> 00:00:54,619
+What we're going to do is use something called a complimentary filter for attitude,
+
+14
+00:00:54,619 --> 00:01:01,320
+direct gyro measurements for the body rates and an EKF for position, velocity, and yeah.
+
+15
+00:01:01,320 --> 00:01:05,280
+So, our EKF state vector is going to look like this.
+
+16
+00:01:05,280 --> 00:01:10,280
+You could also choose to not put roll and pitch in the complimentary filter,
+
+17
+00:01:10,280 --> 00:01:13,329
+you could put it as part of the EKF state as well.
+
+18
+00:01:13,329 --> 00:01:16,814
+Then you could do all your estimation within EKF.
+
+19
+00:01:16,814 --> 00:01:20,280
+But if you had the full pose in the EKF,
+
+20
+00:01:20,280 --> 00:01:26,290
+then you would have something like a 15 or 16 dimensional-state vector and then 15 by 15,
+
+21
+00:01:26,290 --> 00:01:28,530
+or 16 by 16 Jacobians.
+
+22
+00:01:28,530 --> 00:01:34,260
+People do that, but it's a lot to keep track of and it gets hard to debug.
+
+23
+00:01:34,260 --> 00:01:37,365
+So, we chose something that's a little simpler for this course.
+
+24
+00:01:37,364 --> 00:01:42,060
+You won't get quite as good an estimate when you put attitude into a separate filter,
+
+25
+00:01:42,060 --> 00:01:47,079
+but it will still work for typical flight and it's a very common thing to do as well.
+

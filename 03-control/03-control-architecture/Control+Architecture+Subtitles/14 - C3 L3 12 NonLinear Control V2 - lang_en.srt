@@ -1,0 +1,68 @@
+1
+00:00:00,000 --> 00:00:03,089
+The cascaded controller you have been working with
+
+2
+00:00:03,089 --> 00:00:06,644
+uses the Linearized Dynamics we discussed earlier.
+
+3
+00:00:06,644 --> 00:00:09,990
+And now it's time to convert that controller to
+
+4
+00:00:09,990 --> 00:00:14,445
+a non-linear controller based on the non-linear dynamics we started with.
+
+5
+00:00:14,445 --> 00:00:17,519
+And this isn't too much of a change,
+
+6
+00:00:17,519 --> 00:00:22,500
+we still aim to have three double integrator equations that we control but to get
+
+7
+00:00:22,500 --> 00:00:27,585
+those this time we need some non-linear transformations,
+
+8
+00:00:27,585 --> 00:00:32,443
+as a result there are two big changes to the overall data flow.
+
+9
+00:00:32,444 --> 00:00:36,510
+Now we have to recap all the z and y motions by
+
+10
+00:00:36,509 --> 00:00:41,655
+passing the commanded thrust to the by position controller as well as to the drone.
+
+11
+00:00:41,655 --> 00:00:45,660
+And notice that we chose the command thrust based
+
+12
+00:00:45,659 --> 00:00:50,309
+only on the desires that motion and the current measured angle phi.
+
+13
+00:00:50,310 --> 00:00:54,975
+We don't consider the effect that thrust will have on the y motion.
+
+14
+00:00:54,975 --> 00:01:00,795
+Even so that command thrust will wind up impacting both the z and y motion.
+
+15
+00:01:00,795 --> 00:01:02,969
+In the next activity,
+
+16
+00:01:02,969 --> 00:01:07,784
+you will turn the linear controller you've been working with into a non-linear one.
+
+17
+00:01:07,784 --> 00:01:11,250
+The actual mass that you'll implement is shown below.
+

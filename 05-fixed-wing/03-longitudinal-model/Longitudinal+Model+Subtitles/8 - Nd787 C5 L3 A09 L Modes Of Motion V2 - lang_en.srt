@@ -1,0 +1,112 @@
+1
+00:00:00,000 --> 00:00:03,674
+The eigenvectors of the stability matrix describe the "modes" of the system.
+
+2
+00:00:03,674 --> 00:00:07,540
+So, if the initial state of the system has some eigenvector Vi,
+
+3
+00:00:07,540 --> 00:00:10,919
+then the motion will be along the line spanned by Vi,
+
+4
+00:00:10,919 --> 00:00:13,855
+and the motion as a function of time looks like this.
+
+5
+00:00:13,855 --> 00:00:19,024
+The Lambda i in this equation is just the eigenvalue associated with the eigenvector Vi.
+
+6
+00:00:19,024 --> 00:00:21,445
+When we analyze this stability matrix,
+
+7
+00:00:21,445 --> 00:00:24,120
+we're often analyzing these eigenvalues since
+
+8
+00:00:24,120 --> 00:00:26,130
+this complex exponential e to
+
+9
+00:00:26,129 --> 00:00:30,769
+the Lambda it actually tells us a lot about the motion of the vehicle.
+
+10
+00:00:30,769 --> 00:00:33,710
+As you just saw, this Lambda will,
+
+11
+00:00:33,710 --> 00:00:35,664
+in general, be a complex number,
+
+12
+00:00:35,664 --> 00:00:37,289
+a plus b times i.
+
+13
+00:00:37,289 --> 00:00:42,515
+This a is referred to as the real part of the eigenvalue and the b is the imaginary part.
+
+14
+00:00:42,515 --> 00:00:46,009
+A complex exponential describes motion that is some combination of
+
+15
+00:00:46,009 --> 00:00:49,814
+oscillation along with exponential growth or decay.
+
+16
+00:00:49,814 --> 00:00:52,780
+When the real part of the eigenvalue is negative,
+
+17
+00:00:52,780 --> 00:00:55,965
+the motion for the corresponding mode will be stable.
+
+18
+00:00:55,965 --> 00:00:59,865
+Which means that when the system is perturbed from the trim state,
+
+19
+00:00:59,865 --> 00:01:02,530
+it will eventually return to the trim state.
+
+20
+00:01:02,530 --> 00:01:05,430
+When the real part of the eigenvalue is positive,
+
+21
+00:01:05,430 --> 00:01:08,315
+the motion for the corresponding mode is unstable.
+
+22
+00:01:08,314 --> 00:01:13,375
+Which means that small deviations from trim will tend to grow with time.
+
+23
+00:01:13,375 --> 00:01:17,290
+So, when the real parts of all of the eigenvalues are negative,
+
+24
+00:01:17,290 --> 00:01:19,484
+the system will be stable overall.
+
+25
+00:01:19,484 --> 00:01:21,144
+For a flying vehicle,
+
+26
+00:01:21,144 --> 00:01:23,179
+this means that the aircraft will always
+
+27
+00:01:23,180 --> 00:01:25,490
+want to return to trim after it's been disturbed.
+
+28
+00:01:25,489 --> 00:01:27,920
+For example, by a gust of wind.
+

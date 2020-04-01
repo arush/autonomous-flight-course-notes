@@ -1,0 +1,140 @@
+1
+00:00:00,000 --> 00:00:04,650
+Let's walk through the math that underlies the complimentary filter.
+
+2
+00:00:04,650 --> 00:00:08,699
+We assume the state acts that were tracking is the
+
+3
+00:00:08,699 --> 00:00:12,794
+vehicles pitch and roll angles: theta and phi.
+
+4
+00:00:12,794 --> 00:00:16,820
+We also assume that these angles stay close to zero.
+
+5
+00:00:16,820 --> 00:00:19,800
+The linear complimentary filter that we will implement will
+
+6
+00:00:19,800 --> 00:00:23,240
+not perform well when these angles stray far from zero,
+
+7
+00:00:23,239 --> 00:00:25,079
+though it's possible to adapt
+
+8
+00:00:25,079 --> 00:00:29,684
+a non-linear complimentary filter in a way that allows it to work for any attitude.
+
+9
+00:00:29,684 --> 00:00:32,979
+So, the measurements come as a measurement of
+
+10
+00:00:32,979 --> 00:00:36,879
+theta and phi from the accelerometer and a measurement of
+
+11
+00:00:36,880 --> 00:00:41,679
+theta-dot phi-dot from the gyros and these measurements come
+
+12
+00:00:41,679 --> 00:00:46,570
+with some frequency and we can denote the time between sensor measurements as T_S.
+
+13
+00:00:46,570 --> 00:00:51,945
+So, now we want to come up with an estimate for theta and
+
+14
+00:00:51,945 --> 00:00:58,869
+phi based on this measurement z sub t and the previous estimate at time t minus one.
+
+15
+00:00:58,869 --> 00:01:02,659
+To do that for theta we use the following algorithm.
+
+16
+00:01:02,659 --> 00:01:07,954
+Here, tau is a time constant and T_S is the filter sampling period.
+
+17
+00:01:07,954 --> 00:01:13,450
+Then this equation says that my new estimate is going to be equal to some coefficient,
+
+18
+00:01:13,450 --> 00:01:22,260
+tau over tau plus T_S and all of that times the old estimate plus theta-dot times T_S.
+
+19
+00:01:22,260 --> 00:01:27,640
+This multiplication of theta-dot times T_S is just an integration.
+
+20
+00:01:27,640 --> 00:01:30,120
+So, basically in this first term,
+
+21
+00:01:30,120 --> 00:01:34,810
+we're taking the old estimate and we're adding the change from the gyros.
+
+22
+00:01:34,810 --> 00:01:37,769
+And this measurement isn't very noisy,
+
+23
+00:01:37,769 --> 00:01:39,839
+but since we're performing an integration,
+
+24
+00:01:39,840 --> 00:01:43,005
+this estimate is susceptible to drift.
+
+25
+00:01:43,004 --> 00:01:45,834
+Then we have the second term.
+
+26
+00:01:45,834 --> 00:01:50,239
+And this is just this coefficient T_S over tau plus
+
+27
+00:01:50,239 --> 00:01:55,019
+T_S times the direct measurement that we get from the accelerometer.
+
+28
+00:01:55,019 --> 00:02:00,840
+And this is a much noisier estimate but it won't be susceptible to drift.
+
+29
+00:02:00,840 --> 00:02:05,380
+And the idea is that we're going to put a low-pass filter on
+
+30
+00:02:05,379 --> 00:02:09,879
+the noisy estimate and a high pass filter on the other estimate,
+
+31
+00:02:09,879 --> 00:02:14,694
+and this allows us to get the benefits of both approaches by using these two filters.
+
+32
+00:02:14,694 --> 00:02:20,169
+And note that this coefficient and this coefficient together sum to one.
+
+33
+00:02:20,169 --> 00:02:25,794
+So, we can tweak the behavior of the estimator by adjusting this time constant tau.
+
+34
+00:02:25,794 --> 00:02:29,439
+But in general this first coefficient will be big,
+
+35
+00:02:29,439 --> 00:02:36,159
+maybe 0.95 and this other coefficient will be smaller closer to 0.05.
+

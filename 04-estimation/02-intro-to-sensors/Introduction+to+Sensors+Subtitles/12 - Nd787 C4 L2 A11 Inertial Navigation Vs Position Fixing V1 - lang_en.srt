@@ -1,0 +1,164 @@
+1
+00:00:00,000 --> 00:00:03,899
+When we know the attitude of the vehicle we can use
+
+2
+00:00:03,899 --> 00:00:08,830
+the accelerometer measurements as measurements of the vehicle's acceleration.
+
+3
+00:00:08,830 --> 00:00:13,800
+But even if we only have an estimate of the vehicle's attitude we can still
+
+4
+00:00:13,800 --> 00:00:19,094
+use this estimate to convert accelerometer measurements into accelerations.
+
+5
+00:00:19,094 --> 00:00:23,460
+And luckily, we have a way to estimate the vehicle's attitude.
+
+6
+00:00:23,460 --> 00:00:27,210
+We can use the gyroscopes that we discussed earlier.
+
+7
+00:00:27,210 --> 00:00:33,079
+And this is the key idea behind what's called 3D inertial navigation.
+
+8
+00:00:33,079 --> 00:00:35,739
+First, we will use measurements from
+
+9
+00:00:35,740 --> 00:00:40,100
+the rate gyros to do dead-reckoning on the orientation.
+
+10
+00:00:40,100 --> 00:00:44,340
+And second, we will use the accelerometer measurements
+
+11
+00:00:44,340 --> 00:00:48,420
+to do dead-reckoning on the accelerations to get precision.
+
+12
+00:00:48,420 --> 00:00:51,929
+And each of these steps will be susceptible to drift
+
+13
+00:00:51,929 --> 00:00:56,325
+since each of these steps requires at least one integration.
+
+14
+00:00:56,325 --> 00:01:01,380
+And because of this, the arrows are going to grow with time which means
+
+15
+00:01:01,380 --> 00:01:06,480
+inertial navigation isn't a great approach to estimation on it's own.
+
+16
+00:01:06,480 --> 00:01:13,575
+But inertial navigation is a great complement to a position fixing navigation system like
+
+17
+00:01:13,575 --> 00:01:17,150
+GPS which has a low update rate but provides
+
+18
+00:01:17,150 --> 00:01:22,330
+drift-free corrections to the estimate you get from inertial navigation.
+
+19
+00:01:22,329 --> 00:01:28,759
+There's a good human analogy for both inertial navigation and position fixing.
+
+20
+00:01:28,760 --> 00:01:31,460
+Let's start with inertial navigation.
+
+21
+00:01:31,459 --> 00:01:35,299
+Right now, take a look around wherever you are sitting,
+
+22
+00:01:35,299 --> 00:01:38,659
+so that you've localized yourself in your environment.
+
+23
+00:01:38,659 --> 00:01:41,420
+Now, don't actually try this,
+
+24
+00:01:41,420 --> 00:01:44,195
+but I want you to imagine closing your eyes
+
+25
+00:01:44,194 --> 00:01:47,753
+and trying to navigate around this environment.
+
+26
+00:01:47,754 --> 00:01:52,685
+Initially, you'd have a very good estimate of value val.
+
+27
+00:01:52,685 --> 00:01:56,475
+But every time you took a step or turned,
+
+28
+00:01:56,474 --> 00:01:58,919
+you'd be able to update your belief,
+
+29
+00:01:58,920 --> 00:02:02,549
+but your uncertainty would grow just a bit.
+
+30
+00:02:02,549 --> 00:02:06,899
+This is analogous to pure inertial navigation.
+
+31
+00:02:06,900 --> 00:02:12,780
+And if you tried to only use inertial navigation as you wandered around an environment,
+
+32
+00:02:12,780 --> 00:02:16,169
+then eventually you're uncertainty would grow too
+
+33
+00:02:16,169 --> 00:02:21,054
+high and you would be lost and possibly run into a wall.
+
+34
+00:02:21,055 --> 00:02:24,460
+Now, imagine the rules changed a bit.
+
+35
+00:02:24,460 --> 00:02:29,405
+Imagine every five steps you were allowed to open your eyes.
+
+36
+00:02:29,405 --> 00:02:34,939
+This is similar to the position fixing you would get from a GPS measurement.
+
+37
+00:02:34,939 --> 00:02:40,509
+Because every time you open your eyes you would essentially use the new information
+
+38
+00:02:40,509 --> 00:02:42,519
+to correct the uncertainty you had
+
+39
+00:02:42,520 --> 00:02:46,420
+accumulated during the eyes-closed inertial navigation.
+
+40
+00:02:46,419 --> 00:02:51,714
+This example shows how slow but drift-free GPS measurements
+
+41
+00:02:51,715 --> 00:02:57,759
+can complement the faster but drift prone measurements you get from an IMU.
+

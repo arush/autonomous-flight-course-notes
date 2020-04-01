@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:04,980
+You just saw that using noisy sensor measurements directly is a bad idea.
+
+2
+00:00:04,980 --> 00:00:08,310
+Even if the vehicle is at a target altitude,
+
+3
+00:00:08,310 --> 00:00:13,350
+a single noisy measurement might report a height that's way too high or way too low.
+
+4
+00:00:13,349 --> 00:00:16,245
+This leads to some pretty erratic control.
+
+5
+00:00:16,245 --> 00:00:20,655
+So, what we're going to do in this lesson, is something magical.
+
+6
+00:00:20,655 --> 00:00:24,765
+We're going to use these noisy measurements that are wrong,
+
+7
+00:00:24,765 --> 00:00:27,570
+to somehow get an estimate of the state of
+
+8
+00:00:27,570 --> 00:00:31,769
+the vehicle that winds up being really close to the truth.
+
+9
+00:00:31,769 --> 00:00:36,195
+The way we're going to do this is by exploiting two tricks.
+
+10
+00:00:36,195 --> 00:00:41,130
+The first trick is that we get to read the sensor lots and lots of times,
+
+11
+00:00:41,130 --> 00:00:42,300
+not just one time.
+
+12
+00:00:42,299 --> 00:00:46,169
+When we intelligently average lots of measurements,
+
+13
+00:00:46,170 --> 00:00:48,690
+we'll get a better estimate of our state.
+
+14
+00:00:48,689 --> 00:00:52,979
+The second trick is that we know what we've told the drone to
+
+15
+00:00:52,979 --> 00:00:57,404
+do and we can actually predict the effects of our control actions.
+
+16
+00:00:57,405 --> 00:01:00,585
+So when we tell the drone to accelerate upwards,
+
+17
+00:01:00,585 --> 00:01:04,620
+we can incorporate our knowledge of the vehicle's dynamics into
+
+18
+00:01:04,620 --> 00:01:08,820
+our estimate without having to wait for a sensor to give us new measurements.
+
+19
+00:01:08,819 --> 00:01:10,889
+But before we get to that,
+
+20
+00:01:10,890 --> 00:01:13,754
+let's just do a quick notation recap.
+
+21
+00:01:13,754 --> 00:01:19,500
+For now, we're going to think of time discretely and we're going to be using x of t to
+
+22
+00:01:19,500 --> 00:01:26,099
+represent the drone's true and unknowable state at timestep t. For a one day drone,
+
+23
+00:01:26,099 --> 00:01:29,280
+that will be the altitude and its rate of change,
+
+24
+00:01:29,280 --> 00:01:33,599
+and we're going to use z sub t to represent an observation or
+
+25
+00:01:33,599 --> 00:01:37,919
+the measurement that we get at timestep t. For the one the drone,
+
+26
+00:01:37,920 --> 00:01:40,859
+that would just be an altitude measurement that comes
+
+27
+00:01:40,859 --> 00:01:44,295
+from some range sensor that's pointed down at the ground.
+
+28
+00:01:44,295 --> 00:01:48,390
+To represent our estimate of the state at time t,
+
+29
+00:01:48,390 --> 00:01:53,909
+we're going to use x hats of t. The simplest thing we can do to get
+
+30
+00:01:53,909 --> 00:01:56,819
+a reasonable estimate from noisy data is to
+
+31
+00:01:56,819 --> 00:02:00,359
+just average all of the observations together.
+
+32
+00:02:00,359 --> 00:02:06,510
+In that case, x hat would just be the sum of all the t sensor measurements divided
+
+33
+00:02:06,510 --> 00:02:12,569
+by t. But we would like to not have to save all z's of t's.
+
+34
+00:02:12,569 --> 00:02:15,989
+The first problem with doing that is that our memory grows without
+
+35
+00:02:15,990 --> 00:02:19,710
+bound because we're going to have to save all the z's of t's.
+
+36
+00:02:19,710 --> 00:02:25,530
+The second problem is that the time this is going to take it's longer and longer,
+
+37
+00:02:25,530 --> 00:02:28,159
+the longer the drone has been running.
+

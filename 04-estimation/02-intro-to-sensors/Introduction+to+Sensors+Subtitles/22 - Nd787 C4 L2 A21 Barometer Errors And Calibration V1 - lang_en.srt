@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:05,660
+So, a barometer lets you measure your height with respect to some reference height,
+
+2
+00:00:05,660 --> 00:00:08,734
+and there are a few ways to get this reference.
+
+3
+00:00:08,734 --> 00:00:11,414
+For example, there are reference stations at
+
+4
+00:00:11,414 --> 00:00:14,804
+every airport which report this pressure and temperature,
+
+5
+00:00:14,804 --> 00:00:17,554
+and airplanes can navigate on that,
+
+6
+00:00:17,554 --> 00:00:20,304
+but however you get this reference,
+
+7
+00:00:20,304 --> 00:00:23,984
+the important thing to know is that we can only measure
+
+8
+00:00:23,984 --> 00:00:28,655
+altitude change by measuring pressure difference.
+
+9
+00:00:28,655 --> 00:00:32,200
+So, what are the sources of error for a barometer?
+
+10
+00:00:32,200 --> 00:00:35,890
+First, we have the resolution of the barometer.
+
+11
+00:00:35,890 --> 00:00:41,070
+Barometers can generally measure with about a 10 Pascal resolution,
+
+12
+00:00:41,070 --> 00:00:46,909
+and that corresponds to about one meter of altitude difference near the sea level,
+
+13
+00:00:46,909 --> 00:00:51,229
+and three meters if you are 10 kilometers above sea level.
+
+14
+00:00:51,229 --> 00:00:54,569
+Next, barometers are slow sensors.
+
+15
+00:00:54,570 --> 00:00:58,520
+It takes some time for the air to get in and deform the plates,
+
+16
+00:00:58,520 --> 00:01:01,760
+so they tend to lag during fast climbs.
+
+17
+00:01:01,759 --> 00:01:06,019
+There are also interesting sources of noise that we have to deal with.
+
+18
+00:01:06,019 --> 00:01:10,459
+Turbulence, wind, and propeller downwash are all concerns,
+
+19
+00:01:10,459 --> 00:01:15,079
+but by far the biggest source of error comes from differences between
+
+20
+00:01:15,079 --> 00:01:20,795
+the true and modeled atmospheric temperature and pressure at the reference location.
+
+21
+00:01:20,795 --> 00:01:23,730
+Both of which can vary over time,
+
+22
+00:01:23,730 --> 00:01:30,340
+so calibrating a barometer basically involves estimating these parameters Ts and Ps,
+
+23
+00:01:30,340 --> 00:01:31,810
+and to do the estimation,
+
+24
+00:01:31,810 --> 00:01:34,150
+we have a couple of options.
+
+25
+00:01:34,150 --> 00:01:38,105
+Ideally, we have access to some reference station which
+
+26
+00:01:38,105 --> 00:01:42,079
+gives us regular updates about the surface pressure and temperature,
+
+27
+00:01:42,079 --> 00:01:45,140
+which they can use to avoid large drifts.
+
+28
+00:01:45,140 --> 00:01:48,849
+Another option is to do online estimation of Ts and
+
+29
+00:01:48,849 --> 00:01:53,879
+Ps if we have an additional drift-free height sensor like GPS.
+
+30
+00:01:53,879 --> 00:01:56,159
+And when we do online estimation,
+
+31
+00:01:56,159 --> 00:02:00,004
+we typically model Ts and Ps as random walks.
+
+32
+00:02:00,004 --> 00:02:04,265
+Something interesting about this is that in an ideal world,
+
+33
+00:02:04,265 --> 00:02:08,509
+a plane can actually use its barometer and GPS to
+
+34
+00:02:08,509 --> 00:02:13,479
+estimate the temperature and air pressure at the airport where it took off.
+

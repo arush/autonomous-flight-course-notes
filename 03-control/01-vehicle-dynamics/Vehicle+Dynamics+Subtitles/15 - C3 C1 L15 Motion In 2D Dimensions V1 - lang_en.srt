@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:03,035
+So far, you've written code to update
+
+2
+00:00:03,035 --> 00:00:06,410
+the state of a vehicle for two different situations.
+
+3
+00:00:06,410 --> 00:00:10,970
+First, for a controlled copter which moved only in the set direction,
+
+4
+00:00:10,970 --> 00:00:16,119
+and second, for an uncontrolled vehicle free falling in two dimensions.
+
+5
+00:00:16,119 --> 00:00:17,795
+And in both cases,
+
+6
+00:00:17,795 --> 00:00:21,265
+the forces were only in the vertical direction.
+
+7
+00:00:21,265 --> 00:00:25,080
+In both situations, you had gravity pointing down,
+
+8
+00:00:25,080 --> 00:00:26,450
+and in the first situation,
+
+9
+00:00:26,450 --> 00:00:27,665
+you also had thrust,
+
+10
+00:00:27,665 --> 00:00:31,485
+but that always pointed upwards for the 1-D case.
+
+11
+00:00:31,485 --> 00:00:35,034
+This made it easy to figure out the net force on the vehicle.
+
+12
+00:00:35,034 --> 00:00:38,300
+When the vehicle is allowed to pitch overall,
+
+13
+00:00:38,300 --> 00:00:40,771
+and actually turn on its rotors,
+
+14
+00:00:40,771 --> 00:00:44,524
+then we have to handle forces at weird angles like this.
+
+15
+00:00:44,524 --> 00:00:46,460
+In the next two sections,
+
+16
+00:00:46,460 --> 00:00:51,877
+I will show you how you can use trigonometry to decompose forces in two dimensions,
+
+17
+00:00:51,877 --> 00:00:56,123
+and then I will also show you an equation for calculating torques,
+
+18
+00:00:56,123 --> 00:01:00,000
+which you will need to use in calculating pitch and roll in a quadrotor.
+

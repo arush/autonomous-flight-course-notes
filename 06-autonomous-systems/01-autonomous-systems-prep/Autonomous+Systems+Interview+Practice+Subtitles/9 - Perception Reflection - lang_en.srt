@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:02,310
+Vienna very quickly identified that
+
+2
+00:00:02,310 --> 00:00:05,714
+a Kalman filter would be a great application for sensor fusion.
+
+3
+00:00:05,714 --> 00:00:08,910
+That's definitely something that I would expect us to use in
+
+4
+00:00:08,910 --> 00:00:10,509
+her actual job role so it's great
+
+5
+00:00:10,509 --> 00:00:12,419
+that that was the first thing that popped into her mind,
+
+6
+00:00:12,419 --> 00:00:13,914
+and she explained it well.
+
+7
+00:00:13,914 --> 00:00:16,469
+Going forward from there, it was okay that she didn't know
+
+8
+00:00:16,469 --> 00:00:18,739
+exactly what she would do with different refresh rates.
+
+9
+00:00:18,739 --> 00:00:21,125
+It's not something, unless you've done a lot of hands on work,
+
+10
+00:00:21,125 --> 00:00:23,274
+that you necessarily have the experience with.
+
+11
+00:00:23,274 --> 00:00:25,829
+It's good that she didn't necessarily just try to come up
+
+12
+00:00:25,829 --> 00:00:28,609
+with a completely random answer that didn't really apply here.
+
+13
+00:00:28,609 --> 00:00:31,609
+So, it was great that when we got into the camera data,
+
+14
+00:00:31,609 --> 00:00:35,644
+she definitely identified that camera data would be important for our application,
+
+15
+00:00:35,645 --> 00:00:37,955
+that having more data of different types
+
+16
+00:00:37,954 --> 00:00:40,799
+only can become better for your perception system,
+
+17
+00:00:40,799 --> 00:00:43,954
+and it's important to know that that should be something we should include.
+
+18
+00:00:43,954 --> 00:00:45,979
+After that, again, we got into some of
+
+19
+00:00:45,979 --> 00:00:48,409
+the hands-on type of thing whether she'd worked in this yet,
+
+20
+00:00:48,409 --> 00:00:49,839
+but a lot of people don't have it.
+
+21
+00:00:49,840 --> 00:00:53,300
+It was something that we considered nice to have beforehand,
+
+22
+00:00:53,299 --> 00:00:54,994
+and it's not something that we're going to
+
+23
+00:00:54,994 --> 00:00:57,239
+necessarily count off for if they don't have that yet.
+

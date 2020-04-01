@@ -1,0 +1,80 @@
+1
+00:00:00,000 --> 00:00:03,855
+The Unscented Kalman Filter, or UKF,
+
+2
+00:00:03,855 --> 00:00:08,804
+doesn't try to have a linear approximation for the g or h function.
+
+3
+00:00:08,804 --> 00:00:13,580
+Instead, it approximates the probability distribution itself.
+
+4
+00:00:13,580 --> 00:00:16,070
+So, if this is our distribution,
+
+5
+00:00:16,070 --> 00:00:22,390
+a UKF would select a small set of weighted sample points such that the mean and
+
+6
+00:00:22,390 --> 00:00:25,240
+covariance of these weighted points is
+
+7
+00:00:25,239 --> 00:00:28,864
+equal to the mean and covariance of the distribution.
+
+8
+00:00:28,864 --> 00:00:32,234
+These special points are called sigma points.
+
+9
+00:00:32,234 --> 00:00:35,769
+The UKF propagates the small set of
+
+10
+00:00:35,770 --> 00:00:40,055
+weighted points through the non-linear g or h function.
+
+11
+00:00:40,054 --> 00:00:45,284
+Then we can calculate the mean and covariance of the transformed sigma points
+
+12
+00:00:45,284 --> 00:00:51,140
+and just use these empirical values as the mean and covariance of the new state estimate.
+
+13
+00:00:51,140 --> 00:00:54,880
+But, where do these special sigma points come from?
+
+14
+00:00:54,880 --> 00:00:57,140
+Naively, we might just say,
+
+15
+00:00:57,140 --> 00:00:59,149
+more points must be better,
+
+16
+00:00:59,149 --> 00:01:02,614
+and select as many points as we possibly can.
+
+17
+00:01:02,615 --> 00:01:05,480
+This brute force approach could work,
+
+18
+00:01:05,480 --> 00:01:09,655
+but it could be computationally prohibitive pretty quickly.
+
+19
+00:01:09,655 --> 00:01:15,754
+The real magic behind the UKF is what's called the Unscented Transform,
+
+20
+00:01:15,754 --> 00:01:21,579
+and the first step of the Unscented Transform is getting these special sigma points.
+

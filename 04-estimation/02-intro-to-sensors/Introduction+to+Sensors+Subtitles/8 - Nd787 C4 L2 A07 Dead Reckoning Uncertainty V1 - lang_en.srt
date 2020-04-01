@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:03,645
+How does our uncertainty estimate propagate?
+
+2
+00:00:03,645 --> 00:00:07,529
+We know how accurately we can measure the turn rate,
+
+3
+00:00:07,530 --> 00:00:10,919
+but what does that mean for our angle estimates?
+
+4
+00:00:10,919 --> 00:00:14,699
+So, if we use a very basic integration scheme,
+
+5
+00:00:14,699 --> 00:00:18,629
+and we neglect that we have additional integration error epsilon,
+
+6
+00:00:18,629 --> 00:00:23,924
+how does the noise in the turn rate measurements affect our angle estimates?
+
+7
+00:00:23,925 --> 00:00:26,859
+We can go step-by-step through that.
+
+8
+00:00:26,859 --> 00:00:32,009
+For example, Theta at time one is equal to our initial Theta,
+
+9
+00:00:32,009 --> 00:00:33,945
+plus our measured turn rate,
+
+10
+00:00:33,945 --> 00:00:36,704
+which is the true turn rate, Omega zero,
+
+11
+00:00:36,704 --> 00:00:42,364
+plus some noise representation Eta zero times delta t. So,
+
+12
+00:00:42,365 --> 00:00:44,385
+if we go through the equation,
+
+13
+00:00:44,384 --> 00:00:47,549
+we see that Theta one is corrupted by
+
+14
+00:00:47,549 --> 00:00:52,559
+some noise that has a variance of Sigma square, delta t square,
+
+15
+00:00:52,560 --> 00:00:55,560
+and that's because if I have a Gaussian or
+
+16
+00:00:55,560 --> 00:00:59,730
+any random variable and I multiply it by a number,
+
+17
+00:00:59,729 --> 00:01:02,279
+the variance is the original variance,
+
+18
+00:01:02,280 --> 00:01:04,155
+times the number squared.
+
+19
+00:01:04,155 --> 00:01:07,109
+So, this tells us how the noise in
+
+20
+00:01:07,109 --> 00:01:11,864
+the turn rate measurement translates into noise in the angle estimate,
+
+21
+00:01:11,864 --> 00:01:15,935
+and then, we can continue that for Theta two.
+
+22
+00:01:15,935 --> 00:01:23,314
+If we do that, we see that the noise variance in the angle is two times delta t square,
+
+23
+00:01:23,314 --> 00:01:29,334
+Sigma square, because now we have Eta zero, plus Eta one.
+
+24
+00:01:29,334 --> 00:01:32,324
+Assuming these are independent,
+
+25
+00:01:32,325 --> 00:01:36,600
+the variances of those two random variables add.
+
+26
+00:01:36,599 --> 00:01:40,228
+So, the overall variance doubles,
+
+27
+00:01:40,228 --> 00:01:44,189
+and then with every step, it increases.
+
+28
+00:01:44,189 --> 00:01:48,685
+So, if you look at the nth time step Theta n,
+
+29
+00:01:48,685 --> 00:01:52,480
+then our variance related to our estimate of Theta n
+
+30
+00:01:52,480 --> 00:01:56,784
+is n times delta t square, times Sigma square.
+
+31
+00:01:56,784 --> 00:02:02,129
+That means that our uncertainty about our angle estimate grows over time.
+
+32
+00:02:02,129 --> 00:02:06,060
+Of course, we can reduce this uncertainty by taking
+
+33
+00:02:06,060 --> 00:02:12,990
+fossil measurements which will lower delta t. But this n means that no matter what we do,
+
+34
+00:02:12,990 --> 00:02:15,920
+the uncertainty will have to grow with time.
+
+35
+00:02:15,919 --> 00:02:22,679
+Now, I can make a plot of angle on the vertical axis and show that over time.
+
+36
+00:02:22,680 --> 00:02:25,319
+If we assumes zero turn rate,
+
+37
+00:02:25,319 --> 00:02:28,185
+then our angle will be constant over time.
+
+38
+00:02:28,185 --> 00:02:32,278
+But because we have measurement noise in our turn rate measurement,
+
+39
+00:02:32,278 --> 00:02:35,259
+the uncertainty envelope cross,
+
+40
+00:02:35,259 --> 00:02:40,034
+and plotted like this as a plus minus three Sigma envelope,
+
+41
+00:02:40,034 --> 00:02:45,419
+you can see that the width of this uncertainty grows with the square root of time.
+
+42
+00:02:45,419 --> 00:02:50,534
+So, this is really problematic because over time, our uncertainty grows.
+
+43
+00:02:50,534 --> 00:02:54,930
+Which means our knowledge of the true angle decreases.
+
+44
+00:02:54,930 --> 00:02:58,230
+Luckily, there are some other techniques that we can
+
+45
+00:02:58,229 --> 00:03:01,949
+use to tame this increasing uncertainty.
+
+46
+00:03:01,949 --> 00:03:05,129
+But if you use dead-reckoning alone,
+
+47
+00:03:05,129 --> 00:03:08,960
+you will always have this growing uncertainty.
+

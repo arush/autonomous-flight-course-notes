@@ -1,0 +1,88 @@
+1
+00:00:00,000 --> 00:00:05,480
+If you were able to implement all of the methods in this section on your own,
+
+2
+00:00:05,480 --> 00:00:09,464
+congratulations, because this math wasn't trivial.
+
+3
+00:00:09,464 --> 00:00:13,195
+If you needed to consult the solutions, that's okay too.
+
+4
+00:00:13,195 --> 00:00:15,080
+But either way, hopefully,
+
+5
+00:00:15,080 --> 00:00:20,429
+you saw that the maths gets more complicated when you transition to three dimensions.
+
+6
+00:00:20,429 --> 00:00:24,094
+This will become easier with experience and practice.
+
+7
+00:00:24,094 --> 00:00:25,640
+But I want to point out,
+
+8
+00:00:25,640 --> 00:00:29,245
+that trying to implement and code an equation that's given to you
+
+9
+00:00:29,245 --> 00:00:33,390
+in math is something you will have to do when working in this field.
+
+10
+00:00:33,390 --> 00:00:35,954
+As you move to different vehicle designs,
+
+11
+00:00:35,954 --> 00:00:38,489
+or work on different systems within a vehicle,
+
+12
+00:00:38,490 --> 00:00:42,750
+you'll likely have to acquaint yourself with a new domain by reading
+
+13
+00:00:42,750 --> 00:00:45,219
+papers and trying to reimplement something
+
+14
+00:00:45,219 --> 00:00:48,155
+that someone has already described mathematically.
+
+15
+00:00:48,155 --> 00:00:51,484
+For example, in the second half of the Nanodegree,
+
+16
+00:00:51,484 --> 00:00:53,990
+you'll learn about fixed wing aircraft,
+
+17
+00:00:53,990 --> 00:00:58,070
+and you'll find that while most of the controls concepts still apply,
+
+18
+00:00:58,070 --> 00:01:01,380
+some of the details of the dynamics will change.
+
+19
+00:01:01,380 --> 00:01:03,215
+So, with this in mind,
+
+20
+00:01:03,215 --> 00:01:06,680
+as we transition into full three-dimensional control,
+
+21
+00:01:06,680 --> 00:01:10,210
+we will also be introducing you to some technical papers
+
+22
+00:01:10,209 --> 00:01:14,299
+from the field and asking you to read sections of these papers.
+

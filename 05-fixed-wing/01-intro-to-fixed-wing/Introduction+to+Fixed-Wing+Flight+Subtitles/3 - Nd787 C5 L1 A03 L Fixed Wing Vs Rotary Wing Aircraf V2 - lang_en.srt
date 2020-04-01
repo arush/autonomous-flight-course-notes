@@ -1,0 +1,164 @@
+1
+00:00:00,000 --> 00:00:03,625
+Before we jump into the details of fixed-wing dynamics and controls,
+
+2
+00:00:03,625 --> 00:00:05,910
+it's worth understanding the high level trade-offs
+
+3
+00:00:05,910 --> 00:00:09,120
+associated with fixed-wing versus rotary-wing aircraft design.
+
+4
+00:00:09,119 --> 00:00:13,799
+The reason why flying cars do use a hybrid design is because they really need to.
+
+5
+00:00:13,800 --> 00:00:15,810
+If you try to design a useful flying car with
+
+6
+00:00:15,810 --> 00:00:19,210
+a purely rotary-wing design or purely fixed-wing design,
+
+7
+00:00:19,210 --> 00:00:23,330
+you'll pretty quickly see some problems that will be hard to deal with.
+
+8
+00:00:23,329 --> 00:00:26,099
+We can highlight the strengths and weaknesses of
+
+9
+00:00:26,100 --> 00:00:29,175
+each design by playing around in simulation.
+
+10
+00:00:29,175 --> 00:00:33,990
+Here, you can see one obvious strength of rotary-wing aircraft vertical takeoff.
+
+11
+00:00:33,990 --> 00:00:36,105
+Along with vertical takeoff and landing,
+
+12
+00:00:36,104 --> 00:00:40,064
+a rotary-wing aircraft is much easier to control than a fixed-wing vehicle.
+
+13
+00:00:40,064 --> 00:00:42,320
+Here you can see it hovering in place,
+
+14
+00:00:42,320 --> 00:00:44,924
+which is something that a fixed-wing vehicle could never do.
+
+15
+00:00:44,924 --> 00:00:48,244
+This is really nice for navigation, planning, and safety.
+
+16
+00:00:48,244 --> 00:00:52,669
+The rotor craft have drawbacks for one thing they are very inefficient.
+
+17
+00:00:52,670 --> 00:00:55,700
+Even hovering in place requires using a good deal
+
+18
+00:00:55,700 --> 00:00:58,810
+of power to keep the rotors turning and generating lift.
+
+19
+00:00:58,810 --> 00:01:02,365
+This inefficiency drastically reduces the payload size,
+
+20
+00:01:02,365 --> 00:01:04,855
+range, and flight time of rotor craft.
+
+21
+00:01:04,855 --> 00:01:08,850
+Additionally, these vehicles tend to be pretty slow and quite noisy.
+
+22
+00:01:08,849 --> 00:01:13,204
+Finally, these vehicles have little to no capability when they lose power.
+
+23
+00:01:13,204 --> 00:01:15,489
+You can see that when I disarm the rotors,
+
+24
+00:01:15,489 --> 00:01:18,399
+bad things happen to the vehicle.
+
+25
+00:01:18,769 --> 00:01:21,619
+That brings us to fixed-wing vehicles.
+
+26
+00:01:21,620 --> 00:01:24,079
+One of the biggest drawbacks of fixed-wing flight is that
+
+27
+00:01:24,079 --> 00:01:26,539
+these vehicles need a long runway for takeoff.
+
+28
+00:01:26,540 --> 00:01:28,640
+Once a fixed wing vehicle gets in the air,
+
+29
+00:01:28,640 --> 00:01:30,245
+it has a lot of advantages though.
+
+30
+00:01:30,245 --> 00:01:32,630
+First, you can see that this vehicle is
+
+31
+00:01:32,629 --> 00:01:35,844
+moving a lot faster than the quad-rotor ever could.
+
+32
+00:01:35,844 --> 00:01:37,534
+In addition to being faster,
+
+33
+00:01:37,534 --> 00:01:41,030
+these vehicles are also much more efficient than rotor craft.
+
+34
+00:01:41,030 --> 00:01:44,215
+That's because instead of using a motor to spin its wings,
+
+35
+00:01:44,215 --> 00:01:47,090
+a fixed-wing vehicle uses its own motion through
+
+36
+00:01:47,090 --> 00:01:50,204
+the air to keep air flowing over the wing and generating lift.
+
+37
+00:01:50,204 --> 00:01:55,295
+This allows fixed-wing vehicles to carry much heavier payloads much longer distances.
+
+38
+00:01:55,295 --> 00:01:58,484
+This approach to generating lift also has other benefits.
+
+39
+00:01:58,484 --> 00:02:01,790
+For example, if the motor cuts out while you're flying,
+
+40
+00:02:01,790 --> 00:02:03,650
+the vehicle doesn't fall out of the sky and in
+
+41
+00:02:03,650 --> 00:02:06,640
+fact you can still do quite a bit to control it.
+

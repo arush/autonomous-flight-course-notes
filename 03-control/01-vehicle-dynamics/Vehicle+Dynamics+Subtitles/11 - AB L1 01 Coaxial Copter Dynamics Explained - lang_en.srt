@@ -1,0 +1,212 @@
+1
+00:00:00,000 --> 00:00:02,640
+In this exercise, you were asked to implement
+
+2
+00:00:02,640 --> 00:00:06,050
+three methods of this CoaxialCopter class.
+
+3
+00:00:06,049 --> 00:00:08,699
+The first was this z_dot_dot method,
+
+4
+00:00:08,699 --> 00:00:11,264
+and that just returned the current vertical acceleration
+
+5
+00:00:11,265 --> 00:00:13,995
+based on whatever the propellers were doing.
+
+6
+00:00:13,994 --> 00:00:16,353
+Then, you were asked to calculate the psi_dot_dot,
+
+7
+00:00:16,353 --> 00:00:19,859
+which is the rotational acceleration about the Z axis,
+
+8
+00:00:19,859 --> 00:00:23,570
+and then this function set-rotors-angular-velocities,
+
+9
+00:00:23,571 --> 00:00:28,710
+in this function, you actually set the correct angular rotation rates for each of
+
+10
+00:00:28,710 --> 00:00:30,120
+the propellers based on
+
+11
+00:00:30,120 --> 00:00:35,325
+whatever linear acceleration and angular acceleration you wanted the vehicle to have.
+
+12
+00:00:35,325 --> 00:00:37,145
+Now to show you how I solved this,
+
+13
+00:00:37,145 --> 00:00:40,905
+I want to show you a technique you can use in this and in future notebooks,
+
+14
+00:00:40,905 --> 00:00:44,480
+which is, first you click on this Jupyter icon up here in the top left.
+
+15
+00:00:44,479 --> 00:00:46,875
+And that takes you to this navigation page.
+
+16
+00:00:46,875 --> 00:00:51,924
+And you can see here, all of the notebooks for this lesson are at this navigation page.
+
+17
+00:00:51,924 --> 00:00:56,184
+Here I have coaxial drone dynamic solution, so I can click into that.
+
+18
+00:00:56,185 --> 00:00:59,385
+And if I scroll down to the CoaxialCopter class,
+
+19
+00:00:59,384 --> 00:01:04,030
+sure enough I will see that I have an implemented version of this z_dot_dot function.
+
+20
+00:01:04,030 --> 00:01:06,825
+And let me walk you through how this implementation works.
+
+21
+00:01:06,825 --> 00:01:10,335
+So first, step one, calculate the forces.
+
+22
+00:01:10,334 --> 00:01:11,873
+And for each propeller,
+
+23
+00:01:11,873 --> 00:01:14,689
+that was just k_f times omega squared.
+
+24
+00:01:14,689 --> 00:01:18,649
+Next, I had to calculate the force of gravity, the weight force,
+
+25
+00:01:18,650 --> 00:01:22,600
+and that's just M times G. Now to sum up this total force,
+
+26
+00:01:22,599 --> 00:01:23,669
+I had to be a little careful,
+
+27
+00:01:23,670 --> 00:01:27,210
+I had to remember that Z pointing down is positive,
+
+28
+00:01:27,209 --> 00:01:29,214
+so f_g is the positive one here,
+
+29
+00:01:29,215 --> 00:01:31,230
+and f_1 and f_2 are both negative,
+
+30
+00:01:31,230 --> 00:01:34,695
+and then the acceleration is just the total force divided by the mass.
+
+31
+00:01:34,694 --> 00:01:36,569
+So, that's what we want to return it.
+
+32
+00:01:36,569 --> 00:01:39,069
+The thinking is pretty similar for the psi_dot_dot,
+
+33
+00:01:39,069 --> 00:01:40,544
+so I'm not going to walk through that yet.
+
+34
+00:01:40,545 --> 00:01:42,480
+But this one's a little more interesting,
+
+35
+00:01:42,480 --> 00:01:45,195
+and really, there's a bunch of math going on here,
+
+36
+00:01:45,194 --> 00:01:47,684
+and I don't want to walk through actually solving out this math,
+
+37
+00:01:47,685 --> 00:01:50,710
+but I do want to point you to what equations this math came from.
+
+38
+00:01:50,709 --> 00:01:54,939
+And if I scroll up, you can see these two equations are the ones we really care about.
+
+39
+00:01:54,939 --> 00:01:57,289
+Remember that set rotors function,
+
+40
+00:01:57,290 --> 00:02:01,454
+it took a z_dot_dot and the psi_dot_dot as arguments,
+
+41
+00:02:01,453 --> 00:02:04,034
+so these are fixed for that function's point of view.
+
+42
+00:02:04,034 --> 00:02:07,019
+So now we have these two equations with two unknowns.
+
+43
+00:02:07,019 --> 00:02:08,055
+Omega one is unknown,
+
+44
+00:02:08,055 --> 00:02:09,375
+and Omega two is unknown.
+
+45
+00:02:09,375 --> 00:02:12,150
+If you solve these equations for those variables,
+
+46
+00:02:12,150 --> 00:02:14,205
+you'll find the math that you need to implement
+
+47
+00:02:14,205 --> 00:02:17,150
+to actually implement the function correctly.
+
+48
+00:02:17,150 --> 00:02:20,835
+Next, you're going to actually implement a function called advanced state,
+
+49
+00:02:20,835 --> 00:02:24,010
+which actually tracks the state of the vehicle over time.
+
+50
+00:02:24,009 --> 00:02:26,384
+And when you can implement a function like advanced state,
+
+51
+00:02:26,384 --> 00:02:30,680
+you've really proven that you understand the dynamics of the system,
+
+52
+00:02:30,681 --> 00:02:33,670
+because if you can advance the state forward in time,
+
+53
+00:02:33,669 --> 00:02:38,000
+well that means you understand how all the forces impact the motion of the vehicle.
+

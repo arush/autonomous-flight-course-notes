@@ -1,0 +1,80 @@
+1
+00:00:00,000 --> 00:00:03,214
+Nice work watching and reflecting on each of the interviews.
+
+2
+00:00:03,214 --> 00:00:05,355
+We hope you gained some valuable insight
+
+3
+00:00:05,355 --> 00:00:07,975
+into how to approach some of these types of questions.
+
+4
+00:00:07,974 --> 00:00:10,080
+Below this video, we've included
+
+5
+00:00:10,080 --> 00:00:11,880
+some additional resources for you to use in
+
+6
+00:00:11,880 --> 00:00:14,304
+preparing for your autonomous systems interview.
+
+7
+00:00:14,304 --> 00:00:16,980
+Some are focused on building up your skills,
+
+8
+00:00:16,980 --> 00:00:19,635
+some typical programming problems you'll solve.
+
+9
+00:00:19,635 --> 00:00:21,270
+We suggest to do them in
+
+10
+00:00:21,269 --> 00:00:24,745
+the programming language you'll need for the jobs you want to apply for.
+
+11
+00:00:24,745 --> 00:00:27,144
+Again, for autonomous systems roles,
+
+12
+00:00:27,144 --> 00:00:29,524
+this typically means C++.
+
+13
+00:00:29,524 --> 00:00:33,229
+We also have linked some resources to help you build up your knowledge of
+
+14
+00:00:33,229 --> 00:00:37,509
+data structures and algorithms including runtime and complexity as well.
+
+15
+00:00:37,509 --> 00:00:42,958
+Again, make sure you refresh yourself on any topics listed in job responsibilities,
+
+16
+00:00:42,959 --> 00:00:46,930
+minimum requirements, or if you've put something on your resume.
+
+17
+00:00:46,929 --> 00:00:49,560
+For instance, if the job description mentioned
+
+18
+00:00:49,560 --> 00:00:52,230
+systems architect and real time operating systems,
+
+19
+00:00:52,229 --> 00:00:55,314
+you should make sure you feel comfortable in those areas.
+
+20
+00:00:55,314 --> 00:00:59,239
+Of course, don't forget to research the company itself.
+

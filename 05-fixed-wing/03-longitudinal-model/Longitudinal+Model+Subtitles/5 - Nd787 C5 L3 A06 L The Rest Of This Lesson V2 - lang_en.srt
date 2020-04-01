@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:01,610
+By the end of this lesson,
+
+2
+00:00:01,610 --> 00:00:03,629
+you'll be able to use a linear model of
+
+3
+00:00:03,629 --> 00:00:08,234
+the longitudinal dynamics of a vehicle to actually answer the questions we just asked.
+
+4
+00:00:08,234 --> 00:00:10,619
+The analytical techniques you're going to use are pretty
+
+5
+00:00:10,619 --> 00:00:14,064
+straightforward but the math underlying them is not so simple.
+
+6
+00:00:14,064 --> 00:00:15,605
+For the next part of this lesson,
+
+7
+00:00:15,605 --> 00:00:17,490
+I want to give you some intuitive sense for
+
+8
+00:00:17,489 --> 00:00:20,695
+how that math works without going too deep into the details.
+
+9
+00:00:20,695 --> 00:00:23,609
+Let me sketch out the plan for the rest of this lesson.
+
+10
+00:00:23,609 --> 00:00:25,769
+First, I'm going to show you
+
+11
+00:00:25,769 --> 00:00:29,149
+a linearized version of the equations of motion you saw earlier.
+
+12
+00:00:29,149 --> 00:00:32,699
+This linearized version will represent the dynamics of the system near
+
+13
+00:00:32,700 --> 00:00:36,690
+a trim state as x dot equals AX plus BU.
+
+14
+00:00:36,689 --> 00:00:38,159
+This might look similar to
+
+15
+00:00:38,159 --> 00:00:41,799
+the state-transition function you saw when learning about common filters.
+
+16
+00:00:41,799 --> 00:00:44,809
+Next, we're going to focus on this square A matrix,
+
+17
+00:00:44,810 --> 00:00:46,730
+which is called the stability matrix,
+
+18
+00:00:46,729 --> 00:00:49,009
+and I'm going to explain how we can decompose
+
+19
+00:00:49,009 --> 00:00:52,039
+this matrix into eigenvalues and eigenvectors.
+
+20
+00:00:52,039 --> 00:00:55,909
+This decomposition will allow us to identify modes in the motion.
+
+21
+00:00:55,909 --> 00:01:00,069
+These modes will have a term that looks something like E raised to
+
+22
+00:01:00,070 --> 00:01:06,719
+the A plus BI times T. This A plus BI is called a complex number.
+
+23
+00:01:06,719 --> 00:01:11,359
+After that, you'll see how the exponential of a complex number actually leads to motion,
+
+24
+00:01:11,359 --> 00:01:15,655
+which is a combination of oscillation with exponential growth or decay.
+
+25
+00:01:15,655 --> 00:01:18,349
+Finally, we'll put this altogether and
+
+26
+00:01:18,349 --> 00:01:21,559
+actually answer some of the questions we just asked.
+

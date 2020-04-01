@@ -1,0 +1,164 @@
+1
+00:00:00,000 --> 00:00:02,457
+The controller you just worked with,
+
+2
+00:00:02,457 --> 00:00:05,430
+its known as an open loop controller.
+
+3
+00:00:05,430 --> 00:00:08,880
+An open loop controller is a controller that doesn't
+
+4
+00:00:08,880 --> 00:00:13,101
+receive any feedback from the system it's controlling,
+
+5
+00:00:13,101 --> 00:00:19,510
+and this lack of feedback can make a simple control problem very difficult.
+
+6
+00:00:19,510 --> 00:00:23,800
+As an example, consider getting out of bed in the morning,
+
+7
+00:00:23,800 --> 00:00:25,840
+and brushing your teeth.
+
+8
+00:00:25,840 --> 00:00:30,695
+For you, this is probably not a hard problem to solve.
+
+9
+00:00:30,695 --> 00:00:34,870
+But if you were told to do it by wearing a blindfold,
+
+10
+00:00:34,870 --> 00:00:39,720
+it will probably be a lot harder. The lesson here,
+
+11
+00:00:39,720 --> 00:00:43,233
+effective control requires feedback.
+
+12
+00:00:43,233 --> 00:00:45,229
+In the world of control theory,
+
+13
+00:00:45,229 --> 00:00:47,575
+we use block diagrams to visualize
+
+14
+00:00:47,575 --> 00:00:52,130
+important information about a controller and the system it controls.
+
+15
+00:00:52,130 --> 00:00:57,595
+An open loop controller has a control diagram that looks like this.
+
+16
+00:00:57,595 --> 00:01:02,690
+For the controller, you just work with the system, was the drone.
+
+17
+00:01:02,690 --> 00:01:06,975
+The reference, was the target set location which was Z knot,
+
+18
+00:01:06,975 --> 00:01:09,570
+the input was the commanded thrust,
+
+19
+00:01:09,570 --> 00:01:12,090
+and the output was eventually,
+
+20
+00:01:12,090 --> 00:01:14,610
+the actual set location.
+
+21
+00:01:14,610 --> 00:01:20,355
+In general, the output describes what we can measure about the system.
+
+22
+00:01:20,355 --> 00:01:22,080
+If we can measure the velocity,
+
+23
+00:01:22,080 --> 00:01:25,213
+it would also include Z dot.
+
+24
+00:01:25,213 --> 00:01:27,000
+And as you saw,
+
+25
+00:01:27,000 --> 00:01:31,420
+this doesn't produce a very effective controller because it lacks feedback,
+
+26
+00:01:31,420 --> 00:01:37,320
+which means, any errors will be unnoticed and are able to grow unchecked.
+
+27
+00:01:37,320 --> 00:01:41,361
+To turn this into a closed loop controller,
+
+28
+00:01:41,361 --> 00:01:44,210
+we need a diagram that looks like this.
+
+29
+00:01:44,210 --> 00:01:46,410
+And if you look down here,
+
+30
+00:01:46,410 --> 00:01:50,835
+you'll see that we are using a sensor to measure the output of the system,
+
+31
+00:01:50,835 --> 00:01:54,540
+and we are feeding that measured signal back,
+
+32
+00:01:54,540 --> 00:01:58,280
+and comparing it with the target value, the reference signal.
+
+33
+00:01:58,280 --> 00:02:02,058
+This circular thing is called a summing junction,
+
+34
+00:02:02,058 --> 00:02:05,140
+and the plus and minus signs are used to indicate that
+
+35
+00:02:05,140 --> 00:02:09,970
+the arrow which this junction produces comes from the reference,
+
+36
+00:02:09,970 --> 00:02:12,435
+minus the measured output.
+
+37
+00:02:12,435 --> 00:02:17,230
+You might see these summing junctions in some of the control diagrams,
+
+38
+00:02:17,230 --> 00:02:20,890
+but sometimes they are also just omitted.
+
+39
+00:02:20,890 --> 00:02:22,613
+In these block diagrams,
+
+40
+00:02:22,613 --> 00:02:27,390
+arrows represent signals, and the boxes are functions or equations.
+
+41
+00:02:27,390 --> 00:02:31,000
+For example, the system block represents our model equation.
+

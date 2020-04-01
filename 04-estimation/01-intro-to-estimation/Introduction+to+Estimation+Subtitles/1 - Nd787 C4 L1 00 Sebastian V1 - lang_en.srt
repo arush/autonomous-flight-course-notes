@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:04,980
+Estimation is something that you and I do every waking moment.
+
+2
+00:00:04,980 --> 00:00:09,824
+For example, right now, I'm getting sound waves in your ear with my voice,
+
+3
+00:00:09,824 --> 00:00:11,219
+and somewhere in your brain,
+
+4
+00:00:11,220 --> 00:00:14,480
+you form a belief as to what words I just uttered.
+
+5
+00:00:14,480 --> 00:00:15,929
+Okay, this is called estimation.
+
+6
+00:00:15,929 --> 00:00:18,070
+Robots have the same estimation problem,
+
+7
+00:00:18,070 --> 00:00:20,240
+they need to know where they are X, Y,
+
+8
+00:00:20,239 --> 00:00:24,219
+and Z and possibly fetch for the pitches for the rotors.
+
+9
+00:00:24,219 --> 00:00:26,144
+So now, we're going to focus on estimation.
+
+10
+00:00:26,144 --> 00:00:29,509
+Estimation at its core is a temporal process,
+
+11
+00:00:29,510 --> 00:00:31,679
+so you integrate things over time,
+
+12
+00:00:31,679 --> 00:00:34,679
+and it's a process of managing uncertainty.
+
+13
+00:00:34,679 --> 00:00:38,979
+You can never be 100% certain what I've said or whatever it is.
+
+14
+00:00:38,979 --> 00:00:44,640
+We're going to use Bayes rule as a method to integrate data over time.
+
+15
+00:00:44,640 --> 00:00:48,359
+Bayes rule is a method to take multiple sources of information,
+
+16
+00:00:48,359 --> 00:00:50,575
+and coming up with the distribution that is
+
+17
+00:00:50,575 --> 00:00:53,280
+the best reflection of what the state might be.
+
+18
+00:00:53,280 --> 00:00:56,620
+And your goal is going to be to make a very tight distribution,
+
+19
+00:00:56,619 --> 00:00:58,839
+so as to fights certain ways.
+

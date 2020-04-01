@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:03,870
+So, the idea behind the Bayes' Filter
+
+2
+00:00:03,870 --> 00:00:07,710
+is that we'll know where the drone is from two different sources.
+
+3
+00:00:07,710 --> 00:00:11,339
+First, we know what commands we send to the drone,
+
+4
+00:00:11,339 --> 00:00:14,929
+and we'll use that knowledge to predict the new state.
+
+5
+00:00:14,929 --> 00:00:16,589
+And of course, when we do that,
+
+6
+00:00:16,589 --> 00:00:18,929
+there's going to be some error in our prediction,
+
+7
+00:00:18,929 --> 00:00:21,405
+but we can still do something with that information.
+
+8
+00:00:21,405 --> 00:00:24,734
+And second, we still get to use the sensor measurements,
+
+9
+00:00:24,734 --> 00:00:27,269
+and of course, there's error in our sensor values.
+
+10
+00:00:27,269 --> 00:00:32,490
+But the fancy math trick will let us put these two pieces of information together in
+
+11
+00:00:32,490 --> 00:00:35,440
+the right way to get the robustness benefits of
+
+12
+00:00:35,439 --> 00:00:39,854
+averaging but also the responsiveness of fast updating.
+
+13
+00:00:39,854 --> 00:00:44,774
+The Bayes' Filter is a very general idea with many implementations.
+
+14
+00:00:44,774 --> 00:00:46,409
+So in this lesson,
+
+15
+00:00:46,409 --> 00:00:49,994
+we're going to discuss the Bayes' Filter first at a high level,
+
+16
+00:00:49,994 --> 00:00:54,209
+and then we're going to talk about one implementation called the Kalman Filter,
+
+17
+00:00:54,210 --> 00:00:58,439
+which is what happens when we represent everything as Gaussians.
+
+18
+00:00:58,439 --> 00:01:01,214
+And what happens is matrices.
+
+19
+00:01:01,215 --> 00:01:06,060
+Then, we'll dive into the extended Kalman Filter or EKF which is what
+
+20
+00:01:06,060 --> 00:01:11,545
+happens when everything is Gaussian but the state or observation models are non-linear.
+
+21
+00:01:11,545 --> 00:01:16,484
+And then, we can linearize around the state to make things Gaussian again,
+
+22
+00:01:16,484 --> 00:01:19,349
+and basically, use linearization to make things
+
+23
+00:01:19,349 --> 00:01:22,799
+Gaussian and then everything works out just like a Kalman Filter.
+
+24
+00:01:22,799 --> 00:01:24,569
+In the next lesson,
+
+25
+00:01:24,569 --> 00:01:28,739
+we'll also discuss the Unscented Kalman Filter or UKF.
+
+26
+00:01:28,739 --> 00:01:33,599
+And this is an even fancier math trick which is actually simpler to implement.
+
+27
+00:01:33,599 --> 00:01:39,239
+And with a UKF we estimate a non-linear state using special particles which we
+
+28
+00:01:39,239 --> 00:01:41,909
+can pass through a non-linear system instead
+
+29
+00:01:41,909 --> 00:01:45,075
+of linearizing the system like we do with the EKF.
+
+30
+00:01:45,075 --> 00:01:46,980
+In a later lesson,
+
+31
+00:01:46,980 --> 00:01:49,590
+Nick is actually going to cover another version of
+
+32
+00:01:49,590 --> 00:01:52,359
+the Bayes' Filter called the Particle Filter,
+
+33
+00:01:52,359 --> 00:01:55,304
+where we use particles or samples to
+
+34
+00:01:55,305 --> 00:01:59,240
+estimate a non-linear distribution which is not Gaussian.
+

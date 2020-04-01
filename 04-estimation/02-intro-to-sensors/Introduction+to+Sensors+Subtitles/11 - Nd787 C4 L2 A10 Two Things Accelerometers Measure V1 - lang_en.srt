@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:06,000
+Even though accelerometers don't measure the true acceleration of a vehicle,
+
+2
+00:00:06,000 --> 00:00:08,609
+they are still incredibly useful.
+
+3
+00:00:08,609 --> 00:00:14,160
+I'd like to talk about two measurements that we can make with an accelerometer.
+
+4
+00:00:14,160 --> 00:00:19,410
+And for now, I'm going to assume that we are working for the perfect noise free
+
+5
+00:00:19,410 --> 00:00:24,539
+accelerometer that's attached directly to the center of mass of a vehicle.
+
+6
+00:00:24,539 --> 00:00:28,574
+So, what are the two measurements we can make?
+
+7
+00:00:28,574 --> 00:00:33,405
+First, we can use an accelerometer to measure the vehicles attitude.
+
+8
+00:00:33,405 --> 00:00:36,570
+Now we, can only do that correctly if
+
+9
+00:00:36,570 --> 00:00:39,509
+we assume there's no net force acting on the vehicle,
+
+10
+00:00:39,509 --> 00:00:42,750
+which means the vehicle isn't accelerating.
+
+11
+00:00:42,750 --> 00:00:47,049
+And remember, this is what an accelerometer measures.
+
+12
+00:00:47,049 --> 00:00:50,445
+If we assume that the net force is zero,
+
+13
+00:00:50,445 --> 00:00:55,755
+then that means that the accelerometer is actually measuring G directly.
+
+14
+00:00:55,755 --> 00:01:00,870
+So, A sub accel is going to be given by this equation,
+
+15
+00:01:00,869 --> 00:01:06,734
+but the measurements that we receive in the body frame are going to look like this,
+
+16
+00:01:06,734 --> 00:01:10,920
+and this equation just says that the measured components of
+
+17
+00:01:10,920 --> 00:01:16,560
+the accelerations equal to a rotation matrix times the gravity vector.
+
+18
+00:01:16,560 --> 00:01:19,890
+When we use ZYX all angles,
+
+19
+00:01:19,890 --> 00:01:23,519
+we can express the measured components of acceleration as
+
+20
+00:01:23,519 --> 00:01:27,959
+a function of the roll angle phi and the pitch theta.
+
+21
+00:01:27,959 --> 00:01:31,515
+If you solve these equations for theta and phi,
+
+22
+00:01:31,515 --> 00:01:33,135
+you get the following;
+
+23
+00:01:33,135 --> 00:01:39,120
+phi is just the inverse tangent of the measured Y over the measured set,
+
+24
+00:01:39,120 --> 00:01:46,290
+and theta is the inverse sign of the measured Y over G. Note that we can't measure
+
+25
+00:01:46,290 --> 00:01:48,540
+yaw is an accelerometer because
+
+26
+00:01:48,540 --> 00:01:53,850
+the gravity vector doesn't change when we change the yaw of the vehicle.
+
+27
+00:01:53,849 --> 00:01:59,549
+So, that gives you some idea of how we can measure attitude with an accelerometer.
+
+28
+00:01:59,549 --> 00:02:06,349
+The second thing we can measure with an accelerometer is acceleration*.
+
+29
+00:02:06,349 --> 00:02:08,729
+Now there's a big asterisk here,
+
+30
+00:02:08,729 --> 00:02:14,899
+because we can only measure the vehicle's acceleration when the body attitude is known.
+
+31
+00:02:14,900 --> 00:02:18,463
+And the reason is because we know the attitude,
+
+32
+00:02:18,463 --> 00:02:20,324
+we know the rotation matrix.
+
+33
+00:02:20,324 --> 00:02:22,514
+And when we know the rotation matrix,
+
+34
+00:02:22,514 --> 00:02:26,369
+we can write the acceleration of the vehicle like this.
+
+35
+00:02:26,370 --> 00:02:30,075
+And this equation gives the acceleration of the vehicle
+
+36
+00:02:30,074 --> 00:02:33,329
+in the body frame as the sum of the acceleration from
+
+37
+00:02:33,330 --> 00:02:36,600
+gravity plus the specific acceleration
+
+38
+00:02:36,599 --> 00:02:40,099
+from everything else as measured by the accelerometer.
+
+39
+00:02:40,099 --> 00:02:42,030
+And as you'd expect,
+
+40
+00:02:42,030 --> 00:02:46,289
+this acceleration can be integrated to get velocity in the body frame
+
+41
+00:02:46,289 --> 00:02:51,584
+and that velocity can again be integrated to get position in the body frame.
+
+42
+00:02:51,585 --> 00:02:55,310
+And whenever we want it to convert back to the old frame,
+
+43
+00:02:55,310 --> 00:02:59,159
+we just have to multiply by the rotation matrix again.
+

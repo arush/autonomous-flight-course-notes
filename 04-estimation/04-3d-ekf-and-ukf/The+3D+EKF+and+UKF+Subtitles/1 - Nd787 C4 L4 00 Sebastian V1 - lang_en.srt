@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:02,370
+So, now just to make your life a little bit messier,
+
+2
+00:00:02,370 --> 00:00:04,410
+we are going to go to a real drone,
+
+3
+00:00:04,410 --> 00:00:09,100
+and the real drone will have a seven dimensional state-space to load,
+
+4
+00:00:09,099 --> 00:00:12,879
+and the robot will now navigate in a 3D space, okay.
+
+5
+00:00:12,880 --> 00:00:15,350
+So, what this does to you is makes these matrices,
+
+6
+00:00:15,349 --> 00:00:17,844
+the [inaudible] matrices much, much more messy.
+
+7
+00:00:17,844 --> 00:00:21,589
+We're going to do Kalman filters, extended Kalman filter,
+
+8
+00:00:21,589 --> 00:00:24,420
+and then there's a technique called unscented Kalman filter,
+
+9
+00:00:24,420 --> 00:00:27,570
+which is my favorite technique. Why unscented?
+
+10
+00:00:27,570 --> 00:00:31,769
+Many years ago in Sydney, in Professor Durant Whyte's lab,
+
+11
+00:00:31,769 --> 00:00:34,810
+there were students that hated the unscented Kalman filter.
+
+12
+00:00:34,810 --> 00:00:36,575
+It's so hard to implement,
+
+13
+00:00:36,575 --> 00:00:40,030
+and it's smallest amount of error [inaudible] estimator.
+
+14
+00:00:40,030 --> 00:00:41,785
+This filter stinks.
+
+15
+00:00:41,784 --> 00:00:44,109
+They came up with a technique that's easier to
+
+16
+00:00:44,109 --> 00:00:46,615
+implement and works much better in practice,
+
+17
+00:00:46,615 --> 00:00:48,905
+and called it the unscented Kalman filter.
+
+18
+00:00:48,905 --> 00:00:50,880
+That's why it's called unscented.
+

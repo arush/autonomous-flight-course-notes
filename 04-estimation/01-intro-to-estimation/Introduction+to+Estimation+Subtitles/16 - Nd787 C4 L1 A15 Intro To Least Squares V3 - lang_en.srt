@@ -1,0 +1,164 @@
+1
+00:00:00,000 --> 00:00:04,740
+If we're doing a thought experiment around estimating the state of a flying car,
+
+2
+00:00:04,740 --> 00:00:06,360
+the standard least squares approach to
+
+3
+00:00:06,360 --> 00:00:09,505
+estimation makes some pretty unrealistic assumptions.
+
+4
+00:00:09,505 --> 00:00:12,070
+It assumes the vehicle isn't moving,
+
+5
+00:00:12,070 --> 00:00:14,554
+that the measurements come in all at once,
+
+6
+00:00:14,554 --> 00:00:18,364
+and that the underlying measurement model is noisy but linear.
+
+7
+00:00:18,364 --> 00:00:20,989
+Remember, that a linear function of x,
+
+8
+00:00:20,989 --> 00:00:23,250
+which in this case maybe a vehicle position,
+
+9
+00:00:23,250 --> 00:00:27,905
+is one that can be written as a times x plus b for some known a and b.
+
+10
+00:00:27,905 --> 00:00:30,830
+Measurements of things like orientation are rarely
+
+11
+00:00:30,829 --> 00:00:34,479
+linear and we'll see in a bit how to overcome that assumption.
+
+12
+00:00:34,479 --> 00:00:37,149
+But despite these over-simplifications,
+
+13
+00:00:37,149 --> 00:00:39,939
+this estimation technique is common for calibration,
+
+14
+00:00:39,939 --> 00:00:43,959
+finding the transform between two coordinate systems or model fitting.
+
+15
+00:00:43,960 --> 00:00:49,795
+For now, we're going to consider a purely mathematical example of our thought experiment.
+
+16
+00:00:49,795 --> 00:00:55,795
+Let's consider a system where we make m measurements y of a constant vector x.
+
+17
+00:00:55,795 --> 00:00:58,664
+Such that y equals h times x plus v,
+
+18
+00:00:58,664 --> 00:01:01,504
+where x is the constant unknown state vector
+
+19
+00:01:01,505 --> 00:01:04,250
+of length n. This is the thing we're trying to estimate.
+
+20
+00:01:04,250 --> 00:01:08,930
+It's our quantity of interest and y tilde is the specific vector of measurements of
+
+21
+00:01:08,930 --> 00:01:14,310
+length m. I'm going to use the tilde here to denote the actual measurements I received.
+
+22
+00:01:14,310 --> 00:01:17,299
+The measurements are a linear function of the state
+
+23
+00:01:17,299 --> 00:01:20,420
+perturbed by some noise and that noise is not known.
+
+24
+00:01:20,420 --> 00:01:22,519
+It's the unknown error vector.
+
+25
+00:01:22,519 --> 00:01:24,589
+I'm going to assume the noise is drawn from
+
+26
+00:01:24,590 --> 00:01:28,490
+a Gaussian distribution with a zero mean and some covariance r,
+
+27
+00:01:28,489 --> 00:01:33,344
+which perhaps we can assume is some known variance times the identity matrix.
+
+28
+00:01:33,344 --> 00:01:35,549
+H is then the measurement matrix.
+
+29
+00:01:35,549 --> 00:01:37,715
+It's assumed to be constant and known
+
+30
+00:01:37,715 --> 00:01:40,770
+and it projects the state into the measurement space.
+
+31
+00:01:40,769 --> 00:01:43,853
+Now, if we knew what the error's viewer,
+
+32
+00:01:43,853 --> 00:01:46,069
+we could subtract them out and then that would just
+
+33
+00:01:46,069 --> 00:01:48,869
+leave y tilde minus v equals H times x,
+
+34
+00:01:48,870 --> 00:01:50,439
+and we could solve for x.
+
+35
+00:01:50,439 --> 00:01:52,274
+Or if we knew x,
+
+36
+00:01:52,275 --> 00:01:53,690
+we can solve for the errors.
+
+37
+00:01:53,689 --> 00:01:55,134
+Well, we don't know either of these,
+
+38
+00:01:55,135 --> 00:01:57,350
+that's what makes this an estimation problem.
+
+39
+00:01:57,349 --> 00:02:01,349
+What we're going to do is use a maximum likelihood estimation approach.
+
+40
+00:02:01,349 --> 00:02:05,209
+Intuitively, what we're going to do is look at our measurements and ask
+
+41
+00:02:05,209 --> 00:02:10,079
+what vehicle state is the most likely to yield this particular set of measurements.
+

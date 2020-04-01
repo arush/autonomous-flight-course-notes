@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:02,819
+For the final project of this course,
+
+2
+00:00:02,819 --> 00:00:07,919
+you'll be implementing a 3D state estimation algorithm in C++.
+
+3
+00:00:07,919 --> 00:00:10,275
+In the first part of this lesson,
+
+4
+00:00:10,275 --> 00:00:16,875
+we discussed some of the decisions we made around how that 3D estimation will take place.
+
+5
+00:00:16,875 --> 00:00:20,219
+In particular we discussed how we would maintain
+
+6
+00:00:20,219 --> 00:00:24,285
+an estimate of all the vehicles 12 state variables,
+
+7
+00:00:24,285 --> 00:00:29,115
+and the decision we decided to use involved two filters.
+
+8
+00:00:29,114 --> 00:00:32,449
+One filter is called a complimentary filter,
+
+9
+00:00:32,450 --> 00:00:35,000
+and it uses direct measurements of pitch and
+
+10
+00:00:35,000 --> 00:00:38,509
+roll from the IMU to estimate the vehicles attitude.
+
+11
+00:00:38,509 --> 00:00:40,504
+This worked by balancing
+
+12
+00:00:40,505 --> 00:00:44,960
+the long-term liability of the accelerometers attitude measurement,
+
+13
+00:00:44,960 --> 00:00:48,109
+with the more responsive but drift-prone measurements
+
+14
+00:00:48,109 --> 00:00:51,589
+that come from the IMU's Rate Gyros.
+
+15
+00:00:51,590 --> 00:00:57,130
+The majority of the state estimation was handled by an extended Kalman filter.
+
+16
+00:00:57,130 --> 00:01:02,359
+This EKF was conceptually very similar to any other EKF,
+
+17
+00:01:02,359 --> 00:01:06,740
+though the Jacobians did get larger and more complicated.
+
+18
+00:01:06,739 --> 00:01:09,209
+In the second half of this lesson,
+
+19
+00:01:09,209 --> 00:01:12,279
+you learned about the unscented Kalman filter,
+
+20
+00:01:12,280 --> 00:01:17,260
+and you saw how the UKF handles non-linear g and h functions,
+
+21
+00:01:17,260 --> 00:01:19,795
+not by linearizing the frictions,
+
+22
+00:01:19,795 --> 00:01:23,560
+but instead by approximating the Gaussian distribution,
+
+23
+00:01:23,560 --> 00:01:25,984
+which represented the vehicle state.
+
+24
+00:01:25,984 --> 00:01:29,890
+The UKF makes this approximation by selecting
+
+25
+00:01:29,890 --> 00:01:33,820
+special samples from the distribution called "sigma points".
+
+26
+00:01:33,819 --> 00:01:36,339
+Once we had the sigma points,
+
+27
+00:01:36,340 --> 00:01:38,230
+we could do prediction for instance,
+
+28
+00:01:38,230 --> 00:01:44,454
+by simply passing these sigma points through the state transition function g. Then,
+
+29
+00:01:44,454 --> 00:01:48,700
+when we wanted to turn these predicted sigmas back into a Gaussian,
+
+30
+00:01:48,700 --> 00:01:53,960
+we simply calculated the mean and covariance of these sample points.
+
+31
+00:01:53,959 --> 00:01:57,279
+One thing I hope you take away from this lesson,
+
+32
+00:01:57,280 --> 00:02:00,638
+is that there are many ways to do state estimation,
+
+33
+00:02:00,638 --> 00:02:03,935
+and often there isn't a single best way.
+
+34
+00:02:03,935 --> 00:02:05,765
+In the rest of this course,
+
+35
+00:02:05,765 --> 00:02:07,750
+you'll learn a bit more about some of
+
+36
+00:02:07,750 --> 00:02:11,379
+the practical considerations associated with state estimation,
+
+37
+00:02:11,379 --> 00:02:14,528
+as well as some techniques for estimating state,
+
+38
+00:02:14,528 --> 00:02:17,520
+when you don't have access to GPS.
+

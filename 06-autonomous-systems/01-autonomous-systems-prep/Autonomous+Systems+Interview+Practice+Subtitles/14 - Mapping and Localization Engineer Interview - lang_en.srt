@@ -1,0 +1,224 @@
+1
+00:00:00,000 --> 00:00:02,140
+Hey, welcome here today Mike.
+
+2
+00:00:02,140 --> 00:00:04,750
+I'm really glad to have you in here for the interview.
+
+3
+00:00:04,750 --> 00:00:06,660
+What I'd really like to get started with is
+
+4
+00:00:06,660 --> 00:00:09,589
+just a question around mapping and localization. Are you ready?
+
+5
+00:00:09,589 --> 00:00:10,064
+Sure.
+
+6
+00:00:10,064 --> 00:00:13,799
+Okay, great. So, my first question for you is to just describe
+
+7
+00:00:13,800 --> 00:00:17,609
+the process behind how satellites determine the position of an object.
+
+8
+00:00:17,609 --> 00:00:20,394
+Sure. So, satellites typically float around in geosynchronous orbit,
+
+9
+00:00:20,394 --> 00:00:21,870
+and when they're in that orbit,
+
+10
+00:00:21,870 --> 00:00:25,420
+the Earth is actually spinning and they're actually broadcasting the signal back down.
+
+11
+00:00:25,420 --> 00:00:27,945
+Then, depending on where you are on Earth,
+
+12
+00:00:27,945 --> 00:00:29,460
+you have some sort of a GPS packing,
+
+13
+00:00:29,460 --> 00:00:33,420
+your GPS picks up the signals from the satellites and then translate
+
+14
+00:00:33,420 --> 00:00:38,210
+that to a coordinate or location system using latitude and longitude.
+
+15
+00:00:38,210 --> 00:00:41,390
+Great. Is that usually something
+
+16
+00:00:41,390 --> 00:00:44,520
+that just takes one satellite or do you need multiple satellites to determine this?
+
+17
+00:00:44,520 --> 00:00:45,920
+So, you can do it with one satellite.
+
+18
+00:00:45,920 --> 00:00:48,270
+The problem with one satellite is the area is usually really large,
+
+19
+00:00:48,270 --> 00:00:51,080
+so you typically want anywhere between three to five satellites
+
+20
+00:00:51,079 --> 00:00:53,799
+on average to actually get a much more accurate position.
+
+21
+00:00:53,799 --> 00:00:57,409
+Interesting. Do you think that's something you can use for like
+
+22
+00:00:57,409 --> 00:01:02,609
+a robotics application or is that more for autonomous vehicles as well,
+
+23
+00:01:02,609 --> 00:01:04,049
+or is that not accurate enough?
+
+24
+00:01:04,049 --> 00:01:07,480
+I think you can use it to some extent depending on how accurate you need to be.
+
+25
+00:01:07,480 --> 00:01:10,200
+In terms of something like a self-driving car maybe,
+
+26
+00:01:10,200 --> 00:01:11,549
+it's just probably not the best.
+
+27
+00:01:11,549 --> 00:01:13,129
+I think you're only accurate within
+
+28
+00:01:13,129 --> 00:01:16,769
+a couple of feet so typically around plus or minus seven feet or so.
+
+29
+00:01:16,769 --> 00:01:20,424
+In that case, you could actually be predicted to be in the different lane.
+
+30
+00:01:20,424 --> 00:01:23,149
+So, that's actually very dangerous in something like a self-driving car.
+
+31
+00:01:23,150 --> 00:01:27,170
+But if I'm flying a UAV or something like that out in the middle of a field,
+
+32
+00:01:27,170 --> 00:01:29,995
+that might be good enough for the purpose that I'm in.
+
+33
+00:01:29,995 --> 00:01:32,570
+Great. Can you think of any approaches that
+
+34
+00:01:32,569 --> 00:01:35,399
+might be more accurate in a robotics approach?
+
+35
+00:01:35,400 --> 00:01:37,430
+So, I think what you could do is you can actually take some of
+
+36
+00:01:37,430 --> 00:01:39,200
+this GPS signal information and you can
+
+37
+00:01:39,200 --> 00:01:41,060
+actually couple it with some different types of algorithm,
+
+38
+00:01:41,060 --> 00:01:42,890
+some sort of localization algorithm something
+
+39
+00:01:42,890 --> 00:01:45,439
+like a particle filter or maybe a common filter.
+
+40
+00:01:45,439 --> 00:01:49,194
+Have you ever implemented something like a particle filter or common filter?
+
+41
+00:01:49,194 --> 00:01:51,375
+Yeah. So, I've done both actually.
+
+42
+00:01:51,375 --> 00:01:54,090
+What did you have to do in order to implement those or
+
+43
+00:01:54,090 --> 00:01:56,909
+what about them makes them better than just GPS?
+
+44
+00:01:56,909 --> 00:01:59,959
+Yeah. So, one of the things that you do is there's typically two phases.
+
+45
+00:01:59,959 --> 00:02:02,739
+So, there's usually a measurement phase and then there's an update phase.
+
+46
+00:02:02,739 --> 00:02:05,629
+So, with the measurement phase, you're actually gathering the information that
+
+47
+00:02:05,629 --> 00:02:07,099
+you've collected from the satellite
+
+48
+00:02:07,099 --> 00:02:08,739
+and making a prediction as to where you're going to move.
+
+49
+00:02:08,740 --> 00:02:10,060
+Then in your update phase,
+
+50
+00:02:10,060 --> 00:02:13,800
+you're looking at where your new location is in the measurement information.
+
+51
+00:02:13,800 --> 00:02:16,730
+Again, adjusting for an error and then kind of going back and fine tuning,
+
+52
+00:02:16,729 --> 00:02:18,769
+so you're basically making a closed feedback loop.
+
+53
+00:02:18,770 --> 00:02:22,080
+Great. Okay. I think that covers most of what I had for this question.
+
+54
+00:02:22,080 --> 00:02:23,765
+So, let's go ahead and move on to the next topic.
+
+55
+00:02:23,764 --> 00:02:24,434
+Great. Thanks.
+
+56
+00:02:24,435 --> 00:02:25,039
+All right.
+

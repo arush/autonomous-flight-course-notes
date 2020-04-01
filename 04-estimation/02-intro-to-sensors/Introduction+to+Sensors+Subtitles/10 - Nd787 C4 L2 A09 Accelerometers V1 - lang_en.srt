@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:03,254
+We talked a lot about rate gyros.
+
+2
+00:00:03,254 --> 00:00:08,265
+Now, let's talk about accelerometers and answer some very basic questions like,
+
+3
+00:00:08,265 --> 00:00:10,650
+how does an accelerometer work?
+
+4
+00:00:10,650 --> 00:00:12,530
+What does it measure?
+
+5
+00:00:12,529 --> 00:00:17,369
+You might be tempted to say that accelerometers measure acceleration,
+
+6
+00:00:17,370 --> 00:00:19,575
+but actually, they don't.
+
+7
+00:00:19,574 --> 00:00:22,464
+Think back to Newton's second law.
+
+8
+00:00:22,464 --> 00:00:26,795
+This law says that acceleration of a vehicle is equal to
+
+9
+00:00:26,795 --> 00:00:32,010
+one over the mass times the sum of all the forces acting on it.
+
+10
+00:00:32,009 --> 00:00:35,784
+Unfortunately, accelerometers don't measure
+
+11
+00:00:35,784 --> 00:00:39,494
+total acceleration, but specific acceleration,
+
+12
+00:00:39,494 --> 00:00:43,304
+and specific acceleration is the acceleration that's caused
+
+13
+00:00:43,304 --> 00:00:47,759
+by all the forces acting on the vehicle except for gravity.
+
+14
+00:00:47,759 --> 00:00:50,379
+To understand why that is the case,
+
+15
+00:00:50,380 --> 00:00:54,120
+we can look at a diagram for a simple accelerometer,
+
+16
+00:00:54,119 --> 00:00:58,814
+and this accelerometer consists of a proof mass that's attached
+
+17
+00:00:58,814 --> 00:01:04,004
+inside of some housing and constrained so that it can only move vertically.
+
+18
+00:01:04,004 --> 00:01:07,140
+Now, this proof mass is a attached between the top
+
+19
+00:01:07,140 --> 00:01:10,260
+and bottom of the housing with two springs.
+
+20
+00:01:10,260 --> 00:01:13,094
+And what the accelerometer is going to measure
+
+21
+00:01:13,094 --> 00:01:15,719
+is the difference between the upwards force
+
+22
+00:01:15,719 --> 00:01:21,390
+provided by the upper spring and the downwards force provided by the lower spring.
+
+23
+00:01:21,390 --> 00:01:25,140
+So when the accelerometer is sitting on the table,
+
+24
+00:01:25,140 --> 00:01:28,269
+we know the proof mass has zero acceleration.
+
+25
+00:01:28,269 --> 00:01:33,509
+To achieve this, the NET force from the springs on the accelerometer is going
+
+26
+00:01:33,510 --> 00:01:38,730
+to be upwards and equal to the m times g rate of the proof mass.
+
+27
+00:01:38,730 --> 00:01:45,420
+And because the springs have to provide a NET force upwards that's equal to m times g,
+
+28
+00:01:45,420 --> 00:01:48,945
+this accelerometer would measure a NET acceleration
+
+29
+00:01:48,944 --> 00:01:52,384
+upwards that's equal to g. On the other hand,
+
+30
+00:01:52,385 --> 00:01:54,520
+if the sensor were in free fall,
+
+31
+00:01:54,519 --> 00:01:57,045
+the housing and the proof mass would accelerate
+
+32
+00:01:57,045 --> 00:02:00,695
+downwards at 9.8 meters per second squared.
+
+33
+00:02:00,694 --> 00:02:03,869
+To keep the proof mass centered in the housing,
+
+34
+00:02:03,870 --> 00:02:08,400
+the two springs would be pulling equally so the NET force from the springs
+
+35
+00:02:08,400 --> 00:02:13,534
+would be zero and the accelerometer would measure zero acceleration.
+
+36
+00:02:13,534 --> 00:02:16,810
+So, this picture just shows one accelerometer.
+
+37
+00:02:16,810 --> 00:02:23,254
+A full three-axis accelerometer would need three of these in orthogonal directions,
+
+38
+00:02:23,254 --> 00:02:27,824
+and the output of a perfect three-axis accelerometer is
+
+39
+00:02:27,824 --> 00:02:33,030
+actually a measured a_accel that looks like this,
+
+40
+00:02:33,030 --> 00:02:38,759
+where this term is the total 3D force minus the force from gravity.
+
+41
+00:02:38,759 --> 00:02:43,439
+The accelerometers that we put on real drones are MEMS sensors,
+
+42
+00:02:43,439 --> 00:02:46,000
+but the physics underlying them is the same,
+
+43
+00:02:46,000 --> 00:02:50,490
+and this picture is still a helpful one to keep in mind when you try to
+
+44
+00:02:50,490 --> 00:02:55,939
+remember why accelerometers don't actually measure acceleration.
+

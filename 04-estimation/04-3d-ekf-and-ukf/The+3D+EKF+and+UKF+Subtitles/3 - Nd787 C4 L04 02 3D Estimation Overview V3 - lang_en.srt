@@ -1,0 +1,192 @@
+1
+00:00:00,000 --> 00:00:02,790
+At this point, I want to outline at
+
+2
+00:00:02,790 --> 00:00:06,120
+a high level what our overall strategy is going to be.
+
+3
+00:00:06,120 --> 00:00:09,089
+The first thing to point out is that we're not going to
+
+4
+00:00:09,089 --> 00:00:12,419
+estimate the entire state using an EKF.
+
+5
+00:00:12,419 --> 00:00:15,990
+We're only going to be using an EKF to estimate x,
+
+6
+00:00:15,990 --> 00:00:20,969
+y, z, there derivatives and their angle psi.
+
+7
+00:00:20,969 --> 00:00:23,875
+To estimate the body rates p, q,
+
+8
+00:00:23,875 --> 00:00:27,704
+and r we just use the direct measurements from the rate gyros.
+
+9
+00:00:27,704 --> 00:00:32,414
+To estimate the roll and pitch angles which are referred to as the attitude,
+
+10
+00:00:32,414 --> 00:00:35,054
+we're going to use another type of filter called
+
+11
+00:00:35,054 --> 00:00:38,715
+a complimentary filter which you'll learn more about shortly.
+
+12
+00:00:38,715 --> 00:00:41,910
+For now, I want to say a few more things about
+
+13
+00:00:41,909 --> 00:00:45,344
+the EKF portion of the estimator that you'll be implementing.
+
+14
+00:00:45,344 --> 00:00:48,975
+So, remember the EKF algorithm from last lesson.
+
+15
+00:00:48,975 --> 00:00:52,560
+Something that's pretty cool is that you're going to be using a lot of
+
+16
+00:00:52,560 --> 00:00:58,065
+the same code that you wrote in the last lesson for the EKF in the 3D case.
+
+17
+00:00:58,064 --> 00:01:00,074
+None of this is going to change,
+
+18
+00:01:00,075 --> 00:01:04,215
+except the G and g prime of the state transition model,
+
+19
+00:01:04,215 --> 00:01:07,695
+the H and h prime of the measurement model,
+
+20
+00:01:07,694 --> 00:01:11,629
+and these constants of the measurement and transition co-variance.
+
+21
+00:01:11,629 --> 00:01:14,789
+All the rest is exactly identical.
+
+22
+00:01:14,790 --> 00:01:18,035
+This is something that's really nice about these filters.
+
+23
+00:01:18,034 --> 00:01:20,269
+In many ways, the problem doesn't really
+
+24
+00:01:20,269 --> 00:01:23,274
+change conceptually when you move from one dimension,
+
+25
+00:01:23,275 --> 00:01:25,240
+to two, to three.
+
+26
+00:01:25,239 --> 00:01:30,079
+Unfortunately, there are a few things that do get pretty complicated in 3D.
+
+27
+00:01:30,079 --> 00:01:33,649
+First is that the state vectors are larger,
+
+28
+00:01:33,650 --> 00:01:36,200
+and what that means is that these Jacobians,
+
+29
+00:01:36,200 --> 00:01:41,030
+this g prime and h prime get big, especially g prime.
+
+30
+00:01:41,030 --> 00:01:45,320
+We're only going to be estimating seven state variables with our EKF.
+
+31
+00:01:45,319 --> 00:01:50,254
+But that still means our Jacobian g prime will be a 7 by 7 matrix.
+
+32
+00:01:50,254 --> 00:01:53,314
+Forty nine entries is a lot to keep track of.
+
+33
+00:01:53,314 --> 00:01:56,599
+Fortunately, most of the entries are zero,
+
+34
+00:01:56,599 --> 00:02:00,274
+but it's still a non-trivial thing to make it all work together.
+
+35
+00:02:00,275 --> 00:02:05,155
+The second complication is that there are a lot of sensors to deal with.
+
+36
+00:02:05,155 --> 00:02:07,890
+Instead of a single range sensor,
+
+37
+00:02:07,890 --> 00:02:10,164
+now we're going to have a GPS,
+
+38
+00:02:10,164 --> 00:02:12,844
+an I MU, a magnetometer,
+
+39
+00:02:12,844 --> 00:02:17,314
+and barometer and we might also have a camera or other sensors,
+
+40
+00:02:17,314 --> 00:02:21,379
+and every single one of those sensors needs a measurement model.
+
+41
+00:02:21,379 --> 00:02:24,525
+The third complication is the transforms.
+
+42
+00:02:24,525 --> 00:02:27,550
+As you've probably experienced in the controls course,
+
+43
+00:02:27,550 --> 00:02:31,045
+the math just gets harder when we have to work in three-dimensions
+
+44
+00:02:31,044 --> 00:02:35,059
+and deal with transformations between the world and body frames.
+
+45
+00:02:35,060 --> 00:02:38,050
+In fact, one of the reasons why we decided to
+
+46
+00:02:38,050 --> 00:02:41,260
+handle attitude estimation in a separate filter,
+
+47
+00:02:41,259 --> 00:02:43,584
+was to avoid some of the difficulty
+
+48
+00:02:43,585 --> 00:02:47,360
+associated with these three dimensional transformations.
+

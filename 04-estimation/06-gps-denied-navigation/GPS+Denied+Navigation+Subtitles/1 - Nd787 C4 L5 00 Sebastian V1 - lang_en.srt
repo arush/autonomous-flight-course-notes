@@ -1,0 +1,64 @@
+1
+00:00:00,000 --> 00:00:02,714
+So, we're getting to the end of the course.
+
+2
+00:00:02,714 --> 00:00:04,339
+We want to share some content with you.
+
+3
+00:00:04,339 --> 00:00:06,120
+It is not required for the final project,
+
+4
+00:00:06,120 --> 00:00:09,370
+but it's important when you build actual physical systems.
+
+5
+00:00:09,369 --> 00:00:13,989
+It has to do with the fact that so far we have a very strong reliance on GPS.
+
+6
+00:00:13,990 --> 00:00:16,210
+Or else it will just not work without GPS,
+
+7
+00:00:16,210 --> 00:00:17,714
+because if you don't know where you are,
+
+8
+00:00:17,714 --> 00:00:21,149
+you could start drifting at a certain speed and never figure that out.
+
+9
+00:00:21,149 --> 00:00:25,719
+The only way to prevent a flyaway scenario is using GPS.
+
+10
+00:00:25,719 --> 00:00:28,099
+Sometimes, GPS is not available.
+
+11
+00:00:28,100 --> 00:00:31,230
+This might be because you are next to tall buildings or
+
+12
+00:00:31,230 --> 00:00:34,450
+it might be because someone has a GPS Gema,
+
+13
+00:00:34,450 --> 00:00:37,050
+that's actually exist and GPS is not able.
+
+14
+00:00:37,049 --> 00:00:39,714
+So, now we're going to give you some information on how to make
+
+15
+00:00:39,715 --> 00:00:42,660
+a drone fly without GPS and we're going to replace
+
+16
+00:00:42,659 --> 00:00:48,439
+GPS using a downward facing camera as a way to track your position on the ground.
+

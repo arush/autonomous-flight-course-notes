@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:05,424
+Now, let's go back one more time to our thought experiment of a flying car in operation.
+
+2
+00:00:05,424 --> 00:00:09,070
+We want to infer the location of the vehicle from position measurements.
+
+3
+00:00:09,070 --> 00:00:11,435
+Say, some sort of GPS system.
+
+4
+00:00:11,435 --> 00:00:15,880
+We're going to still assume that the vehicle is still not moving.
+
+5
+00:00:15,880 --> 00:00:17,949
+The measurements are received one at a time,
+
+6
+00:00:17,949 --> 00:00:20,469
+we saw how to handle that in the previous concepts,
+
+7
+00:00:20,469 --> 00:00:24,589
+but now the measurements are noisy and nonlinear function of the position.
+
+8
+00:00:24,589 --> 00:00:28,405
+Maybe the measurements tell us something about the orientation.
+
+9
+00:00:28,405 --> 00:00:34,570
+Once again, we have a system where we make M measurements y of a constant vector x.
+
+10
+00:00:34,570 --> 00:00:39,304
+But now, y equals some function and h of x plus some additive noise.
+
+11
+00:00:39,304 --> 00:00:42,289
+Where x is the constant unknown state vector of length n,
+
+12
+00:00:42,289 --> 00:00:43,820
+again our quantity of interest.
+
+13
+00:00:43,820 --> 00:00:47,210
+y tilde is the vector of actually received measurements,
+
+14
+00:00:47,210 --> 00:00:49,280
+v is the unknown error vector,
+
+15
+00:00:49,280 --> 00:00:52,355
+the noise with zero mean and non-covariance.
+
+16
+00:00:52,354 --> 00:00:55,789
+Remember before we had a linear function which meant we
+
+17
+00:00:55,789 --> 00:00:59,450
+could write down the function as a matrix h times x,
+
+18
+00:00:59,450 --> 00:01:01,115
+but now we're going to say that h is
+
+19
+00:01:01,115 --> 00:01:03,770
+any measurement function with no constraints on it at all.
+
+20
+00:01:03,770 --> 00:01:06,320
+Beyond the fact that we know what the function is,
+
+21
+00:01:06,319 --> 00:01:08,744
+and that is not changing over time.
+
+22
+00:01:08,745 --> 00:01:10,950
+h is now problem,
+
+23
+00:01:10,950 --> 00:01:15,320
+you might not have realized it but in recursive estimation we were actually
+
+24
+00:01:15,319 --> 00:01:20,079
+projecting the measurement distribution into the same state space as the estimate.
+
+25
+00:01:20,079 --> 00:01:23,030
+We had our estimate x and p of x.
+
+26
+00:01:23,030 --> 00:01:26,590
+We had some distribution of measurements y and p of y.
+
+27
+00:01:26,590 --> 00:01:29,930
+And the mean of that distribution was given by h of x,
+
+28
+00:01:29,930 --> 00:01:32,990
+and the covariance was r. We could use
+
+29
+00:01:32,989 --> 00:01:34,670
+the linear matrix h to project
+
+30
+00:01:34,670 --> 00:01:37,850
+Gaussian distributions in the measurement space into the state space,
+
+31
+00:01:37,849 --> 00:01:40,669
+and the fact that the measurements were related by a linear function given
+
+32
+00:01:40,670 --> 00:01:44,420
+by h. Ensure that the projected distribution stayed Gaussian.
+
+33
+00:01:44,420 --> 00:01:49,310
+That meant that the weighted average posterior distribution was Gaussian as well.
+
+34
+00:01:49,310 --> 00:01:52,585
+But if h is an arbitrary function,
+
+35
+00:01:52,584 --> 00:01:57,864
+we have no guarantees at all that the projected distribution of y will stay Gaussian,
+
+36
+00:01:57,864 --> 00:02:00,969
+which makes it a lot harder to take a weighted average between
+
+37
+00:02:00,969 --> 00:02:05,500
+the prior x hat naught and what the new measurements are telling us.
+
+38
+00:02:05,500 --> 00:02:08,979
+So, we're left with a bit of a problem if
+
+39
+00:02:08,979 --> 00:02:12,000
+we want to preserve this Gaussian to Gaussian mapping,
+
+40
+00:02:12,000 --> 00:02:16,800
+we're going to need to find a way to make the measurement model linear.
+

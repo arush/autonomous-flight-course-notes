@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:04,025
+In this lesson, you will learn how to design and implement
+
+2
+00:00:04,025 --> 00:00:09,964
+a full cascaded control of an underactuated quad moving in two dimensions.
+
+3
+00:00:09,964 --> 00:00:13,984
+You've going to get there in three main steps.
+
+4
+00:00:13,984 --> 00:00:16,277
+First, we'll start by linearizing
+
+5
+00:00:16,277 --> 00:00:21,245
+the 2D dynamic equations that I've shown you a few times already.
+
+6
+00:00:21,245 --> 00:00:25,250
+Linearization is an incredibly useful mathematical tool
+
+7
+00:00:25,250 --> 00:00:30,115
+that's used throughout robotics to tame the math when it becomes hard to work with.
+
+8
+00:00:30,114 --> 00:00:31,844
+And in this case,
+
+9
+00:00:31,844 --> 00:00:34,859
+linearization will also lead to decoupling of
+
+10
+00:00:34,859 --> 00:00:38,445
+the dynamics of the system in the y and z directions,
+
+11
+00:00:38,445 --> 00:00:44,185
+which means we'll be able to think about each of these directions completely separately.
+
+12
+00:00:44,185 --> 00:00:48,030
+Next, we'll find that y control in the z direction can still use
+
+13
+00:00:48,030 --> 00:00:52,649
+a single PID controller like the one you have worked with in the last lesson.
+
+14
+00:00:52,649 --> 00:00:55,993
+The y direction won't be quite as easy.
+
+15
+00:00:55,993 --> 00:00:58,765
+To control the vehicle in the y direction,
+
+16
+00:00:58,765 --> 00:01:03,625
+we will need to introduce what's called the cascaded control structure.
+
+17
+00:01:03,625 --> 00:01:07,655
+Once you're comfortable with a cascaded control architecture,
+
+18
+00:01:07,655 --> 00:01:11,269
+we will reintroduce the nonlinear equations of motion
+
+19
+00:01:11,269 --> 00:01:15,515
+and you will implement a full non-linear cascaded controller,
+
+20
+00:01:15,515 --> 00:01:19,474
+which controls a drone that can move in the y or z plane.
+
+21
+00:01:19,474 --> 00:01:24,775
+This is an important stepping stone to watch the full 3D control of a quadrotor.
+
+22
+00:01:24,775 --> 00:01:27,530
+Remember, the quadrotor is symmetric and the
+
+23
+00:01:27,530 --> 00:01:31,000
+forward-back motion will be very similar to the left-right motion.
+

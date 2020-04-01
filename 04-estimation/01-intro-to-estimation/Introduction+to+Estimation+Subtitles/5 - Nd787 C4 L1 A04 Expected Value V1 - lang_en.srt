@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:05,025
+One calculation, we can perform with a random variable is called the expected value.
+
+2
+00:00:05,025 --> 00:00:07,370
+I can define this expected value here,
+
+3
+00:00:07,370 --> 00:00:11,625
+which you can see is a function of the components of the random variable.
+
+4
+00:00:11,625 --> 00:00:14,539
+It's the integer value of the random variable,
+
+5
+00:00:14,539 --> 00:00:18,410
+times the likelihood of each of those outcomes all summed together.
+
+6
+00:00:18,410 --> 00:00:22,039
+Now, the expected value of a random variable,
+
+7
+00:00:22,039 --> 00:00:23,719
+where the underlying events are
+
+8
+00:00:23,719 --> 00:00:28,279
+truly non-numeric quantities such as working or not working,
+
+9
+00:00:28,280 --> 00:00:30,065
+they may not be all that useful.
+
+10
+00:00:30,065 --> 00:00:33,325
+Let's say that we had working is zero, not working is one,
+
+11
+00:00:33,325 --> 00:00:35,185
+and mostly working is two,
+
+12
+00:00:35,185 --> 00:00:39,594
+the probabilities are 0.9, 0.05, 0.05.
+
+13
+00:00:39,594 --> 00:00:42,740
+If I compute the expected value of that variable x,
+
+14
+00:00:42,740 --> 00:00:45,289
+it's going to be equal to 0.15.
+
+15
+00:00:45,289 --> 00:00:47,750
+What that means is really unclear.
+
+16
+00:00:47,750 --> 00:00:50,929
+But imagine our sample spaces actually a numeric quantity,
+
+17
+00:00:50,929 --> 00:00:54,990
+such as the number of GPS satellites that a flying car can detect.
+
+18
+00:00:54,990 --> 00:00:57,435
+Our random variable looks like this,
+
+19
+00:00:57,435 --> 00:01:00,280
+with the number of satellites and probability.
+
+20
+00:01:00,280 --> 00:01:04,094
+If we compute the expected value over this random variable,
+
+21
+00:01:04,094 --> 00:01:09,355
+then you have the expected value of x is equal to the sum of p of x of i,
+
+22
+00:01:09,355 --> 00:01:13,380
+times x of i, which is going to be equal to 0.1 times one,
+
+23
+00:01:13,379 --> 00:01:15,560
+plus 0.1 times two, and so on.
+
+24
+00:01:15,560 --> 00:01:17,700
+That's going to be equal to three point 3.5,
+
+25
+00:01:17,700 --> 00:01:20,670
+and it tells us something about the number of satellites that we might
+
+26
+00:01:20,670 --> 00:01:38,650
+expect to see at any given time.
+

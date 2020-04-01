@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:04,169
+We've spent a lot of time working out the dynamic model of a fixed-wing aircraft,
+
+2
+00:00:04,169 --> 00:00:05,879
+and we have an understanding of
+
+3
+00:00:05,879 --> 00:00:08,824
+the different dynamic modes that the vehicle will exhibit.
+
+4
+00:00:08,824 --> 00:00:11,729
+But how do we actually put all this together to
+
+5
+00:00:11,730 --> 00:00:14,705
+get our flying car to follow a particular trajectory?
+
+6
+00:00:14,705 --> 00:00:17,489
+The dynamics of a fixed-wing vehicle mean,
+
+7
+00:00:17,489 --> 00:00:20,394
+that there are lots of plans that we just can't follow.
+
+8
+00:00:20,394 --> 00:00:22,469
+The vehicle obviously can't go backwards,
+
+9
+00:00:22,469 --> 00:00:24,539
+but it also use a stall speed and it has
+
+10
+00:00:24,539 --> 00:00:28,250
+a maximum bank angle that limits our turning radius to some minimum.
+
+11
+00:00:28,250 --> 00:00:32,519
+To simplify our planning problem and also simplify the control problem,
+
+12
+00:00:32,520 --> 00:00:35,070
+we're going to define a set of trim states that we can be
+
+13
+00:00:35,070 --> 00:00:37,740
+in and the goal of the autopilot is to move us from
+
+14
+00:00:37,740 --> 00:00:40,310
+trim state to trim state and keep us in
+
+15
+00:00:40,310 --> 00:00:44,105
+those trim states when the vehicle is perturbed by things like wind gusts.
+
+16
+00:00:44,104 --> 00:00:48,484
+These trim states are generally straight-line paths or curved orbits.
+
+17
+00:00:48,484 --> 00:00:50,875
+By restricting our trajectory to these states,
+
+18
+00:00:50,875 --> 00:00:52,700
+we're basically restricting ourselves to
+
+19
+00:00:52,700 --> 00:00:56,690
+either longitudinal dynamic modes or we're in level flight climbing or
+
+20
+00:00:56,689 --> 00:00:59,659
+descending or lateral directional flight where
+
+21
+00:00:59,659 --> 00:01:03,129
+we're doing a coordinated turn in one direction or another.
+
+22
+00:01:03,130 --> 00:01:05,040
+Can the vehicle do more things than that?
+
+23
+00:01:05,040 --> 00:01:08,660
+Of course, but more sophisticated maneuvers are a lot
+
+24
+00:01:08,659 --> 00:01:13,239
+harder to both plant and control so we're going to leave those for another day.
+

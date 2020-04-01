@@ -1,0 +1,24 @@
+1
+00:00:00,000 --> 00:00:05,384
+So far, we've discussed how a spinning rotor produces thrust and moments.
+
+2
+00:00:05,384 --> 00:00:07,574
+We've also discussed equilibrium,
+
+3
+00:00:07,575 --> 00:00:12,134
+where forces and moments all balance each other out and sum to zero.
+
+4
+00:00:12,134 --> 00:00:16,379
+Now, it's time to talk about what happens when this is not the case.
+
+5
+00:00:16,379 --> 00:00:18,509
+Before we get into the math,
+
+6
+00:00:18,510 --> 00:00:23,700
+it's worth thinking about the intuition for what happens when forces do not balance.
+

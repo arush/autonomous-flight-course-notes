@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,759
+So, what are these three hidden frames of reference?
+
+2
+00:00:02,759 --> 00:00:05,609
+First, we have the inertial frame of reference.
+
+3
+00:00:05,610 --> 00:00:09,355
+You might also see this referred to as the world or global frame.
+
+4
+00:00:09,355 --> 00:00:13,150
+This is just the Northeast down frame you've seen before.
+
+5
+00:00:13,150 --> 00:00:16,629
+The Z-axis of this frame is parallel to the gravity vector.
+
+6
+00:00:16,629 --> 00:00:20,164
+The X-axis points North and the Y-axis points East,
+
+7
+00:00:20,164 --> 00:00:22,119
+though we can't see it in this picture.
+
+8
+00:00:22,120 --> 00:00:24,179
+Next, we have the body frame.
+
+9
+00:00:24,179 --> 00:00:27,429
+The origin of this frame is at the center of mass of the vehicle.
+
+10
+00:00:27,429 --> 00:00:32,295
+The X-axis points out of the nose and the Z-axis points down through the fuselage.
+
+11
+00:00:32,295 --> 00:00:36,380
+As you can see, the thrust vector is aligned to the X-axis of this frame.
+
+12
+00:00:36,380 --> 00:00:39,650
+Finally, we have what's called the stability frame.
+
+13
+00:00:39,649 --> 00:00:43,710
+The stability frame is actually determined by the direction of this arrow which,
+
+14
+00:00:43,710 --> 00:00:47,429
+remember, is the velocity of the air relative to the plane.
+
+15
+00:00:47,429 --> 00:00:50,244
+In this example, we're imagining zero wind.
+
+16
+00:00:50,244 --> 00:00:53,890
+So, this vector is just the opposite of the plane's velocity vector,
+
+17
+00:00:53,890 --> 00:00:55,174
+but you could imagine,
+
+18
+00:00:55,174 --> 00:00:56,919
+that would change if there were wind.
+
+19
+00:00:56,920 --> 00:01:00,804
+As you can see, drag points in the negative X direction in the stability frame,
+
+20
+00:01:00,804 --> 00:01:03,034
+and lift points in the negative Z direction.
+
+21
+00:01:03,034 --> 00:01:05,539
+In addition to these three frames of reference,
+
+22
+00:01:05,540 --> 00:01:08,905
+there are three important angles that are used to relate these frames.
+
+23
+00:01:08,905 --> 00:01:11,030
+If we ignore the forces for a moment,
+
+24
+00:01:11,030 --> 00:01:13,640
+what we have is a plane pointed in this direction,
+
+25
+00:01:13,640 --> 00:01:15,805
+relative airflow coming in at this direction,
+
+26
+00:01:15,805 --> 00:01:18,795
+and that this line is horizontal in the inertial frame.
+
+27
+00:01:18,795 --> 00:01:23,099
+The angle between the body frame in horizontal in the inertial frame is Theta.
+
+28
+00:01:23,099 --> 00:01:24,989
+This is the pitch angle of the vehicle.
+
+29
+00:01:24,989 --> 00:01:27,140
+The angle between the airflow and the
+
+30
+00:01:27,140 --> 00:01:31,075
+horizontal is the flight path angle and it's labeled Gamma.
+
+31
+00:01:31,075 --> 00:01:35,715
+Finally, the angle between the airflow and the body frame is called the angle of attack,
+
+32
+00:01:35,715 --> 00:01:37,625
+and it's usually labeled Alpha.
+
+33
+00:01:37,625 --> 00:01:40,010
+These three angles are useful when you need to
+
+34
+00:01:40,010 --> 00:01:43,200
+rotate forces into different frames of reference.
+

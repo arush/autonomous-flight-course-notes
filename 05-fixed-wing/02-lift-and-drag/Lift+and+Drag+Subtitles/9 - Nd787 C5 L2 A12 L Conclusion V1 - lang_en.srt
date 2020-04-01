@@ -1,0 +1,80 @@
+1
+00:00:00,000 --> 00:00:02,339
+We started this lesson by defining
+
+2
+00:00:02,339 --> 00:00:05,394
+the frames of reference for fixed-wing longitudinal motion.
+
+3
+00:00:05,394 --> 00:00:09,074
+We then looked at the four forces that act on fixed wing vehicles
+
+4
+00:00:09,074 --> 00:00:13,254
+and identified the relevant reference frame and axis for each force.
+
+5
+00:00:13,255 --> 00:00:14,835
+Of these four forces,
+
+6
+00:00:14,835 --> 00:00:17,140
+two of them were familiar: weight and thrust.
+
+7
+00:00:17,140 --> 00:00:21,594
+But, the two aerodynamic forces: lift and drag were just simple.
+
+8
+00:00:21,594 --> 00:00:25,849
+We came up with mathematical models for these forces and the pitching moment,
+
+9
+00:00:25,850 --> 00:00:28,760
+M. You were able to use these forces to solve for
+
+10
+00:00:28,760 --> 00:00:32,155
+trim states like straight level flight and climbing flight.
+
+11
+00:00:32,155 --> 00:00:34,550
+These trim states are really important.
+
+12
+00:00:34,549 --> 00:00:35,989
+At the end of this module,
+
+13
+00:00:35,990 --> 00:00:38,804
+you'll be asked to implement a controller for fixed-wing flight,
+
+14
+00:00:38,804 --> 00:00:41,600
+and a big part of that controller's job will be to identify
+
+15
+00:00:41,600 --> 00:00:46,130
+the appropriate term values for the propulsion system and the control surfaces.
+
+16
+00:00:46,130 --> 00:00:47,370
+In the next two lessons,
+
+17
+00:00:47,369 --> 00:00:51,199
+we'll come up with full mathematical models for fixed-wing dynamics.
+
+18
+00:00:51,200 --> 00:00:55,050
+First for longitudinal motion and then for lateral directional motion.
+
+19
+00:00:55,049 --> 00:00:56,834
+In the last lesson of this module,
+
+20
+00:00:56,835 --> 00:01:00,240
+you'll learn how to implement an autopilot for fixed-wing flight.
+

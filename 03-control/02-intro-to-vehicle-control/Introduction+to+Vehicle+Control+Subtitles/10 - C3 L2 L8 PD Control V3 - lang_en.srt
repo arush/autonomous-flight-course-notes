@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:03,495
+So, how do we get rid of these oscillations?
+
+2
+00:00:03,495 --> 00:00:07,463
+The key is to add one more term to our controller equation.
+
+3
+00:00:07,463 --> 00:00:10,155
+And remember, for the purposes of this lesson,
+
+4
+00:00:10,154 --> 00:00:13,454
+the controller sets a commanded acceleration.
+
+5
+00:00:13,455 --> 00:00:18,097
+So, in addition to setting acceleration in proportion to the error,
+
+6
+00:00:18,097 --> 00:00:20,009
+we also look at the rate of change,
+
+7
+00:00:20,010 --> 00:00:22,140
+or derivative of the error.
+
+8
+00:00:22,140 --> 00:00:26,010
+And the subscript d here stands for derivative.
+
+9
+00:00:26,010 --> 00:00:32,588
+And this equation is the equation for a PD or proportional derivative controller.
+
+10
+00:00:32,588 --> 00:00:36,909
+The intuition behind this d term is pretty straightforward.
+
+11
+00:00:36,909 --> 00:00:40,574
+While the p term is responsible for adjusting the thrust
+
+12
+00:00:40,575 --> 00:00:44,566
+so that the vehicle's position matches the target position,
+
+13
+00:00:44,566 --> 00:00:47,670
+the d term is responsible for adjusting the thrust,
+
+14
+00:00:47,670 --> 00:00:52,530
+so that the vehicle's velocity matches the target velocity.
+
+15
+00:00:52,530 --> 00:00:57,780
+So, when the vehicle is rapidly ascending towards this target set,
+
+16
+00:00:57,780 --> 00:01:02,024
+this term will oppose this rapid decrease in the size of the error,
+
+17
+00:01:02,024 --> 00:01:07,890
+and will cause the vehicle to slow down as it's approaching the target altitude.
+
+18
+00:01:07,890 --> 00:01:10,007
+To implement this in code,
+
+19
+00:01:10,007 --> 00:01:12,558
+recall how we've defined error.
+
+20
+00:01:12,558 --> 00:01:15,545
+This means that the derivative of error is
+
+21
+00:01:15,545 --> 00:01:19,920
+just the difference between the target speed and the actual speed.
+

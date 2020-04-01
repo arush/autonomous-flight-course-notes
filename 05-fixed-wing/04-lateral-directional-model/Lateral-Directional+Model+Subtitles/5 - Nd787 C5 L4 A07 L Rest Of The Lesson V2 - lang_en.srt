@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:03,194
+The rest of this lesson is going to look pretty familiar.
+
+2
+00:00:03,194 --> 00:00:04,740
+We're going to start by developing
+
+3
+00:00:04,740 --> 00:00:07,875
+a linearized model of the lateral dynamics around a trim state.
+
+4
+00:00:07,875 --> 00:00:10,919
+This is going to allow us to express the dynamics in terms
+
+5
+00:00:10,919 --> 00:00:13,949
+of the stability matrix and a control effect matrix.
+
+6
+00:00:13,949 --> 00:00:16,250
+To analyze the dynamic stability of the system,
+
+7
+00:00:16,250 --> 00:00:20,320
+we're going to find the eigenvalues and eigenvectors of the stability matrix.
+
+8
+00:00:20,320 --> 00:00:23,675
+When we do this, we're going to find three lateral modes.
+
+9
+00:00:23,675 --> 00:00:25,699
+These modes are well known in aviation,
+
+10
+00:00:25,699 --> 00:00:27,175
+and are called the roll mode,
+
+11
+00:00:27,175 --> 00:00:29,600
+the spiral mode and Dutch roll.
+
+12
+00:00:29,600 --> 00:00:31,520
+Once we've identified these modes,
+
+13
+00:00:31,519 --> 00:00:33,229
+we're going to discuss them and try to get
+
+14
+00:00:33,229 --> 00:00:36,875
+some physical insight into the underlying dynamics of each mode.
+
+15
+00:00:36,875 --> 00:00:38,765
+To avoid boring you with math,
+
+16
+00:00:38,765 --> 00:00:41,500
+we're going to present the linearized model in text.
+
+17
+00:00:41,500 --> 00:00:43,670
+You're welcome to try to derive it yourself,
+
+18
+00:00:43,670 --> 00:00:46,560
+but you should also feel free to take it as it's given.
+

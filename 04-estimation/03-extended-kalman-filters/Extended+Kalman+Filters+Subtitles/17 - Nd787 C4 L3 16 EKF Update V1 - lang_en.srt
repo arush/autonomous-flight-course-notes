@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:04,080
+Now that we have this non-linear measurement model,
+
+2
+00:00:04,080 --> 00:00:08,629
+we can derive h prime which is the Jacobian of the measurement model.
+
+3
+00:00:08,630 --> 00:00:12,630
+Since our measurement model is just a one-by-one matrix,
+
+4
+00:00:12,630 --> 00:00:17,054
+this will be less involved than the Jacobian for the state transition function.
+
+5
+00:00:17,054 --> 00:00:20,460
+So the Jacobian will be the derivative of
+
+6
+00:00:20,460 --> 00:00:23,730
+the measurement model with respect to the state vector,
+
+7
+00:00:23,730 --> 00:00:28,149
+and that's going to give us a one one three matrix whose elements are,
+
+8
+00:00:28,149 --> 00:00:34,015
+the partial derivative of H with respect to the phi component of the state vector.
+
+9
+00:00:34,015 --> 00:00:39,784
+The partial derivative of H with respect to the y.component and the state vector,
+
+10
+00:00:39,784 --> 00:00:45,949
+and the partial derivative of H with respect to the y component of the state vector,
+
+11
+00:00:45,950 --> 00:00:50,205
+and when you do the math the Jacobian winds up looking like this.
+
+12
+00:00:50,204 --> 00:00:54,739
+So how does the measurement model H and its Jacobian h prime,
+
+13
+00:00:54,740 --> 00:00:57,050
+get used in the update step?
+
+14
+00:00:57,049 --> 00:01:00,529
+Here in the update function the first thing we do is
+
+15
+00:01:00,530 --> 00:01:04,219
+use h prime to generate the H sub t matrix.
+
+16
+00:01:04,219 --> 00:01:08,230
+Then we've got some messy math in the Kalman gain calculations,
+
+17
+00:01:08,230 --> 00:01:10,814
+and then when we update the mean we compare
+
+18
+00:01:10,814 --> 00:01:15,329
+the actual measurement Z to the expected measurement H of mu bar,
+
+19
+00:01:15,329 --> 00:01:18,734
+and this is all just like it was in the linear Kalman filter.
+
+20
+00:01:18,734 --> 00:01:21,859
+So now that you have H and h prime,
+
+21
+00:01:21,859 --> 00:01:27,000
+you should be able to implement the update step for this extended Kalman filter.
+

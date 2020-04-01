@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:04,559
+The controller you'll implement for the final project will consist of many control loops,
+
+2
+00:00:04,559 --> 00:00:07,914
+some of these will be nested inside other loops while others will not.
+
+3
+00:00:07,915 --> 00:00:10,429
+Some will have integral terms, some won't.
+
+4
+00:00:10,429 --> 00:00:13,199
+Some will have derivative terms and others will not.
+
+5
+00:00:13,199 --> 00:00:15,119
+Before we dive into the details of
+
+6
+00:00:15,119 --> 00:00:19,559
+the fixed-wing control architecture that you'll be implementing in the final project,
+
+7
+00:00:19,559 --> 00:00:24,029
+I'd like to discuss a few of the design considerations behind this architecture.
+
+8
+00:00:24,030 --> 00:00:28,470
+We're going to use the same kind of PID loops you saw in the control module,
+
+9
+00:00:28,469 --> 00:00:30,599
+but not every loop is going to look the same,
+
+10
+00:00:30,600 --> 00:00:32,550
+and it's important to understand how we're
+
+11
+00:00:32,549 --> 00:00:34,924
+making the design decisions of our controllers.
+
+12
+00:00:34,924 --> 00:00:38,279
+Firstly, we'll get simplicity of design by decoupling
+
+13
+00:00:38,280 --> 00:00:42,140
+the longitudinal and lateral control with two separate controllers.
+
+14
+00:00:42,140 --> 00:00:44,359
+When we get to longitudinal control,
+
+15
+00:00:44,359 --> 00:00:47,240
+we'll use this decoupling strategy again by defining
+
+16
+00:00:47,240 --> 00:00:51,039
+separate controllers for separate longitudinal flight regimes.
+
+17
+00:00:51,039 --> 00:00:54,619
+Secondly, every loop will have a proportional term,
+
+18
+00:00:54,619 --> 00:00:58,445
+but not all will have derivative terms and not all will have integral terms.
+
+19
+00:00:58,445 --> 00:01:01,009
+We'll also want much more responsive control
+
+20
+00:01:01,009 --> 00:01:03,229
+on some of the state variables than on others.
+
+21
+00:01:03,229 --> 00:01:05,765
+We always want the P term since that's the term that
+
+22
+00:01:05,765 --> 00:01:08,780
+actually steers the system towards the desired value.
+
+23
+00:01:08,780 --> 00:01:12,049
+Integral terms are good to have on the outermost loop of
+
+24
+00:01:12,049 --> 00:01:15,560
+a control system because they can account for any errors in our model,
+
+25
+00:01:15,560 --> 00:01:18,945
+and they ensure that the system eventually reaches the target state.
+
+26
+00:01:18,944 --> 00:01:22,524
+But I terms also add instability to the system.
+
+27
+00:01:22,525 --> 00:01:25,600
+So, in general, we want to avoid adding I terms to
+
+28
+00:01:25,599 --> 00:01:29,390
+inner loop controllers where instability can cause serious problems.
+
+29
+00:01:29,390 --> 00:01:31,430
+Differential terms damp out
+
+30
+00:01:31,430 --> 00:01:35,020
+oscillations and prevent overshoot in systems that have a lot of inertia,
+
+31
+00:01:35,019 --> 00:01:37,084
+but not much inherent damping.
+
+32
+00:01:37,084 --> 00:01:40,539
+As an example, we'll use a D term in the controller that sets
+
+33
+00:01:40,540 --> 00:01:44,805
+the elevator deflection based on error and pitch because without this term,
+
+34
+00:01:44,805 --> 00:01:46,705
+we'd get more oscillations.
+
+35
+00:01:46,704 --> 00:01:49,000
+By being careful with how we design
+
+36
+00:01:49,000 --> 00:01:52,540
+our control loops and what terms we include in each loop,
+
+37
+00:01:52,540 --> 00:01:55,600
+we can make the job of tuning a lot easier.
+

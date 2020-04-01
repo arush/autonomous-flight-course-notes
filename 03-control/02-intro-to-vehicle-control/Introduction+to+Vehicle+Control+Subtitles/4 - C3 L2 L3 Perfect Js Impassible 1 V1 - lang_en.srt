@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:03,115
+You just saw a graph that looked something like this.
+
+2
+00:00:03,115 --> 00:00:09,150
+And this exploding simulation of prediction error came from a tiny difference between
+
+3
+00:00:09,150 --> 00:00:12,450
+the true mass of the drone and the mass that
+
+4
+00:00:12,450 --> 00:00:16,625
+the controller was using to make its thrust decisions.
+
+5
+00:00:16,625 --> 00:00:19,590
+So, where does this increasing error come from and
+
+6
+00:00:19,590 --> 00:00:24,310
+how can a single small mistake in mass cause it?
+
+7
+00:00:24,310 --> 00:00:31,050
+Remember, the only thing we directly control are the drone's rotor-rotation rates.
+
+8
+00:00:31,050 --> 00:00:34,770
+This cause forces and moments on the drone which in turn
+
+9
+00:00:34,770 --> 00:00:39,715
+cost translational accelerations and rotational accelerations.
+
+10
+00:00:39,715 --> 00:00:43,740
+But for now, let's just focus on accelerations and
+
+11
+00:00:43,740 --> 00:00:47,744
+let's ignore this whole part of the process.
+
+12
+00:00:47,744 --> 00:00:49,740
+So for our purposes,
+
+13
+00:00:49,740 --> 00:00:55,315
+we have direct control over acceleration but not velocity or position.
+
+14
+00:00:55,315 --> 00:00:58,155
+If we want to change those quantities,
+
+15
+00:00:58,155 --> 00:01:01,715
+we have to do so through acceleration.
+
+16
+00:01:01,715 --> 00:01:08,160
+We use the variable U to represent a thrust or torque control inputs to the drone.
+
+17
+00:01:08,160 --> 00:01:13,920
+Here we use U1 to represent the total thrust commanded in newton.
+
+18
+00:01:13,920 --> 00:01:16,078
+For a 1-D monorotor,
+
+19
+00:01:16,078 --> 00:01:19,179
+we have an equation of motion that looks like this.
+
+20
+00:01:19,179 --> 00:01:23,516
+And even so, this equation has an M and a G in it,
+
+21
+00:01:23,516 --> 00:01:28,805
+the most important thing to focus on is the U1 and Z double dot.
+
+22
+00:01:28,805 --> 00:01:34,691
+You can see that with U1 you can directly influence acceleration.
+
+23
+00:01:34,691 --> 00:01:39,375
+So often, we will write our dynamics equations in a slightly simpler form,
+
+24
+00:01:39,375 --> 00:01:44,645
+like this: Z double dot equals to U1 bar.
+
+25
+00:01:44,645 --> 00:01:48,820
+After we have computed a desired acceleration, U1 bar,
+
+26
+00:01:48,820 --> 00:01:56,400
+we can easily obtain the corresponding U1 that would achieve that desired acceleration,
+
+27
+00:01:56,400 --> 00:02:00,300
+using the following equation: U1 bar is equal to
+
+28
+00:02:00,300 --> 00:02:05,179
+G minus U1 over M. When we write it like this,
+
+29
+00:02:05,179 --> 00:02:10,240
+it's meant to remind us that the thing we get to control is acceleration.
+
+30
+00:02:10,240 --> 00:02:14,610
+So, we have direct control over the vehicle's acceleration.
+
+31
+00:02:14,610 --> 00:02:18,450
+And recall that velocity is the integral of
+
+32
+00:02:18,450 --> 00:02:23,620
+acceleration and position is the integral of velocity.
+
+33
+00:02:23,620 --> 00:02:29,445
+So, let's assume the vehicle is hovering and we want U1 bar to be equal to zero,
+
+34
+00:02:29,445 --> 00:02:33,505
+which would result in the vehicle to continue to hover.
+
+35
+00:02:33,505 --> 00:02:36,120
+If we overestimate our mass by
+
+36
+00:02:36,120 --> 00:02:41,315
+some small amount and we have some non-zero acceleration epsilon,
+
+37
+00:02:41,315 --> 00:02:45,000
+would the vehicle accelerate upwards or downwards?
+

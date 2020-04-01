@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:03,060
+These 11 equations, are the equations of motion
+
+2
+00:00:03,060 --> 00:00:05,459
+for a vehicle with no forces acting on it.
+
+3
+00:00:05,459 --> 00:00:10,210
+Below this video, you'll find the full versions of these equations with forces added in.
+
+4
+00:00:10,210 --> 00:00:13,560
+I'm not going to go over each of these equations individually,
+
+5
+00:00:13,560 --> 00:00:18,585
+but there is one equation that's worth discussing and that's the equation for v dot.
+
+6
+00:00:18,585 --> 00:00:24,094
+Remember, u, v, and w gives the velocity of the vehicle in the body frame,
+
+7
+00:00:24,094 --> 00:00:26,404
+along the x, y, and z axes.
+
+8
+00:00:26,405 --> 00:00:32,500
+So, v dot is the lateral acceleration of the vehicle in the left or right direction.
+
+9
+00:00:32,500 --> 00:00:37,429
+This lateral acceleration is caused by all the lateral forces on the vehicle.
+
+10
+00:00:37,429 --> 00:00:40,394
+Collectively refer to these forces as side force.
+
+11
+00:00:40,395 --> 00:00:43,960
+In general, we want side force to be as small as possible,
+
+12
+00:00:43,960 --> 00:00:48,649
+since lateral acceleration is generally an uncomfortable sensation for people.
+
+13
+00:00:48,649 --> 00:00:51,399
+But before we can minimize side force,
+
+14
+00:00:51,399 --> 00:00:53,634
+we need to understand where it comes from.
+
+15
+00:00:53,634 --> 00:00:55,564
+With forces added back in,
+
+16
+00:00:55,564 --> 00:00:59,044
+the full equation for v dot looks like this.
+
+17
+00:00:59,045 --> 00:01:02,810
+This first term comes from the component of the vehicle's weight,
+
+18
+00:01:02,810 --> 00:01:04,155
+that points are laterally,
+
+19
+00:01:04,155 --> 00:01:07,150
+when the vehicles rolled at some angle phi.
+
+20
+00:01:07,150 --> 00:01:11,165
+This next term is the dynamic pressure times the surface area of the wing,
+
+21
+00:01:11,165 --> 00:01:13,785
+multiplied by everything in these brackets here.
+
+22
+00:01:13,784 --> 00:01:17,489
+As you can see, the terms in these brackets depend on,
+
+23
+00:01:17,489 --> 00:01:18,914
+the size of angle beta,
+
+24
+00:01:18,915 --> 00:01:21,350
+the roll rate and r rate of the vehicle,
+
+25
+00:01:21,349 --> 00:01:23,844
+and the ailerons deflection delta a,
+
+26
+00:01:23,844 --> 00:01:27,289
+and the rudder deflection delta r. I encourage you to take
+
+27
+00:01:27,290 --> 00:01:31,800
+a few minutes to look at the lateral equations of motion, before moving on.
+

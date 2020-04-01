@@ -1,0 +1,192 @@
+1
+00:00:00,000 --> 00:00:01,950
+In the control module,
+
+2
+00:00:01,950 --> 00:00:04,139
+we assume we know the position,
+
+3
+00:00:04,139 --> 00:00:08,309
+velocity, orientation, and rotation rate of the vehicle.
+
+4
+00:00:08,310 --> 00:00:11,669
+If you look back to our 3D control diagram,
+
+5
+00:00:11,669 --> 00:00:16,589
+you can see how some of these quantities they use in the various control loops.
+
+6
+00:00:16,589 --> 00:00:19,094
+The role pitch controller for example,
+
+7
+00:00:19,094 --> 00:00:22,149
+relied on knowledge of the vehicle altitude,
+
+8
+00:00:22,149 --> 00:00:26,584
+and the body rate controller relied on knowledge of the body rates.
+
+9
+00:00:26,585 --> 00:00:29,414
+But where do these quantities come from?
+
+10
+00:00:29,414 --> 00:00:31,339
+As you'll see in this lesson,
+
+11
+00:00:31,339 --> 00:00:34,155
+they must be either measured directly,
+
+12
+00:00:34,155 --> 00:00:37,079
+or calculated from measured quantities.
+
+13
+00:00:37,079 --> 00:00:40,170
+To make these measurements, we need sensors.
+
+14
+00:00:40,170 --> 00:00:43,980
+Quadrotors are gripped with multiple complimentary sensors,
+
+15
+00:00:43,979 --> 00:00:47,069
+and the sensors that you'll find on the quadrotor
+
+16
+00:00:47,070 --> 00:00:51,105
+are often the same sensors you'll find in your smartphone.
+
+17
+00:00:51,104 --> 00:00:54,959
+So for example, my phone has cameras,
+
+18
+00:00:54,960 --> 00:00:56,594
+it has a GPS sensor,
+
+19
+00:00:56,594 --> 00:01:01,244
+accelerometers, magnetometers, gyroscopes, pressure sensors,
+
+20
+00:01:01,244 --> 00:01:03,504
+and even temperature sensors.
+
+21
+00:01:03,505 --> 00:01:06,975
+And all of these sensors are used in drones.
+
+22
+00:01:06,974 --> 00:01:10,424
+So, if you added four motors to your phone,
+
+23
+00:01:10,424 --> 00:01:12,569
+it would be able to fly.
+
+24
+00:01:12,569 --> 00:01:16,979
+In fact, the development of small and affordable sensors for
+
+25
+00:01:16,980 --> 00:01:21,689
+smartphones really helped open the door for better and low cost drones.
+
+26
+00:01:21,689 --> 00:01:26,230
+So let's quickly go over each of these sensors.
+
+27
+00:01:26,230 --> 00:01:28,840
+First, we have gyroscopes.
+
+28
+00:01:28,840 --> 00:01:32,520
+Gyroscopes measure rotational rates of the vehicle in
+
+29
+00:01:32,519 --> 00:01:38,754
+the body frame and they update at a very high rate usually at a few kilohertz.
+
+30
+00:01:38,754 --> 00:01:41,604
+Next, we have accelerometers.
+
+31
+00:01:41,605 --> 00:01:45,299
+And these actually don't measure acceleration directly,
+
+32
+00:01:45,299 --> 00:01:48,644
+but measure something called specific acceleration,
+
+33
+00:01:48,644 --> 00:01:51,045
+which we'll talk about more later.
+
+34
+00:01:51,045 --> 00:01:55,519
+These also operate at a very high rate up to a few kilohertz.
+
+35
+00:01:55,519 --> 00:01:58,890
+Then, we have a magnetometer or compass,
+
+36
+00:01:58,890 --> 00:02:01,965
+which gives us orientation in inertial frame
+
+37
+00:02:01,965 --> 00:02:06,030
+using the magnetic field of the Earth at about 100 hertz.
+
+38
+00:02:06,030 --> 00:02:10,259
+The GPS is a very important sensor for outdoor flight,
+
+39
+00:02:10,259 --> 00:02:14,084
+and it measures not only position, but also velocity,
+
+40
+00:02:14,085 --> 00:02:18,840
+and it does so at low rates;10 hertz is a standard sensor these days.
+
+41
+00:02:18,840 --> 00:02:20,955
+Then we have the barometer,
+
+42
+00:02:20,955 --> 00:02:23,550
+which measures air pressure to infer
+
+43
+00:02:23,550 --> 00:02:27,960
+altitude which is a direction that is not as accurate in.
+
+44
+00:02:27,960 --> 00:02:32,770
+And the barometer operates at about a 100 hertz.
+
+45
+00:02:32,770 --> 00:02:36,390
+There are more sensors that could eventually go on a flying vehicle,
+
+46
+00:02:36,389 --> 00:02:38,429
+but these are really essential.
+
+47
+00:02:38,430 --> 00:02:42,510
+The challenging part is correctly using all of the sensors to
+
+48
+00:02:42,509 --> 00:02:47,359
+measure or infer the 12 state variables of a flying vehicle.
+

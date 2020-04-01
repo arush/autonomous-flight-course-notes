@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:01,960
+Over the last few lessons,
+
+2
+00:00:01,960 --> 00:00:06,014
+you've seen how crucial state estimation is for autonomous flight.
+
+3
+00:00:06,014 --> 00:00:09,974
+To perform good state estimation we need a few things.
+
+4
+00:00:09,974 --> 00:00:12,809
+First, we need a good understanding of
+
+5
+00:00:12,810 --> 00:00:17,810
+our vehicles dynamics which we capture an emotion model for the vehicle.
+
+6
+00:00:17,809 --> 00:00:22,784
+Next, we need good sensors and a measurement model that allows us to
+
+7
+00:00:22,785 --> 00:00:25,530
+probabilistically update our state estimate
+
+8
+00:00:25,530 --> 00:00:28,910
+when we get new information from those sensors.
+
+9
+00:00:28,910 --> 00:00:31,960
+Finally, we need an algorithm that can
+
+10
+00:00:31,960 --> 00:00:35,335
+effectively stitch all of these components together.
+
+11
+00:00:35,335 --> 00:00:38,299
+In the projects you've completed up until now,
+
+12
+00:00:38,299 --> 00:00:41,759
+we've taken the vehicle state for granted, for example,
+
+13
+00:00:41,759 --> 00:00:46,239
+when you implemented a controller you were given the exact state of the vehicle.
+
+14
+00:00:46,240 --> 00:00:50,890
+In the final project for this module you'll implement an estimator to
+
+15
+00:00:50,890 --> 00:00:56,240
+estimate the state of a quadrotor which moves in three-dimensions. Good luck!
+

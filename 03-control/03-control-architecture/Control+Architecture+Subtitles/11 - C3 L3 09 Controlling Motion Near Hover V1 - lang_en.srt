@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:05,280
+Now that we have our linearized equations that should work well around the hover state,
+
+2
+00:00:05,280 --> 00:00:10,289
+we need to actually use these equations to control the state of the vehicle.
+
+3
+00:00:10,289 --> 00:00:12,644
+And looking at these equations,
+
+4
+00:00:12,644 --> 00:00:17,750
+it's easiest to think about how you would control the z position of the drone.
+
+5
+00:00:17,750 --> 00:00:21,070
+In fact, we have seen this very equation in the last lesson.
+
+6
+00:00:21,070 --> 00:00:24,190
+There, we have defined U1 bar to
+
+7
+00:00:24,190 --> 00:00:28,740
+remind us just how directly we can control a z acceleration.
+
+8
+00:00:28,739 --> 00:00:30,584
+By properly setting U1,
+
+9
+00:00:30,585 --> 00:00:35,620
+you can directly set the vertical acceleration of the drone.
+
+10
+00:00:35,619 --> 00:00:38,074
+And as time passes,
+
+11
+00:00:38,075 --> 00:00:44,065
+this influences the vertical velocity which over time influences the vertical position.
+
+12
+00:00:44,064 --> 00:00:45,784
+And in the last lesson,
+
+13
+00:00:45,784 --> 00:00:50,794
+you learned how to use a PID controller to control exactly this system.
+
+14
+00:00:50,795 --> 00:00:53,899
+And in fact, we will use a very similar controller in
+
+15
+00:00:53,899 --> 00:00:57,469
+this lesson to control the altitude of our 2D drone.
+
+16
+00:00:57,469 --> 00:01:01,689
+But how do we control the y position?
+
+17
+00:01:01,689 --> 00:01:04,769
+This is still a second order system and we are
+
+18
+00:01:04,769 --> 00:01:09,079
+still going to control y through its second derivative.
+
+19
+00:01:09,079 --> 00:01:12,030
+So we will still have something like this.
+
+20
+00:01:12,030 --> 00:01:14,430
+And when we look at equation 1,
+
+21
+00:01:14,430 --> 00:01:19,610
+we can see that we need to change phi to set y double dot.
+
+22
+00:01:19,609 --> 00:01:22,894
+But we don't have direct control over phi.
+
+23
+00:01:22,894 --> 00:01:27,140
+We only have control over its second derivative.
+
+24
+00:01:27,140 --> 00:01:30,864
+So this thing we have control over is U2.
+
+25
+00:01:30,864 --> 00:01:33,214
+We want to control y.
+
+26
+00:01:33,215 --> 00:01:38,540
+So what we need to do is to use U2 to set phi double dot.
+
+27
+00:01:38,540 --> 00:01:45,065
+After two integrations, this will give us a phi which relates directly to y double dot.
+
+28
+00:01:45,064 --> 00:01:47,819
+Then, after two more integrations,
+
+29
+00:01:47,819 --> 00:01:50,299
+this gives us y position.
+
+30
+00:01:50,299 --> 00:01:55,745
+In short, we can control y but we have to do it through phi.
+
+31
+00:01:55,745 --> 00:01:58,550
+And when we think about the system this way,
+
+32
+00:01:58,549 --> 00:02:04,519
+we can see that U2 bar is equal to the fourth derivative of the y position.
+
+33
+00:02:04,519 --> 00:02:08,377
+So we can enforce a step change in y for a triple dot,
+
+34
+00:02:08,377 --> 00:02:13,120
+but we cannot enforce a step change in any lower derivative.
+
+35
+00:02:13,120 --> 00:02:15,240
+Take a second to think about this.
+
+36
+00:02:15,240 --> 00:02:17,000
+What are the implications for control?
+

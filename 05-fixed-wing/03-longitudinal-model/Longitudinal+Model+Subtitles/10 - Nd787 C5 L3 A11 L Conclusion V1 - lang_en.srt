@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:01,919
+We begin this lesson by looking at
+
+2
+00:00:01,919 --> 00:00:06,264
+the nonlinear equations of motion for the longitudinal dynamics of a fixed-wing vehicle,
+
+3
+00:00:06,264 --> 00:00:10,750
+and we use these equations to simulate the state of a vehicle forward in time.
+
+4
+00:00:10,750 --> 00:00:13,679
+When the aircraft is in initial state that's close
+
+5
+00:00:13,679 --> 00:00:16,289
+to but not exactly equal to a trim state,
+
+6
+00:00:16,289 --> 00:00:19,109
+you saw that its motion does some surprising things.
+
+7
+00:00:19,109 --> 00:00:22,169
+We wanted to know where this weird behavior came from,
+
+8
+00:00:22,170 --> 00:00:26,700
+but realized we couldn't really do much to analyze the nonlinear equations of motion.
+
+9
+00:00:26,699 --> 00:00:30,059
+So, we linearized the dynamics around the trim state and
+
+10
+00:00:30,059 --> 00:00:33,570
+found that the eigenvalues told us a lot about the motion of the vehicle.
+
+11
+00:00:33,570 --> 00:00:35,420
+In particular, we found
+
+12
+00:00:35,420 --> 00:00:39,530
+four interesting eigenvalues which came as two complex conjugate pairs.
+
+13
+00:00:39,530 --> 00:00:43,219
+Both of these pairs had negative real parts which meant that they were stable,
+
+14
+00:00:43,219 --> 00:00:46,609
+but their non-zero imaginary parts meant that they were also oscillatory.
+
+15
+00:00:46,609 --> 00:00:50,335
+These motion modes are well-known phenomena.
+
+16
+00:00:50,335 --> 00:00:53,509
+We call the faster mode the short-period response,
+
+17
+00:00:53,509 --> 00:00:55,549
+and the slower mode is called phugoid.
+
+18
+00:00:55,549 --> 00:00:58,789
+Trying to fight these natural modes of motion can be tricky,
+
+19
+00:00:58,789 --> 00:01:03,119
+and you'll learn more about fixed-wing control and autopilots after the next lesson.
+
+20
+00:01:03,119 --> 00:01:06,509
+In the next lesson, we'll analyze a lateral directional dynamics of
+
+21
+00:01:06,510 --> 00:01:10,440
+a fixed-wing vehicle using a similar approach to what we used here.
+

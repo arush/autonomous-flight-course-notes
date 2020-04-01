@@ -1,0 +1,140 @@
+1
+00:00:00,000 --> 00:00:05,325
+We need to analyze the square stability matrix to understand the motion near trim.
+
+2
+00:00:05,325 --> 00:00:06,625
+To do this analysis,
+
+3
+00:00:06,625 --> 00:00:10,740
+we're going to need to remind ourselves of what eigenvectors and eigenvalues are.
+
+4
+00:00:10,740 --> 00:00:15,780
+Any square matrix can be represented as a product of three matrices like this.
+
+5
+00:00:15,779 --> 00:00:19,009
+This uppercase Lambda is a diagonal matrix with
+
+6
+00:00:19,010 --> 00:00:22,335
+numbers along the diagonal and zeros everywhere else.
+
+7
+00:00:22,335 --> 00:00:25,820
+This V matrix is a matrix of column vectors,
+
+8
+00:00:25,820 --> 00:00:29,594
+where each column can be associated with one of the numbers in Lambda.
+
+9
+00:00:29,594 --> 00:00:34,789
+We label each of the numbers in this uppercase Lambda matrix with a lowercase Lambda.
+
+10
+00:00:34,789 --> 00:00:37,670
+So we have Lambda one, Lambda two,
+
+11
+00:00:37,670 --> 00:00:42,375
+and so on, and these Lambdas are the eigenvalues of our original matrix.
+
+12
+00:00:42,375 --> 00:00:45,469
+If we have some eigenvalue Lambda i,
+
+13
+00:00:45,469 --> 00:00:49,293
+the corresponding column vector Vi is called an eigenvector.
+
+14
+00:00:49,293 --> 00:00:52,904
+These eigenvalues and eigenvectors have interesting properties.
+
+15
+00:00:52,905 --> 00:00:58,195
+For example, if the initial state of the system is some eigenvector Vi,
+
+16
+00:00:58,195 --> 00:01:02,905
+then A times V i will be equal to Lambda i times vi,
+
+17
+00:01:02,905 --> 00:01:07,579
+and the motion as a function of time will be given by x of t is equal
+
+18
+00:01:07,579 --> 00:01:12,569
+to e to Lambda i times t times the eigenvector Vi.
+
+19
+00:01:12,569 --> 00:01:17,169
+It isn't essential that you understand all the math behind this equation.
+
+20
+00:01:17,170 --> 00:01:20,150
+The important thing to note is that we now have
+
+21
+00:01:20,150 --> 00:01:24,219
+an actual equation for the state as a function of time.
+
+22
+00:01:24,219 --> 00:01:27,814
+This means that if we know the initial state of the system,
+
+23
+00:01:27,814 --> 00:01:31,340
+we can actually predict the state of the system at
+
+24
+00:01:31,340 --> 00:01:35,990
+any time in the future using just this equation in a single step.
+
+25
+00:01:35,989 --> 00:01:40,609
+That was something we couldn't do with the nonlinear equations.
+
+26
+00:01:40,609 --> 00:01:45,504
+With those equations, we had to actually simulate the dynamics at each time step.
+
+27
+00:01:45,504 --> 00:01:50,879
+So, let's look at this equation and focus on this e to the Lambda t term.
+
+28
+00:01:50,879 --> 00:01:52,789
+One thing I didn't mention about
+
+29
+00:01:52,790 --> 00:01:56,844
+these eigenvalues is that they are actually complex numbers.
+
+30
+00:01:56,844 --> 00:02:00,400
+A complex number can be written as a plus bi.
+
+31
+00:02:00,400 --> 00:02:05,390
+This i is the imaginary number defined as the square root of minus one.
+
+32
+00:02:05,390 --> 00:02:08,094
+You might also see it written as j.
+
+33
+00:02:08,094 --> 00:02:11,060
+So when we take e to the Lambda times t,
+
+34
+00:02:11,060 --> 00:02:14,275
+we are really taking e to the a plus bi times t,
+
+35
+00:02:14,275 --> 00:02:19,120
+and this complex exponential has some interesting properties that you'll explore now.
+

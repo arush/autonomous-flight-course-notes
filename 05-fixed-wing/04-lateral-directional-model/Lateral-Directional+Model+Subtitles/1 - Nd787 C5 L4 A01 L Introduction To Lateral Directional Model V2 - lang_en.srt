@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,285
+Welcome back. Up until now,
+
+2
+00:00:02,285 --> 00:00:05,099
+we've been focused on the longitudinal motion of the vehicle,
+
+3
+00:00:05,099 --> 00:00:07,639
+where we look at the aircraft from a profile view.
+
+4
+00:00:07,639 --> 00:00:11,580
+From this view, it was easy for us to define the angle of attack as
+
+5
+00:00:11,580 --> 00:00:13,349
+the difference between the direction the vehicles
+
+6
+00:00:13,349 --> 00:00:16,144
+moving and the direction that the body frame is pointing.
+
+7
+00:00:16,144 --> 00:00:20,134
+In this lesson, we're going to focus on the lateral motion of the vehicle.
+
+8
+00:00:20,135 --> 00:00:25,380
+To do that, we're going to look at the vehicle from above and from behind.
+
+9
+00:00:25,379 --> 00:00:28,519
+Once again, we'll find that sometimes the vehicles direction of
+
+10
+00:00:28,519 --> 00:00:32,570
+travel is not the same as the direction the body frame is pointing.
+
+11
+00:00:32,570 --> 00:00:37,045
+We're going to call this angle the sideslip angle and label it beta.
+
+12
+00:00:37,045 --> 00:00:38,620
+As you'll see in this lesson,
+
+13
+00:00:38,619 --> 00:00:40,279
+this sideslip angle is going to play
+
+14
+00:00:40,280 --> 00:00:44,024
+an important role in the lateral directional motion of this vehicle.
+
+15
+00:00:44,024 --> 00:00:47,734
+The overall plan for this lesson is similar to the previous lesson.
+
+16
+00:00:47,734 --> 00:00:52,179
+First, we're going to write down the non-linear lateral-directional equations of motion.
+
+17
+00:00:52,179 --> 00:00:54,439
+Then, we're going to really look at these equations
+
+18
+00:00:54,439 --> 00:00:56,835
+with a focus on what's called the side force.
+
+19
+00:00:56,835 --> 00:01:01,320
+We generally want both the side force and the sideslip angle to be equal to zero,
+
+20
+00:01:01,320 --> 00:01:05,625
+but that can sometimes be tricky when we want to turn a fixed wing vehicle for example.
+
+21
+00:01:05,625 --> 00:01:07,129
+To solve that problem,
+
+22
+00:01:07,129 --> 00:01:09,890
+we'll talk about something called the coordinated turn,
+
+23
+00:01:09,890 --> 00:01:12,709
+as a technique for properly managing the forces so that turns
+
+24
+00:01:12,709 --> 00:01:16,024
+can be executed safely and comfortably for the passengers.
+
+25
+00:01:16,025 --> 00:01:18,410
+Once we understand the forces on the vehicle,
+
+26
+00:01:18,409 --> 00:01:20,379
+will develop a linearize model.
+
+27
+00:01:20,379 --> 00:01:23,734
+We'll analyze the eigenvalues of this model stability matrix
+
+28
+00:01:23,734 --> 00:01:27,560
+and identify the three well-known lateral-directional modes.
+
+29
+00:01:27,560 --> 00:01:29,250
+By the end of this lesson,
+
+30
+00:01:29,250 --> 00:01:33,239
+you'll have an intuitive understanding for the cause of these three modes and you'll
+
+31
+00:01:33,239 --> 00:01:37,364
+be able to use linear algebra to predict the behavior of fixed wing vehicles.
+
+32
+00:01:37,364 --> 00:01:41,560
+For now, let's jump into the equations of motion in the lateral direction.
+
+33
+00:01:41,560 --> 00:01:45,019
+We'll start by writing the equations for the force free case,
+
+34
+00:01:45,019 --> 00:01:47,439
+and then afterwards we can add the forces back in.
+

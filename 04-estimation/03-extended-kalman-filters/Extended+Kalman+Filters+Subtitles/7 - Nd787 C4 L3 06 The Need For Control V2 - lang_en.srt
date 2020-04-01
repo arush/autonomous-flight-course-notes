@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:03,149
+So, with this exponential moving average,
+
+2
+00:00:03,149 --> 00:00:04,934
+we have to make this trade-off.
+
+3
+00:00:04,934 --> 00:00:07,589
+If we make alpha close to one,
+
+4
+00:00:07,589 --> 00:00:13,125
+then we trust our previous estimate much more than any new observation,
+
+5
+00:00:13,125 --> 00:00:15,870
+and this leads to an estimate that's pretty
+
+6
+00:00:15,869 --> 00:00:19,285
+robust against really bad measurements which we like,
+
+7
+00:00:19,285 --> 00:00:23,219
+and that leads to pretty smooth estimates of state,
+
+8
+00:00:23,219 --> 00:00:26,649
+which is good if the drone state actually is smooth.
+
+9
+00:00:26,649 --> 00:00:29,644
+But when the drone starts moving,
+
+10
+00:00:29,644 --> 00:00:32,429
+this breaks down and the estimate is slow to
+
+11
+00:00:32,429 --> 00:00:36,854
+respond to new measurements from the drone's new position.
+
+12
+00:00:36,854 --> 00:00:41,309
+So, large alpha is robust, but not responsive.
+
+13
+00:00:41,310 --> 00:00:46,355
+So, we can make alpha small and choose to believe our new measurements.
+
+14
+00:00:46,354 --> 00:00:47,889
+And with this approach,
+
+15
+00:00:47,890 --> 00:00:53,594
+we will see that changes in the drone state get quickly incorporated in the estimate,
+
+16
+00:00:53,594 --> 00:00:59,069
+but the estimate is really susceptible to getting tricked by bad measurements.
+
+17
+00:00:59,069 --> 00:01:03,480
+So, small alpha is responsive, but not robust.
+
+18
+00:01:03,479 --> 00:01:07,609
+Now, what I want is to have my cake and eat it, too,
+
+19
+00:01:07,609 --> 00:01:10,578
+I want an estimate that's fast and responsive,
+
+20
+00:01:10,578 --> 00:01:14,704
+but also still robust against bad sensor measurements.
+
+21
+00:01:14,704 --> 00:01:17,359
+And the way that we can achieve this is by
+
+22
+00:01:17,359 --> 00:01:20,715
+using something very general called a Bayes' Filter,
+
+23
+00:01:20,715 --> 00:01:27,140
+and the basic idea of the Bayes' Filter is that we're going to incorporate control input,
+
+24
+00:01:27,140 --> 00:01:28,950
+what I told the drone to do,
+
+25
+00:01:28,950 --> 00:01:32,605
+and sensor input, what I measured about the world.
+
+26
+00:01:32,605 --> 00:01:35,780
+And we're going to do this in the mathematically correct way
+
+27
+00:01:35,780 --> 00:01:39,920
+according to how we've defined our model of the system.
+

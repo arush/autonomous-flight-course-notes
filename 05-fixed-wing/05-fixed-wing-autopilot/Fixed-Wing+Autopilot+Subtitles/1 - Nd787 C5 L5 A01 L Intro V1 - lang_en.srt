@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:04,110
+Welcome back. You've learned about the dynamics that govern fixed-wing flight,
+
+2
+00:00:04,110 --> 00:00:07,964
+and now it's time to talk about how we actually control a fixed-wing vehicle.
+
+3
+00:00:07,964 --> 00:00:10,650
+There are many ways to handle fixed-wing control,
+
+4
+00:00:10,650 --> 00:00:13,410
+but PID controller is one effective approach,
+
+5
+00:00:13,410 --> 00:00:16,045
+and it's the approach that we're going to take in this lesson.
+
+6
+00:00:16,045 --> 00:00:18,630
+A lot of what you see in this lesson should look
+
+7
+00:00:18,629 --> 00:00:21,660
+familiar but we're going to discuss a few new concepts,
+
+8
+00:00:21,660 --> 00:00:23,905
+and practical considerations as well.
+
+9
+00:00:23,905 --> 00:00:26,730
+After this lesson, you will be able to implement
+
+10
+00:00:26,730 --> 00:00:29,800
+your own autopilot to control a fixed-wing vehicle.
+

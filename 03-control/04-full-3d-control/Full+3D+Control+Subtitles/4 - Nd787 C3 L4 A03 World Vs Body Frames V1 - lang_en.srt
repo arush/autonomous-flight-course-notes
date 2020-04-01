@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:05,339
+In 3D, we are going to do the same general sequence of steps to keep track
+
+2
+00:00:05,339 --> 00:00:10,769
+of the vehicle state but with slight modifications to keep track of rotations.
+
+3
+00:00:10,769 --> 00:00:14,879
+Remember we also call this attitude of the vehicle.
+
+4
+00:00:14,880 --> 00:00:16,589
+So, to do this,
+
+5
+00:00:16,589 --> 00:00:20,570
+we are going to need to think in two different coordinate systems,
+
+6
+00:00:20,570 --> 00:00:24,010
+something you saw in the Motion Planning Course.
+
+7
+00:00:24,010 --> 00:00:28,510
+The first is the world frame which is fixed in the world and
+
+8
+00:00:28,510 --> 00:00:32,895
+the other one is the body frame and that is attached to the quadrotor.
+
+9
+00:00:32,895 --> 00:00:37,045
+And as a reminder, when we look at the quad from above,
+
+10
+00:00:37,045 --> 00:00:40,399
+the body frame x-axis goes from the center of
+
+11
+00:00:40,399 --> 00:00:44,054
+the vehicle out between the two forward propellers.
+
+12
+00:00:44,054 --> 00:00:47,159
+The y axis then points to the right and
+
+13
+00:00:47,159 --> 00:00:50,959
+the z axis goes into the screen which would be down.
+
+14
+00:00:50,960 --> 00:00:56,829
+And the thing that makes 3D more difficult is keeping track of these two frames.
+
+15
+00:00:56,829 --> 00:00:59,479
+Especially when we have to do mass inside of
+
+16
+00:00:59,479 --> 00:01:02,799
+the rotating frame and then convert those rotations into
+
+17
+00:01:02,799 --> 00:01:04,929
+Euler angles in the world frame
+
+18
+00:01:04,930 --> 00:01:09,520
+because ultimately we want to control the drone in the world frame.
+
+19
+00:01:09,519 --> 00:01:14,140
+But we get some of our sensor measurements from the IMU which
+
+20
+00:01:14,140 --> 00:01:18,269
+measures turn rates in the body frame and our controls,
+
+21
+00:01:18,269 --> 00:01:20,450
+especially the moments that we command,
+
+22
+00:01:20,450 --> 00:01:25,140
+have a much more intuitive interpretation when we reason in the body frame.
+
+23
+00:01:25,140 --> 00:01:28,905
+Because of this, we really have no choice but to think
+
+24
+00:01:28,905 --> 00:01:33,260
+both in the world frame at some times and in the body frame at others.
+
+25
+00:01:33,260 --> 00:01:38,600
+So, let's go through the steps we outlined for 2D and make some additions and changes.
+

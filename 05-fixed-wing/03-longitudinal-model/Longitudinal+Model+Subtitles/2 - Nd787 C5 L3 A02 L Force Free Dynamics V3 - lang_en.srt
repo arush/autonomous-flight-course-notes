@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:03,569
+The first step in building our nonlinear longitudinal model,
+
+2
+00:00:03,569 --> 00:00:06,754
+is to identify what quantities we need to track.
+
+3
+00:00:06,754 --> 00:00:10,039
+For now, we're going to take this to be our state vector.
+
+4
+00:00:10,039 --> 00:00:14,410
+Here, we have the x and z coordinates of the vehicle, in the inertial frame.
+
+5
+00:00:14,410 --> 00:00:16,335
+Note that, for this lesson,
+
+6
+00:00:16,335 --> 00:00:21,269
+z is positive upwards to make the math a bit more consistent with some other references.
+
+7
+00:00:21,269 --> 00:00:23,339
+Theta is the pitch angle.
+
+8
+00:00:23,339 --> 00:00:24,899
+U and W give the x,
+
+9
+00:00:24,899 --> 00:00:26,929
+z velocity in the body frame,
+
+10
+00:00:26,929 --> 00:00:29,295
+and Q is the pitch rate in the body frame.
+
+11
+00:00:29,295 --> 00:00:33,545
+This is the same Q from the PQ and R body rates you've worked with earlier.
+
+12
+00:00:33,545 --> 00:00:38,425
+Now, I'd like to quickly derive the equations of motion for the vehicle in two steps.
+
+13
+00:00:38,424 --> 00:00:41,044
+First, we'll consider motion with no forces,
+
+14
+00:00:41,045 --> 00:00:43,219
+and then we'll consider motion with forces.
+
+15
+00:00:43,219 --> 00:00:45,289
+Defining the equations of motion means,
+
+16
+00:00:45,289 --> 00:00:48,384
+figuring out how all the state variables change with time.
+
+17
+00:00:48,384 --> 00:00:53,164
+The x and z derivatives give the velocity in the initial frame. They look like this.
+
+18
+00:00:53,164 --> 00:00:55,594
+They are just the velocity in the body frame,
+
+19
+00:00:55,594 --> 00:00:57,414
+rotated by the pitch angle.
+
+20
+00:00:57,414 --> 00:00:59,960
+Theta dot is just the pitch rate Q.
+
+21
+00:00:59,960 --> 00:01:02,620
+The last three derivatives look like this.
+
+22
+00:01:02,619 --> 00:01:04,030
+Q dot is zero,
+
+23
+00:01:04,030 --> 00:01:05,810
+because there are no moments on the vehicle for now.
+
+24
+00:01:05,810 --> 00:01:07,780
+Since there are no forces,
+
+25
+00:01:07,780 --> 00:01:10,224
+you might expect U and W dot to be zero.
+
+26
+00:01:10,224 --> 00:01:13,939
+But if the vehicle is moving in the inertial frame with some velocity as it rotates,
+
+27
+00:01:13,939 --> 00:01:18,120
+then the body frame velocities will not be the same from time-step to time-step.
+

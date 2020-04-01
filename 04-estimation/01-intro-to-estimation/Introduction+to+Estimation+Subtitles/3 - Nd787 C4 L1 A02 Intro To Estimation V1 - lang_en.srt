@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:03,390
+In this module, we're going to look at the question of estimation.
+
+2
+00:00:03,390 --> 00:00:05,560
+There are several forms of the estimation question,
+
+3
+00:00:05,559 --> 00:00:08,019
+but the most basic is where is the vehicle,
+
+4
+00:00:08,019 --> 00:00:10,424
+what's its attitude and how fast is it going?
+
+5
+00:00:10,425 --> 00:00:14,734
+Answering these questions is often referred to as navigation or localization,
+
+6
+00:00:14,734 --> 00:00:20,050
+but there are other questions you could ask such as what is around the vehicle?
+
+7
+00:00:20,050 --> 00:00:22,615
+Estimation shows up in techniques called mapping
+
+8
+00:00:22,614 --> 00:00:25,434
+and slam which you may have seen in other courses.
+
+9
+00:00:25,434 --> 00:00:27,625
+Another question you might ask is,
+
+10
+00:00:27,625 --> 00:00:30,234
+well there are other vehicles in the sky, where are they?
+
+11
+00:00:30,234 --> 00:00:34,045
+How fast are they going? That is often referred to as tracking.
+
+12
+00:00:34,045 --> 00:00:37,600
+The same mathematical tools that tell us where a vehicle is,
+
+13
+00:00:37,600 --> 00:00:40,000
+what its altitude is and how fast it's going
+
+14
+00:00:40,000 --> 00:00:43,119
+can also be used to answer all of these questions as well.
+
+15
+00:00:43,119 --> 00:00:48,384
+You might say, well we have GPS and we've got sensors so why does this matter?
+
+16
+00:00:48,384 --> 00:00:50,509
+Why is it the slightest bit interesting?
+
+17
+00:00:50,509 --> 00:00:54,434
+And first of all GPS is a great tool for knowing where vehicles are,
+
+18
+00:00:54,435 --> 00:00:59,535
+but estimation is actually what makes GPS work and GPS itself is not perfect.
+
+19
+00:00:59,534 --> 00:01:02,699
+The other day, I was flying into Boston's Logan Airport and
+
+20
+00:01:02,700 --> 00:01:04,995
+the in-flight GPS suddenly put the plane
+
+21
+00:01:04,995 --> 00:01:07,600
+over the Atlantic and then quickly brought it back again.
+
+22
+00:01:07,599 --> 00:01:11,069
+That's really unlikely and a good estimator would know that it's probably
+
+23
+00:01:11,069 --> 00:01:15,839
+an erroneous GPS measurement and discard it or do something sensible with it.
+
+24
+00:01:15,840 --> 00:01:20,100
+Estimation underlies a huge number of technologies: flying
+
+25
+00:01:20,099 --> 00:01:24,464
+vehicles of all kinds from tiny drones to large aircraft rely on estimation.
+
+26
+00:01:24,465 --> 00:01:26,219
+The Apollo spacecraft for example,
+
+27
+00:01:26,219 --> 00:01:28,609
+was a huge success in terms of estimation,
+
+28
+00:01:28,609 --> 00:01:31,579
+and estimation also underpins a lot of
+
+29
+00:01:31,579 --> 00:01:33,049
+how your phone works in terms of
+
+30
+00:01:33,049 --> 00:01:35,974
+knowing how to orient the screen when you turn your phone.
+
+31
+00:01:35,974 --> 00:01:40,265
+What is at the core of the estimation question is really uncertainty.
+
+32
+00:01:40,265 --> 00:01:42,709
+The real world is fundamentally uncertain,
+
+33
+00:01:42,709 --> 00:01:45,244
+and it's uncertain in a couple of important ways,
+
+34
+00:01:45,245 --> 00:01:48,020
+one is that the world is stochastic.
+
+35
+00:01:48,019 --> 00:01:51,170
+The effect of actions can have uncertain outcomes,
+
+36
+00:01:51,170 --> 00:01:53,030
+the vehicle could be traveling a path you might
+
+37
+00:01:53,030 --> 00:01:55,310
+intend for the vehicle to follow this nominal path,
+
+38
+00:01:55,310 --> 00:02:00,409
+but it might get hit by a gust of wind and blown to one side or the other,
+
+39
+00:02:00,409 --> 00:02:05,454
+or the vehicle could be flying on some nominal path and suddenly stopped working.
+
+40
+00:02:05,454 --> 00:02:08,400
+That change in state is a source of uncertainty,
+
+41
+00:02:08,400 --> 00:02:10,490
+you never know when it's going to happen.
+
+42
+00:02:10,490 --> 00:02:13,040
+The second thing is there are things we might be uncertain
+
+43
+00:02:13,039 --> 00:02:16,209
+about in terms of the current state of the world: where is the vehicle?
+
+44
+00:02:16,210 --> 00:02:17,770
+What's behind that building over there?
+
+45
+00:02:17,770 --> 00:02:20,840
+We can't know where everything is in the world and the
+
+46
+00:02:20,840 --> 00:02:24,469
+way we describe this is to say that the world is partially observable.
+
+47
+00:02:24,469 --> 00:02:28,264
+Historically, there are lots of ways to quantify uncertainty.
+
+48
+00:02:28,264 --> 00:02:32,074
+Probability is generally the most common and the most powerful.
+
+49
+00:02:32,074 --> 00:02:34,009
+People have looked at using other things like
+
+50
+00:02:34,009 --> 00:02:37,069
+confidence scores or you may have heard of fuzzy logic,
+
+51
+00:02:37,069 --> 00:02:39,984
+but at the end of the day we're going to stick with probability.
+
+52
+00:02:39,985 --> 00:02:42,920
+That's because there's good sound theorems for example,
+
+53
+00:02:42,919 --> 00:02:45,769
+the Dutch Book theorem which says that probability is
+
+54
+00:02:45,770 --> 00:02:49,375
+the only rational way of representing uncertainty in making decisions.
+
+55
+00:02:49,375 --> 00:02:53,344
+Either, you are implicitly using the axioms of probability or
+
+56
+00:02:53,344 --> 00:02:55,580
+you're actually going to make a bad decision in terms
+
+57
+00:02:55,580 --> 00:02:57,920
+of estimating what the state of the world is.
+
+58
+00:02:57,919 --> 00:03:02,539
+We're going to talk about probabilities as the relative frequency of outcomes.
+
+59
+00:03:02,539 --> 00:03:06,000
+Let's dig in and remind ourselves of how probability works.
+

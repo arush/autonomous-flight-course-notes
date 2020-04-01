@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:04,019
+Now, as always, to implement the predict step,
+
+2
+00:00:04,019 --> 00:00:06,629
+we need a state-transition function.
+
+3
+00:00:06,629 --> 00:00:09,779
+That G function looks like this,
+
+4
+00:00:09,779 --> 00:00:15,000
+and this is the portion of the prediction that's based on the previous state.
+
+5
+00:00:15,000 --> 00:00:20,850
+And here, we have the position updates and here are the velocity updates,
+
+6
+00:00:20,850 --> 00:00:23,730
+which incorporate the acceleration due to gravity.
+
+7
+00:00:23,730 --> 00:00:29,234
+Now, over here, we have the portion of the prediction that's based on the control input.
+
+8
+00:00:29,234 --> 00:00:33,244
+The notation I'm using here is meant to keep things a little cleaner.
+
+9
+00:00:33,244 --> 00:00:36,794
+So, when I write Rbg 0 colon,
+
+10
+00:00:36,795 --> 00:00:40,929
+that means that these three missing elements of
+
+11
+00:00:40,929 --> 00:00:46,314
+this matrix should be replaced with the first row of the rotation matrix.
+
+12
+00:00:46,314 --> 00:00:51,814
+So, this is just rotating the body-frame accelerations into the world frame.
+
+13
+00:00:51,814 --> 00:00:54,789
+The important thing to note here is that this
+
+14
+00:00:54,789 --> 00:00:57,655
+is exactly where our nonlinearities come in.
+
+15
+00:00:57,655 --> 00:01:06,109
+Because this rotation matrix contains non-linear functions of V, theta, and sin.
+
+16
+00:01:06,109 --> 00:01:09,450
+So, this one is just here to pluck out
+
+17
+00:01:09,450 --> 00:01:12,534
+the change in yaw angle given in the control input.
+
+18
+00:01:12,534 --> 00:01:15,965
+So, that's G. To do prediction,
+
+19
+00:01:15,965 --> 00:01:18,219
+we will need a G prime as well,
+
+20
+00:01:18,219 --> 00:01:20,804
+which means we have to take the Jacobian.
+
+21
+00:01:20,805 --> 00:01:25,065
+When we do that, we get a lot of zeros, which is good,
+
+22
+00:01:25,064 --> 00:01:31,424
+and we get ones along the diagonal and also some delta Ts.
+
+23
+00:01:31,424 --> 00:01:37,319
+The only tricky partial derivatives are here in these three elements of the Jacobian.
+
+24
+00:01:37,319 --> 00:01:42,194
+I want to point out that I didn't even take this derivative, I looked it up.
+
+25
+00:01:42,194 --> 00:01:44,119
+The math gets pretty messy,
+
+26
+00:01:44,120 --> 00:01:46,900
+but you wind up getting this matrix,
+
+27
+00:01:46,900 --> 00:01:51,790
+R prime, and the Jacobian winds up looking like this.
+
+28
+00:01:51,790 --> 00:01:56,350
+This notation is telling you to take the dot product of
+
+29
+00:01:56,349 --> 00:02:02,134
+the first row of R prime with the first three elements of the control vector.
+
+30
+00:02:02,135 --> 00:02:08,759
+So, with that, it should be possible to implement the predict step of the 3D EKF.
+

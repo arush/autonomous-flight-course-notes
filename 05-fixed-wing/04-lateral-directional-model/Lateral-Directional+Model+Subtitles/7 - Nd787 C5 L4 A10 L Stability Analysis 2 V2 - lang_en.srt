@@ -1,0 +1,112 @@
+1
+00:00:00,000 --> 00:00:03,495
+The eigenvalue of the roll mode is generally large.
+
+2
+00:00:03,495 --> 00:00:05,370
+Which means that it's well damped.
+
+3
+00:00:05,370 --> 00:00:08,074
+This is largely due to how big the wings are.
+
+4
+00:00:08,074 --> 00:00:11,489
+The other real eigenvalue mode is called a spiral mode.
+
+5
+00:00:11,490 --> 00:00:16,000
+This mode is associated with an eigenvalue that can be positive or negative,
+
+6
+00:00:16,000 --> 00:00:17,649
+but it's generally pretty small,
+
+7
+00:00:17,649 --> 00:00:21,034
+which means it's slow to either damp or diverge.
+
+8
+00:00:21,035 --> 00:00:23,070
+To understand this mode,
+
+9
+00:00:23,070 --> 00:00:26,855
+we're going to look at two pictures of the same aircraft at the same time.
+
+10
+00:00:26,855 --> 00:00:30,855
+We're going to imagine this vehicle is disturbed from straight and level flight,
+
+11
+00:00:30,855 --> 00:00:33,390
+by a small roll angle phi.
+
+12
+00:00:33,390 --> 00:00:36,710
+This results in a small lateral side slip velocity
+
+13
+00:00:36,710 --> 00:00:40,770
+v. You can actually think of the vehicle is sliding downhill.
+
+14
+00:00:40,770 --> 00:00:45,080
+Note that there is a downwards component to this lateral velocity in the body frame,
+
+15
+00:00:45,079 --> 00:00:46,820
+since the vehicle is rolled.
+
+16
+00:00:46,820 --> 00:00:48,850
+As the vehicle moves sideways,
+
+17
+00:00:48,850 --> 00:00:52,760
+the vertical tail gets pushed to the left by the incoming air,
+
+18
+00:00:52,759 --> 00:00:55,019
+which induces a positive yaw rate.
+
+19
+00:00:55,020 --> 00:00:58,490
+As you saw, when you learned about roll yaw coupling,
+
+20
+00:00:58,490 --> 00:01:03,050
+this positive your rate will cause the left wing to experience more lift than the right,
+
+21
+00:01:03,049 --> 00:01:06,034
+which will cause the roll angle to increase even further.
+
+22
+00:01:06,034 --> 00:01:07,899
+If this mode is unstable,
+
+23
+00:01:07,900 --> 00:01:09,650
+and this behavior isn't corrected,
+
+24
+00:01:09,650 --> 00:01:14,215
+the aircraft would eventually fly a slowly diverging path in roll, yaw,
+
+25
+00:01:14,215 --> 00:01:18,870
+and altitude, and eventually the vehicle would spiral into the ground.
+
+26
+00:01:18,870 --> 00:01:22,555
+Fortunately, the spiral mode can be dealt with by airplane design.
+
+27
+00:01:22,555 --> 00:01:25,450
+Wing Dihedral can produce a restoring torque,
+
+28
+00:01:25,450 --> 00:01:30,240
+and a Small Vertical tail can also help reduce the impact of this mode.
+

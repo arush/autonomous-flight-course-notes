@@ -1,0 +1,312 @@
+1
+00:00:00,000 --> 00:00:04,259
+Well, I'm glad to have you in here today Aaron for our deep learning engineer position.
+
+2
+00:00:04,259 --> 00:00:06,689
+To get started, I'd like to ask you a question
+
+3
+00:00:06,690 --> 00:00:08,850
+actually in deep learning, are you ready to go?
+
+4
+00:00:08,849 --> 00:00:09,939
+Yeah, sure let's do it.
+
+5
+00:00:09,939 --> 00:00:12,119
+All right. So, the first thing I'd like to ask you
+
+6
+00:00:12,119 --> 00:00:15,889
+is just to explain the concept of semantic segmentation.
+
+7
+00:00:15,890 --> 00:00:18,190
+Oh sure. I've done some work on semantic segmentation.
+
+8
+00:00:18,190 --> 00:00:18,560
+Awesome.
+
+9
+00:00:18,559 --> 00:00:20,164
+I've generated some really cool results.
+
+10
+00:00:20,164 --> 00:00:20,629
+Nice.
+
+11
+00:00:20,629 --> 00:00:28,144
+So, I can tell you what I've done before is I've used a fully convolution neural network,
+
+12
+00:00:28,144 --> 00:00:36,649
+and it's made up of an encoder and a decoder.
+
+13
+00:00:36,950 --> 00:00:40,080
+Your encoder, you can actually use transfer learning.
+
+14
+00:00:40,079 --> 00:00:42,204
+So, it's just a convolution neural network.
+
+15
+00:00:42,204 --> 00:00:44,600
+You can use a pre-trained one like VGG
+
+16
+00:00:44,600 --> 00:00:48,649
+16 and then you can do some pretty interesting techniques.
+
+17
+00:00:48,649 --> 00:00:51,920
+So, you could use one by
+
+18
+00:00:51,920 --> 00:00:56,120
+one convolution to bring it to a decoder and this is where things get really
+
+19
+00:00:56,119 --> 00:00:58,820
+interesting because now you're using something called D
+
+20
+00:00:58,820 --> 00:01:03,929
+convolutional layers to actually upsample the results.
+
+21
+00:01:03,929 --> 00:01:11,165
+So, the result that you end up getting is the same dimensions as your input.
+
+22
+00:01:11,165 --> 00:01:15,740
+So, if we're looking at trying to figure
+
+23
+00:01:15,739 --> 00:01:21,179
+out which pixels in an image belong to the road and which ones don't,
+
+24
+00:01:21,180 --> 00:01:25,060
+this is where a fully convolution neural network will do great,
+
+25
+00:01:25,060 --> 00:01:28,120
+because it'll actually provide us
+
+26
+00:01:28,219 --> 00:01:33,750
+which of those pixels are actually the road and which ones aren't.
+
+27
+00:01:33,750 --> 00:01:35,704
+So, it's looking at the category of them.
+
+28
+00:01:35,704 --> 00:01:40,400
+In order to do this,
+
+29
+00:01:40,400 --> 00:01:44,870
+it's actually going to start out quite random when you feed in your image.
+
+30
+00:01:44,870 --> 00:01:47,930
+It's just going to look like a lot of noise.
+
+31
+00:01:49,340 --> 00:01:53,844
+A lot of pixels are going to be various values.
+
+32
+00:01:53,844 --> 00:01:56,150
+So, we can actually have a label.
+
+33
+00:01:56,150 --> 00:01:57,690
+So we want to do some training here.
+
+34
+00:01:57,689 --> 00:02:04,459
+So this is our input data and then this is our label.
+
+35
+00:02:04,459 --> 00:02:06,034
+So this is hand annotated.
+
+36
+00:02:06,034 --> 00:02:06,700
+Okay.
+
+37
+00:02:06,700 --> 00:02:08,689
+So here, pixels that are one,
+
+38
+00:02:08,689 --> 00:02:13,675
+belong to the road and ones that are zeros are non-road.
+
+39
+00:02:13,675 --> 00:02:16,965
+So, this is what we want it to end up looking like.
+
+40
+00:02:16,965 --> 00:02:19,914
+If we want to get from here to here,
+
+41
+00:02:19,914 --> 00:02:22,310
+we're actually going to want to do some training.
+
+42
+00:02:22,310 --> 00:02:25,865
+So, we want to have a good loss function in order to do this.
+
+43
+00:02:25,865 --> 00:02:29,330
+Great. What kind of loss function do you think you'll use?
+
+44
+00:02:29,330 --> 00:02:32,300
+So, you can actually use a loss function that's quite similar to when you're
+
+45
+00:02:32,300 --> 00:02:35,225
+just doing categories for different images.
+
+46
+00:02:35,224 --> 00:02:44,120
+You can use softmax and then do cross entropy and what that looks like is at first,
+
+47
+00:02:44,120 --> 00:02:45,625
+this is going to be quite random.
+
+48
+00:02:45,625 --> 00:02:48,224
+So, if we just grab a pixel on here,
+
+49
+00:02:48,224 --> 00:02:50,319
+so there's different categories that we're dealing with.
+
+50
+00:02:50,319 --> 00:02:54,000
+So, let's say that we grabbed this one that's actually a part of the road.
+
+51
+00:02:54,000 --> 00:02:57,530
+So, we can have non-road and we can have road
+
+52
+00:02:57,530 --> 00:03:01,830
+and it is a probability that's going to sum up to one.
+
+53
+00:03:01,830 --> 00:03:06,115
+First, our network is going to produce something that doesn't sum up to one,
+
+54
+00:03:06,115 --> 00:03:08,980
+it's going to be quite random.
+
+55
+00:03:08,979 --> 00:03:15,379
+So, maybe we have negative 0.23 and we have 105.
+
+56
+00:03:15,379 --> 00:03:20,930
+Well, softmax is going to be able to take this and make it into a probability.
+
+57
+00:03:20,930 --> 00:03:24,710
+It ends up looking something like this function where we can use
+
+58
+00:03:24,710 --> 00:03:28,700
+e and then we can just sum over those different values.
+
+59
+00:03:28,699 --> 00:03:34,829
+So here we have two different values and we can use that.
+
+60
+00:03:34,830 --> 00:03:36,755
+Make sure that it sums up to one.
+
+61
+00:03:36,754 --> 00:03:37,539
+Okay.
+
+62
+00:03:37,539 --> 00:03:39,699
+Once it actually sums up to one,
+
+63
+00:03:39,699 --> 00:03:45,439
+we can use cross entropy and that's a log loss function and it
+
+64
+00:03:45,439 --> 00:03:52,189
+looks something like this where we have this negative summation and then we have,
+
+65
+00:03:52,189 --> 00:03:55,879
+let's say, is L log S where L is
+
+66
+00:03:55,879 --> 00:04:00,439
+part of the label and S are the values that we're getting from the softmax.
+
+67
+00:04:00,439 --> 00:04:05,770
+Essentially, what that's doing is if it's actually matching up really well,
+
+68
+00:04:05,770 --> 00:04:07,645
+it's going to be zero for the loss.
+
+69
+00:04:07,645 --> 00:04:08,939
+If they're wildly off,
+
+70
+00:04:08,939 --> 00:04:11,329
+it's going to be very large and [inaudible] , large loss.
+
+71
+00:04:11,330 --> 00:04:16,250
+So, once we actually have our loss function and this is using gradient descent and
+
+72
+00:04:16,250 --> 00:04:18,470
+following that derivative to minimize
+
+73
+00:04:18,470 --> 00:04:22,070
+the loss and then slowly over time with that training,
+
+74
+00:04:22,069 --> 00:04:25,959
+we can actually get our results that are quite noisy in random.
+
+75
+00:04:25,959 --> 00:04:28,055
+They actually look like our labels.
+
+76
+00:04:28,055 --> 00:04:30,879
+Okay. That covers everything I had on this topic anyway.
+
+77
+00:04:30,879 --> 00:04:32,105
+Let's go ahead and move on to the next one.
+
+78
+00:04:32,105 --> 00:04:32,840
+Sure.
+

@@ -1,0 +1,60 @@
+1
+00:00:00,050 --> 00:00:05,040
+After watching and reflecting on the example interviews, it'll be your turn.
+
+2
+00:00:05,040 --> 00:00:08,134
+You'll get a chance to choose questions from an area of your interest,
+
+3
+00:00:08,134 --> 00:00:10,879
+like deep learning engineer or controls engineer,
+
+4
+00:00:10,880 --> 00:00:13,320
+and answer a few questions for that role.
+
+5
+00:00:13,320 --> 00:00:15,960
+Along with the more role-specific questions,
+
+6
+00:00:15,960 --> 00:00:19,950
+you'll also be asked to respond to a question about a recent project you've worked on,
+
+7
+00:00:19,949 --> 00:00:23,274
+to help show your expertise and passion in that area.
+
+8
+00:00:23,274 --> 00:00:26,199
+This can be a deceptively important question.
+
+9
+00:00:26,199 --> 00:00:28,929
+Can you articulate why you chose this project?
+
+10
+00:00:28,929 --> 00:00:32,140
+What steps along with missteps you took along the way,
+
+11
+00:00:32,140 --> 00:00:34,049
+why the end result was interesting,
+
+12
+00:00:34,049 --> 00:00:37,339
+and potentially, even what you'd do to further improve it?
+
+13
+00:00:37,340 --> 00:00:40,310
+Now, before we get started on the interviews.
+
+14
+00:00:40,310 --> 00:00:42,650
+Let's talk through a few more important areas to
+
+15
+00:00:42,649 --> 00:00:45,759
+consider for interviews in autonomous systems.
+

@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:01,605
+Congratulations!
+
+2
+00:00:01,605 --> 00:00:05,165
+I hope you enjoyed implementing each of those control loops.
+
+3
+00:00:05,165 --> 00:00:07,924
+At this point, you may have noticed that
+
+4
+00:00:07,924 --> 00:00:11,705
+these controllers seem to work with wide range of parameters.
+
+5
+00:00:11,705 --> 00:00:14,085
+Specifically, you may have noticed that
+
+6
+00:00:14,085 --> 00:00:19,230
+really aggressive proportional gains always seemed to make the controller perform better.
+
+7
+00:00:19,230 --> 00:00:22,949
+The reason you may have noticed this has to do with some of
+
+8
+00:00:22,949 --> 00:00:24,890
+the practical considerations we've
+
+9
+00:00:24,890 --> 00:00:28,315
+ignored in the quadrotor model you've been controlling.
+
+10
+00:00:28,315 --> 00:00:33,689
+So far, we've been assuming that the rotors can generate infinite thrust,
+
+11
+00:00:33,689 --> 00:00:36,699
+generate upward and downward thrust,
+
+12
+00:00:36,700 --> 00:00:39,935
+and instantaneously change thrust.
+
+13
+00:00:39,935 --> 00:00:42,255
+If rotors could really do that,
+
+14
+00:00:42,255 --> 00:00:46,355
+then any time the quadrotor deviated from the target trajectory,
+
+15
+00:00:46,354 --> 00:00:48,559
+the vehicle could instantly command
+
+16
+00:00:48,560 --> 00:00:53,910
+whatever massive force of torque was required to immediately correct itself.
+
+17
+00:00:53,909 --> 00:00:57,589
+In reality, all of these assumptions are wrong.
+
+18
+00:00:57,590 --> 00:01:03,275
+In reality, the motors have a minimum and maximum thrust that they can produce.
+
+19
+00:01:03,274 --> 00:01:07,084
+And the minimum thrust is a small positive number.
+
+20
+00:01:07,084 --> 00:01:08,909
+What that means is,
+
+21
+00:01:08,909 --> 00:01:13,359
+that the motors on a quad can only generate thrust in one direction.
+
+22
+00:01:13,359 --> 00:01:17,030
+Additionally, they have a minimum and maximum rate
+
+23
+00:01:17,030 --> 00:01:20,280
+at which they can change the thrust that they produce.
+
+24
+00:01:20,280 --> 00:01:23,379
+Parameter tuning becomes much more important
+
+25
+00:01:23,379 --> 00:01:26,739
+when these actuation constraints are taken into account.
+
+26
+00:01:26,739 --> 00:01:28,670
+In part of the final project,
+
+27
+00:01:28,670 --> 00:01:31,840
+you will get to work with a vehicle model that isn't quite
+
+28
+00:01:31,840 --> 00:01:35,895
+as forgiving as the model you have been working with in this lesson.
+
+29
+00:01:35,894 --> 00:01:38,254
+In fact, in the real world,
+
+30
+00:01:38,254 --> 00:01:42,339
+gains that are too high can actually cause instability.
+
+31
+00:01:42,340 --> 00:01:46,409
+Be on the lookout for this as you implement the final project.
+

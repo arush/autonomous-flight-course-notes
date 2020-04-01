@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:03,254
+These equations are really useful equations.
+
+2
+00:00:03,254 --> 00:00:08,774
+They tell us what will happen for any angle and any thrust and any torque.
+
+3
+00:00:08,775 --> 00:00:12,600
+So, these equations are good because one,
+
+4
+00:00:12,599 --> 00:00:16,890
+they for the most part capture the true physics of the system.
+
+5
+00:00:16,890 --> 00:00:18,795
+And because of that, they can make
+
+6
+00:00:18,795 --> 00:00:23,490
+pretty accurate predictions about how the systems will change in time.
+
+7
+00:00:23,489 --> 00:00:29,750
+And two, these equations work at any angle for any controls.
+
+8
+00:00:29,751 --> 00:00:34,030
+They don't break down when numbers get too big or too small.
+
+9
+00:00:34,030 --> 00:00:39,760
+And in general, this is why you use non-linear equations when you choose to use them.
+
+10
+00:00:39,759 --> 00:00:43,448
+But these are not linear differential equations,
+
+11
+00:00:43,448 --> 00:00:46,089
+the equations would be linear if
+
+12
+00:00:46,090 --> 00:00:50,470
+the right hand side of each of the equations would be in a form like this,
+
+13
+00:00:50,469 --> 00:00:52,750
+where the cs are constants.
+
+14
+00:00:52,750 --> 00:00:59,200
+So, no sine, cosine or multiplication of input and state like u times phi.
+
+15
+00:00:59,200 --> 00:01:04,510
+If you try to plot them as a function of u1 of phi or any of the variables,
+
+16
+00:01:04,510 --> 00:01:05,920
+you would get straight lines.
+
+17
+00:01:05,920 --> 00:01:10,200
+And control theorists love when equations are linear.
+
+18
+00:01:10,200 --> 00:01:13,290
+We have a large tool set of linear control techniques
+
+19
+00:01:13,290 --> 00:01:16,635
+for which we can prove stability in a straightforward way.
+
+20
+00:01:16,635 --> 00:01:20,460
+We love linear equations so much that sometimes we'll bend over
+
+21
+00:01:20,459 --> 00:01:25,123
+backwards to find linear approximations for non-linear equations like this.
+
+22
+00:01:25,123 --> 00:01:27,000
+And in the next few segments,
+
+23
+00:01:27,000 --> 00:01:32,310
+I want to show you some intuition for how we linearize these sorts of equations.
+

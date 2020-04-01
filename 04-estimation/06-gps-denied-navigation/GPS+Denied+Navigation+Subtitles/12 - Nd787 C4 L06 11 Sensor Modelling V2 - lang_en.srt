@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:02,214
+Evaluating p of Z sub t,
+
+2
+00:00:02,214 --> 00:00:05,504
+given X sub t, will of course depend on your specific sensor.
+
+3
+00:00:05,504 --> 00:00:09,025
+Let's take a look at using a range sensor in a 2D map.
+
+4
+00:00:09,025 --> 00:00:11,790
+A range sensor emits a pulse of energy along
+
+5
+00:00:11,789 --> 00:00:16,024
+some bearing and that energy is reflected off the closest obstacle.
+
+6
+00:00:16,024 --> 00:00:19,559
+And, based on the return properties of that energy,
+
+7
+00:00:19,559 --> 00:00:21,689
+either the time of flight or the phase,
+
+8
+00:00:21,690 --> 00:00:24,130
+we get a measurement of distance.
+
+9
+00:00:24,129 --> 00:00:27,119
+Errors in the measured range are typically normally
+
+10
+00:00:27,120 --> 00:00:30,720
+distributed around the true range and that distribution can be
+
+11
+00:00:30,719 --> 00:00:33,659
+parameterized with a mean given by the true range of
+
+12
+00:00:33,659 --> 00:00:38,949
+the obstacle and some variance that depends on the sensors which can be measured.
+
+13
+00:00:38,950 --> 00:00:43,780
+But, there's also some probability of getting N inappropriately short range,
+
+14
+00:00:43,780 --> 00:00:47,310
+and some probability of never getting any reflected energy at all.
+
+15
+00:00:47,310 --> 00:00:51,120
+Which we'd interpret as a measurement of some maximum range.
+
+16
+00:00:51,119 --> 00:00:55,049
+All of these probabilities of these specific events depend
+
+17
+00:00:55,049 --> 00:00:58,969
+on the sensor and can be measured from real data.
+
+18
+00:00:58,969 --> 00:01:03,759
+What we need is the probability of a particular measured range,
+
+19
+00:01:03,759 --> 00:01:05,625
+given the vehicle is in some position.
+
+20
+00:01:05,625 --> 00:01:10,254
+But we don't really believe that the behavior of the sensor changes with the position.
+
+21
+00:01:10,254 --> 00:01:14,804
+What actually changes with the position is the distance to the obstacle.
+
+22
+00:01:14,805 --> 00:01:18,030
+The probability of a given range at a given position
+
+23
+00:01:18,030 --> 00:01:21,534
+is actually a function of the obstacles on the map.
+
+24
+00:01:21,534 --> 00:01:24,405
+This means we can write the sensor model,
+
+25
+00:01:24,405 --> 00:01:27,310
+p of Z sub t given X of t and m,
+
+26
+00:01:27,310 --> 00:01:28,590
+where m is a map.
+
+27
+00:01:28,590 --> 00:01:30,600
+If the sensor distribution really depends on
+
+28
+00:01:30,599 --> 00:01:33,030
+the realest position of the vehicle in the map,
+
+29
+00:01:33,030 --> 00:01:37,674
+we can say that the probability of the measurements Z sub t given X sub t and m,
+
+30
+00:01:37,674 --> 00:01:40,500
+is actually equal to the probability of the measurement,
+
+31
+00:01:40,500 --> 00:01:43,590
+given some function of the state and the map.
+
+32
+00:01:43,590 --> 00:01:49,255
+That function is just the Euclidean distance between the state and the nearest obstacle.
+
+33
+00:01:49,254 --> 00:01:54,859
+Here, lambda is the position of the nearest obstacle along the bearing of the sensor.
+
+34
+00:01:54,859 --> 00:01:56,734
+After all of this,
+
+35
+00:01:56,734 --> 00:02:00,299
+we have a sensor model that looks something like this.
+
+36
+00:02:00,299 --> 00:02:03,295
+As you'd expect, there's a peak here,
+
+37
+00:02:03,295 --> 00:02:06,605
+where the distance is equal to the actual Euclidean distance.
+
+38
+00:02:06,605 --> 00:02:11,405
+There's some variance around that peak which depends on the sensor and then there's
+
+39
+00:02:11,405 --> 00:02:16,724
+also some probability of measuring a maximum range or a short range.
+
+40
+00:02:16,724 --> 00:02:19,370
+And it's this curve here that characterizes
+
+41
+00:02:19,370 --> 00:02:23,270
+the probability distribution of all possible measurements given that,
+
+42
+00:02:23,270 --> 00:02:25,450
+this is where the obstacle actually is.
+
+43
+00:02:25,449 --> 00:02:29,479
+And it's this funny shape that's no longer Gaussian that's really
+
+44
+00:02:29,479 --> 00:02:33,530
+hard to capture inside Kalman filter type distributions.
+

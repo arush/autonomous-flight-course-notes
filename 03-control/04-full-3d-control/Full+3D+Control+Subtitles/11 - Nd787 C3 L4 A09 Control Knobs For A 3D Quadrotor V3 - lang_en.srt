@@ -1,0 +1,80 @@
+1
+00:00:00,000 --> 00:00:04,230
+So, finally after understanding the 3D dynamics of a quadrotor,
+
+2
+00:00:04,230 --> 00:00:07,350
+we can now think about controlling the vehicle.
+
+3
+00:00:07,350 --> 00:00:09,690
+Lots of the ideas that we saw for
+
+4
+00:00:09,690 --> 00:00:14,395
+the 2D quad control are essential for 3D controller as well.
+
+5
+00:00:14,395 --> 00:00:19,875
+For example, we use the same cascaded PD or PID control structure.
+
+6
+00:00:19,875 --> 00:00:23,280
+We also need a non-linear transformation in order to
+
+7
+00:00:23,280 --> 00:00:27,775
+translate target accelerations to motor forces and torques.
+
+8
+00:00:27,775 --> 00:00:31,720
+Let's look at the 2D control from last lesson.
+
+9
+00:00:31,720 --> 00:00:38,090
+A drone flying in the vertical plane with two propellers was an under actuated system.
+
+10
+00:00:38,090 --> 00:00:42,760
+This meant we could only choose two quantities we wanted to control,
+
+11
+00:00:42,760 --> 00:00:48,400
+and then we have to use the dynamics to design a control knob for those quantities.
+
+12
+00:00:48,400 --> 00:00:53,815
+For the 2D quad we wanted control knobs that could control Y and Z motion.
+
+13
+00:00:53,815 --> 00:00:57,085
+Our control knob for Z was the thrust.
+
+14
+00:00:57,085 --> 00:01:01,900
+In the non-linear case we had to increase the thrust when the vehicle was tilted.
+
+15
+00:01:01,900 --> 00:01:05,640
+Our control knob for Y was less immediate.
+
+16
+00:01:05,640 --> 00:01:10,210
+We had to first design a controller that linked phi to Y motion,
+
+17
+00:01:10,210 --> 00:01:15,300
+and then we designed a controller that linked the differential thrust to phi.
+
+18
+00:01:15,300 --> 00:01:19,660
+In 3D, we want control over X, Y and Z.
+
+19
+00:01:19,660 --> 00:01:23,185
+So, we can move the quad where we want it in space.
+
+20
+00:01:23,185 --> 00:01:28,060
+Then we typically choose yaw as our fourth controllable state variable.
+

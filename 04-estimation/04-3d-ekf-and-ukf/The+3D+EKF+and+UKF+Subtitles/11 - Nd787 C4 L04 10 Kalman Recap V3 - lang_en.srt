@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:05,203
+Now that we know how to implement state estimation in 3D,
+
+2
+00:00:05,203 --> 00:00:08,400
+let's move on to the second part of this lesson where I will
+
+3
+00:00:08,400 --> 00:00:11,970
+introduce you to another variant of the Kalman Filter,
+
+4
+00:00:11,970 --> 00:00:16,649
+called the unscented Kalman filter before I do that,
+
+5
+00:00:16,649 --> 00:00:19,919
+let's do a quick recap of Kalman filters.
+
+6
+00:00:19,920 --> 00:00:24,030
+A Kalman filter is an optimal estimation algorithm that can be
+
+7
+00:00:24,030 --> 00:00:28,995
+used to estimate the state of a system that cannot be measured directly.
+
+8
+00:00:28,995 --> 00:00:36,730
+A Kalman filter is defined for a linear system with a linear state transition model,
+
+9
+00:00:36,729 --> 00:00:39,444
+and a linear measurement model.
+
+10
+00:00:39,445 --> 00:00:42,865
+But this is a very specific situation.
+
+11
+00:00:42,865 --> 00:00:45,940
+In general both the state-transition function
+
+12
+00:00:45,939 --> 00:00:49,254
+and the measurement function could be non-linear.
+
+13
+00:00:49,255 --> 00:00:52,895
+I want to demonstrate this difference with a picture.
+
+14
+00:00:52,895 --> 00:00:57,180
+The Kalman filter assumes a Gaussian distribution.
+
+15
+00:00:57,179 --> 00:01:01,840
+When the state transition function or the measurement function is linear,
+
+16
+00:01:01,840 --> 00:01:05,094
+and we pass the state into the transition function,
+
+17
+00:01:05,094 --> 00:01:07,429
+the distribution stays Gaussian,
+
+18
+00:01:07,430 --> 00:01:11,295
+even though the mean and covariance will have changed.
+
+19
+00:01:11,295 --> 00:01:14,954
+But when the transition function is non-linear,
+
+20
+00:01:14,954 --> 00:01:18,524
+the resulting distribution will not be Gaussian.
+
+21
+00:01:18,525 --> 00:01:22,560
+The extended Kalman filter handles this by first
+
+22
+00:01:22,560 --> 00:01:27,045
+linearizing the system around the mean of the current estimate,
+
+23
+00:01:27,045 --> 00:01:30,840
+then the EKF uses linear approximations of
+
+24
+00:01:30,840 --> 00:01:34,799
+the state transition and measurement functions to update its estimate.
+
+25
+00:01:34,799 --> 00:01:37,935
+So, this works well when the G or
+
+26
+00:01:37,935 --> 00:01:42,060
+H function can be well approximated by a linear function,
+
+27
+00:01:42,060 --> 00:01:45,480
+but there are some drawbacks to EKFs.
+
+28
+00:01:45,480 --> 00:01:49,950
+Consider what happens when the state transition function looks like this.
+
+29
+00:01:49,950 --> 00:01:55,799
+In this region, the function is not well represented by a linear approximation at all.
+
+30
+00:01:55,799 --> 00:02:01,989
+This is one situation where unscented Kalman filters are really useful
+

@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:03,509
+Next, I want to discuss our choice of control input.
+
+2
+00:00:03,509 --> 00:00:06,299
+Our control input is not going to be
+
+3
+00:00:06,299 --> 00:00:10,919
+the collective thrust and three moments that you worked with in the controls course.
+
+4
+00:00:10,919 --> 00:00:13,949
+Instead, we're going to be using the X, Y,
+
+5
+00:00:13,949 --> 00:00:17,609
+and Z accelerations as well as the R rate psi.
+
+6
+00:00:17,609 --> 00:00:21,300
+Considering what we chose to use as a state vector,
+
+7
+00:00:21,300 --> 00:00:25,214
+this makes some sense to use as a control input if we can.
+
+8
+00:00:25,214 --> 00:00:27,579
+But I want you to really look at this for a
+
+9
+00:00:27,579 --> 00:00:31,359
+second and think back to the controls course as you do.
+
+10
+00:00:31,359 --> 00:00:33,655
+Are we allowed to do this?
+
+11
+00:00:33,655 --> 00:00:39,320
+Can we just say we're going to use the acceleration and the R rate as our control input?
+
+12
+00:00:39,320 --> 00:00:44,798
+Remember, that the thing we get to control are the rotation rates of the propellers,
+
+13
+00:00:44,798 --> 00:00:50,079
+and these map directly to one collective thrust and three moments.
+
+14
+00:00:50,079 --> 00:00:53,134
+Shouldn't those be our control inputs?
+
+15
+00:00:53,134 --> 00:00:57,054
+The answer is yes we could and usually do
+
+16
+00:00:57,054 --> 00:01:01,344
+use the real control commands as the control vector in our estimator,
+
+17
+00:01:01,344 --> 00:01:04,314
+but we certainly don't have to do that.
+
+18
+00:01:04,314 --> 00:01:06,780
+So, how do we do this?
+
+19
+00:01:06,780 --> 00:01:09,665
+How do we use the accelerations and psi.
+
+20
+00:01:09,665 --> 00:01:11,540
+as a control input?
+
+21
+00:01:11,540 --> 00:01:15,200
+We're actually going to handle this using a weird trick.
+
+22
+00:01:15,200 --> 00:01:20,379
+These control inputs are actually going to come from the IMU measurements.
+
+23
+00:01:20,379 --> 00:01:22,489
+The accelerations will come from
+
+24
+00:01:22,489 --> 00:01:26,299
+the accelerometer on the inertial measurement unit, and psi.
+
+25
+00:01:26,299 --> 00:01:28,465
+will come from the Rate Gyro.
+
+26
+00:01:28,465 --> 00:01:34,000
+Now, the right thing to do would be to use the IMU for measurements since well,
+
+27
+00:01:34,000 --> 00:01:40,015
+it's a sensor, but many sources actually use the IMU as a control input.
+
+28
+00:01:40,015 --> 00:01:44,359
+One reason this is the case is that for lower cost terms,
+
+29
+00:01:44,359 --> 00:01:47,125
+the control commands don't always
+
+30
+00:01:47,125 --> 00:01:50,724
+accurately reflect the controls that actually get executed,
+
+31
+00:01:50,724 --> 00:01:55,219
+while the measurements made by the IMU actually do reflect reality.
+
+32
+00:01:55,219 --> 00:01:59,814
+So, because the IMU directly measures these accelerations,
+
+33
+00:01:59,814 --> 00:02:02,245
+and acceleration is in some sense
+
+34
+00:02:02,245 --> 00:02:04,910
+what you're controlling when you're moving the drone around,
+
+35
+00:02:04,909 --> 00:02:08,245
+we can justify using the IMU as our control input.
+
+36
+00:02:08,245 --> 00:02:11,960
+We could of course use the IMU as a measurement,
+
+37
+00:02:11,960 --> 00:02:15,469
+and use the commanded controls as the control input.
+
+38
+00:02:15,469 --> 00:02:19,609
+But the tradeoff is if you use the IMU as a measurement,
+
+39
+00:02:19,610 --> 00:02:22,930
+you have to put a lot more stuff into the state vector,
+
+40
+00:02:22,930 --> 00:02:25,280
+and those Jacobians get even bigger.
+
+41
+00:02:25,280 --> 00:02:29,169
+I encourage you to discuss this decision on the Slack channels,
+
+42
+00:02:29,169 --> 00:02:30,659
+and if you're feeling ambitious,
+
+43
+00:02:30,659 --> 00:02:36,000
+you can even try to implement an estimator using a different strategy on your own
+

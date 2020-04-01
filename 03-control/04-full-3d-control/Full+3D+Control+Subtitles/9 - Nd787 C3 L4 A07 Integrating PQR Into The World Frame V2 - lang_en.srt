@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:04,125
+Hopefully, you were able to use this equation along with the moments
+
+2
+00:00:04,125 --> 00:00:08,390
+and the moment of inertial matrix to calculate omega-dot.
+
+3
+00:00:08,390 --> 00:00:14,135
+You could then perform an integration of this omega-dot to figure out what the new p,
+
+4
+00:00:14,134 --> 00:00:15,794
+q, r all were.
+
+5
+00:00:15,794 --> 00:00:21,960
+This is analogous to using the linear accelerations to update the linear velocities,
+
+6
+00:00:21,960 --> 00:00:26,679
+and this means that nine of our 12 variables have been updated.
+
+7
+00:00:26,679 --> 00:00:28,960
+We are almost there.
+
+8
+00:00:28,960 --> 00:00:34,280
+All that's left is to update our Euler angles phi, theta, and psi.
+
+9
+00:00:34,280 --> 00:00:39,658
+Now unfortunately, this is not just a straightforward integration.
+
+10
+00:00:39,658 --> 00:00:41,774
+As I mentioned earlier, p, q,
+
+11
+00:00:41,774 --> 00:00:44,879
+r are not the same as phi-dot, theta-dot,
+
+12
+00:00:44,880 --> 00:00:47,790
+and psi-dot, so we can't directly integrate
+
+13
+00:00:47,789 --> 00:00:51,740
+them and we have one last tricky bit of math to do.
+
+14
+00:00:51,740 --> 00:00:55,370
+We'll link to papers that explore this math in detail,
+
+15
+00:00:55,369 --> 00:00:58,149
+but the equation we care about is this.
+
+16
+00:00:58,149 --> 00:01:02,289
+And conceptually, what this equation does is relates
+
+17
+00:01:02,289 --> 00:01:05,340
+an instantaneous turn rate in the body frame to
+
+18
+00:01:05,340 --> 00:01:08,895
+an instantaneous change in the Euler angles.
+
+19
+00:01:08,894 --> 00:01:12,354
+And note that we are using Euler angles under the hood
+
+20
+00:01:12,355 --> 00:01:16,575
+because they have a more intuitive interpretation than quaternions.
+
+21
+00:01:16,575 --> 00:01:19,760
+If you use a different attitude representation,
+
+22
+00:01:19,760 --> 00:01:22,040
+this above equation would change,
+
+23
+00:01:22,040 --> 00:01:25,660
+but would essentially do the same thing going from
+
+24
+00:01:25,659 --> 00:01:30,189
+rotation rates in the body frame to turn rates in the build frame.
+
+25
+00:01:30,189 --> 00:01:34,079
+And once again, you don't need to memorize these equations,
+
+26
+00:01:34,079 --> 00:01:35,724
+but when you work in this field,
+
+27
+00:01:35,724 --> 00:01:37,629
+and you see equations like this,
+
+28
+00:01:37,629 --> 00:01:39,694
+you now know why we need them,
+
+29
+00:01:39,694 --> 00:01:42,299
+and you should be able to implement them.
+
+30
+00:01:42,299 --> 00:01:46,244
+It's also important that you remember that these equations exist.
+
+31
+00:01:46,245 --> 00:01:49,645
+The dynamics of a quadrotor are pretty well understood.
+
+32
+00:01:49,644 --> 00:01:54,299
+And before you try throwing machine learning or neural networks and control problems,
+
+33
+00:01:54,299 --> 00:01:57,719
+it's usually helpful to first consult the physics.
+

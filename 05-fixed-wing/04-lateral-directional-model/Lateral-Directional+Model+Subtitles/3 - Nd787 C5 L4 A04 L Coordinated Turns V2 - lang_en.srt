@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,004
+Something we haven't really discussed is how to turn a fixed-wing aircraft.
+
+2
+00:00:04,004 --> 00:00:07,804
+Consider an aircraft flying at constant speed in a circular trajectory.
+
+3
+00:00:07,804 --> 00:00:11,570
+Even though the magnitude of this aircraft's velocity vector isn't changing,
+
+4
+00:00:11,570 --> 00:00:13,505
+the direction is constantly changing,
+
+5
+00:00:13,505 --> 00:00:16,920
+and changing direction of the velocity is an acceleration.
+
+6
+00:00:16,920 --> 00:00:19,950
+This acceleration is always directed towards the center of
+
+7
+00:00:19,949 --> 00:00:23,054
+the circle so we call it centripetal acceleration.
+
+8
+00:00:23,054 --> 00:00:25,890
+For any object to move in a circle at constant speed,
+
+9
+00:00:25,890 --> 00:00:29,370
+there needs to be a centripetal force that provides this acceleration,
+
+10
+00:00:29,370 --> 00:00:32,539
+and the size of that force must be equal to MV squared over R,
+
+11
+00:00:32,539 --> 00:00:34,195
+where M is the mass of the object,
+
+12
+00:00:34,195 --> 00:00:37,630
+V is the speed, and R is the radius of the circle.
+
+13
+00:00:37,630 --> 00:00:41,295
+So, if you want an airplane to fly a circular trajectory like this,
+
+14
+00:00:41,295 --> 00:00:43,005
+we'd need a force directed inwards,
+
+15
+00:00:43,005 --> 00:00:46,150
+and the size of that force has to be equal to MV squared
+
+16
+00:00:46,149 --> 00:00:49,729
+over R. One option would be to generate a side force,
+
+17
+00:00:49,729 --> 00:00:51,949
+but we just talked about how lateral accelerations
+
+18
+00:00:51,950 --> 00:00:54,545
+are perceived as uncomfortable by passengers.
+
+19
+00:00:54,545 --> 00:00:58,005
+So what we really need is something called a coordinated turn.
+
+20
+00:00:58,005 --> 00:01:01,280
+A coordinated turn works by rolling the vehicle,
+
+21
+00:01:01,280 --> 00:01:06,125
+and using a component of the vehicles lift vector as the centripetal force for the turn.
+
+22
+00:01:06,125 --> 00:01:08,480
+Consider an aircraft viewed from behind.
+
+23
+00:01:08,480 --> 00:01:13,800
+From this angle, we can see the lift and weight vectors which point up and down.
+
+24
+00:01:13,799 --> 00:01:17,239
+The idea behind a coordinated turn is to roll the vehicle so that a component of
+
+25
+00:01:17,239 --> 00:01:21,574
+the lift force actually points towards the center of the circle we want to follow.
+
+26
+00:01:21,575 --> 00:01:25,280
+Here, we see the aircraft rolled to some angle phi.
+
+27
+00:01:25,280 --> 00:01:29,710
+Now, the lift vector has a vertical component given by L cosine phi,
+
+28
+00:01:29,709 --> 00:01:32,704
+and a horizontal component given by L sine phi.
+
+29
+00:01:32,704 --> 00:01:35,700
+This horizontal component is the centripetal force,
+
+30
+00:01:35,700 --> 00:01:39,570
+so it must be equal to M times V squared over R.
+
+31
+00:01:39,569 --> 00:01:42,979
+The vertical component bounces the weight so it must be equal to
+
+32
+00:01:42,980 --> 00:01:46,115
+M times G. If we divide these two equations,
+
+33
+00:01:46,114 --> 00:01:47,199
+we're left with this,
+
+34
+00:01:47,200 --> 00:01:52,180
+the tangent of phi is equal to V squared over R times G. Or,
+
+35
+00:01:52,180 --> 00:01:54,790
+we can take the inverse tangent of both sides.
+
+36
+00:01:54,790 --> 00:01:57,710
+We can use this equation to determine what roll angle
+
+37
+00:01:57,709 --> 00:02:00,659
+we need in order to follow a circle of a certain radius,
+
+38
+00:02:00,659 --> 00:02:02,439
+while moving at a certain speed.
+

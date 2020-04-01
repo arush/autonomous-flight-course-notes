@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:03,720
+The UKF update is a little more involved,
+
+2
+00:00:03,720 --> 00:00:06,500
+but let me just walk through the algorithm at a high level.
+
+3
+00:00:06,500 --> 00:00:12,330
+So, first note that the update function takes the sigma points as input,
+
+4
+00:00:12,330 --> 00:00:15,175
+along with the new measurement as we'd expect.
+
+5
+00:00:15,175 --> 00:00:18,074
+And the first thing we do is recover
+
+6
+00:00:18,074 --> 00:00:22,725
+the updated mean and the co-variance from these weighted sigma points.
+
+7
+00:00:22,725 --> 00:00:28,310
+Next, we take the sigma points and pass them through the observation function.
+
+8
+00:00:28,309 --> 00:00:33,629
+So, just like we pass the sigma points through the state transition function earlier,
+
+9
+00:00:33,630 --> 00:00:39,590
+now we pass them through the observation function and this gives us new sigma points.
+
+10
+00:00:39,590 --> 00:00:41,670
+And this basically gives us
+
+11
+00:00:41,670 --> 00:00:47,380
+an expected observation that's represented as the Z sub t sigma points.
+
+12
+00:00:47,380 --> 00:00:51,040
+Then, we can compute a mu_Z and sigma
+
+13
+00:00:51,039 --> 00:00:55,829
+Z of the sigma points that we passed through the observation function.
+
+14
+00:00:55,829 --> 00:00:59,189
+And we do this using the same technique that we use
+
+15
+00:00:59,189 --> 00:01:02,579
+to compute the mu bar and sigma bar before.
+
+16
+00:01:02,579 --> 00:01:08,894
+We just take the weighted sample mean and sample co-variance of the Z sigma points.
+
+17
+00:01:08,894 --> 00:01:10,964
+And we need one more thing,
+
+18
+00:01:10,965 --> 00:01:13,540
+which is the cross co-variance between
+
+19
+00:01:13,540 --> 00:01:17,260
+the state sigma points and the observation sigma points,
+
+20
+00:01:17,260 --> 00:01:20,630
+and this tells us how they vary with respect to each other.
+
+21
+00:01:20,629 --> 00:01:24,719
+And then we use this to calculate the Kalman gain.
+
+22
+00:01:24,719 --> 00:01:26,909
+And once we have the Kalman gain,
+
+23
+00:01:26,909 --> 00:01:29,530
+it is just like with a common filter.
+
+24
+00:01:29,530 --> 00:01:31,870
+We just use the mean that we got from
+
+25
+00:01:31,870 --> 00:01:36,250
+our predicted sigma points and then we add some correction in the direction of
+
+26
+00:01:36,250 --> 00:01:40,129
+the measurement and that correction is just the common gain
+
+27
+00:01:40,129 --> 00:01:44,659
+times our measurement Z sub t minus our predicted observation,
+
+28
+00:01:44,659 --> 00:01:48,530
+which is represented as the mean of those sigma points.
+
+29
+00:01:48,530 --> 00:01:53,689
+Then, we do something similar here to get the new updated co-variance,
+
+30
+00:01:53,689 --> 00:01:57,524
+and finally we can return our new mean and co-variance,
+
+31
+00:01:57,525 --> 00:02:00,300
+and then we just rinse and repeat,
+
+32
+00:02:00,299 --> 00:02:02,634
+and as with any other base filter,
+
+33
+00:02:02,635 --> 00:02:05,000
+we just alternate back and forth between
+
+34
+00:02:05,000 --> 00:02:08,680
+prediction and measurement, prediction and measurement.
+
+35
+00:02:08,680 --> 00:02:14,520
+Now, I want to talk about the trade offs between EKF's and UKF's.
+
+36
+00:02:14,520 --> 00:02:20,625
+For the EKF's, we had to take all these derivatives to compute the jacobian matrix.
+
+37
+00:02:20,625 --> 00:02:23,444
+For the UKF, no derivatives.
+
+38
+00:02:23,444 --> 00:02:28,329
+For this reason, the UKF is substantially easier to implement.
+
+39
+00:02:28,330 --> 00:02:31,780
+All we need is a G and an H function.
+
+40
+00:02:31,780 --> 00:02:34,349
+Not only is the UKF easier,
+
+41
+00:02:34,349 --> 00:02:39,479
+but the UKF almost always gives a better state estimate than the EKF,
+
+42
+00:02:39,479 --> 00:02:42,854
+and it does so in a comparable runtime.
+
+43
+00:02:42,854 --> 00:02:44,590
+So, given a choice,
+
+44
+00:02:44,590 --> 00:02:49,860
+you should almost always use a UKF if the system is at all gaussian.
+
+45
+00:02:49,860 --> 00:02:51,710
+Given that that's true,
+
+46
+00:02:51,710 --> 00:02:55,344
+why did we spent all that time covering EKFs?
+
+47
+00:02:55,344 --> 00:03:00,055
+And why are we asking you to implement an EKF for the final project?
+
+48
+00:03:00,055 --> 00:03:03,760
+The answer is that EKF's are the standard tool in
+
+49
+00:03:03,759 --> 00:03:07,384
+the field and you will certainly encounter them in your work.
+
+50
+00:03:07,384 --> 00:03:11,049
+So, we wanted to make sure you understood them completely,
+
+51
+00:03:11,050 --> 00:03:16,600
+but we're also aware of the UKF advantages over the EKF.
+

@@ -1,0 +1,248 @@
+1
+00:00:01,200 --> 00:00:04,480
+We're going to talk more about a couple of
+
+2
+00:00:04,480 --> 00:00:07,435
+the individual controllers in this architecture.
+
+3
+00:00:07,435 --> 00:00:10,270
+But for now, I want to help you understand some
+
+4
+00:00:10,270 --> 00:00:13,675
+of the thinking that went into the controller design.
+
+5
+00:00:13,675 --> 00:00:16,340
+On the left, we have a trajectory.
+
+6
+00:00:16,340 --> 00:00:20,490
+For now, let's assume a trajectory contains target values for x,
+
+7
+00:00:20,490 --> 00:00:22,035
+y, z, yaw angle,
+
+8
+00:00:22,035 --> 00:00:24,325
+and the associated velocities.
+
+9
+00:00:24,325 --> 00:00:28,170
+It could also contain acceleration targets.
+
+10
+00:00:28,170 --> 00:00:32,835
+This trajectory gets split into three parts: a z part,
+
+11
+00:00:32,835 --> 00:00:36,635
+a lateral x and y part, and a yaw part.
+
+12
+00:00:36,635 --> 00:00:40,905
+The z trajectory is handled by the altitude controller.
+
+13
+00:00:40,905 --> 00:00:46,425
+The role of the altitude controller here is identical to what it was in the 2D case.
+
+14
+00:00:46,425 --> 00:00:49,420
+It sets the collective thrust.
+
+15
+00:00:49,420 --> 00:00:55,495
+The x and y trajectory is first handled by the level position controller.
+
+16
+00:00:55,495 --> 00:01:00,320
+This is almost identical to the y position controller from the 2D case.
+
+17
+00:01:00,320 --> 00:01:02,470
+The only difference is that,
+
+18
+00:01:02,470 --> 00:01:07,165
+this controller outputs acceleration targets rather than angular targets.
+
+19
+00:01:07,165 --> 00:01:10,640
+But this was just a design decision so that we could keep
+
+20
+00:01:10,640 --> 00:01:15,695
+all the more complicated angular control logic in the roll-pitch controller.
+
+21
+00:01:15,695 --> 00:01:20,335
+Finally, the yaw trajectory is handled by the yaw controller.
+
+22
+00:01:20,335 --> 00:01:25,050
+Now, let's go into each of these path in more detail.
+
+23
+00:01:25,050 --> 00:01:28,065
+Path one, altitude.
+
+24
+00:01:28,065 --> 00:01:33,010
+The altitude controller is responsible for ensuring the vehicle stays close to
+
+25
+00:01:33,010 --> 00:01:38,390
+the commanded set position and velocity by computing a target thrust value.
+
+26
+00:01:38,390 --> 00:01:41,875
+Now, note the inputs to the altitude controller,
+
+27
+00:01:41,875 --> 00:01:45,740
+everything related to the target and actual z,
+
+28
+00:01:45,740 --> 00:01:49,935
+plus it takes the quads current estimated attitude.
+
+29
+00:01:49,935 --> 00:01:55,385
+Intuitively, that's so that it can adjust its thrust when it's tilted.
+
+30
+00:01:55,385 --> 00:01:58,870
+And one more thing worth noting is that the output of
+
+31
+00:01:58,870 --> 00:02:03,205
+the altitude controller gets sent to the roll-pitch controller.
+
+32
+00:02:03,205 --> 00:02:08,460
+That's because the current commanded thrust is going to be shared in the x, y,
+
+33
+00:02:08,460 --> 00:02:11,890
+and z directions, and the portion that points in
+
+34
+00:02:11,890 --> 00:02:16,600
+the x and y will determine acceleration in those directions.
+
+35
+00:02:16,600 --> 00:02:22,540
+The other input to the roll-pitch controller comes from the lateral position controller.
+
+36
+00:02:22,540 --> 00:02:25,875
+Paths to lateral position.
+
+37
+00:02:25,875 --> 00:02:30,905
+Controlling lateral position is the most involved control loop.
+
+38
+00:02:30,905 --> 00:02:33,855
+The position controller is pretty straightforward.
+
+39
+00:02:33,855 --> 00:02:38,090
+It is just a PD controller on the x and y trajectories,
+
+40
+00:02:38,090 --> 00:02:41,555
+similar to what we saw for Y in the 2D case.
+
+41
+00:02:41,555 --> 00:02:45,750
+It generates an acceleration command in the x and y directions,
+
+42
+00:02:45,750 --> 00:02:48,440
+which is sent to the roll-pitch controller.
+
+43
+00:02:48,440 --> 00:02:51,090
+We have seen this cascaded structure before
+
+44
+00:02:51,090 --> 00:02:57,670
+a 2D and this roll-pitch controller is the most interesting of all of them.
+
+45
+00:02:57,670 --> 00:03:01,710
+Its job is to take a thrust command as well
+
+46
+00:03:01,710 --> 00:03:05,610
+as the desired x and y accelerations and the attitude,
+
+47
+00:03:05,610 --> 00:03:07,990
+pitch, roll, yaw, and p, q, r,
+
+48
+00:03:07,990 --> 00:03:10,835
+and output a target roll and pitch rate,
+
+49
+00:03:10,835 --> 00:03:13,190
+p command and q command.
+
+50
+00:03:13,190 --> 00:03:18,230
+These commanded p and q values get sent to the body rate controller.
+
+51
+00:03:18,230 --> 00:03:22,260
+The body rate control is just the p controller that converts p,
+
+52
+00:03:22,260 --> 00:03:26,550
+q, and r commands into three rotational moment commands.
+
+53
+00:03:26,550 --> 00:03:29,730
+The r commands come from the yaw controller.
+
+54
+00:03:29,730 --> 00:03:32,895
+Path three: Yaw.
+
+55
+00:03:32,895 --> 00:03:37,790
+As you can see, yaw is the least interesting of these loops and that's because it's
+
+56
+00:03:37,790 --> 00:03:42,925
+controlled through the reactive moment command and that command only affects yaw.
+
+57
+00:03:42,925 --> 00:03:46,719
+So yaw can really be treated almost in isolation.
+
+58
+00:03:46,719 --> 00:03:51,155
+In practice, if yaw does not matter for a specific application,
+
+59
+00:03:51,155 --> 00:03:54,410
+we often just try to keep the rate to zero and do not
+
+60
+00:03:54,410 --> 00:03:57,970
+even care about the exact yaw angle the vehicle is at.
+
+61
+00:03:57,970 --> 00:04:01,840
+By doing this, we ensure that all available thrust and
+
+62
+00:04:01,840 --> 00:04:06,760
+differential thrust is used for the translational motion that matters.
+

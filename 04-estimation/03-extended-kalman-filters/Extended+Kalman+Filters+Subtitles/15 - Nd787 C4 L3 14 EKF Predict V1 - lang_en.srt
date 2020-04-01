@@ -1,0 +1,280 @@
+1
+00:00:00,000 --> 00:00:02,444
+To perform this linearization,
+
+2
+00:00:02,444 --> 00:00:06,464
+we're going to have to take what's called the Jacobian of this function
+
+3
+00:00:06,464 --> 00:00:12,269
+g. And taking the Jacobian of g is like taking the derivative of this g,
+
+4
+00:00:12,269 --> 00:00:14,910
+which is a three vector with respect to x,
+
+5
+00:00:14,910 --> 00:00:17,059
+which is also a three vector.
+
+6
+00:00:17,059 --> 00:00:19,619
+And the result of doing this is going to be
+
+7
+00:00:19,620 --> 00:00:22,575
+a three by three matrix of partial derivatives.
+
+8
+00:00:22,574 --> 00:00:26,099
+The Jacobian tells us how each of the components of
+
+9
+00:00:26,100 --> 00:00:31,020
+g change as we change each of the components of the state vector.
+
+10
+00:00:31,019 --> 00:00:33,744
+Well, what do I mean by components?
+
+11
+00:00:33,744 --> 00:00:37,484
+Looking at x, it has a phi component,
+
+12
+00:00:37,484 --> 00:00:39,030
+a y dot component,
+
+13
+00:00:39,030 --> 00:00:40,420
+and a y component.
+
+14
+00:00:40,420 --> 00:00:44,359
+And I'm going to refer to these components as x sub phi,
+
+15
+00:00:44,359 --> 00:00:45,644
+x sub y dot,
+
+16
+00:00:45,645 --> 00:00:48,855
+and x sub y. G is similar.
+
+17
+00:00:48,854 --> 00:00:51,338
+It has a g sub phi,
+
+18
+00:00:51,338 --> 00:00:52,695
+a g sub y dot,
+
+19
+00:00:52,695 --> 00:00:54,240
+and a g sub y.
+
+20
+00:00:54,240 --> 00:00:58,145
+So, now we're going to lay out these components like this.
+
+21
+00:00:58,145 --> 00:01:00,820
+And this layout is going to tell us how to take
+
+22
+00:01:00,820 --> 00:01:04,165
+our partial derivatives in our three by three matrix.
+
+23
+00:01:04,165 --> 00:01:07,330
+So, here we have big brackets that we can
+
+24
+00:01:07,329 --> 00:01:11,209
+fill with the nine partial derivatives that make up this matrix.
+
+25
+00:01:11,209 --> 00:01:17,319
+In the top left I need to calculate the partial derivative of the phi component of g,
+
+26
+00:01:17,319 --> 00:01:21,289
+with respect to the phi component of x.
+
+27
+00:01:21,290 --> 00:01:26,690
+Then, here I would take the partial derivative of the phi component of g,
+
+28
+00:01:26,689 --> 00:01:30,584
+with respect to the y dot component of x.
+
+29
+00:01:30,584 --> 00:01:32,584
+When I got to the second row,
+
+30
+00:01:32,584 --> 00:01:36,994
+I start taking the derivative of the y dot component of g,
+
+31
+00:01:36,995 --> 00:01:39,630
+with respect to the state variables.
+
+32
+00:01:39,629 --> 00:01:46,199
+And the third row will involve taking the partial derivative of the y component of g,
+
+33
+00:01:46,200 --> 00:01:49,269
+with respect to all of the state variables.
+
+34
+00:01:49,269 --> 00:01:53,364
+So eventually, the matrix will look like this.
+
+35
+00:01:53,364 --> 00:01:56,614
+And remember what g and x are.
+
+36
+00:01:56,614 --> 00:01:59,609
+When you actually take these partial derivatives,
+
+37
+00:01:59,609 --> 00:02:01,954
+a lot of them will wind up being zero.
+
+38
+00:02:01,954 --> 00:02:03,709
+Two of them will be one.
+
+39
+00:02:03,709 --> 00:02:07,640
+This one will just be delta t. And this one,
+
+40
+00:02:07,640 --> 00:02:10,740
+the partial derivative of the y dot component of
+
+41
+00:02:10,740 --> 00:02:14,219
+g with respect to the phi component of x,
+
+42
+00:02:14,219 --> 00:02:16,439
+will actually be more interesting.
+
+43
+00:02:16,439 --> 00:02:20,555
+The y dot component of g looks like this.
+
+44
+00:02:20,555 --> 00:02:24,689
+And when I take the partial derivative with respect to phi,
+
+45
+00:02:24,689 --> 00:02:29,264
+I pretend every other variable is a constant and then I take the derivative.
+
+46
+00:02:29,264 --> 00:02:31,204
+So this first term,
+
+47
+00:02:31,205 --> 00:02:32,635
+x sub y dot,
+
+48
+00:02:32,634 --> 00:02:34,604
+will differentiate to zero.
+
+49
+00:02:34,604 --> 00:02:40,649
+And then, this minus sine term will differentiate to a minus cosine of
+
+50
+00:02:40,650 --> 00:02:46,580
+x sub v times delta t. So every time we call this g prime function,
+
+51
+00:02:46,580 --> 00:02:49,655
+we'll get back a three by three matrix like this.
+
+52
+00:02:49,655 --> 00:02:52,169
+And unlike with the linear case,
+
+53
+00:02:52,169 --> 00:02:56,364
+now this matrix changes depending on the state of the vehicle.
+
+54
+00:02:56,365 --> 00:03:02,245
+More specifically, this particular element of the matrix changes depending on phi.
+
+55
+00:03:02,245 --> 00:03:04,990
+And this Jacobian represents
+
+56
+00:03:04,990 --> 00:03:10,775
+the best linear approximation of the state transition function near the state x.
+
+57
+00:03:10,775 --> 00:03:14,409
+If we go back to the linear 1D example,
+
+58
+00:03:14,409 --> 00:03:20,319
+remember that we were able to write the transition function as Ax plus Bu,
+
+59
+00:03:20,319 --> 00:03:23,704
+because this function actually was linear.
+
+60
+00:03:23,705 --> 00:03:26,530
+In that case taking the derivative of g with
+
+61
+00:03:26,530 --> 00:03:29,844
+respect to x just leaves us with our A matrix,
+
+62
+00:03:29,844 --> 00:03:33,984
+and this A matrix doesn't actually depend on the state of the vehicle.
+
+63
+00:03:33,985 --> 00:03:40,150
+So looking at our pseudocode for the Kalman filter predict function in the 1D case,
+
+64
+00:03:40,150 --> 00:03:44,985
+this G sub t was constant and just equal to the A matrix.
+
+65
+00:03:44,985 --> 00:03:48,140
+So calling the g prime function wasn't very
+
+66
+00:03:48,139 --> 00:03:52,519
+interesting since that function actually ignored the current state of the vehicle.
+
+67
+00:03:52,520 --> 00:03:54,790
+But with the non-linear case,
+
+68
+00:03:54,789 --> 00:03:59,824
+we actually have to calculate the Jacobian every time we do this predict step.
+
+69
+00:03:59,824 --> 00:04:03,905
+And then use that result to propagate the covariance forward.
+
+70
+00:04:03,905 --> 00:04:08,719
+So, that's the predict step for an extended Kalman filter.
+

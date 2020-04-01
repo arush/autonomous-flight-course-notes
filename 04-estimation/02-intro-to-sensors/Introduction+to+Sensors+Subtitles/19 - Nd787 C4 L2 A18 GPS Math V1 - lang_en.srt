@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,290
+Trilateration relies on four distance measurements to
+
+2
+00:00:04,290 --> 00:00:09,300
+calculate the value of four unknown variables: the GPS receivers,
+
+3
+00:00:09,300 --> 00:00:12,960
+3D position, as well as its clock error.
+
+4
+00:00:12,960 --> 00:00:16,425
+When we measure the time of flight from a satellite to
+
+5
+00:00:16,425 --> 00:00:20,700
+a GPS receiver and then convert this to a distance,
+
+6
+00:00:20,699 --> 00:00:23,989
+we call the measurement a "pseudorange" measurement.
+
+7
+00:00:23,989 --> 00:00:28,500
+And the pseudo reflects that we have these clock errors.
+
+8
+00:00:28,500 --> 00:00:32,429
+Let's talk about what's called the Pseudorange Model.
+
+9
+00:00:32,429 --> 00:00:36,179
+The travel time for a GPS radio signal is
+
+10
+00:00:36,179 --> 00:00:40,784
+just the time of reception minus the time of transmission.
+
+11
+00:00:40,784 --> 00:00:46,069
+You can multiply that by the speed of light to get a distance Ps.
+
+12
+00:00:46,070 --> 00:00:51,435
+So T in this equation is the receiver clock time at reception,
+
+13
+00:00:51,435 --> 00:00:55,920
+Ts is the satellite clock time at transmission,
+
+14
+00:00:55,920 --> 00:00:58,635
+and c is the speed of light.
+
+15
+00:00:58,634 --> 00:01:02,609
+But the problem is that we have these clock errors,
+
+16
+00:01:02,609 --> 00:01:07,980
+so I'm actually going to write big T as lowercase t plus tau,
+
+17
+00:01:07,980 --> 00:01:13,070
+and big Ts as lowercase ts plus tau s. The
+
+18
+00:01:13,069 --> 00:01:19,594
+lowercase t's are the true receive and transmit times and the taus are the clock errors.
+
+19
+00:01:19,594 --> 00:01:24,439
+So, we can plug these equations into the pseudorange equation.
+
+20
+00:01:24,439 --> 00:01:27,179
+And we can do a little math.
+
+21
+00:01:27,180 --> 00:01:31,995
+And we see that the pseudorange is now the true range row
+
+22
+00:01:31,995 --> 00:01:37,495
+plus this other term which is the difference in clock errors times the speed of light.
+
+23
+00:01:37,495 --> 00:01:40,850
+So, this delta tau is something that we have
+
+24
+00:01:40,849 --> 00:01:44,539
+to estimate as well as the 3D position of the vehicle.
+
+25
+00:01:44,540 --> 00:01:49,910
+And this row is the true range of the vehicle which we could write like this.
+
+26
+00:01:49,909 --> 00:01:52,560
+And these terms represent the x, y,
+
+27
+00:01:52,560 --> 00:01:58,829
+and z positions of the satellite at the time of transmission, and these are known.
+
+28
+00:01:58,829 --> 00:02:01,829
+These terms are the x, y,
+
+29
+00:02:01,829 --> 00:02:05,609
+and z position of the receiver and they are unknown.
+
+30
+00:02:05,609 --> 00:02:09,824
+So, we have one equation here and it has four unknowns,
+
+31
+00:02:09,824 --> 00:02:14,054
+but we can generalize to multiple satellites like this.
+
+32
+00:02:14,055 --> 00:02:21,425
+And here, I'm using a notation where p1 is the pseudorange to the first satellite,
+
+33
+00:02:21,425 --> 00:02:26,344
+x y and z are for the unknown receiver location,
+
+34
+00:02:26,344 --> 00:02:29,710
+and tau is the receiver's clock error.
+
+35
+00:02:29,710 --> 00:02:35,575
+And we are assuming that the taus for each of the satellite clock errors is known.
+
+36
+00:02:35,574 --> 00:02:40,134
+So, now we have a system of four equations with four unknowns,
+
+37
+00:02:40,134 --> 00:02:43,449
+and this is a non-linear least squares problem that you could
+
+38
+00:02:43,449 --> 00:02:46,679
+solve using the techniques you have learned in the previous lesson
+

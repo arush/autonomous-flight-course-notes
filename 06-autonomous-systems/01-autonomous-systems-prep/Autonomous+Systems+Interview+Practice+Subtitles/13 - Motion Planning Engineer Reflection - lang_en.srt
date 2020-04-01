@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:02,565
+Aaron had a great answer on motion planning.
+
+2
+00:00:02,565 --> 00:00:05,640
+He went through and went from very basic steps and slowly
+
+3
+00:00:05,639 --> 00:00:09,089
+advanced up from a single car driving on the highway by itself,
+
+4
+00:00:09,089 --> 00:00:10,859
+to adding an additional vehicles,
+
+5
+00:00:10,859 --> 00:00:12,629
+and then having even the crosswalk,
+
+6
+00:00:12,630 --> 00:00:15,710
+which was in my original question of how to go through.
+
+7
+00:00:15,710 --> 00:00:20,820
+That really showed he was indicating from a very base case to the more advanced case,
+
+8
+00:00:20,820 --> 00:00:26,160
+how he would build out a more complex environment for his motion planning.
+
+9
+00:00:26,160 --> 00:00:29,405
+He also went into model predictive control,
+
+10
+00:00:29,405 --> 00:00:30,745
+which I thought was interesting,
+
+11
+00:00:30,745 --> 00:00:32,380
+and when I asked him about that,
+
+12
+00:00:32,380 --> 00:00:35,340
+it showed that he really had experience above and beyond what I would
+
+13
+00:00:35,340 --> 00:00:38,510
+probably expect for people coming into the company at that point.
+
+14
+00:00:38,509 --> 00:00:40,140
+So, for those reasons,
+
+15
+00:00:40,140 --> 00:00:41,799
+I thought it was a great answer.
+

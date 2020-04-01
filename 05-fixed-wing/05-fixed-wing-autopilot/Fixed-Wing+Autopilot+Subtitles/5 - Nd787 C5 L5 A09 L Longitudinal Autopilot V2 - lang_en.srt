@@ -1,0 +1,168 @@
+1
+00:00:00,000 --> 00:00:03,839
+Now that we can follow curved orbits with a lateral directional controller,
+
+2
+00:00:03,839 --> 00:00:07,244
+we can build a similar cascaded controller for straight line flights.
+
+3
+00:00:07,245 --> 00:00:09,330
+This controller will be responsible for getting
+
+4
+00:00:09,330 --> 00:00:11,990
+the vehicle to the correct altitude and their speed,
+
+5
+00:00:11,990 --> 00:00:15,000
+by controlling the elevator deflection and the thrust.
+
+6
+00:00:15,000 --> 00:00:17,495
+Before we build the longitudinal controller,
+
+7
+00:00:17,495 --> 00:00:19,679
+notice that we have some redundancy here,
+
+8
+00:00:19,679 --> 00:00:21,989
+since the pitch and the throttle could each
+
+9
+00:00:21,989 --> 00:00:24,964
+have an effect on the vehicles altitude and their speed.
+
+10
+00:00:24,964 --> 00:00:26,774
+To handle the redundancy,
+
+11
+00:00:26,774 --> 00:00:30,390
+we typically divide longitudinal flight into four zones.
+
+12
+00:00:30,390 --> 00:00:35,289
+In the takeoff zone, we want to climb at a specific pitch angle as quickly as possible.
+
+13
+00:00:35,289 --> 00:00:38,030
+So, we fly at full throttle and simply
+
+14
+00:00:38,030 --> 00:00:41,070
+use the elevators to keep our pitch at the desired angle,
+
+15
+00:00:41,070 --> 00:00:44,405
+how do we know what the pitch angle at takeoff is supposed to be?
+
+16
+00:00:44,405 --> 00:00:46,590
+It depends on properties of the vehicle,
+
+17
+00:00:46,590 --> 00:00:48,710
+things like the tail clarence which constrains
+
+18
+00:00:48,710 --> 00:00:51,304
+how much the vehicle can pitch, near the ground.
+
+19
+00:00:51,304 --> 00:00:54,545
+The takeoff angle also depends on what's around the runway.
+
+20
+00:00:54,545 --> 00:00:58,900
+The vehicle needs to be pitched enough to clear nearby buildings and trees.
+
+21
+00:00:58,899 --> 00:01:01,835
+Once airborne, we enter the climb zone,
+
+22
+00:01:01,835 --> 00:01:05,950
+here our goal is to climb to the target altitude as quickly as possible.
+
+23
+00:01:05,950 --> 00:01:08,144
+We still keep the full throttle here,
+
+24
+00:01:08,144 --> 00:01:10,644
+but now we use our pitch to control the air speed.
+
+25
+00:01:10,644 --> 00:01:12,295
+For going forward too fast,
+
+26
+00:01:12,295 --> 00:01:14,135
+we can pitch up and climb faster,
+
+27
+00:01:14,135 --> 00:01:15,670
+and if we're going too slow,
+
+28
+00:01:15,670 --> 00:01:17,769
+we can pitch down to avoid stall.
+
+29
+00:01:17,769 --> 00:01:20,149
+Once we get close to our desired height,
+
+30
+00:01:20,150 --> 00:01:21,825
+we're in the altitude hold zone.
+
+31
+00:01:21,825 --> 00:01:23,740
+In this regime, we regulate
+
+32
+00:01:23,739 --> 00:01:26,530
+our altitude with our pitch and our air speed with a throttle.
+
+33
+00:01:26,530 --> 00:01:29,665
+This zone is where we'll spend the majority of our flight time.
+
+34
+00:01:29,665 --> 00:01:32,625
+When the target altitude is well below the vehicle altitude,
+
+35
+00:01:32,625 --> 00:01:34,409
+we're in the descent zone.
+
+36
+00:01:34,409 --> 00:01:36,234
+This is similar to the climb zone,
+
+37
+00:01:36,234 --> 00:01:40,269
+except now we set the throttle to zero and use the pitch to control the air speed.
+
+38
+00:01:40,269 --> 00:01:45,390
+Flying in these four zones requires four control loops: pitch attitude hold,
+
+39
+00:01:45,390 --> 00:01:47,245
+altitude hold using pitch,
+
+40
+00:01:47,245 --> 00:01:48,995
+airspeed hold using pitch,
+
+41
+00:01:48,995 --> 00:01:51,250
+and airspeed hold using throttle.
+
+42
+00:01:51,250 --> 00:01:54,400
+Let's look at each of these loops a little more closely.
+

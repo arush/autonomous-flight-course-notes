@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:04,049
+You can, in fact, compute lots of different functions of random variables,
+
+2
+00:00:04,049 --> 00:00:06,315
+but the expected value is one of
+
+3
+00:00:06,315 --> 00:00:10,410
+two very useful functions of random variables that we'll see a lot.
+
+4
+00:00:10,410 --> 00:00:15,120
+The expected value is often referred to as expectation, the mean,
+
+5
+00:00:15,119 --> 00:00:17,099
+the average, the first moment,
+
+6
+00:00:17,100 --> 00:00:20,135
+and it is exactly the quantity we had a second ago.
+
+7
+00:00:20,135 --> 00:00:22,120
+When we drop the i indices,
+
+8
+00:00:22,120 --> 00:00:26,640
+that quantity is the sum over all the outcomes of x times p of x.
+
+9
+00:00:26,640 --> 00:00:32,115
+I'm going to use x bar to represent the expected value of this random variable x.
+
+10
+00:00:32,115 --> 00:00:36,175
+Another useful quantity we'll compute a lot is the variance,
+
+11
+00:00:36,174 --> 00:00:40,579
+which is the sum of x minus x bar all squared times p of x.
+
+12
+00:00:40,579 --> 00:00:43,429
+The expected value is,
+
+13
+00:00:43,429 --> 00:00:45,435
+on any given draw from the distribution,
+
+14
+00:00:45,435 --> 00:00:47,385
+what is the value we expect to get?
+
+15
+00:00:47,384 --> 00:00:50,489
+Not the most likely, but the average value that we'd expect to
+
+16
+00:00:50,490 --> 00:00:54,734
+get if we were to continue drawing from this distribution over and over again.
+
+17
+00:00:54,734 --> 00:00:57,089
+The variance, sigma squared,
+
+18
+00:00:57,090 --> 00:01:00,915
+tells us how spread out these samples will be around the mean of x.
+
+19
+00:01:00,914 --> 00:01:05,939
+People sometimes use the variance as a measure of how well we know the mean,
+
+20
+00:01:05,939 --> 00:01:07,349
+something like a confidence.
+
+21
+00:01:07,349 --> 00:01:09,479
+It's important to understand it isn't that,
+
+22
+00:01:09,480 --> 00:01:12,195
+but it will tell us how much the samples vary.
+
+23
+00:01:12,194 --> 00:01:15,554
+You might also have heard of a quantity called the standard deviation,
+
+24
+00:01:15,555 --> 00:01:19,360
+where the standard deviation is a square root of the variance.
+

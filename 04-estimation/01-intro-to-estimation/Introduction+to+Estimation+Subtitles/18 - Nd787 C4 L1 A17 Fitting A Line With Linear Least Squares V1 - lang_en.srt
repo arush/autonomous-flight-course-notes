@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:04,290
+We now have this equation for the maximum likelihood estimator x hat.
+
+2
+00:00:04,290 --> 00:00:05,849
+Which is x hat equals,
+
+3
+00:00:05,849 --> 00:00:08,339
+h transpose h to the power minus one,
+
+4
+00:00:08,339 --> 00:00:10,980
+times h transpose again times y tilde.
+
+5
+00:00:10,980 --> 00:00:15,885
+It's nice to see that the best estimate is purely a function of our measurement model h,
+
+6
+00:00:15,884 --> 00:00:18,434
+and the actual measurements y tilde.
+
+7
+00:00:18,434 --> 00:00:21,404
+Let's look at how this works in practice,
+
+8
+00:00:21,405 --> 00:00:25,289
+in this example we're going to fit some noisy data to a straight line,
+
+9
+00:00:25,289 --> 00:00:29,489
+and we can assume that we have the parameters of some line that we don't know,
+
+10
+00:00:29,489 --> 00:00:30,914
+which should be drawn like that.
+
+11
+00:00:30,914 --> 00:00:35,490
+The axes I'm going to call t since we're already using x for the state and y.
+
+12
+00:00:35,490 --> 00:00:38,405
+Which means that the true equation of this line is
+
+13
+00:00:38,405 --> 00:00:42,204
+y equals a times t plus b for sum a and sum b.
+
+14
+00:00:42,204 --> 00:00:46,960
+Let's assume that our data is sampled from the line with some added noise.
+
+15
+00:00:46,960 --> 00:00:50,585
+Well, what we're actually looking for the properties of this line,
+
+16
+00:00:50,585 --> 00:00:53,015
+what we actually want are a and our b,
+
+17
+00:00:53,015 --> 00:00:56,365
+a and b together are unknown state vector x.
+
+18
+00:00:56,365 --> 00:01:00,425
+We assume that our measurements y sub one, y sub two etc,
+
+19
+00:01:00,424 --> 00:01:03,459
+are drawn according to a linear function of y sub i,
+
+20
+00:01:03,460 --> 00:01:05,870
+which is equal to a times t sub i,
+
+21
+00:01:05,870 --> 00:01:07,855
+plus b plus v sub i.
+
+22
+00:01:07,855 --> 00:01:11,380
+It's this unknown v sub i that's perturbing the measurements from the line.
+
+23
+00:01:11,379 --> 00:01:14,849
+The measurements are in the form of y tilde equals h times x
+
+24
+00:01:14,849 --> 00:01:18,629
+plus v. We have all these measured values,
+
+25
+00:01:18,629 --> 00:01:21,629
+y tilde sub one up to y tilde sub m,
+
+26
+00:01:21,629 --> 00:01:24,390
+and we have our state vector x equals a and b.
+
+27
+00:01:24,390 --> 00:01:28,590
+In order to get the first vector to match up with the second vector,
+
+28
+00:01:28,590 --> 00:01:31,185
+we need an h that looks like this.
+
+29
+00:01:31,185 --> 00:01:34,859
+The first row is t sub one and one,
+
+30
+00:01:34,859 --> 00:01:40,215
+then the second row is t sub two and one all the way up to the last row t sub m and one.
+
+31
+00:01:40,215 --> 00:01:41,879
+Now the problem is solved,
+
+32
+00:01:41,879 --> 00:01:44,490
+we have our measurements, we have our h,
+
+33
+00:01:44,489 --> 00:01:46,609
+now we just need to apply our equation for
+
+34
+00:01:46,609 --> 00:01:51,094
+the maximum likelihood estimate and we'll find our best estimate for x.
+
+35
+00:01:51,094 --> 00:01:55,564
+An important thing to note is that once you have the measurements y tilde,
+
+36
+00:01:55,564 --> 00:01:58,265
+the least squares estimation problem boils down to
+
+37
+00:01:58,265 --> 00:02:01,834
+figuring out exactly what this measurement model h looks like.
+
+38
+00:02:01,834 --> 00:02:06,184
+Figuring out how to form h for any estimation problem is often the tricky bit.
+
+39
+00:02:06,185 --> 00:02:07,370
+Once you have that,
+
+40
+00:02:07,370 --> 00:02:11,039
+it's just a matter of carrying out the math to get the best estimate.
+

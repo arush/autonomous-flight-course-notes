@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:04,639
+I'd like to start by discussing the inertial sensors on board a drone.
+
+2
+00:00:04,639 --> 00:00:08,524
+These include the gyroscopes and the accelerometers.
+
+3
+00:00:08,525 --> 00:00:11,009
+Unlike a sensor, like GPS,
+
+4
+00:00:11,009 --> 00:00:14,439
+which relies on measurements of the outside world to function,
+
+5
+00:00:14,439 --> 00:00:18,719
+inertial sensors really measure motion by taking advantage of
+
+6
+00:00:18,719 --> 00:00:22,979
+the physical laws of nature like F equals ma, for example.
+
+7
+00:00:22,980 --> 00:00:29,310
+So, this drone has inertial measurement unit or IMU in short.
+
+8
+00:00:29,309 --> 00:00:35,000
+And the IMU on the drone has three accelerometers and three gyros.
+
+9
+00:00:35,000 --> 00:00:39,019
+Each accelerometer measure specific acceleration along
+
+10
+00:00:39,020 --> 00:00:45,005
+one axis and each gyro measures rotation rates around one axis.
+
+11
+00:00:45,005 --> 00:00:49,020
+For flying vehicles, the IMU is usually fixed tightly
+
+12
+00:00:49,020 --> 00:00:52,770
+to the vehicle body and positioned at the center of the vehicle,
+
+13
+00:00:52,770 --> 00:00:57,050
+so it provides measurements directly in the body frame.
+
+14
+00:00:57,049 --> 00:01:00,314
+And this is one example of an IMU.
+
+15
+00:01:00,314 --> 00:01:03,644
+It's really tiny and also inexpensive.
+
+16
+00:01:03,645 --> 00:01:09,375
+This one is only a millimeter tall and then a few millimeters on each side.
+
+17
+00:01:09,375 --> 00:01:11,750
+But inside of this IMU,
+
+18
+00:01:11,750 --> 00:01:14,444
+there's actually a lot going on.
+
+19
+00:01:14,444 --> 00:01:17,744
+Here, we have a block diagram of an IMU,
+
+20
+00:01:17,745 --> 00:01:19,859
+and as you can see, here,
+
+21
+00:01:19,859 --> 00:01:24,284
+we have the three accelerometers and here are the three gyros.
+
+22
+00:01:24,284 --> 00:01:26,939
+There's also a temperature sensor which is
+
+23
+00:01:26,939 --> 00:01:30,929
+used to correct the measurements of the other sensors.
+
+24
+00:01:30,930 --> 00:01:36,240
+Data from these sensors all get fused in the IMU processor.
+
+25
+00:01:36,239 --> 00:01:39,414
+This processor takes in calibration parameters
+
+26
+00:01:39,415 --> 00:01:42,705
+and of course the raw data from the sensors themselves.
+
+27
+00:01:42,704 --> 00:01:45,010
+And then, it has to output some data,
+
+28
+00:01:45,010 --> 00:01:47,000
+which is our measurement.
+
+29
+00:01:47,000 --> 00:01:53,424
+Note, that some IMUs also contain a magnetometer and barometer integrated in,
+
+30
+00:01:53,424 --> 00:01:55,634
+but we are handling those separately,
+
+31
+00:01:55,634 --> 00:01:58,694
+since they aren't strictly inertial sensors.
+
+32
+00:01:58,694 --> 00:02:03,439
+For now, let's dive into how these rate Gyros actually work.
+

@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:04,589
+Welcome back. This lesson is going to be broken into two parts.
+
+2
+00:00:04,589 --> 00:00:05,750
+In the first part,
+
+3
+00:00:05,750 --> 00:00:08,339
+we're going to do a conceptual walk-through of
+
+4
+00:00:08,339 --> 00:00:13,684
+the 3D state estimator that you're going to implement in C++ for your final project.
+
+5
+00:00:13,685 --> 00:00:18,240
+As we do this, you'll also be implementing some of the logic in Python.
+
+6
+00:00:18,239 --> 00:00:21,073
+Once we've gone through 3D state estimation,
+
+7
+00:00:21,074 --> 00:00:23,970
+there's one more variant of the Kalman filter that I'm
+
+8
+00:00:23,969 --> 00:00:27,594
+going to show you called the unscented Kalman filter.
+
+9
+00:00:27,594 --> 00:00:29,919
+The unscented Kalman filter is
+
+10
+00:00:29,920 --> 00:00:33,310
+an even fancier math trick than the extended Kalman filter,
+
+11
+00:00:33,310 --> 00:00:37,725
+but it actually winds up being easier to implement than the EKF,
+
+12
+00:00:37,725 --> 00:00:39,265
+and it works better too.
+
+13
+00:00:39,265 --> 00:00:42,545
+But we'll get more into the EKF at the end of the lesson.
+
+14
+00:00:42,545 --> 00:00:47,215
+For now, let's focus on the moment we've all been waiting for,
+
+15
+00:00:47,215 --> 00:00:52,480
+implementing state estimation in three dimensions on a real drone.
+

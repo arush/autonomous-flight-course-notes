@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:03,520
+Just like all the other base filters,
+
+2
+00:00:03,520 --> 00:00:06,910
+the UKF has a predict and an update stop.
+
+3
+00:00:06,910 --> 00:00:11,929
+We're not going to do the full derivation of the UKF predict and update stops,
+
+4
+00:00:11,929 --> 00:00:15,279
+but it's worth walking through the steps at a high level.
+
+5
+00:00:15,279 --> 00:00:17,349
+Let's start with predict.
+
+6
+00:00:17,350 --> 00:00:20,945
+This is really just a couple of lines of pseudocode.
+
+7
+00:00:20,945 --> 00:00:24,579
+First, we convert the mean and covariance into
+
+8
+00:00:24,579 --> 00:00:28,914
+a set of sigma points which we're calling X of t minus one,
+
+9
+00:00:28,914 --> 00:00:33,100
+then we propagate each of these Sigma points forward in
+
+10
+00:00:33,100 --> 00:00:37,550
+time using our state-transition function g. Which leaves
+
+11
+00:00:37,549 --> 00:00:41,054
+us with transformed sigma points X_t
+
+12
+00:00:41,054 --> 00:00:46,570
+and these sigma points are what we return from the predict step.
+
+13
+00:00:46,570 --> 00:00:52,145
+Zooming out, it's helpful to just look at the inputs and outputs of the step.
+
+14
+00:00:52,145 --> 00:00:56,015
+As was the case with the KF and the EKF,
+
+15
+00:00:56,015 --> 00:00:59,585
+the UKF predict step takes as input a mean,
+
+16
+00:00:59,585 --> 00:01:02,625
+a covariance, and a controller input.
+
+17
+00:01:02,625 --> 00:01:06,239
+But unlike the KF and the EKF,
+
+18
+00:01:06,239 --> 00:01:10,849
+the UKF does not return an updated mean and covariance.
+
+19
+00:01:10,849 --> 00:01:14,314
+Instead, it returns this set of Sigma points.
+
+20
+00:01:14,314 --> 00:01:16,969
+Later during the measurement update,
+
+21
+00:01:16,969 --> 00:01:22,069
+will be able to convert these Sigma points into an updated mean and covariance.
+
+22
+00:01:22,069 --> 00:01:27,819
+The equation we use to recover the mean from the Sigma points looks like this,
+
+23
+00:01:27,819 --> 00:01:31,684
+and this is just a weighted average of each of the points.
+
+24
+00:01:31,685 --> 00:01:35,120
+The W_i is the weight of point i,
+
+25
+00:01:35,120 --> 00:01:37,920
+X_i is the actual point.
+
+26
+00:01:37,920 --> 00:01:40,594
+To get the updated covariance,
+
+27
+00:01:40,594 --> 00:01:42,730
+we'll use this equation.
+
+28
+00:01:42,730 --> 00:01:47,355
+This X minus mean times X minus mean transpose,
+
+29
+00:01:47,355 --> 00:01:50,760
+that's just how you calculate the sample covariance,
+
+30
+00:01:50,760 --> 00:01:54,840
+and that's going to be weighted by each samples weight.
+

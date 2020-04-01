@@ -1,0 +1,332 @@
+1
+00:00:00,000 --> 00:00:01,665
+For the rest of this lesson,
+
+2
+00:00:01,665 --> 00:00:04,439
+I want to introduce you to three approaches to estimation.
+
+3
+00:00:04,440 --> 00:00:07,470
+All three of these approaches will, in some sense,
+
+4
+00:00:07,469 --> 00:00:08,699
+solve the same problem,
+
+5
+00:00:08,699 --> 00:00:11,114
+but each will do so in a slightly different way.
+
+6
+00:00:11,115 --> 00:00:15,855
+The goal of estimation is to come up with an estimate for some unknown state.
+
+7
+00:00:15,855 --> 00:00:18,949
+We'll denote this unknown state by the vector x,
+
+8
+00:00:18,949 --> 00:00:21,419
+and for the estimate of the state, we'll use x^.
+
+9
+00:00:21,420 --> 00:00:23,165
+Note that these are both vectors.
+
+10
+00:00:23,164 --> 00:00:25,914
+For 2D quadrator moving in the vertical plane,
+
+11
+00:00:25,914 --> 00:00:27,899
+this would be y, and z,
+
+12
+00:00:27,899 --> 00:00:30,554
+and the roll angle phi, and the corresponding derivatives.
+
+13
+00:00:30,554 --> 00:00:33,200
+In the exercises is you see in this lesson,
+
+14
+00:00:33,200 --> 00:00:34,830
+these state vectors will be smaller,
+
+15
+00:00:34,829 --> 00:00:38,199
+and the examples we use won't necessarily relate directly to quadrotors.
+
+16
+00:00:38,200 --> 00:00:40,935
+Because for now, we want to focus on the math that
+
+17
+00:00:40,935 --> 00:00:44,445
+underlies the three approaches to estimation that we'll discuss.
+
+18
+00:00:44,445 --> 00:00:48,450
+So, how will we come up with this estimate x^?
+
+19
+00:00:48,450 --> 00:00:50,595
+What information will we have access to?
+
+20
+00:00:50,594 --> 00:00:52,634
+In each of these three approaches,
+
+21
+00:00:52,634 --> 00:00:54,734
+we'll have three things.
+
+22
+00:00:54,734 --> 00:00:57,435
+First, we'll have some measurement model,
+
+23
+00:00:57,435 --> 00:01:01,790
+H. A measurement model projects a state into measurement space.
+
+24
+00:01:01,789 --> 00:01:06,390
+Let's say we had our 2D quadrotor with some true state vector x.
+
+25
+00:01:06,390 --> 00:01:08,939
+It's at some vertical position z,
+
+26
+00:01:08,939 --> 00:01:11,745
+and it has a laser range finder pointing downwards.
+
+27
+00:01:11,745 --> 00:01:13,620
+If this were a perfect sensor,
+
+28
+00:01:13,620 --> 00:01:15,689
+it would measure a distance to the ground that's
+
+29
+00:01:15,689 --> 00:01:18,659
+equal to z divided by the cosine of phi.
+
+30
+00:01:18,659 --> 00:01:22,965
+In this case, the state's space was y and z of phi in the derivatives.
+
+31
+00:01:22,965 --> 00:01:25,200
+The measurement space, one dimensional,
+
+32
+00:01:25,200 --> 00:01:28,375
+and H is the function that maps a state to a measurement.
+
+33
+00:01:28,375 --> 00:01:31,254
+Next, we're going to get some measurements.
+
+34
+00:01:31,254 --> 00:01:33,239
+We represent a measurement with y.
+
+35
+00:01:33,239 --> 00:01:34,899
+And in each of these examples,
+
+36
+00:01:34,900 --> 00:01:38,050
+we'll consider making m measurements of the true state x,
+
+37
+00:01:38,049 --> 00:01:42,250
+where each measurement would be given by y equals H times x.
+
+38
+00:01:42,250 --> 00:01:44,935
+If these were perfect measurements. But they aren't.
+
+39
+00:01:44,935 --> 00:01:49,465
+Instead, each measurement will actually be y equals H times y plus v.
+
+40
+00:01:49,465 --> 00:01:52,150
+The v here is the measurement noise and that brings
+
+41
+00:01:52,150 --> 00:01:54,895
+us to the last thing we need to provide to our estimator.
+
+42
+00:01:54,894 --> 00:01:56,989
+Since the measurements are imperfect,
+
+43
+00:01:56,989 --> 00:02:00,459
+we need some model of this measurement noise v. Note that this
+
+44
+00:02:00,459 --> 00:02:04,419
+doesn't mean we'll know exactly how much noise gets added to each individual measurement,
+
+45
+00:02:04,420 --> 00:02:05,935
+that will still be unknown.
+
+46
+00:02:05,935 --> 00:02:10,104
+Rather, it means that we know the distribution from which this noise is sampled.
+
+47
+00:02:10,104 --> 00:02:16,405
+Generally, we're going to model v as a zero mean Gaussian or some co-variance r. So,
+
+48
+00:02:16,405 --> 00:02:20,099
+where a perfect rangefinder would make some perfect measurement H times x,
+
+49
+00:02:20,099 --> 00:02:25,150
+a realistic rangefinder would also add some zero mean Gaussian noise to each measurement.
+
+50
+00:02:25,150 --> 00:02:29,395
+The three approaches we'll discuss in the rest of this lesson are called,
+
+51
+00:02:29,395 --> 00:02:32,439
+least squares estimation, recursive estimation,
+
+52
+00:02:32,439 --> 00:02:34,764
+and non-linear least squares.
+
+53
+00:02:34,764 --> 00:02:37,299
+Each of these three approaches makes
+
+54
+00:02:37,300 --> 00:02:39,550
+slightly different assumptions about
+
+55
+00:02:39,550 --> 00:02:42,715
+the measurements and the underlying measurement model.
+
+56
+00:02:42,715 --> 00:02:45,530
+The least squares approach, for example,
+
+57
+00:02:45,530 --> 00:02:48,729
+requires that the measurements all come in all at once,
+
+58
+00:02:48,729 --> 00:02:52,254
+and it assumes that the measurement model H is n by m matrix,
+
+59
+00:02:52,254 --> 00:02:54,549
+which maps a state vector of length n,
+
+60
+00:02:54,550 --> 00:02:57,505
+to a measurement vector of m individual measurements.
+
+61
+00:02:57,504 --> 00:03:00,620
+Note that this means the measurement model must be linear,
+
+62
+00:03:00,620 --> 00:03:03,210
+which wouldn't have worked for example earlier with
+
+63
+00:03:03,210 --> 00:03:06,969
+the rangefinder since that measure model had a cosine in it.
+
+64
+00:03:06,969 --> 00:03:09,250
+These are some pretty unrealistic assumptions,
+
+65
+00:03:09,250 --> 00:03:13,030
+but this will be a useful starting point for discussing estimation.
+
+66
+00:03:13,030 --> 00:03:14,995
+With the recursive estimator,
+
+67
+00:03:14,995 --> 00:03:17,185
+measurements will come in one at a time.
+
+68
+00:03:17,185 --> 00:03:19,479
+The measurement model will still be linear,
+
+69
+00:03:19,479 --> 00:03:21,970
+but since measurements are coming in one at a time,
+
+70
+00:03:21,969 --> 00:03:24,039
+H will just be a vector, not a matrix,
+
+71
+00:03:24,039 --> 00:03:27,444
+and this vector will map a state to a single measurement.
+
+72
+00:03:27,444 --> 00:03:31,500
+The non-linear least squares estimator is also recursive,
+
+73
+00:03:31,500 --> 00:03:34,840
+which allows us to handle measurements coming in one at a time.
+
+74
+00:03:34,840 --> 00:03:36,340
+But in this case,
+
+75
+00:03:36,340 --> 00:03:40,854
+we'll allow the measurement model to be some arbitrary function of the underlying state.
+
+76
+00:03:40,854 --> 00:03:43,449
+One last point I'd like to make.
+
+77
+00:03:43,449 --> 00:03:48,084
+If you were to use any of these approaches to estimate the state of a real vehicle,
+
+78
+00:03:48,085 --> 00:03:50,080
+you'd have to make one more assumption.
+
+79
+00:03:50,080 --> 00:03:54,800
+The vehicle would have to be stationary for any of these approaches to work.
+
+80
+00:03:54,800 --> 00:03:56,680
+In the later lessons,
+
+81
+00:03:56,680 --> 00:03:57,969
+we'll see how we can use
+
+82
+00:03:57,969 --> 00:04:01,180
+the common filters and its variants called the extended common filter and the
+
+83
+00:04:01,180 --> 00:04:06,640
+unscented common filter to incorporate motion into our state estimation process.
+

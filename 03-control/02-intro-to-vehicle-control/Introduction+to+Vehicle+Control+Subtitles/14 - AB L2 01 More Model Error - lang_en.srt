@@ -1,0 +1,228 @@
+1
+00:00:00,000 --> 00:00:04,785
+We begin this lesson by trying to solve the control problem with an open-loop controller.
+
+2
+00:00:04,785 --> 00:00:07,301
+And there we saw that a slight mass error
+
+3
+00:00:07,301 --> 00:00:09,539
+led to an exploding area in position of the vehicle.
+
+4
+00:00:09,539 --> 00:00:12,854
+So, let's see how close we are to actually solving that problem now.
+
+5
+00:00:12,855 --> 00:00:15,855
+Here we are in the PD controller class,
+
+6
+00:00:15,855 --> 00:00:18,600
+and note that even in the initializer,
+
+7
+00:00:18,600 --> 00:00:22,740
+the PD controller does know about the mass of the vehicle it's controlling.
+
+8
+00:00:22,739 --> 00:00:26,774
+Also note that I've defined this tune function which allows me to set
+
+9
+00:00:26,774 --> 00:00:30,570
+Kp and Kd in terms of these more intuitive parameters,
+
+10
+00:00:30,570 --> 00:00:33,390
+the damping ratio and this natural frequency.
+
+11
+00:00:33,390 --> 00:00:37,995
+But really, what we want to pay attention to it right now is this thrust control method.
+
+12
+00:00:37,994 --> 00:00:41,474
+And what this method does is first it calculates the error,
+
+13
+00:00:41,475 --> 00:00:44,280
+then calculates the derivative of the error,
+
+14
+00:00:44,280 --> 00:00:47,429
+and then it calculates this U bar.
+
+15
+00:00:47,429 --> 00:00:51,405
+U bar is the actual desired acceleration of the vehicle.
+
+16
+00:00:51,405 --> 00:00:54,359
+And U bar, we can think well, the desired acceleration,
+
+17
+00:00:54,359 --> 00:00:58,619
+first it's whatever fed forward acceleration we fast into
+
+18
+00:00:58,619 --> 00:01:02,707
+this controller plus we want to correct for error and derivative of error,
+
+19
+00:01:02,707 --> 00:01:08,539
+and we do that by multiplying Kp times error and Kd times the error dot.
+
+20
+00:01:08,540 --> 00:01:11,470
+And that gives us our desired acceleration.
+
+21
+00:01:11,469 --> 00:01:16,150
+We then need to transform this desired acceleration into a thrust,
+
+22
+00:01:16,150 --> 00:01:21,219
+and we do that by multiplying the vehicle mass by G minus U bar.
+
+23
+00:01:21,219 --> 00:01:23,200
+So, that's our control code.
+
+24
+00:01:23,200 --> 00:01:26,155
+Now, let's go to our little toy simulation code.
+
+25
+00:01:26,155 --> 00:01:28,599
+Here, we have our mass error, which I'm going to start with one.
+
+26
+00:01:28,599 --> 00:01:31,717
+And remember, this is a multiplier,
+
+27
+00:01:31,718 --> 00:01:33,685
+so one means no error actually.
+
+28
+00:01:33,685 --> 00:01:37,900
+Perceived mass is going to be the actual mass times this mass error.
+
+29
+00:01:37,900 --> 00:01:42,295
+So we use that perceived mass when we instantiate this controller here.
+
+30
+00:01:42,295 --> 00:01:44,320
+We get our step trajectory,
+
+31
+00:01:44,319 --> 00:01:47,991
+and that just means if the drone's going to start at a position of Z equals 0
+
+32
+00:01:47,992 --> 00:01:52,420
+this is just going to step the target of two Z equals negative 1 instantaneously.
+
+33
+00:01:52,420 --> 00:01:55,480
+And we're going to observe what's called the step response of the system.
+
+34
+00:01:55,480 --> 00:01:58,150
+And the rest of this code just sort of does what you'd expect.
+
+35
+00:01:58,150 --> 00:02:02,725
+We have this history variable which stores the history of the Z position of the system.
+
+36
+00:02:02,724 --> 00:02:06,489
+And we go through. We get a commanded thrust.
+
+37
+00:02:06,489 --> 00:02:09,174
+We set the drones thrust to that value.
+
+38
+00:02:09,175 --> 00:02:10,840
+We advance the state of the system.
+
+39
+00:02:10,840 --> 00:02:13,314
+And then we store the state into the history.
+
+40
+00:02:13,314 --> 00:02:15,400
+So, for a mass error of 1.0,
+
+41
+00:02:15,400 --> 00:02:16,870
+which means no real error,
+
+42
+00:02:16,870 --> 00:02:19,670
+let's run this cell and see what graph we get,
+
+43
+00:02:19,669 --> 00:02:21,954
+and we see some really nice behavior.
+
+44
+00:02:21,955 --> 00:02:25,105
+You can see the drone starts off down here at Z equals zero.
+
+45
+00:02:25,104 --> 00:02:28,039
+It goes up, it overshoots a bit,
+
+46
+00:02:28,039 --> 00:02:30,219
+but pretty quickly, after a couple of oscillations,
+
+47
+00:02:30,219 --> 00:02:32,859
+it gets right to the target path.
+
+48
+00:02:32,860 --> 00:02:35,334
+And this is a PD controller working well.
+
+49
+00:02:35,334 --> 00:02:38,080
+But what happens if we increase that mass error?
+
+50
+00:02:38,080 --> 00:02:40,000
+So, there was no mass error.
+
+51
+00:02:40,000 --> 00:02:44,335
+Let's make it so we're overestimating the mass by 50 percent. The mass here is 1.5.
+
+52
+00:02:44,335 --> 00:02:46,840
+Now, what happens if I run the cell?
+
+53
+00:02:46,840 --> 00:02:50,650
+As you can see, the trajectory looks basically the
+
+54
+00:02:50,650 --> 00:02:54,730
+same except that it's got this systematic bias where it's
+
+55
+00:02:54,729 --> 00:02:58,239
+consistently too high and it turns out we can never
+
+56
+00:02:58,240 --> 00:03:02,335
+correct for this systematic bias if we only use a PD controller.
+
+57
+00:03:02,335 --> 00:03:04,920
+We really need a little bit more.
+

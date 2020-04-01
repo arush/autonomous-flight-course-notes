@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:02,865
+Let's talk about GPS.
+
+2
+00:00:02,865 --> 00:00:05,610
+If you ask me, GPS is one of
+
+3
+00:00:05,610 --> 00:00:09,660
+the most impressive technologies that humans have ever developed.
+
+4
+00:00:09,660 --> 00:00:12,300
+Think about it. Right now,
+
+5
+00:00:12,300 --> 00:00:15,330
+there is a system of satellites orbiting
+
+6
+00:00:15,330 --> 00:00:19,245
+20,000 kilometers above the surface of the earth.
+
+7
+00:00:19,245 --> 00:00:22,560
+On board of each of these satellites is a clock,
+
+8
+00:00:22,559 --> 00:00:25,559
+and each of these satellites constantly
+
+9
+00:00:25,559 --> 00:00:29,384
+broadcasts its clock time to the surface of the earth.
+
+10
+00:00:29,385 --> 00:00:33,164
+The system of satellites broadcasting clock times is
+
+11
+00:00:33,164 --> 00:00:37,484
+actually able to localize anyone at any position on
+
+12
+00:00:37,484 --> 00:00:41,265
+Earth to within a few meters of accuracy if
+
+13
+00:00:41,265 --> 00:00:45,780
+they have a GPS receiver and an unobstructed view of the sky.
+
+14
+00:00:45,780 --> 00:00:47,950
+That's pretty amazing.
+
+15
+00:00:47,950 --> 00:00:49,925
+At this point in the lesson,
+
+16
+00:00:49,924 --> 00:00:54,030
+I want to explain how GPS works and how we can take
+
+17
+00:00:54,030 --> 00:00:59,054
+advantage of this incredible technology to localize flying vehicles.
+
+18
+00:00:59,054 --> 00:01:00,765
+So, how does it work?
+
+19
+00:01:00,765 --> 00:01:03,780
+Well, GPS actually gives us
+
+20
+00:01:03,780 --> 00:01:09,239
+a direct and drift-free measurement of both position and velocity.
+
+21
+00:01:09,239 --> 00:01:14,155
+So let's start by discussing how we get position from GPS.
+
+22
+00:01:14,155 --> 00:01:21,105
+GPS uses something called trilateration to measure the position of a GPS receiver.
+
+23
+00:01:21,105 --> 00:01:24,900
+Trilateration requires a direct line of sight from
+
+24
+00:01:24,900 --> 00:01:28,665
+a GPS receiver to at least four satellites,
+
+25
+00:01:28,665 --> 00:01:32,460
+and it relies on the fact that we can measure the time of
+
+26
+00:01:32,459 --> 00:01:36,404
+flight from the transmitting satellite to the receiver.
+
+27
+00:01:36,405 --> 00:01:42,010
+To understand trilateration, it's easiest to think in two-dimensions first.
+
+28
+00:01:42,010 --> 00:01:45,285
+Imagine you have no idea where you are but you
+
+29
+00:01:45,284 --> 00:01:48,899
+do know the position of this single satellite.
+
+30
+00:01:48,900 --> 00:01:54,480
+If you know the time it takes a signal to get from the satellite to you,
+
+31
+00:01:54,480 --> 00:01:59,909
+then you can use the speed of flight to convert this time into a distance.
+
+32
+00:01:59,909 --> 00:02:05,519
+And this distance defines the radius of a circle around this satellite.
+
+33
+00:02:05,519 --> 00:02:08,354
+So with this one time of flight measurement,
+
+34
+00:02:08,354 --> 00:02:12,689
+you now know that your position must be somewhere on this circle.
+
+35
+00:02:12,689 --> 00:02:17,550
+Now, if we add a second satellite and measure the time of flight,
+
+36
+00:02:17,550 --> 00:02:22,800
+we'll get a second circle that intersects with the first circle at two points.
+
+37
+00:02:22,800 --> 00:02:27,719
+So now, you know that you must be either here or here.
+
+38
+00:02:27,719 --> 00:02:32,109
+A third satellite with a third measurement would give you
+
+39
+00:02:32,110 --> 00:02:38,350
+one more circle and then you would know with certainty exactly where you are.
+
+40
+00:02:38,349 --> 00:02:42,185
+In three dimensions, this changes slightly.
+
+41
+00:02:42,185 --> 00:02:47,215
+The first satellite would define a sphere of possible receiver locations.
+
+42
+00:02:47,215 --> 00:02:51,405
+The second satellite would add another sphere which,
+
+43
+00:02:51,405 --> 00:02:53,650
+taken together with the first one,
+
+44
+00:02:53,650 --> 00:02:55,659
+would give you a circle.
+
+45
+00:02:55,659 --> 00:02:59,454
+And then, the third satellite would give you
+
+46
+00:02:59,455 --> 00:03:04,570
+another sphere which intersected that circle in two points.
+
+47
+00:03:04,569 --> 00:03:09,750
+And actually, these two points are enough to locate you unambiguously,
+
+48
+00:03:09,750 --> 00:03:12,370
+because one of these points will be somewhere
+
+49
+00:03:12,370 --> 00:03:14,890
+near the surface of the Earth and the other will
+
+50
+00:03:14,889 --> 00:03:20,349
+be deep in space out past the orbital radius of the GPS satellites.
+
+51
+00:03:20,349 --> 00:03:24,039
+You might be tempted to think that this means we only
+
+52
+00:03:24,039 --> 00:03:27,864
+need three satellites to localize a receiver with GPS,
+
+53
+00:03:27,865 --> 00:03:29,905
+but we still need four.
+
+54
+00:03:29,905 --> 00:03:34,960
+The fourth satellite is used to correct for something called the clock error.
+

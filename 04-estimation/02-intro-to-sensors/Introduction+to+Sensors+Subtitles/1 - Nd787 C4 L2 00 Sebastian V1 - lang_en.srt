@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:02,339
+Let me talk about your eyes,
+
+2
+00:00:02,339 --> 00:00:05,564
+computer graphics, and computer vision.
+
+3
+00:00:05,565 --> 00:00:07,830
+Every robot, every human being,
+
+4
+00:00:07,830 --> 00:00:11,339
+every animal perceives its world through what's called sensors.
+
+5
+00:00:11,339 --> 00:00:13,199
+Your eyes are sensors. Your eyes
+
+6
+00:00:13,199 --> 00:00:15,089
+don't tell you whether your grandmother's in front of you.
+
+7
+00:00:15,089 --> 00:00:20,675
+Instead, it gives you maybe a set of receptive values or pixels of the surrounding scene.
+
+8
+00:00:20,675 --> 00:00:24,285
+And then your brain somehow is able to map into the state that you care about like,
+
+9
+00:00:24,285 --> 00:00:25,710
+am I facing my grandmother?
+
+10
+00:00:25,710 --> 00:00:27,990
+Same with robots. Robots have cameras.
+
+11
+00:00:27,989 --> 00:00:29,099
+They have magnetometers.
+
+12
+00:00:29,100 --> 00:00:30,345
+They have accelerometers.
+
+13
+00:00:30,344 --> 00:00:31,785
+These are all sensors.
+
+14
+00:00:31,785 --> 00:00:36,240
+And the estimation problem robots face is to understand,
+
+15
+00:00:36,240 --> 00:00:38,594
+what is a state given these measurements?
+
+16
+00:00:38,594 --> 00:00:40,500
+We're going to do this using Bayes' rule,
+
+17
+00:00:40,500 --> 00:00:43,350
+which you are familiar with, and here's the interesting insight.
+
+18
+00:00:43,350 --> 00:00:46,755
+In Bayes' rule, you care about P of X given Z.
+
+19
+00:00:46,755 --> 00:00:48,780
+Z is your measurement, your image,
+
+20
+00:00:48,780 --> 00:00:51,000
+and X is the state you care about like,
+
+21
+00:00:51,000 --> 00:00:52,590
+is my grandmother in front of me?
+
+22
+00:00:52,590 --> 00:00:55,440
+But Bayes' rule turns this around in the opposite.
+
+23
+00:00:55,439 --> 00:00:59,519
+Bayes' rule says, let's compute a P of Z given X.
+
+24
+00:00:59,520 --> 00:01:02,130
+Let's hypothesize, I'm facing my grandmother,
+
+25
+00:01:02,130 --> 00:01:03,330
+and then ask the question,
+
+26
+00:01:03,329 --> 00:01:07,650
+how likely is this image that I'm seeing right now under this hypothesis?
+
+27
+00:01:07,650 --> 00:01:11,880
+So in some sense, you solve the computer vision problem going from the image to
+
+28
+00:01:11,879 --> 00:01:16,545
+the state by implementing a computer graphics problem which is,
+
+29
+00:01:16,545 --> 00:01:19,754
+given the state, what is the likely image?
+
+30
+00:01:19,754 --> 00:01:21,569
+And the nice thing about this is,
+
+31
+00:01:21,569 --> 00:01:24,434
+the computer graphics problem is a physics problem.
+
+32
+00:01:24,435 --> 00:01:26,810
+It's a descriptive problem where sensors work.
+
+33
+00:01:26,810 --> 00:01:29,100
+So, all we have to do is we have to just model and
+
+34
+00:01:29,099 --> 00:01:32,159
+describe how sensors work in a forward way from
+
+35
+00:01:32,159 --> 00:01:34,739
+state to measurement and then we can use
+
+36
+00:01:34,739 --> 00:01:38,119
+Bayes' rule invert this for editing and come back to the state.
+

@@ -1,0 +1,192 @@
+1
+00:00:00,000 --> 00:00:03,600
+We have our measurements and we want to know what vehicle state in
+
+2
+00:00:03,600 --> 00:00:08,265
+our thought experiment is most consistent with those measurements. How do we do that?
+
+3
+00:00:08,265 --> 00:00:12,720
+Mathematically, we're going to select our estimate x-hat to be
+
+4
+00:00:12,720 --> 00:00:17,565
+the value of x that maximizes the probability of our actual measurements y-tilde.
+
+5
+00:00:17,565 --> 00:00:19,920
+There are two steps to this process.
+
+6
+00:00:19,920 --> 00:00:23,025
+First, we're going to figure out what is the PDF,
+
+7
+00:00:23,024 --> 00:00:26,714
+the probability density function of p of y given x.
+
+8
+00:00:26,714 --> 00:00:31,995
+Remember, this function tells us the likelihood of the measurement y when the state is x.
+
+9
+00:00:31,995 --> 00:00:36,469
+We're next going to select our estimate x-hat to be the value that yields
+
+10
+00:00:36,469 --> 00:00:41,960
+a maximum likelihood of the actual measurements y-tilde given that estimate x-hat.
+
+11
+00:00:41,960 --> 00:00:45,035
+These two steps, let's look at them in turn.
+
+12
+00:00:45,034 --> 00:00:48,244
+First, we have to figure out what is the PDF,
+
+13
+00:00:48,244 --> 00:00:52,549
+the probability density function of p of y given x in this model.
+
+14
+00:00:52,549 --> 00:00:55,484
+We're going to assume that this distribution is Gaussian.
+
+15
+00:00:55,484 --> 00:00:58,339
+That means we need an expression for the parameters,
+
+16
+00:00:58,340 --> 00:01:00,785
+that is, the mean and the covariance.
+
+17
+00:01:00,784 --> 00:01:03,479
+Since y equals Hx plus v,
+
+18
+00:01:03,479 --> 00:01:06,015
+it's easy to show that the expected value,
+
+19
+00:01:06,015 --> 00:01:09,219
+the mean, y-bar is equal to H times x.
+
+20
+00:01:09,219 --> 00:01:12,569
+Given the properties or a noise model it's also easy to show that
+
+21
+00:01:12,569 --> 00:01:16,708
+the covariance y minus y-bar times y minus y-bar transpose
+
+22
+00:01:16,709 --> 00:01:20,590
+is going to be equal to the covariance of just the noise and that's equal to
+
+23
+00:01:20,590 --> 00:01:25,965
+R. We now actually know the parameters of this distribution p of y
+
+24
+00:01:25,965 --> 00:01:28,500
+given x for any x it's going to be
+
+25
+00:01:28,500 --> 00:01:32,030
+a normal distribution with a mean of H times x and covariance
+
+26
+00:01:32,030 --> 00:01:35,189
+R. We just need to find a value of x-hat that
+
+27
+00:01:35,189 --> 00:01:40,215
+maximizes the likelihood of the actual measurements y-tilde given x-hat.
+
+28
+00:01:40,215 --> 00:01:44,905
+How do we do this? Let's look at the full formula for this Gaussian.
+
+29
+00:01:44,905 --> 00:01:48,064
+Here, I've just written out the formula of the Gaussian.
+
+30
+00:01:48,064 --> 00:01:53,450
+Plugging in effect the mean is H times x and the covariance is R. We can
+
+31
+00:01:53,450 --> 00:01:59,454
+see this consists of a normalizer term here which does not depend on x at all.
+
+32
+00:01:59,454 --> 00:02:03,575
+For the likelihood of the received measurements of y-tilde given x,
+
+33
+00:02:03,575 --> 00:02:07,900
+the specific choice of x has no impact on this normalizer and we can ignore it.
+
+34
+00:02:07,900 --> 00:02:10,849
+If we want to maximize this overall function,
+
+35
+00:02:10,849 --> 00:02:15,155
+then what we actually care about is maximizing the term that's in the exponent here.
+
+36
+00:02:15,155 --> 00:02:18,754
+Which means we just need to maximize the function in the exponent.
+
+37
+00:02:18,754 --> 00:02:21,939
+A standard way to solve for the maximum of a function like
+
+38
+00:02:21,939 --> 00:02:25,569
+this is taking the derivative and finding where it is zero.
+
+39
+00:02:25,569 --> 00:02:27,905
+If we take the derivative of the exponent,
+
+40
+00:02:27,905 --> 00:02:30,439
+set it equal to zero, and then solve for x,
+
+41
+00:02:30,439 --> 00:02:31,960
+we get this term right here;
+
+42
+00:02:31,960 --> 00:02:35,170
+x-hat is equal to H transpose times h to
+
+43
+00:02:35,169 --> 00:02:38,649
+the power minus one times H transpose again times y-tilde.
+
+44
+00:02:38,650 --> 00:02:40,990
+And so, this is a solution to
+
+45
+00:02:40,990 --> 00:02:43,885
+the least squares estimation problem given some measurements
+
+46
+00:02:43,884 --> 00:02:46,509
+y-tilde that are linearly related to
+
+47
+00:02:46,509 --> 00:02:50,814
+some unknown quantity x by this matrix H that we assume that we know.
+
+48
+00:02:50,814 --> 00:02:54,759
+Using that, we can solve for the most likely estimate, x-hat.
+

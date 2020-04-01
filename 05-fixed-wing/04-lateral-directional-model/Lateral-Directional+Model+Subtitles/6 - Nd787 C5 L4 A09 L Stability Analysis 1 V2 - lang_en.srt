@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:04,535
+When we find the eigenvalues and eigenvectors of the lateral stability matrix,
+
+2
+00:00:04,535 --> 00:00:08,585
+we get four eigenvalues which correspond to three dynamic modes.
+
+3
+00:00:08,585 --> 00:00:10,520
+The first eigenvalue is real,
+
+4
+00:00:10,519 --> 00:00:12,384
+negative, and generally large.
+
+5
+00:00:12,384 --> 00:00:15,205
+This corresponds to what's called the roll mode.
+
+6
+00:00:15,205 --> 00:00:17,344
+The next eigenvalue is real,
+
+7
+00:00:17,344 --> 00:00:21,239
+generally small, and can be either negative or positive.
+
+8
+00:00:21,239 --> 00:00:23,945
+This corresponds to the spiral mode.
+
+9
+00:00:23,945 --> 00:00:27,969
+The last two eigenvalues are complex conjugate pair.
+
+10
+00:00:27,969 --> 00:00:32,250
+They correspond to a damped oscillatory motion called dutch roll.
+
+11
+00:00:32,250 --> 00:00:34,395
+Let's look at the roll mode first.
+
+12
+00:00:34,395 --> 00:00:36,415
+This is the simplest lateral mode.
+
+13
+00:00:36,414 --> 00:00:39,960
+It just describes the damping of roll rate towards zero.
+
+14
+00:00:39,960 --> 00:00:42,554
+If you imagine looking at a plane from behind,
+
+15
+00:00:42,554 --> 00:00:44,079
+as it rolls right,
+
+16
+00:00:44,079 --> 00:00:46,729
+the right wing hasn't increased effective angle of
+
+17
+00:00:46,729 --> 00:00:49,625
+attack since it's driving down into the airflow.
+
+18
+00:00:49,625 --> 00:00:52,340
+The left-wing has exactly the opposite.
+
+19
+00:00:52,340 --> 00:00:55,130
+Since lift increases with angle of attack,
+
+20
+00:00:55,130 --> 00:00:59,594
+this means the right wing will actually experienced more lift than the left-wing,
+
+21
+00:00:59,594 --> 00:01:03,734
+and this will cause a moment which tends to damp the roll rate towards zero.
+
+22
+00:01:03,734 --> 00:01:08,120
+Note that the effect of the roll mode is to damp the roll rate to zero,
+
+23
+00:01:08,120 --> 00:01:11,550
+doesn't damp the actual roll angle to zero.
+

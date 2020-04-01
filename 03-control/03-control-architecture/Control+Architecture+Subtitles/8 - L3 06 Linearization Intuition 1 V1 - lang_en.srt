@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:02,919
+The first thing we did in the previous example,
+
+2
+00:00:02,919 --> 00:00:07,740
+was to choose the operating point that we wanted to linearize around.
+
+3
+00:00:07,740 --> 00:00:10,740
+The first step in linearizing any non linear system is
+
+4
+00:00:10,740 --> 00:00:14,910
+to choose some state of the system to linearize around.
+
+5
+00:00:14,910 --> 00:00:17,195
+Now, let's think about quadrotors again.
+
+6
+00:00:17,195 --> 00:00:21,993
+What state of the system does it make sense to linearize around?
+
+7
+00:00:21,993 --> 00:00:24,855
+What should we choose as an operating point?
+
+8
+00:00:24,855 --> 00:00:30,902
+Since our approximations are only valid in a small region around the operating point,
+
+9
+00:00:30,902 --> 00:00:34,965
+it's helpful to linearize around an equilibrium state.
+
+10
+00:00:34,965 --> 00:00:41,763
+An equilibrium exists when we can find certain fixed and non changing control inputs,
+
+11
+00:00:41,762 --> 00:00:45,460
+where the velocities and accelerations in the y,
+
+12
+00:00:45,460 --> 00:00:48,215
+z and phi dimensions are all zero.
+
+13
+00:00:48,215 --> 00:00:51,415
+Intuitively, this is a state that the vehicle can
+
+14
+00:00:51,414 --> 00:00:55,128
+actually stay at for an extended period of time.
+
+15
+00:00:55,128 --> 00:01:02,149
+For a quadrotor, the only state that is in equilibrium is usually called hover.
+
+16
+00:01:02,149 --> 00:01:04,894
+I'm going to ask some questions about hover.
+
+17
+00:01:04,894 --> 00:01:08,464
+You can answer any of these by thinking mathematically,
+
+18
+00:01:08,465 --> 00:01:11,829
+or intuitively about what it means to hover.
+
+19
+00:01:11,829 --> 00:01:16,000
+But try to use both approaches before you submit any of the answers.
+

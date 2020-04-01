@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:02,970
+The function you just worked with is responsible for
+
+2
+00:00:02,970 --> 00:00:06,450
+advancing the state of the vehicle by dt seconds.
+
+3
+00:00:06,450 --> 00:00:08,460
+And for uncontrolled vehicle,
+
+4
+00:00:08,460 --> 00:00:11,145
+the only information we need to be able to do that,
+
+5
+00:00:11,144 --> 00:00:13,160
+is the current state of the vehicle,
+
+6
+00:00:13,160 --> 00:00:15,720
+which is captured in this reference to self,
+
+7
+00:00:15,720 --> 00:00:17,910
+and that's pretty amazing.
+
+8
+00:00:17,910 --> 00:00:21,413
+Now, the important thing I want you to notice about this code,
+
+9
+00:00:21,413 --> 00:00:23,010
+are these few lines.
+
+10
+00:00:23,010 --> 00:00:26,985
+Even so, we are working with a very simple system here,
+
+11
+00:00:26,984 --> 00:00:28,679
+these lines of code capture
+
+12
+00:00:28,679 --> 00:00:31,739
+much more widely useful mathematical strategy for
+
+13
+00:00:31,739 --> 00:00:35,417
+solving these sorts of state update problems.
+
+14
+00:00:35,417 --> 00:00:38,259
+And that strategy involves three steps.
+
+15
+00:00:38,259 --> 00:00:42,429
+Step number one, we figure out what the accelerations
+
+16
+00:00:42,429 --> 00:00:46,854
+and rotational acceleration of the system will be at the current instant.
+
+17
+00:00:46,854 --> 00:00:49,944
+For a quadrotor whose orders aren't spinning,
+
+18
+00:00:49,945 --> 00:00:52,244
+the acceleration just comes from gravity,
+
+19
+00:00:52,244 --> 00:00:55,494
+which is 9.81 meters per second squared.
+
+20
+00:00:55,494 --> 00:00:59,320
+Step two, we use this acceleration to
+
+21
+00:00:59,320 --> 00:01:03,549
+update the associated velocities or rates of change.
+
+22
+00:01:03,549 --> 00:01:09,340
+Step number three, we use the velocity to update the associated position.
+
+23
+00:01:09,340 --> 00:01:12,855
+Note, how similar step two and three look.
+
+24
+00:01:12,855 --> 00:01:16,535
+That's because mathematically, we are doing the same thing.
+
+25
+00:01:16,534 --> 00:01:19,304
+We're accumulating change by calculating,
+
+26
+00:01:19,305 --> 00:01:23,685
+well really we are numerically approximating the integral.
+
+27
+00:01:23,685 --> 00:01:27,299
+And because we need to integrate twice to figure
+
+28
+00:01:27,299 --> 00:01:31,019
+out how the acceleration ultimately influences the motion,
+
+29
+00:01:31,019 --> 00:01:34,394
+this is what's known as a second order system,
+
+30
+00:01:34,394 --> 00:01:36,075
+or a double integrator.
+
+31
+00:01:36,075 --> 00:01:39,990
+Mathematically, the reason this is a second order system,
+
+32
+00:01:39,989 --> 00:01:43,125
+is because the equations that govern how the system
+
+33
+00:01:43,125 --> 00:01:47,000
+evolves with time, includes second derivatives.
+
+34
+00:01:47,000 --> 00:01:51,370
+And this equation for a vehicle moving in the vertical directions just
+
+35
+00:01:51,370 --> 00:01:56,305
+says that forces directly influenced the second derivative of position.
+
+36
+00:01:56,305 --> 00:02:00,763
+And since we can generally figure out what the forces will be on the quadrotor,
+
+37
+00:02:00,763 --> 00:02:04,135
+you can generally figure out what the accelerations will be.
+
+38
+00:02:04,135 --> 00:02:08,860
+And then it's just a matter of integrating twice to go from acceleration,
+
+39
+00:02:08,860 --> 00:02:11,050
+to velocity, to position.
+
+40
+00:02:11,050 --> 00:02:13,090
+An important consequence of this,
+
+41
+00:02:13,090 --> 00:02:16,150
+is that we need to keep track of both the position,
+
+42
+00:02:16,150 --> 00:02:18,069
+and the velocity of the vehicle.
+
+43
+00:02:18,069 --> 00:02:20,829
+But nothing more, if we want to be able to keep
+
+44
+00:02:20,830 --> 00:02:24,450
+advancing the state of the vehicle forward by dt.
+

@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:06,059
+So far, we've discussed discrete events such as the number of visible GPS satellites,
+
+2
+00:00:06,059 --> 00:00:09,074
+or the state of the vehicle being working or not working.
+
+3
+00:00:09,074 --> 00:00:11,209
+What about continuous samples spaces,
+
+4
+00:00:11,210 --> 00:00:13,920
+such as the real value position of a satellite?
+
+5
+00:00:13,919 --> 00:00:17,684
+Random variables become extremely powerful in this case.
+
+6
+00:00:17,684 --> 00:00:23,294
+Using real numbers to index the members of a continuous set, it's fairly intuitive.
+
+7
+00:00:23,295 --> 00:00:26,880
+Let's first begin by defining a specific function called
+
+8
+00:00:26,879 --> 00:00:30,674
+the cumulative distribution function F sub x of u.
+
+9
+00:00:30,675 --> 00:00:34,350
+This function F sub x of u with a capital F,
+
+10
+00:00:34,350 --> 00:00:38,730
+describes the probability that the random variable x is less than or equal
+
+11
+00:00:38,729 --> 00:00:43,179
+to u. F will be monotonically increasing.
+
+12
+00:00:43,179 --> 00:00:45,909
+The limit as u goes to negative infinity is zero,
+
+13
+00:00:45,909 --> 00:00:48,839
+and the limit as u goes to a positive infinity is one.
+
+14
+00:00:48,840 --> 00:00:52,000
+This is the cumulative distribution function.
+
+15
+00:00:52,000 --> 00:00:56,619
+It's important to understand that the index to the function is u,
+
+16
+00:00:56,619 --> 00:01:00,879
+but its sub-scripted by x to indicate which random variable we're characterizing by
+
+17
+00:01:00,880 --> 00:01:05,969
+the probability that the value of that random variable is less than u or not.
+
+18
+00:01:05,969 --> 00:01:10,260
+Now, we can define lowercase f sub x of u,
+
+19
+00:01:10,260 --> 00:01:15,320
+which is equal to the derivative with respect to u of uppercase F sub x of u.
+
+20
+00:01:15,319 --> 00:01:18,954
+This is what we call a probability density function.
+
+21
+00:01:18,954 --> 00:01:22,159
+Since we are dealing with a continuous sample space,
+
+22
+00:01:22,159 --> 00:01:25,179
+we can no longer say anything about the probability
+
+23
+00:01:25,180 --> 00:01:28,420
+that our vehicle is at some specific or exact location,
+
+24
+00:01:28,420 --> 00:01:30,609
+because for a continuous sample space,
+
+25
+00:01:30,609 --> 00:01:33,834
+the probability of any particular value will always be zero.
+
+26
+00:01:33,834 --> 00:01:38,319
+We can only give the probability that our vehicle is in some region.
+
+27
+00:01:38,319 --> 00:01:44,094
+Consider this uniform probability density function for the position x of a vehicle.
+
+28
+00:01:44,094 --> 00:01:49,480
+As you can see, it has the value one half between x equals zero and two,
+
+29
+00:01:49,480 --> 00:01:51,250
+and zero everywhere else.
+
+30
+00:01:51,250 --> 00:01:55,838
+I could calculate the probability that the vehicles in this region between zero and one,
+
+31
+00:01:55,838 --> 00:01:57,894
+by calculating the area under this curve,
+
+32
+00:01:57,894 --> 00:02:00,075
+which would be one times one half.
+
+33
+00:02:00,075 --> 00:02:05,920
+In fact, the probability that a random variable will take a value between x1 and x2,
+
+34
+00:02:05,920 --> 00:02:11,705
+is just given by the integral of the probability density function from x1 to x2.
+
+35
+00:02:11,705 --> 00:02:14,700
+This lowercase f of x isn't the probability,
+
+36
+00:02:14,699 --> 00:02:16,939
+and it can easily be greater than one.
+
+37
+00:02:16,939 --> 00:02:20,419
+But we do often write this density function as p of x.
+
+38
+00:02:20,419 --> 00:02:24,405
+This changes our notion of what it means to be a proper distribution.
+
+39
+00:02:24,405 --> 00:02:26,145
+To be a proper density,
+
+40
+00:02:26,145 --> 00:02:30,439
+lowercase f sub x of u has to be greater than or equal to zero,
+
+41
+00:02:30,439 --> 00:02:33,909
+and the integral under the distribution has to be equal to one.
+
+42
+00:02:33,909 --> 00:02:37,150
+Normalization implies finding a constant multiplier in
+
+43
+00:02:37,150 --> 00:02:40,920
+front of this density function to make it integrate to one.
+

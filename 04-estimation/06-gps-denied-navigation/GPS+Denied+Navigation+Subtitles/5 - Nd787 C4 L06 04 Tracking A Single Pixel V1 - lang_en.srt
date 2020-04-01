@@ -1,0 +1,168 @@
+1
+00:00:00,000 --> 00:00:03,690
+Now that we have good features that we can recognize from image to image,
+
+2
+00:00:03,690 --> 00:00:05,049
+we need to know how to use them.
+
+3
+00:00:05,049 --> 00:00:08,369
+Optical flow is the apparent motion of objects, surfaces,
+
+4
+00:00:08,369 --> 00:00:12,149
+or edges in an image based on the relative motion of the camera.
+
+5
+00:00:12,150 --> 00:00:15,509
+Let's consider the motion of a single pixel first,
+
+6
+00:00:15,509 --> 00:00:17,634
+before considering more of the image.
+
+7
+00:00:17,635 --> 00:00:23,380
+We'll define an image I and a given pixel at x y in the image at time t is
+
+8
+00:00:23,379 --> 00:00:29,384
+I of x y t. Let's assume that the pixel moves from xy time t to x plus u,
+
+9
+00:00:29,385 --> 00:00:31,320
+y plus V at time t plus one,
+
+10
+00:00:31,320 --> 00:00:35,155
+where u and v is the apparent motion induced by the camera moving.
+
+11
+00:00:35,155 --> 00:00:42,204
+The question is, how do we estimate the motion of a pixel from I of xyt to I of x plus u,
+
+12
+00:00:42,204 --> 00:00:43,744
+y plus v, t plus one?
+
+13
+00:00:43,744 --> 00:00:47,519
+We basically need to solve what's called a pixel correspondence problem.
+
+14
+00:00:47,520 --> 00:00:49,125
+Given a pixel intensity,
+
+15
+00:00:49,125 --> 00:00:54,155
+I of x y t we'll look for nearby pixels of the same color intensity at I of x prime,
+
+16
+00:00:54,155 --> 00:00:56,005
+y prime t plus one.
+
+17
+00:00:56,005 --> 00:00:58,450
+To solve the pixel correspondence problem,
+
+18
+00:00:58,450 --> 00:01:00,370
+we're going to make two assumptions.
+
+19
+00:01:00,369 --> 00:01:03,019
+The first is that, the motion is not very large,
+
+20
+00:01:03,020 --> 00:01:04,290
+u and v are small,
+
+21
+00:01:04,290 --> 00:01:10,290
+and we don't have to look very far to find the corresponding pixel on the next timestamp.
+
+22
+00:01:10,290 --> 00:01:12,375
+The second assumption is that,
+
+23
+00:01:12,375 --> 00:01:15,810
+the pixel appearance itself doesn't change; which means that,
+
+24
+00:01:15,810 --> 00:01:20,010
+whatever object is being imaged by this pixel, at time t,
+
+25
+00:01:20,010 --> 00:01:25,125
+is going to look exactly the same at some other pixel at time t plus one.
+
+26
+00:01:25,125 --> 00:01:29,155
+We can say that, I of x y t is equal to I of x plus u,
+
+27
+00:01:29,155 --> 00:01:30,670
+y plus v, t plus one.
+
+28
+00:01:30,670 --> 00:01:33,825
+This is known as the brightness constancy constraint.
+
+29
+00:01:33,825 --> 00:01:37,769
+Now, this equation here is not very helpful but if we use
+
+30
+00:01:37,769 --> 00:01:42,449
+a Taylor series expansion on the right hand side of the brightness constancy constraint,
+
+31
+00:01:42,450 --> 00:01:44,299
+dropping the time index temporarily,
+
+32
+00:01:44,299 --> 00:01:46,685
+we can see that I of x plus u,
+
+33
+00:01:46,685 --> 00:01:50,275
+y plus v is roughly equal to I of x y plus
+
+34
+00:01:50,275 --> 00:01:52,920
+the spatial gradient in the x direction times the velocity in
+
+35
+00:01:52,920 --> 00:01:56,439
+x direction plus the spatial gradient to the image in the y direction,
+
+36
+00:01:56,439 --> 00:01:58,149
+times the v velocity.
+
+37
+00:01:58,150 --> 00:01:59,609
+If we plug that into
+
+38
+00:01:59,609 --> 00:02:04,719
+the brightness constancy constraint and reorganize terms a little, we get the following.
+
+39
+00:02:04,719 --> 00:02:07,534
+And here I'm using a subscript to denote derivative.
+
+40
+00:02:07,534 --> 00:02:12,060
+So, for example, I sub t is the derivative of the image with respect to time.
+
+41
+00:02:12,060 --> 00:02:16,770
+This equation basically says that any change in the appearance of a pixel x y over
+
+42
+00:02:16,770 --> 00:02:21,719
+time has to be explained by spatial motion induced by the camera movement.
+

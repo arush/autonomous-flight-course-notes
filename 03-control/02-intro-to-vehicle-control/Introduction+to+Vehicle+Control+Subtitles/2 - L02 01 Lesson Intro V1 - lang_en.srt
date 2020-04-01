@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:02,910
+Welcome back. So, what are we going to learn in this lesson Angela?
+
+2
+00:00:02,910 --> 00:00:08,460
+In this lesson, we are going to learn how to make a quadrotor do what we want it to do.
+
+3
+00:00:08,460 --> 00:00:11,370
+And this may be as simple as hovering in the air.
+
+4
+00:00:11,370 --> 00:00:12,930
+But in the last lesson,
+
+5
+00:00:12,930 --> 00:00:15,180
+we already learned how to model the vehicle dynamics.
+
+6
+00:00:15,180 --> 00:00:16,875
+Shouldn't hovering just be as simple as
+
+7
+00:00:16,875 --> 00:00:19,200
+the upward thrust needs to balance the downwards weight?
+
+8
+00:00:19,200 --> 00:00:20,819
+Not exactly.
+
+9
+00:00:20,819 --> 00:00:23,460
+Our model was the simplification of the real world.
+
+10
+00:00:23,460 --> 00:00:27,030
+And if we try to use only that model to control the drone,
+
+11
+00:00:27,030 --> 00:00:28,740
+it would crash pretty quickly.
+
+12
+00:00:28,740 --> 00:00:32,940
+Okay. So, if our model of vehicle dynamics isn't enough, what else do we need to do?
+
+13
+00:00:32,940 --> 00:00:35,020
+What we really need to do,
+
+14
+00:00:35,020 --> 00:00:37,544
+is to actively control the vehicle.
+
+15
+00:00:37,544 --> 00:00:41,700
+And not only think about what the drone should be doing based on our models,
+
+16
+00:00:41,700 --> 00:00:45,075
+but also pay attention to what it actually is doing,
+
+17
+00:00:45,075 --> 00:00:46,770
+and make constant adjustments.
+
+18
+00:00:46,770 --> 00:00:49,390
+Okay. Sounds good. Let's get started.
+

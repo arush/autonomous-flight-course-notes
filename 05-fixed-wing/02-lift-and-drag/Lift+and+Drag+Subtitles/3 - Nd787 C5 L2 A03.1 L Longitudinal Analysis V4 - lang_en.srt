@@ -1,0 +1,208 @@
+1
+00:00:00,000 --> 00:00:04,139
+It'd be a lot easier if I had an actual model airplane to show you
+
+2
+00:00:04,139 --> 00:00:08,640
+some of the concepts I'm going to talk about today. Thanks plane fairy.
+
+3
+00:00:08,640 --> 00:00:10,355
+In some of the previous quizzes,
+
+4
+00:00:10,355 --> 00:00:13,835
+you saw a picture of a plane travelling forward at some constant speed,
+
+5
+00:00:13,835 --> 00:00:16,480
+and this picture is relatively easy to analyze.
+
+6
+00:00:16,480 --> 00:00:19,705
+Thrust points forwards, drag points backwards,
+
+7
+00:00:19,704 --> 00:00:22,889
+weight points down, and lift points up.
+
+8
+00:00:22,890 --> 00:00:24,660
+When I talk about this plane,
+
+9
+00:00:24,660 --> 00:00:26,929
+I can use words like up, down, forwards,
+
+10
+00:00:26,929 --> 00:00:30,649
+and backwards unambiguously since the axes of the body frame of
+
+11
+00:00:30,649 --> 00:00:32,989
+the aircraft point in the same direction as
+
+12
+00:00:32,990 --> 00:00:36,385
+the axes of the global or inertial frame of reference,
+
+13
+00:00:36,384 --> 00:00:38,289
+but that's not generally true.
+
+14
+00:00:38,289 --> 00:00:41,089
+To keep track of the dynamics of a fixed-wing aircraft,
+
+15
+00:00:41,090 --> 00:00:43,635
+we actually need multiple frames of reference.
+
+16
+00:00:43,634 --> 00:00:46,129
+When analyzing the longitudinal motion,
+
+17
+00:00:46,130 --> 00:00:48,469
+there are three frames that we'll discuss.
+
+18
+00:00:48,469 --> 00:00:52,670
+We can see the need for each of these reference frames by watching a plane as it lands.
+
+19
+00:00:52,670 --> 00:00:55,655
+Consider this plane as it approaches the runway to land.
+
+20
+00:00:55,655 --> 00:01:00,774
+Since it's descending, the velocity vector points forwards and downwards.
+
+21
+00:01:00,774 --> 00:01:04,004
+But, when we're analyzing the forces on a plane,
+
+22
+00:01:04,004 --> 00:01:05,634
+the velocity of the plane,
+
+23
+00:01:05,635 --> 00:01:06,960
+relative to the ground,
+
+24
+00:01:06,959 --> 00:01:11,375
+isn't nearly as important as the velocity of the air relative to the plane.
+
+25
+00:01:11,375 --> 00:01:15,049
+So, if it's a still day and there's zero wind,
+
+26
+00:01:15,049 --> 00:01:16,664
+then from the plane's point of view,
+
+27
+00:01:16,665 --> 00:01:19,975
+the airstream will be coming in the opposite direction, like this.
+
+28
+00:01:19,974 --> 00:01:22,589
+So, we'll call this V sub air.
+
+29
+00:01:22,590 --> 00:01:26,000
+Note that the aircraft itself will be generally pitched upwards.
+
+30
+00:01:26,000 --> 00:01:28,709
+The important thing to note here is that the direction of travel is
+
+31
+00:01:28,709 --> 00:01:32,034
+not the same as the direction that the nose is pointing.
+
+32
+00:01:32,034 --> 00:01:35,584
+Now, let's analyze the forces acting on this plane.
+
+33
+00:01:35,584 --> 00:01:38,429
+We're going to add four more arrows to this diagram.
+
+34
+00:01:38,430 --> 00:01:40,160
+Keep in mind that this arrow,
+
+35
+00:01:40,159 --> 00:01:42,489
+V sub air, is not a force.
+
+36
+00:01:42,489 --> 00:01:47,009
+It's just there to remind us what direction the air is moving relative to the plane.
+
+37
+00:01:47,010 --> 00:01:49,195
+For the first force, we have weight.
+
+38
+00:01:49,194 --> 00:01:51,149
+Weight is going to point in this direction since
+
+39
+00:01:51,150 --> 00:01:53,380
+gravity always points to the center of the Earth.
+
+40
+00:01:53,379 --> 00:01:55,009
+Next, we have drag.
+
+41
+00:01:55,010 --> 00:01:57,565
+Drag always points parallel to the relative airflow,
+
+42
+00:01:57,564 --> 00:01:59,325
+so it's going to point this way.
+
+43
+00:01:59,325 --> 00:02:03,710
+Next is thrust. The direction of thrust is determined by their propulsion system,
+
+44
+00:02:03,709 --> 00:02:07,399
+but generally it will be in the same direction that the nose of the plane is pointed in.
+
+45
+00:02:07,400 --> 00:02:09,599
+So, it might look something like this.
+
+46
+00:02:09,599 --> 00:02:13,829
+Finally, lift always points perpendicular to incoming airflow,
+
+47
+00:02:13,830 --> 00:02:15,620
+so it point in this direction.
+
+48
+00:02:15,620 --> 00:02:19,055
+Note that lift does not point normal to the surface of the wings.
+
+49
+00:02:19,055 --> 00:02:21,944
+Lift and drag are always at right angles to each other.
+
+50
+00:02:21,944 --> 00:02:25,938
+Now, hidden in these four force vectors and one velocity vector,
+
+51
+00:02:25,938 --> 00:02:28,909
+are actually three frames of reference that we need to keep track of
+
+52
+00:02:28,909 --> 00:02:32,639
+when analyzing the longitudinal dynamics of a fixed-wing vehicle.
+

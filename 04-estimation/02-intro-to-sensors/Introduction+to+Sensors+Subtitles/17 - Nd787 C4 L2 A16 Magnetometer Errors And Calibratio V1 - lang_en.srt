@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:03,450
+The magnetometer can be a tricky sensor to work with.
+
+2
+00:00:03,450 --> 00:00:05,759
+There are a few reasons why this is the case,
+
+3
+00:00:05,759 --> 00:00:09,509
+but by far the biggest challenge you'll have is magnetometers
+
+4
+00:00:09,509 --> 00:00:13,995
+will come from local distortions of the Earth magnetic field.
+
+5
+00:00:13,994 --> 00:00:17,594
+The reason this is such a problem is pretty intuitive.
+
+6
+00:00:17,594 --> 00:00:20,699
+If this quadrotor is flying along
+
+7
+00:00:20,699 --> 00:00:25,140
+and then it measures a magnetic field that points this way,
+
+8
+00:00:25,140 --> 00:00:28,370
+it's going to assume that this direction is north.
+
+9
+00:00:28,370 --> 00:00:31,550
+But this assumption isn't always correct,
+
+10
+00:00:31,550 --> 00:00:36,734
+and there are two main explanations for these distortions to the Earth magnetic field.
+
+11
+00:00:36,734 --> 00:00:39,780
+The first is magnetic material which may be
+
+12
+00:00:39,780 --> 00:00:43,035
+mounted on the quadrotor, near the magnetometer.
+
+13
+00:00:43,034 --> 00:00:46,169
+In this case, the additional material will add
+
+14
+00:00:46,170 --> 00:00:49,990
+some constant bias to every magnetic field measurement.
+
+15
+00:00:49,990 --> 00:00:53,969
+So, this can actually be handled pretty easily through calibration.
+
+16
+00:00:53,969 --> 00:00:59,384
+The second cause of these distortions is magnetic material in the environment.
+
+17
+00:00:59,384 --> 00:01:03,619
+Other vehicles, buildings, bridges, power lines,
+
+18
+00:01:03,619 --> 00:01:06,840
+these can all have a significant effect as well,
+
+19
+00:01:06,840 --> 00:01:09,765
+and can't be addressed through calibration.
+
+20
+00:01:09,765 --> 00:01:13,140
+That means you have to treat them as noise.
+
+21
+00:01:13,140 --> 00:01:17,250
+This makes magnetometer measurements really imprecise.
+
+22
+00:01:17,250 --> 00:01:20,805
+So how can we compensate for the systematic effects
+
+23
+00:01:20,805 --> 00:01:24,305
+that are constant with respect to the body frame?
+
+24
+00:01:24,305 --> 00:01:29,340
+For that, we can look at our standard sensor model with a bias,
+
+25
+00:01:29,340 --> 00:01:31,620
+a scaling matrix, and noise.
+
+26
+00:01:31,620 --> 00:01:35,520
+The standard calibration routine is pretty interesting.
+
+27
+00:01:35,519 --> 00:01:37,920
+Basically, we keep the sensor in
+
+28
+00:01:37,920 --> 00:01:42,254
+one location so we know that the magnetic field stays the same,
+
+29
+00:01:42,254 --> 00:01:44,459
+and then we turn it around a lot.
+
+30
+00:01:44,459 --> 00:01:50,625
+So, imagine the tip of this pen points in the direction of the Earth magnetic field.
+
+31
+00:01:50,625 --> 00:01:54,275
+Then what we do is we turn the vehicle in
+
+32
+00:01:54,275 --> 00:01:59,820
+all these different orientations and measure the magnetic field at each one.
+
+33
+00:01:59,819 --> 00:02:01,984
+Now from your perspective,
+
+34
+00:02:01,984 --> 00:02:05,689
+you see the quadrotor rotating when I do this.
+
+35
+00:02:05,689 --> 00:02:07,609
+But in the quadrotor frame,
+
+36
+00:02:07,609 --> 00:02:13,979
+the vehicle is stationary and it's the magnetic field vector that's rotating.
+
+37
+00:02:14,960 --> 00:02:21,485
+You can imagine the tip of this measured magnetic field vector should trace out
+
+38
+00:02:21,485 --> 00:02:25,400
+a perfect sphere if the magnetometer is working
+
+39
+00:02:25,400 --> 00:02:30,235
+correctly and if we cover enough orientations during calibration.
+
+40
+00:02:30,235 --> 00:02:32,365
+But instead of getting a sphere,
+
+41
+00:02:32,365 --> 00:02:35,210
+it turns out that what we actually measure is
+
+42
+00:02:35,210 --> 00:02:39,530
+some 3D ellipse which may not be centered at the origin.
+
+43
+00:02:39,530 --> 00:02:43,689
+It's a little easier to visualize this in two dimensions.
+
+44
+00:02:43,689 --> 00:02:47,030
+In 2D, we expect the magnetic fields to
+
+45
+00:02:47,030 --> 00:02:50,689
+trace out a circle instead of a sphere as we rotate.
+
+46
+00:02:50,689 --> 00:02:53,379
+We are going to normalize everything.
+
+47
+00:02:53,379 --> 00:02:57,400
+The magnitude of the magnetic field is not important here.
+
+48
+00:02:57,400 --> 00:03:03,335
+So, we expect this magnetic field circle to have a radius of one,
+
+49
+00:03:03,335 --> 00:03:05,840
+and it should be centered at the origin.
+
+50
+00:03:05,840 --> 00:03:10,705
+Now, let's imagine actually doing this calibration routine.
+
+51
+00:03:10,705 --> 00:03:14,840
+The magnetic field we measure may look something like this,
+
+52
+00:03:14,840 --> 00:03:22,245
+and this measured magnetic field clearly has bias since it isn't centered on the origin.
+
+53
+00:03:22,245 --> 00:03:29,300
+It also has some non-zero scaling matrix since it's too small and a bit stretched.
+
+54
+00:03:29,300 --> 00:03:33,335
+But that's fine, because that's the whole point of calibration.
+
+55
+00:03:33,335 --> 00:03:36,439
+After performing this routine and then doing
+
+56
+00:03:36,439 --> 00:03:39,889
+least scales to get the bias and the scaling matrix,
+
+57
+00:03:39,889 --> 00:03:43,309
+we would be able to transform our real measurements,
+
+58
+00:03:43,310 --> 00:03:46,159
+so that they match what we expected.
+

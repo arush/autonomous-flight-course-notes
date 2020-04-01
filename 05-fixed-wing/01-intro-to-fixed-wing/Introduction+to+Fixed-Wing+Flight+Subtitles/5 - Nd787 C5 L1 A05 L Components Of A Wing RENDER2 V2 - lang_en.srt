@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:03,450
+We've looked at the components of a fixed-wing vehicle overall,
+
+2
+00:00:03,450 --> 00:00:05,550
+now, let's look more closely at the wing.
+
+3
+00:00:05,549 --> 00:00:07,634
+The wing is where most of our lift comes from.
+
+4
+00:00:07,634 --> 00:00:10,169
+So, we need to understand properties of the shape and
+
+5
+00:00:10,169 --> 00:00:12,984
+size of the wing to understand how much lift we are going to have.
+
+6
+00:00:12,984 --> 00:00:14,855
+When we discuss the shape of a wing,
+
+7
+00:00:14,855 --> 00:00:18,765
+we use words like platform, airfoil and camber.
+
+8
+00:00:18,765 --> 00:00:22,679
+The platform of the wing refers to the entire horizontal shape of the wing.
+
+9
+00:00:22,679 --> 00:00:26,695
+So, the platform is what we see when we look at the wing from above.
+
+10
+00:00:26,695 --> 00:00:29,539
+If we look at the cross-sectional shape of the wing,
+
+11
+00:00:29,539 --> 00:00:31,554
+then we're looking at the airfoil.
+
+12
+00:00:31,554 --> 00:00:35,325
+The airfoil refers to a slice through the wing at a particular point.
+
+13
+00:00:35,325 --> 00:00:37,465
+For a low speed ultralight aircraft,
+
+14
+00:00:37,465 --> 00:00:42,670
+the airfoil might look like this while the airfoil for an airliner might look like this.
+
+15
+00:00:42,670 --> 00:00:46,000
+We can quantify the shape of the airfoil by its camber.
+
+16
+00:00:46,000 --> 00:00:48,409
+The camber is essentially the curvature of
+
+17
+00:00:48,409 --> 00:00:51,409
+the upper surface of the wing relative to the bottom surface.
+
+18
+00:00:51,409 --> 00:00:55,559
+So, this wing on the top has more camber than the weighing on the bottom.
+
+19
+00:00:55,560 --> 00:00:59,250
+In addition to shape, we also want to discuss the size of a wing.
+
+20
+00:00:59,250 --> 00:01:03,320
+The wingspan is the distance from the tip of one wing to the tip of the other and
+
+21
+00:01:03,320 --> 00:01:05,060
+the semi span is the distance from
+
+22
+00:01:05,060 --> 00:01:08,000
+the center of the aircraft to the tip of one of the wings.
+
+23
+00:01:08,000 --> 00:01:13,140
+We typically use the letter B to represent wingspan and the letter S for semi span,
+
+24
+00:01:13,140 --> 00:01:15,864
+which means that S is equal to B over two.
+
+25
+00:01:15,864 --> 00:01:19,464
+The length from the leading edge of the wing to the trailing edge is called the chord.
+
+26
+00:01:19,465 --> 00:01:23,990
+The chord will usually vary in length as you travel along this semi span.
+
+27
+00:01:23,989 --> 00:01:26,584
+When the chord varies continuously,
+
+28
+00:01:26,584 --> 00:01:28,484
+it could be hard to do lift calculations.
+
+29
+00:01:28,484 --> 00:01:31,879
+So, we take an average which is known as the mean aerodynamic chord.
+
+30
+00:01:31,879 --> 00:01:35,679
+We usually represent the mean aerodynamic chord as C bar.
+
+31
+00:01:35,680 --> 00:01:40,850
+The aspect ratio is defined as the ratio of the semi span to the mean aerodynamic chord.
+
+32
+00:01:40,849 --> 00:01:45,679
+So, short wide wing will have a small aspect ratio while a long skinny wing,
+
+33
+00:01:45,680 --> 00:01:47,515
+will have a large aspect ratio.
+
+34
+00:01:47,515 --> 00:01:52,275
+There are various pros and cons associated with large versus small aspect ratios.
+
+35
+00:01:52,275 --> 00:01:55,905
+All of these terms become very important when you get into wing design.
+
+36
+00:01:55,905 --> 00:01:59,099
+Wing design isn't something we're going to get into in this curriculum,
+
+37
+00:01:59,099 --> 00:02:02,280
+but it's still important to be familiar with these terms.
+

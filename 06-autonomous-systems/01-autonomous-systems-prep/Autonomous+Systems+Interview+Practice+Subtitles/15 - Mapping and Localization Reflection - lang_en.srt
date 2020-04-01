@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:02,549
+Overall, I thought Mike did fairly well.
+
+2
+00:00:02,549 --> 00:00:05,699
+He went through and told me about how satellites work correctly,
+
+3
+00:00:05,700 --> 00:00:07,919
+and also ascertain that you would need more than
+
+4
+00:00:07,919 --> 00:00:11,789
+just a single satellite to be able to localize position correctly.
+
+5
+00:00:11,789 --> 00:00:15,269
+He also was right in knowing that in robotics applications,
+
+6
+00:00:15,269 --> 00:00:17,100
+especially for a self-driving car,
+
+7
+00:00:17,100 --> 00:00:21,960
+the amount of distance that GPS is accurate to is not always sufficient.
+
+8
+00:00:21,960 --> 00:00:26,835
+He also was very helpful in coming up with correct applications that you could use in
+
+9
+00:00:26,835 --> 00:00:29,355
+robotics or self-driving cars such a particle filter
+
+10
+00:00:29,355 --> 00:00:32,160
+and the fact that he had worked on this before,
+
+11
+00:00:32,159 --> 00:00:34,649
+that show me that he would be a good fit for this position.
+
+12
+00:00:34,649 --> 00:00:36,539
+One thing I would say that he could do is
+
+13
+00:00:36,539 --> 00:00:39,700
+perhaps diagram this out for me a little bit more clearly,
+
+14
+00:00:39,700 --> 00:00:43,040
+but other than that, I thought he gave a sufficient answer.
+

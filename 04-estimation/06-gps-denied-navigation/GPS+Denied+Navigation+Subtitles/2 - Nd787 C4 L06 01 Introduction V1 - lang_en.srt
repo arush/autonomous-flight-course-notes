@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:01,760
+In this final lesson,
+
+2
+00:00:01,760 --> 00:00:04,719
+we're going to look at a couple of different challenges in estimation.
+
+3
+00:00:04,719 --> 00:00:09,625
+The first challenge is, how can we incorporate camera images into our estimator?
+
+4
+00:00:09,625 --> 00:00:12,884
+We could easily spend multiple lessons on how to use
+
+5
+00:00:12,884 --> 00:00:16,079
+images to estimate our position and velocity,
+
+6
+00:00:16,079 --> 00:00:18,119
+how to estimate the position of obstacles around
+
+7
+00:00:18,120 --> 00:00:21,660
+us and how to track other things moving around us.
+
+8
+00:00:21,660 --> 00:00:24,454
+We're not going to have time to look at all of those questions.
+
+9
+00:00:24,454 --> 00:00:26,019
+But a lot of vehicles,
+
+10
+00:00:26,019 --> 00:00:30,089
+including ones you might already own like the Crazyflie use a very simple approach with
+
+11
+00:00:30,089 --> 00:00:31,949
+a downward facing camera to estimate
+
+12
+00:00:31,949 --> 00:00:35,575
+the velocity vector using a technique called optical flow.
+
+13
+00:00:35,575 --> 00:00:38,730
+We'll show you how you can use optical flow to get
+
+14
+00:00:38,729 --> 00:00:42,839
+a reasonable state estimate for your vehicle even when you don't have GPS.
+
+15
+00:00:42,840 --> 00:00:45,930
+It's not perfect, but it's a useful thing to know about and
+
+16
+00:00:45,929 --> 00:00:49,920
+something you could try for indoor flight on your own quadrotor.
+
+17
+00:00:49,920 --> 00:00:52,410
+The second thing we're going to look at,
+
+18
+00:00:52,409 --> 00:00:56,189
+is an alternative technique to Kalman Filter called The Particle Filter.
+
+19
+00:00:56,189 --> 00:00:59,945
+The Particle Filter does a much better job of handling range sensors,
+
+20
+00:00:59,945 --> 00:01:03,765
+being used to estimate the position of the vehicle in a map.
+
+21
+00:01:03,765 --> 00:01:06,420
+Remember that the Kalman filter has
+
+22
+00:01:06,420 --> 00:01:09,719
+strong assumptions of Gaussian noise and linear models.
+
+23
+00:01:09,719 --> 00:01:14,579
+The EKF and UK let us relax the linearity assumption somewhat,
+
+24
+00:01:14,579 --> 00:01:19,799
+but The Particle Filter lets us handle non-linear and non-gaussian systems even better.
+
+25
+00:01:19,799 --> 00:01:24,424
+Notice that both of these topics are designed to give you an estimate without
+
+26
+00:01:24,424 --> 00:01:29,844
+GPS and GPS to night navigation is really important for flying cars.
+
+27
+00:01:29,844 --> 00:01:33,769
+When your vehicle is operating in an urban environment close to the ground,
+
+28
+00:01:33,769 --> 00:01:37,920
+our vehicle is in a regime where GPS is very unreliable.
+
+29
+00:01:37,920 --> 00:01:40,680
+Being able to use additional sensors to compensate for
+
+30
+00:01:40,680 --> 00:01:44,250
+GPS errors or manage temporary GPS outages,
+
+31
+00:01:44,250 --> 00:01:47,730
+is crucial to the reliable operation of your vehicle.
+

@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:04,184
+Okay. We just looked at two different Monte-Carlo sampling techniques.
+
+2
+00:00:04,184 --> 00:00:09,439
+First for sampling a posterior or the vehicle dynamics given a control and the
+
+3
+00:00:09,439 --> 00:00:11,910
+second for sampling a posterior over
+
+4
+00:00:11,910 --> 00:00:15,429
+the state given sensor measurements and doing sensor fusion.
+
+5
+00:00:15,429 --> 00:00:17,939
+You can now put these together to get
+
+6
+00:00:17,940 --> 00:00:21,359
+an estimation algorithm known as the particle filter.
+
+7
+00:00:21,359 --> 00:00:24,625
+The first step is just like in the Kalman filter.
+
+8
+00:00:24,625 --> 00:00:28,399
+We start with an initial estimate of where the vehicle might be.
+
+9
+00:00:28,399 --> 00:00:33,129
+This might be a normal distribution with some mean, and some covariance.
+
+10
+00:00:33,130 --> 00:00:36,420
+Then we sample that distribution to get a set of
+
+11
+00:00:36,420 --> 00:00:39,810
+samples or particles that will be densest around that mean,
+
+12
+00:00:39,810 --> 00:00:42,815
+and with fewer samples as we go further from the mean.
+
+13
+00:00:42,814 --> 00:00:46,864
+You can think of each of these particles as a vehicle that we're modeling.
+
+14
+00:00:46,865 --> 00:00:49,090
+The hope is that if we do this right,
+
+15
+00:00:49,090 --> 00:00:54,495
+then our cloud of particles will have a mean that's equal to our vehicles actual mean.
+
+16
+00:00:54,494 --> 00:00:58,259
+Once we have our prior distribution of samples/particles,
+
+17
+00:00:58,259 --> 00:01:00,679
+we can take some control action.
+
+18
+00:01:00,679 --> 00:01:02,009
+Let say U knot,
+
+19
+00:01:02,009 --> 00:01:04,109
+and use it along with some noise to
+
+20
+00:01:04,109 --> 00:01:07,234
+propagate those samples according to the vehicle dynamics,
+
+21
+00:01:07,234 --> 00:01:10,765
+and this leaves us with a new distribution of samples.
+
+22
+00:01:10,765 --> 00:01:15,275
+This is analogous to the prediction step of a Kalman filter.
+
+23
+00:01:15,275 --> 00:01:18,410
+Then when a measurement comes in,
+
+24
+00:01:18,409 --> 00:01:20,420
+we can compute the weight for each sample
+
+25
+00:01:20,420 --> 00:01:22,850
+as the likelihood of the measurement for each sample.
+
+26
+00:01:22,849 --> 00:01:25,879
+Basically, we're comparing the vehicles actual observation of
+
+27
+00:01:25,879 --> 00:01:30,454
+the world to what each of the particles would see if we we're making the observations.
+
+28
+00:01:30,454 --> 00:01:31,765
+When those are similar,
+
+29
+00:01:31,765 --> 00:01:34,700
+the likelihood for that particle is high.
+
+30
+00:01:34,700 --> 00:01:39,375
+Let's say that we sense a landmark nearby in the environment.
+
+31
+00:01:39,375 --> 00:01:42,650
+Well, the samples that have expected measurements of
+
+32
+00:01:42,650 --> 00:01:45,615
+that landmark that are closest to the actual measurement of the landmark
+
+33
+00:01:45,614 --> 00:01:49,739
+are going to have the highest weights and the samples that have expected measurements to
+
+34
+00:01:49,739 --> 00:01:51,239
+the landmark that are furthest from
+
+35
+00:01:51,239 --> 00:01:54,530
+the actual measurement to the landmark are going to have the lowest weights.
+
+36
+00:01:54,530 --> 00:01:59,849
+Then, when we resample from those weighted samples according to those weights,
+
+37
+00:01:59,849 --> 00:02:03,839
+will end up with many more samples around the location of the actual vehicle
+
+38
+00:02:03,840 --> 00:02:05,700
+and very few samples far from
+
+39
+00:02:05,700 --> 00:02:08,740
+location of the vehicle based on that measurement to the landmark.
+
+40
+00:02:08,740 --> 00:02:11,610
+Unlike the Kalman filter where our initial estimate is
+
+41
+00:02:11,610 --> 00:02:14,099
+always a gaussian given by a mean and a covariance,
+
+42
+00:02:14,098 --> 00:02:16,409
+and a posterior is always a mean and a covariance,
+
+43
+00:02:16,409 --> 00:02:19,625
+our initial estimate here can be given by any initial distribution.
+
+44
+00:02:19,625 --> 00:02:22,389
+We can sample from the uniform distribution for example,
+
+45
+00:02:22,389 --> 00:02:26,094
+which allows us to localize the vehicle given prior information that's
+
+46
+00:02:26,094 --> 00:02:30,870
+very vague when it's not at all clear where the vehicle is.
+

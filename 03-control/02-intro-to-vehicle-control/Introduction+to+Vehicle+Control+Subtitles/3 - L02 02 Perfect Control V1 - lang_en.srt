@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:01,334
+In the last lesson,
+
+2
+00:00:01,334 --> 00:00:03,839
+you learned about vehicle dynamics by studying
+
+3
+00:00:03,839 --> 00:00:07,484
+the effect of forces and torques on a bi-rotor.
+
+4
+00:00:07,485 --> 00:00:11,190
+And this gave you some impressive predictive power.
+
+5
+00:00:11,189 --> 00:00:15,929
+Given the state of the vehicle and the rotational rates of the two rotors,
+
+6
+00:00:15,929 --> 00:00:19,035
+you could increment the state forward in time
+
+7
+00:00:19,035 --> 00:00:22,920
+to predict the trajectory of the vehicle in the future.
+
+8
+00:00:22,920 --> 00:00:26,595
+Then, at the end of the lesson, you went the other way.
+
+9
+00:00:26,594 --> 00:00:29,477
+Starting with a desire trajectory,
+
+10
+00:00:29,478 --> 00:00:31,875
+like vertical oscillations for example,
+
+11
+00:00:31,875 --> 00:00:35,744
+you were able to determine what sequence of rotor commands would
+
+12
+00:00:35,744 --> 00:00:40,274
+actually cause the bi-rotor to fly in that trajectory.
+
+13
+00:00:40,274 --> 00:00:42,659
+And if we lived in a perfect world,
+
+14
+00:00:42,659 --> 00:00:45,929
+a model of the vehicle dynamics would be all we need.
+
+15
+00:00:45,929 --> 00:00:48,899
+It will tell us how to design vehicle inputs,
+
+16
+00:00:48,899 --> 00:00:50,445
+the motor turn rates,
+
+17
+00:00:50,445 --> 00:00:52,605
+that result in a desired motion,
+
+18
+00:00:52,604 --> 00:00:55,384
+and the vehicle controls problem would be solved.
+
+19
+00:00:55,384 --> 00:00:56,844
+In the real world,
+
+20
+00:00:56,844 --> 00:01:01,698
+the control problem is all about managing the messiness of the real world,
+
+21
+00:01:01,698 --> 00:01:06,534
+and making sure the vehicle achieves the task despite wind disturbances,
+
+22
+00:01:06,534 --> 00:01:11,244
+neglected aerodynamic effects and model parameter uncertainties.
+
+23
+00:01:11,245 --> 00:01:16,930
+For example, your estimate of the rotational inertia of the vehicle may be slightly off.
+
+24
+00:01:16,930 --> 00:01:18,835
+In the next exercise,
+
+25
+00:01:18,834 --> 00:01:21,219
+you'll explore one of the problems that can
+
+26
+00:01:21,219 --> 00:01:23,769
+arise when our knowledge of the vehicle is off,
+
+27
+00:01:23,769 --> 00:01:25,629
+by even just a little bit.
+

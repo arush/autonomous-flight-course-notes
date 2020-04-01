@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:04,905
+So, you've seen how to do dead-reckoning in some simple examples.
+
+2
+00:00:04,905 --> 00:00:10,074
+But how do we do the full 3D attitude update given gyro measurements?
+
+3
+00:00:10,074 --> 00:00:12,609
+If you remember from the control scores,
+
+4
+00:00:12,609 --> 00:00:16,019
+you can actually calculate the time derivative of
+
+5
+00:00:16,019 --> 00:00:21,009
+the Euler angles if we know the body rates and the current attitude.
+
+6
+00:00:21,010 --> 00:00:26,010
+And since the body rates are what the gyroscopes measure directly,
+
+7
+00:00:26,010 --> 00:00:28,005
+this is a reasonable approach.
+
+8
+00:00:28,004 --> 00:00:30,594
+The key equation looks like this.
+
+9
+00:00:30,594 --> 00:00:35,140
+Here, you can see that the derivative of the Euler angles is given by
+
+10
+00:00:35,140 --> 00:00:41,189
+some matrix that depends on the vehicle's current attitude times the body rates p, q,
+
+11
+00:00:41,189 --> 00:00:45,879
+and r. Then if we want to get the Euler angles at time T,
+
+12
+00:00:45,880 --> 00:00:51,700
+it's just the Euler angles from time T minus one plus the derivative times delta
+
+13
+00:00:51,700 --> 00:00:57,820
+T. This numerical integration technique is called the Euler forward method,
+
+14
+00:00:57,820 --> 00:01:01,945
+and it's the simplest numerical integration that you can do.
+
+15
+00:01:01,945 --> 00:01:07,359
+There are other similar approaches out there as well but this one works very well.
+

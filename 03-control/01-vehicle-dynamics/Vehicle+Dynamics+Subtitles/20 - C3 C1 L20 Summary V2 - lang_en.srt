@@ -1,0 +1,100 @@
+1
+00:00:00,000 --> 00:00:03,940
+One way of thinking about the controller problem is this.
+
+2
+00:00:03,940 --> 00:00:06,459
+Given a desire trajectory,
+
+3
+00:00:06,459 --> 00:00:08,669
+find the continuous sequence of
+
+4
+00:00:08,669 --> 00:00:13,875
+propeller rotation rates that will cause the drone to fly along that trajectory.
+
+5
+00:00:13,875 --> 00:00:18,734
+A trajectory is a sequence of 3D positions and yaw,
+
+6
+00:00:18,734 --> 00:00:23,629
+and associated times at which you want to be at that position and yaw.
+
+7
+00:00:23,629 --> 00:00:28,884
+In this lesson, you've worked on a similar but reversed version of the problem.
+
+8
+00:00:28,885 --> 00:00:35,795
+In fact, the problem you know how to solve now is best described by this.
+
+9
+00:00:35,795 --> 00:00:39,575
+Given a continuous sequence of propeller rotation rates,
+
+10
+00:00:39,575 --> 00:00:43,210
+predict the trajectory that the drone will fly.
+
+11
+00:00:43,210 --> 00:00:48,835
+And you solve this for the 2D case when you implemented the advanced state function.
+
+12
+00:00:48,835 --> 00:00:51,600
+And solving this problem isn't trivial.
+
+13
+00:00:51,600 --> 00:00:54,719
+Starting with nothing but an ability to set
+
+14
+00:00:54,719 --> 00:00:58,454
+the rotational rates of the propellers, you had to do,
+
+15
+00:00:58,454 --> 00:01:04,799
+one, know how those rotational rates lead to thrusts and moments about the X,
+
+16
+00:01:04,799 --> 00:01:07,159
+Y and Z body axis.
+
+17
+00:01:07,159 --> 00:01:14,219
+Two, know how thrusts and moments affect the acceleration and rotation of the vehicle.
+
+18
+00:01:14,219 --> 00:01:17,569
+And three, know how accelerations when
+
+19
+00:01:17,569 --> 00:01:23,484
+integrated twice affect the actual position and orientation of the vehicle.
+
+20
+00:01:23,484 --> 00:01:26,030
+And then, on top of that,
+
+21
+00:01:26,030 --> 00:01:30,112
+you had to implement all of that in code. Good job.
+
+22
+00:01:30,112 --> 00:01:31,609
+In the next lesson,
+
+23
+00:01:31,609 --> 00:01:36,530
+you'll learn how to use something called a PID controller to go the other way,
+
+24
+00:01:36,530 --> 00:01:40,590
+and convert a desire trajectory into a continuous sequence of
+
+25
+00:01:40,590 --> 00:01:45,000
+rotor commands that actually control a drone to track the target trajectory.
+

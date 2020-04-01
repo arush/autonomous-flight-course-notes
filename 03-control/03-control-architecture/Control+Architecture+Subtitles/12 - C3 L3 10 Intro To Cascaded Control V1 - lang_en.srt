@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:02,129
+So we have these two equations,
+
+2
+00:00:02,129 --> 00:00:04,935
+u1 bar equals z double dot,
+
+3
+00:00:04,934 --> 00:00:08,669
+and u2 bar equals y quadruple dot,
+
+4
+00:00:08,669 --> 00:00:10,369
+and written this way,
+
+5
+00:00:10,369 --> 00:00:15,494
+it's easy to see why we can call these equations decoupled.
+
+6
+00:00:15,494 --> 00:00:19,879
+Now, u1 controls z and u2 controls y,
+
+7
+00:00:19,879 --> 00:00:25,070
+but this control is through the fourth term derivative rather than a second.
+
+8
+00:00:25,070 --> 00:00:26,324
+In the last lesson,
+
+9
+00:00:26,324 --> 00:00:31,184
+you learned how to design a PID controller for double integrator system,
+
+10
+00:00:31,184 --> 00:00:33,129
+like the first equation,
+
+11
+00:00:33,130 --> 00:00:40,070
+and we can draw a diagram to show how data flows in that 1D case.
+
+12
+00:00:40,070 --> 00:00:46,530
+Here, we pass in a target position velocity and acceleration from our trajectory planner,
+
+13
+00:00:46,530 --> 00:00:50,009
+as well as the measured position and velocity of the quadrotor.
+
+14
+00:00:50,009 --> 00:00:57,750
+And we use a PID controller to output a single thrust command you want to the vehicle.
+
+15
+00:00:57,750 --> 00:00:59,219
+Now, how do we get u2?
+
+16
+00:00:59,219 --> 00:01:04,209
+Remember we are controlling y indirectly.
+
+17
+00:01:04,209 --> 00:01:05,869
+u2 can be used to control phi,
+
+18
+00:01:05,870 --> 00:01:09,400
+and phi can be used to control y.
+
+19
+00:01:09,400 --> 00:01:15,480
+And each of these equations are double integrator equations which we know how to control.
+
+20
+00:01:15,480 --> 00:01:22,825
+And this indirect control can be accomplished by simply using a second PID controller.
+
+21
+00:01:22,825 --> 00:01:26,620
+This lower flow of data from y to phi to u,
+
+22
+00:01:26,620 --> 00:01:29,125
+is called a cascaded controller.
+
+23
+00:01:29,125 --> 00:01:31,879
+Using a cascaded controller like this,
+
+24
+00:01:31,879 --> 00:01:37,534
+it's good when there are multiple loops operating at different time scales.
+
+25
+00:01:37,534 --> 00:01:41,534
+So in this case, our y controller is the slow controller.
+
+26
+00:01:41,534 --> 00:01:45,584
+It might be running with a 10 to 100 hertz update rate,
+
+27
+00:01:45,584 --> 00:01:47,564
+and every time it gets called,
+
+28
+00:01:47,564 --> 00:01:52,724
+it provides a command at phi to the inner faster loop controller,
+
+29
+00:01:52,724 --> 00:01:57,479
+which is likely running with a 100 to 1,000 hertz update rate.
+
+30
+00:01:57,480 --> 00:02:00,900
+Practical reasons for running the outer loop at
+
+31
+00:02:00,900 --> 00:02:03,760
+a lower rate and the inner loop at a higher rate,
+
+32
+00:02:03,760 --> 00:02:07,170
+are the sensors that provide the information to close the loop.
+
+33
+00:02:07,170 --> 00:02:11,465
+For position, we use GPS outdoors or vision indoors,
+
+34
+00:02:11,465 --> 00:02:16,034
+which both usually have an update rate of around 1 to 10 hertz.
+
+35
+00:02:16,034 --> 00:02:18,849
+For angle and angle rate information,
+
+36
+00:02:18,849 --> 00:02:21,028
+we're using inertial measurement unit,
+
+37
+00:02:21,028 --> 00:02:24,615
+which has around a 100 times faster up update rate usually.
+
+38
+00:02:24,615 --> 00:02:27,120
+In the next few exercises,
+
+39
+00:02:27,120 --> 00:02:30,085
+you will implement the cascaded controller by first
+
+40
+00:02:30,085 --> 00:02:33,548
+implementing and tuning the inner faster loop.
+
+41
+00:02:33,548 --> 00:02:38,670
+Once this loop can be relied on to realize the phi commanded by the outer loop,
+
+42
+00:02:38,669 --> 00:02:41,099
+you can then implement the outer loop,
+
+43
+00:02:41,099 --> 00:02:44,069
+which takes all the y variables as input,
+
+44
+00:02:44,069 --> 00:02:47,000
+and produces a command at phi as an output.
+

@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:04,544
+If the weight vector of a monorotor is 100 newtons down,
+
+2
+00:00:04,544 --> 00:00:06,314
+then if it's hovering,
+
+3
+00:00:06,315 --> 00:00:09,390
+the thrust must be 100 newtons up.
+
+4
+00:00:09,390 --> 00:00:14,429
+To calculate the mass of this mono rotor we have to remember that weight is
+
+5
+00:00:14,429 --> 00:00:20,054
+a product of mass and the acceleration due to gravity, which is 9.81.
+
+6
+00:00:20,054 --> 00:00:26,681
+So 100 divided by 9.81 would give a mass of about 10.2 kilograms,
+
+7
+00:00:26,681 --> 00:00:29,429
+which means this is a pretty big quadrotor.
+
+8
+00:00:29,429 --> 00:00:31,949
+The last question was a little tricky,
+
+9
+00:00:31,949 --> 00:00:35,144
+and was really meant to get you thinking.
+
+10
+00:00:35,145 --> 00:00:40,865
+But actually, it's impossible for a monorotor to sit truly motionless in the sky.
+
+11
+00:00:40,865 --> 00:00:46,565
+And that's because a monorotor can never be in what's called rotational equilibrium.
+
+12
+00:00:46,564 --> 00:00:52,920
+At this point, I'd like to show you a video of what an actual monorotor can look like.
+
+13
+00:00:52,920 --> 00:00:56,679
+As you watch, notice the rotation of the monorotor's body.
+

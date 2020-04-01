@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:01,860
+Earlier in this lesson,
+
+2
+00:00:01,860 --> 00:00:04,815
+you implemented a P controller which only knew
+
+3
+00:00:04,815 --> 00:00:08,880
+about the actual error of the vehicle's position.
+
+4
+00:00:08,880 --> 00:00:12,810
+Just now, we implemented a PD controller
+
+5
+00:00:12,810 --> 00:00:16,410
+which also knew about the error in the vehicle's velocity,
+
+6
+00:00:16,410 --> 00:00:19,305
+which is the first derivative of position.
+
+7
+00:00:19,305 --> 00:00:22,410
+And there are many situations where PD control
+
+8
+00:00:22,410 --> 00:00:25,670
+is actually enough to track a reference trajectory.
+
+9
+00:00:25,670 --> 00:00:28,765
+In the exercises you've seen in this lesson,
+
+10
+00:00:28,765 --> 00:00:33,250
+the targets has just been some constant set of value.
+
+11
+00:00:33,250 --> 00:00:37,075
+But what about more interesting and realistic trajectories?
+
+12
+00:00:37,075 --> 00:00:40,643
+When the reference trajectory changes very rapidly,
+
+13
+00:00:40,643 --> 00:00:43,690
+we can make our controller's job easier by telling it
+
+14
+00:00:43,690 --> 00:00:48,250
+the desired acceleration or second derivative of position as well.
+
+15
+00:00:48,250 --> 00:00:53,755
+In this case, the control that we sent to the vehicle looks like this.
+
+16
+00:00:53,755 --> 00:00:59,470
+And this acceleration term is usually called feed-forward term.
+
+17
+00:00:59,470 --> 00:01:00,848
+In the ideal world,
+
+18
+00:01:00,848 --> 00:01:03,420
+z dot dot would move the vehicle along
+
+19
+00:01:03,420 --> 00:01:07,905
+the desired trajectory and e and e dot would be zero.
+
+20
+00:01:07,905 --> 00:01:10,665
+We would need no control action.
+
+21
+00:01:10,665 --> 00:01:15,540
+So we can think of the commanded control as being centered around
+
+22
+00:01:15,540 --> 00:01:18,705
+the desired acceleration but pulled
+
+23
+00:01:18,705 --> 00:01:23,310
+either up or down by the errors in position and velocity.
+

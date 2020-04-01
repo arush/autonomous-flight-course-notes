@@ -1,0 +1,164 @@
+1
+00:00:00,000 --> 00:00:03,419
+We have these equations of motion for force-free motion.
+
+2
+00:00:03,419 --> 00:00:07,589
+Now, we can incorporate the forces and the pitching moment from the previous lesson.
+
+3
+00:00:07,589 --> 00:00:12,594
+Since forces and moments influence accelerations and rotational accelerations,
+
+4
+00:00:12,595 --> 00:00:15,019
+these first three equations will not be changed.
+
+5
+00:00:15,019 --> 00:00:16,644
+Of these last three equations,
+
+6
+00:00:16,644 --> 00:00:18,239
+q-dot is the easiest.
+
+7
+00:00:18,239 --> 00:00:20,699
+It will just be equal to the pitching moment divided by
+
+8
+00:00:20,699 --> 00:00:23,434
+the moment of inertia about the y-axis.
+
+9
+00:00:23,434 --> 00:00:26,829
+We're going to handle u-dot and w-dot similarly.
+
+10
+00:00:26,829 --> 00:00:31,654
+Remember that these give the x and z acceleration of the vehicle in the body frame.
+
+11
+00:00:31,655 --> 00:00:34,655
+What we're going to do is write the accelerations like this.
+
+12
+00:00:34,655 --> 00:00:38,359
+We've just added the contributions from Fx and Fz,
+
+13
+00:00:38,359 --> 00:00:41,939
+which represent the total force on the vehicle in its body frame.
+
+14
+00:00:41,939 --> 00:00:44,119
+To figure out what these forces are,
+
+15
+00:00:44,119 --> 00:00:46,109
+we can imagine a vehicle with some pitch angle,
+
+16
+00:00:46,109 --> 00:00:48,484
+Theta, and angle of attack, Alpha.
+
+17
+00:00:48,484 --> 00:00:50,539
+Thrust is aligned to the body frame,
+
+18
+00:00:50,539 --> 00:00:52,679
+weight points down in the inertial frame,
+
+19
+00:00:52,679 --> 00:00:55,859
+which means it's rotated from the body frame by Theta,
+
+20
+00:00:55,859 --> 00:01:00,215
+and the aerodynamic forces of lift and drag are aligned to the stability frame.
+
+21
+00:01:00,215 --> 00:01:02,375
+So, they're rotated by Alpha.
+
+22
+00:01:02,375 --> 00:01:04,920
+If we look at the x component of these forces,
+
+23
+00:01:04,920 --> 00:01:07,555
+we find that Fx looks like this.
+
+24
+00:01:07,555 --> 00:01:10,200
+If we look at the z component of these forces,
+
+25
+00:01:10,200 --> 00:01:12,960
+we find that Fz looks like this.
+
+26
+00:01:12,959 --> 00:01:15,979
+The lift and drag forces, L and D,
+
+27
+00:01:15,980 --> 00:01:17,620
+and the pitching moment, M,
+
+28
+00:01:17,620 --> 00:01:20,805
+are all exactly as we define them in the last lesson.
+
+29
+00:01:20,805 --> 00:01:26,355
+Remember, we have two longitudinal control terms for the elevator deflection and thrust.
+
+30
+00:01:26,355 --> 00:01:28,820
+You don't see them in these equations because their effect
+
+31
+00:01:28,819 --> 00:01:31,614
+is buried in the specific equations for L,
+
+32
+00:01:31,614 --> 00:01:36,449
+D, and M. Remember that lift goes away when we exceed the stall angle of attack.
+
+33
+00:01:36,450 --> 00:01:40,290
+These equations all assume we have laminar flow over the wing.
+
+34
+00:01:40,290 --> 00:01:41,920
+In the next exercise,
+
+35
+00:01:41,920 --> 00:01:44,180
+we'll provide you with a longitudinal model
+
+36
+00:01:44,180 --> 00:01:46,835
+for a vehicle that we've implemented in Python.
+
+37
+00:01:46,834 --> 00:01:49,549
+You'll play around with this model by forward simulating
+
+38
+00:01:49,549 --> 00:01:52,149
+the state of the vehicle when it starts near trim state.
+
+39
+00:01:52,150 --> 00:01:54,965
+The behavior you see might surprise you.
+
+40
+00:01:54,965 --> 00:01:57,469
+Take some time to make sure you're comfortable with
+
+41
+00:01:57,469 --> 00:02:00,679
+these equations before moving on to the next exercise.
+

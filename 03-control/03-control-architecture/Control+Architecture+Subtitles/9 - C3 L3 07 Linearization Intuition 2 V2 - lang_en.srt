@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:03,005
+When hovering, role must be zero.
+
+2
+00:00:03,005 --> 00:00:07,134
+If it variant then y double dot would be non-zero.
+
+3
+00:00:07,134 --> 00:00:09,969
+y and z can be anything,
+
+4
+00:00:09,970 --> 00:00:12,415
+and this makes sense intuitively.
+
+5
+00:00:12,414 --> 00:00:16,509
+A quadrotor can hover here or it can hover over there.
+
+6
+00:00:16,510 --> 00:00:20,785
+The values of its y and z coordinates don't matter.
+
+7
+00:00:20,785 --> 00:00:26,125
+It's thrust, u1 must be empty to support the weight.
+
+8
+00:00:26,125 --> 00:00:31,149
+And u2 must two zero to ensure zero rotational acceleration.
+
+9
+00:00:31,149 --> 00:00:37,030
+So we are linearizing around the state in the system where these statements are true.
+
+10
+00:00:37,030 --> 00:00:39,880
+And I want to point out that while
+
+11
+00:00:39,880 --> 00:00:43,540
+these exact values must hold for the quadrotor to hover.
+
+12
+00:00:43,539 --> 00:00:46,479
+We want to linearize around hover.
+
+13
+00:00:46,479 --> 00:00:49,974
+When we linearize around an equilibrium point,
+
+14
+00:00:49,975 --> 00:00:56,230
+we aren't just solving the control problem for that one equilibrium configuration.
+
+15
+00:00:56,229 --> 00:00:57,759
+In this case hover,
+
+16
+00:00:57,759 --> 00:01:03,549
+but we find an approximation for other configurations that are nearby in the state space.
+
+17
+00:01:03,549 --> 00:01:07,030
+So, the next thing I want to do in this derivation is
+
+18
+00:01:07,030 --> 00:01:10,810
+figure out the consequences of phi being close to zero.
+
+19
+00:01:10,810 --> 00:01:18,010
+As you can see phi shows up in the sine in the y term and the cosine in the z term.
+
+20
+00:01:18,010 --> 00:01:21,865
+And both of these contribute to the non-linearity of the system.
+
+21
+00:01:21,864 --> 00:01:24,458
+So it will be good to simplify this part.
+
+22
+00:01:24,459 --> 00:01:30,790
+So let's look at what happens to the one term sine of phi when phi is close to zero.
+
+23
+00:01:30,790 --> 00:01:33,640
+And to do this let's zoom in.
+
+24
+00:01:33,640 --> 00:01:39,864
+When we measure phi in radians and then zoom in very close to phi is equal to zero.
+
+25
+00:01:39,864 --> 00:01:46,899
+The graph of y equals to sine of phi looks almost identical to y is equal to phi.
+
+26
+00:01:46,900 --> 00:01:52,990
+Linearization finds the line that is the tangent to the operating point.
+
+27
+00:01:52,989 --> 00:01:59,769
+And here the line tangent to sine of phi at phi equal to zero is y equals phi.
+
+28
+00:01:59,769 --> 00:02:02,709
+So, if we are trying to approximate
+
+29
+00:02:02,709 --> 00:02:06,369
+sine of phi in the neighborhood of phi is equal to zero.
+
+30
+00:02:06,370 --> 00:02:10,344
+It seems like we should just replace sine of phi with phi.
+
+31
+00:02:10,344 --> 00:02:13,884
+Likewise, if we zoom in on the cosine function.
+
+32
+00:02:13,884 --> 00:02:16,090
+We can see that cosine of phi and
+
+33
+00:02:16,090 --> 00:02:19,944
+its tangent line are about equal to one when phi is small.
+
+34
+00:02:19,944 --> 00:02:22,870
+So we can replace cosine of phi with
+
+35
+00:02:22,870 --> 00:02:26,659
+one and that will change our z double dot equation.
+
+36
+00:02:26,659 --> 00:02:28,444
+This is a big step.
+
+37
+00:02:28,444 --> 00:02:31,379
+We've gotten rid of our sines and cosines.
+

@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:03,480
+There are very useful approximate relationships that one
+
+2
+00:00:03,480 --> 00:00:06,547
+can derive for this reparameterization.
+
+3
+00:00:06,546 --> 00:00:09,330
+For PD control double integrator system,
+
+4
+00:00:09,330 --> 00:00:14,314
+the response to a target altitude change looks something like this.
+
+5
+00:00:14,314 --> 00:00:18,585
+And there are some properties of this response that we might want to tune.
+
+6
+00:00:18,585 --> 00:00:20,775
+First, there's overshoot.
+
+7
+00:00:20,774 --> 00:00:25,859
+That's the amount by which the actual trajectory overshoots the target.
+
+8
+00:00:25,859 --> 00:00:28,350
+Generally, we want that to be small.
+
+9
+00:00:28,350 --> 00:00:31,905
+Next, there's the rise time.
+
+10
+00:00:31,905 --> 00:00:36,554
+That's the amount of time it takes to get to the target altitude.
+
+11
+00:00:36,554 --> 00:00:39,750
+Again, we'd like this to be small but often,
+
+12
+00:00:39,750 --> 00:00:43,664
+there are some system limitations such as actuation constraints,
+
+13
+00:00:43,664 --> 00:00:47,104
+that provide a lower bound for the rise time.
+
+14
+00:00:47,104 --> 00:00:50,239
+We can also think about the settling time.
+
+15
+00:00:50,240 --> 00:00:56,109
+We say that a system has settled when the oscillations are sufficiently small,
+
+16
+00:00:56,109 --> 00:00:59,259
+within plus minus two percent of the target value.
+
+17
+00:00:59,259 --> 00:01:05,680
+So, the settling time is just the amount of time the system takes to reach that point.
+
+18
+00:01:05,680 --> 00:01:09,818
+Once again, we want this to be small.
+
+19
+00:01:09,817 --> 00:01:13,164
+And since second order systems are so well understood,
+
+20
+00:01:13,165 --> 00:01:15,970
+we can actually come up with equations that will tell
+
+21
+00:01:15,969 --> 00:01:19,287
+us exactly what these quantities will be.
+
+22
+00:01:19,287 --> 00:01:25,959
+And what's really helpful is that each of these quantities has an associated design rule.
+
+23
+00:01:25,959 --> 00:01:30,399
+So, for example, if you want to decrease the rise time,
+
+24
+00:01:30,400 --> 00:01:34,276
+you have to increase the natural frequency of the system.
+
+25
+00:01:34,275 --> 00:01:35,349
+Most of the time,
+
+26
+00:01:35,349 --> 00:01:40,429
+you can get good performance by following a few simple rules of thumb.
+
+27
+00:01:40,430 --> 00:01:45,730
+Rule number 1, choose a damping ratio between 0.7 and 1.
+
+28
+00:01:45,730 --> 00:01:48,256
+If the damping ratio is 1,
+
+29
+00:01:48,256 --> 00:01:50,694
+the system will have no overshoot,
+
+30
+00:01:50,694 --> 00:01:53,776
+but the rise time will be a little longer.
+
+31
+00:01:53,777 --> 00:01:56,230
+When the damping ratio is 0.7,
+
+32
+00:01:56,230 --> 00:02:00,545
+the rise time quickens but you will see some overshoot.
+
+33
+00:02:00,545 --> 00:02:04,569
+Rule number 2, pick a large natural frequency.
+
+34
+00:02:04,569 --> 00:02:09,340
+Choose the natural frequency large to have a small rise and
+
+35
+00:02:09,340 --> 00:02:14,545
+settling time but make sure your control stays within the actuation limits.
+
+36
+00:02:14,544 --> 00:02:20,530
+In fact, often, control engineers think in time constants and define T is equal to
+
+37
+00:02:20,530 --> 00:02:26,875
+1 over the natural frequency omega n. And when your controller is parametrized like this,
+
+38
+00:02:26,875 --> 00:02:31,419
+the rise time is just 1.57 times T. So,
+
+39
+00:02:31,419 --> 00:02:35,530
+you can think of the desired rise time and that gives you the controller
+
+40
+00:02:35,530 --> 00:02:40,659
+parameter omega n. This results in much less time spent on tuning.
+
+41
+00:02:40,659 --> 00:02:44,935
+If the natural frequency is too large,
+
+42
+00:02:44,935 --> 00:02:50,937
+it may also amplify unmodeled dynamic effects and cause problems this way.
+
+43
+00:02:50,937 --> 00:02:53,799
+So, choose the damping ratio and then play
+
+44
+00:02:53,800 --> 00:02:57,110
+around with a frequency till you get some good results.
+

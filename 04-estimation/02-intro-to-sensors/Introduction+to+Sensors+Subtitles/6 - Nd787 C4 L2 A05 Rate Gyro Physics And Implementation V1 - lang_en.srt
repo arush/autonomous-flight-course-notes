@@ -1,0 +1,276 @@
+1
+00:00:00,000 --> 00:00:03,810
+A gyroscope measures the angular rotation about
+
+2
+00:00:03,810 --> 00:00:08,445
+a particular axis by measuring something called the Coriolis Force.
+
+3
+00:00:08,445 --> 00:00:12,089
+The Coriolis Force is something that shows up when
+
+4
+00:00:12,089 --> 00:00:15,974
+you try to do physics in a rotating frame of reference.
+
+5
+00:00:15,974 --> 00:00:19,669
+We are not going to get into the math behind this force,
+
+6
+00:00:19,670 --> 00:00:22,845
+but we can try to understand it intuitively.
+
+7
+00:00:22,844 --> 00:00:25,739
+Imagine you are looking from above at
+
+8
+00:00:25,739 --> 00:00:30,494
+a big spinning disk that's rotating with some angular velocity Omega.
+
+9
+00:00:30,495 --> 00:00:34,130
+You can think of it like a merry-go-round.
+
+10
+00:00:34,130 --> 00:00:38,585
+Now, what would happen if someone's standing in the middle of this disc
+
+11
+00:00:38,585 --> 00:00:42,825
+tried to throw a ball at the triangular target shown here?
+
+12
+00:00:42,825 --> 00:00:46,780
+Well, the ball doesn't care that the disk is rotating.
+
+13
+00:00:46,780 --> 00:00:48,649
+So of course it would move in
+
+14
+00:00:48,649 --> 00:00:52,320
+a straight line and by the time it got to the edge of the disk,
+
+15
+00:00:52,320 --> 00:00:57,210
+the target would have rotated far away from where it originally was.
+
+16
+00:00:57,210 --> 00:01:01,024
+This picture of the motion is from the world frame,
+
+17
+00:01:01,024 --> 00:01:02,809
+which is an inertial frame.
+
+18
+00:01:02,810 --> 00:01:06,230
+In this frame, there is no Coriolis Force.
+
+19
+00:01:06,230 --> 00:01:10,314
+But what happens when we transition into a rotating frame?
+
+20
+00:01:10,314 --> 00:01:12,829
+Imagine that you were standing on
+
+21
+00:01:12,829 --> 00:01:16,864
+the triangular target and someone threw the ball towards you.
+
+22
+00:01:16,864 --> 00:01:18,545
+From your point of view,
+
+23
+00:01:18,545 --> 00:01:21,085
+the ball wouldn't move in a straight line.
+
+24
+00:01:21,084 --> 00:01:25,625
+Instead, you'd see the ball take the strange curved paths.
+
+25
+00:01:25,625 --> 00:01:28,370
+In this rotating frame of reference,
+
+26
+00:01:28,370 --> 00:01:33,005
+you would think the ball were being pushed sideways by some force,
+
+27
+00:01:33,004 --> 00:01:35,869
+and that force is the Coriolis Force.
+
+28
+00:01:35,870 --> 00:01:38,240
+So, we can call it FC.
+
+29
+00:01:38,239 --> 00:01:42,769
+In fact, you could even measure the effect of the force.
+
+30
+00:01:42,769 --> 00:01:45,950
+Luckily for us, the size of this force is
+
+31
+00:01:45,950 --> 00:01:50,365
+a function of the rotational speed of the rotating frame.
+
+32
+00:01:50,364 --> 00:01:52,819
+So, if we are careful about the math,
+
+33
+00:01:52,819 --> 00:01:57,359
+we can use a measurement of FC to infer the rotation rate,
+
+34
+00:01:57,359 --> 00:02:00,319
+Omega of the rotating reference frame.
+
+35
+00:02:00,319 --> 00:02:04,779
+The Coriolis Force is a force that we can actually measure,
+
+36
+00:02:04,780 --> 00:02:07,549
+and it shows up only when the thing doing
+
+37
+00:02:07,549 --> 00:02:10,939
+the measurement is in a rotating reference frame.
+
+38
+00:02:10,939 --> 00:02:17,259
+This is the basic physical justification for how a gyroscope could possibly work,
+
+39
+00:02:17,259 --> 00:02:22,284
+but it doesn't tell us how we actually measure the Coriolis Force.
+
+40
+00:02:22,284 --> 00:02:24,039
+It turns out there are
+
+41
+00:02:24,039 --> 00:02:28,824
+several gyroscope implementations that have been used on flying vehicles.
+
+42
+00:02:28,824 --> 00:02:33,969
+Some of these rely on mechanically spinning some large view of ball
+
+43
+00:02:33,969 --> 00:02:39,634
+and then measuring the changes to its motions as the vehicle itself rotates.
+
+44
+00:02:39,634 --> 00:02:44,409
+But these large mechanical systems unpractical for smaller vehicles.
+
+45
+00:02:44,409 --> 00:02:49,905
+The gyros you're likely work with are called Vibrating Structure Gyroscopes.
+
+46
+00:02:49,905 --> 00:02:53,835
+These gyroscopes are small MEMS sensors,
+
+47
+00:02:53,835 --> 00:02:56,995
+and they are by far the most common gyro.
+
+48
+00:02:56,995 --> 00:03:01,795
+MEMS stands for Microelectromechanical Systems.
+
+49
+00:03:01,794 --> 00:03:07,389
+They work by having two tiny masses called Proof Masses,
+
+50
+00:03:07,389 --> 00:03:10,574
+which vibrate in opposite directions.
+
+51
+00:03:10,574 --> 00:03:16,204
+When there is no rotation these masses just move along a horizontal line.
+
+52
+00:03:16,205 --> 00:03:20,050
+Now, we can imagine a rotation Omega,
+
+53
+00:03:20,050 --> 00:03:24,594
+and you should think of this rotation axis as going into the screen.
+
+54
+00:03:24,594 --> 00:03:26,895
+And if we pause the motion here,
+
+55
+00:03:26,895 --> 00:03:31,935
+we can see that the mass on the right has some velocity to the right.
+
+56
+00:03:31,935 --> 00:03:39,395
+This rotation vector points into the screen so that those two vectors are orthogonal.
+
+57
+00:03:39,395 --> 00:03:44,125
+This is going to lead to a Coriolis Force which points upwards.
+
+58
+00:03:44,125 --> 00:03:51,395
+Note that this force is orthogonal to both the velocity and the rotation axis.
+
+59
+00:03:51,395 --> 00:03:53,120
+For the mass on the left,
+
+60
+00:03:53,120 --> 00:03:56,420
+the force is going to point down at this moment.
+
+61
+00:03:56,419 --> 00:03:58,674
+If you follow this logic,
+
+62
+00:03:58,675 --> 00:04:00,314
+as the mass vibrates,
+
+63
+00:04:00,314 --> 00:04:06,254
+the resulting motion of the proof masses is no longer going to be exactly horizontal,
+
+64
+00:04:06,254 --> 00:04:10,109
+but will instead have a vertical component as well.
+
+65
+00:04:10,110 --> 00:04:15,200
+By measuring this deflection in the vertical direction for both proof masses,
+
+66
+00:04:15,199 --> 00:04:19,800
+you can actually infer the rotational rate Omega of the sensor.
+
+67
+00:04:19,800 --> 00:04:24,285
+Now that we know how gyroscopes measure rotational rates,
+
+68
+00:04:24,285 --> 00:04:28,110
+we need to know how accurate these measurements are.
+
+69
+00:04:28,110 --> 00:04:34,560
+To know that, it will help to develop what's called a measurement model for gyroscope.
+

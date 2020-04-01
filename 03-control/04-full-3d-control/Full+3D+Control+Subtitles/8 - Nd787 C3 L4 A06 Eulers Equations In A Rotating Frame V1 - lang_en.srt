@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:03,234
+In lesson one, you saw the following equation.
+
+2
+00:00:03,234 --> 00:00:08,584
+And this equation says that a moment will cause a rotational acceleration.
+
+3
+00:00:08,585 --> 00:00:14,509
+And in this equation, all of these variables are just plain scalar numbers.
+
+4
+00:00:14,509 --> 00:00:17,894
+In three dimensions, this equation changes.
+
+5
+00:00:17,894 --> 00:00:24,550
+Note that this omega here is a length three vector with the three rotation rates.
+
+6
+00:00:24,550 --> 00:00:29,560
+And M is a length three vector giving moments about the x,
+
+7
+00:00:29,559 --> 00:00:30,809
+y, and z axis.
+
+8
+00:00:30,809 --> 00:00:36,579
+And the I term is a three by three inertia matrix summarizing all moments of inertia.
+
+9
+00:00:36,579 --> 00:00:39,539
+This is a nice equation but unfortunately,
+
+10
+00:00:39,539 --> 00:00:43,030
+it is only valid if we work in the world frame.
+
+11
+00:00:43,030 --> 00:00:45,520
+And it turns out that there are lots of
+
+12
+00:00:45,520 --> 00:00:49,700
+mathematical reasons why we don't want to work in the world frame for the step.
+
+13
+00:00:49,700 --> 00:00:54,185
+Namely, we want to calculate accelerations in the body frame.
+
+14
+00:00:54,185 --> 00:00:58,245
+Remember, all of our moments are relative to the body frame,
+
+15
+00:00:58,244 --> 00:01:02,419
+and our gyros measure rotation rates about the body frames axis.
+
+16
+00:01:02,420 --> 00:01:08,579
+And this moment of inertia is only a nice constant in diagonal matrix in the body frame.
+
+17
+00:01:08,579 --> 00:01:12,149
+So, to get a version of this equation where torques and
+
+18
+00:01:12,150 --> 00:01:15,600
+moments of inertia are expressed in the body frame,
+
+19
+00:01:15,599 --> 00:01:18,879
+we need to add some mathematical complexity.
+
+20
+00:01:18,879 --> 00:01:21,949
+And now, when we work in the body frame,
+
+21
+00:01:21,950 --> 00:01:26,945
+we have this additional term which you can read as omega cross I omega.
+
+22
+00:01:26,944 --> 00:01:32,734
+And this cross operation is a way of multiplying vectors called the cross product.
+
+23
+00:01:32,734 --> 00:01:36,280
+The details of the cross product, I explained below.
+
+24
+00:01:36,280 --> 00:01:42,379
+But honestly, any matrix math library has a cross product function you can simply call.
+
+25
+00:01:42,379 --> 00:01:44,359
+Now, at this point,
+
+26
+00:01:44,359 --> 00:01:47,739
+you might be feeling a little overwhelmed by math.
+
+27
+00:01:47,739 --> 00:01:53,544
+And understand that everything we are talking about right now really is math and physics.
+
+28
+00:01:53,545 --> 00:01:56,745
+And it's incredibly useful math and physics
+
+29
+00:01:56,745 --> 00:02:00,579
+because it tells us how our quad moves in three-dimensions.
+
+30
+00:02:00,579 --> 00:02:04,329
+It tells us what a quad can and cannot do.
+
+31
+00:02:04,329 --> 00:02:09,319
+But the details of this math and physics are beyond the scope of this course.
+
+32
+00:02:09,319 --> 00:02:13,560
+So for now, understand that you don't need to memorize these equations.
+
+33
+00:02:13,560 --> 00:02:17,409
+The important thing is that you can implement them, when you need to.
+
+34
+00:02:17,409 --> 00:02:20,740
+And now you will do exactly that.
+

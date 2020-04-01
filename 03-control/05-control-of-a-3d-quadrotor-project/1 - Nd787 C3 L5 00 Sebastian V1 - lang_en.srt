@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:03,259
+So, now we are ready to write the code that you
+
+2
+00:00:03,259 --> 00:00:06,879
+would actually put in a drone to fly a real physical drone.
+
+3
+00:00:06,879 --> 00:00:08,789
+We're going to start a bit with
+
+4
+00:00:08,789 --> 00:00:11,375
+the proto-typing setup where we're going to do code in Python,
+
+5
+00:00:11,375 --> 00:00:14,640
+and we have a simulation of a join that you can then control.
+
+6
+00:00:14,640 --> 00:00:18,359
+You should start not just writing the code but also kind
+
+7
+00:00:18,359 --> 00:00:22,515
+of tuning the various gains of the controller because it's actually do matter a lot.
+
+8
+00:00:22,515 --> 00:00:27,565
+Then, we're going to import this code from Python to C plus plus
+
+9
+00:00:27,565 --> 00:00:33,000
+which is the preferred systems language because it's much more predictable in execution.
+
+10
+00:00:33,000 --> 00:00:35,814
+In C plus plus, you can do a few exercises.
+
+11
+00:00:35,814 --> 00:00:37,609
+We're going to tighten the dynamics of
+
+12
+00:00:37,609 --> 00:00:39,799
+your drone a little bit to make it even harder to control.
+
+13
+00:00:39,799 --> 00:00:44,000
+So, you get a flavor for how hard it actually is to make a drone fly.
+

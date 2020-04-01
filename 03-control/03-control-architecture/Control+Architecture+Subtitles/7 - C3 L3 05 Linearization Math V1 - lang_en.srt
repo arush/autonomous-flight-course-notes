@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,365
+The fundamental idea of linearization is to approximate
+
+2
+00:00:04,365 --> 00:00:08,820
+a non-linear equation locally by a linear equation.
+
+3
+00:00:08,820 --> 00:00:10,800
+To explain this idea,
+
+4
+00:00:10,800 --> 00:00:15,929
+let's leave the world of quadrotors and just talk about the mass for a second.
+
+5
+00:00:15,929 --> 00:00:19,140
+Take this quadratic function for example,
+
+6
+00:00:19,140 --> 00:00:21,929
+f of x = x squared.
+
+7
+00:00:21,929 --> 00:00:27,664
+And let's say we want to linearize this function around x = 1.
+
+8
+00:00:27,664 --> 00:00:31,714
+We call x = 1 the operating point.
+
+9
+00:00:31,714 --> 00:00:37,712
+We want to find a straight line that best approximates the graph at this point,
+
+10
+00:00:37,712 --> 00:00:39,680
+which means it has to pass through
+
+11
+00:00:39,679 --> 00:00:44,119
+this point and it has to have the same slope at this point.
+
+12
+00:00:44,119 --> 00:00:47,239
+We can find the slope of the parabola at
+
+13
+00:00:47,240 --> 00:00:50,539
+this point using calculus and pretty quickly find
+
+14
+00:00:50,539 --> 00:00:57,469
+that this is the tangent line to the graph of the parabola at the operating point.
+
+15
+00:00:57,469 --> 00:01:02,219
+Now, if you zoom in close to the operating point,
+
+16
+00:01:02,219 --> 00:01:04,569
+you can see that in this region,
+
+17
+00:01:04,569 --> 00:01:08,979
+the blue and the black line are really close to each other.
+
+18
+00:01:08,980 --> 00:01:16,855
+So the blue line is a really good linear approximation of y = x squared in this region.
+
+19
+00:01:16,855 --> 00:01:20,484
+Now, what's the equation of this blue line?
+
+20
+00:01:20,484 --> 00:01:24,385
+What linear equation gives a good approximation to
+
+21
+00:01:24,385 --> 00:01:28,719
+f of x equals x squared when x is close to 1?
+
+22
+00:01:28,719 --> 00:01:33,700
+Well, the equation for this line winds up being 2 x - 1.
+
+23
+00:01:33,700 --> 00:01:37,359
+But there's a more informative way we can write that.
+
+24
+00:01:37,359 --> 00:01:41,980
+Now, I wrote this equation in a very particular way.
+
+25
+00:01:41,980 --> 00:01:46,870
+Let me explain. First, look at this x - 1.
+
+26
+00:01:46,870 --> 00:01:50,590
+Another way to think of this term is as delta x.
+
+27
+00:01:50,590 --> 00:01:54,250
+It tells you how far x is from the operating point,
+
+28
+00:01:54,250 --> 00:01:56,215
+which in this case was 1.
+
+29
+00:01:56,215 --> 00:01:59,260
+Then there's this one over here.
+
+30
+00:01:59,260 --> 00:02:06,535
+That's just the value of the original function at the operating point of x = 1.
+
+31
+00:02:06,534 --> 00:02:11,634
+The original function was x squared and 1 squared is just 1.
+
+32
+00:02:11,634 --> 00:02:13,769
+Then there's this 2.
+
+33
+00:02:13,770 --> 00:02:19,730
+This 2 winds up being the slope of the original function at the operating point.
+
+34
+00:02:19,729 --> 00:02:24,784
+And you can get that by taking the derivative of the original function.
+
+35
+00:02:24,784 --> 00:02:28,384
+And so we are left with this very general result.
+
+36
+00:02:28,384 --> 00:02:34,429
+This says that the equation of the best linear approximation of a function around
+
+37
+00:02:34,430 --> 00:02:37,909
+an operating point is just the value of
+
+38
+00:02:37,909 --> 00:02:43,515
+that original function plus this other term which is just the slope,
+
+39
+00:02:43,515 --> 00:02:48,979
+f prime, times the deviation from the operating point delta x.
+

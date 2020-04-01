@@ -1,0 +1,432 @@
+1
+00:00:00,000 --> 00:00:01,955
+Well hey, welcome today Aaron.
+
+2
+00:00:01,955 --> 00:00:05,605
+I'm really glad to have you here in the interview for a motion planner position.
+
+3
+00:00:05,605 --> 00:00:08,370
+To start things off, I actually have a question
+
+4
+00:00:08,369 --> 00:00:10,449
+about motion plan that I'd like to go with.
+
+5
+00:00:10,449 --> 00:00:11,820
+Are you ready to get started?
+
+6
+00:00:11,820 --> 00:00:12,679
+Sure, let's do it.
+
+7
+00:00:12,679 --> 00:00:16,320
+All right. So my question for you is assume we have a vehicle
+
+8
+00:00:16,320 --> 00:00:20,490
+that's driving down a highway and there's other vehicles on
+
+9
+00:00:20,489 --> 00:00:24,159
+the highway but you're also stay in a country area where it's a small town,
+
+10
+00:00:24,160 --> 00:00:27,370
+there might be a stoplight or pedestrians also involved.
+
+11
+00:00:27,370 --> 00:00:30,780
+In this case, could you construct for me
+
+12
+00:00:30,780 --> 00:00:35,289
+a behavior tree of finite state machine perhaps to what behaviors your car's do.
+
+13
+00:00:35,289 --> 00:00:37,359
+Sure, so we're talking about a finite state machine.
+
+14
+00:00:37,359 --> 00:00:40,549
+So let's think about the different states of the car might find itself in.
+
+15
+00:00:40,549 --> 00:00:41,204
+Great.
+
+16
+00:00:41,204 --> 00:00:47,884
+So let's say that we have a three lane highway and maybe our car is sitting right here.
+
+17
+00:00:47,884 --> 00:00:50,960
+So let's think of this simple situation first.
+
+18
+00:00:50,960 --> 00:00:53,210
+We don't have any other cars that we're worried about,
+
+19
+00:00:53,210 --> 00:00:54,920
+we just want to stay in our lane.
+
+20
+00:00:54,920 --> 00:00:58,579
+So, we actually have perfect localization and
+
+21
+00:00:58,579 --> 00:01:04,250
+control and we're just generating these waypoints along our lane.
+
+22
+00:01:04,250 --> 00:01:07,010
+We want to know what speed to be following this trajectory.
+
+23
+00:01:07,010 --> 00:01:10,230
+So, there's a target speed on this highway.
+
+24
+00:01:11,260 --> 00:01:14,760
+That is one of our parameters.
+
+25
+00:01:15,170 --> 00:01:19,370
+If we're going less than that target speed,
+
+26
+00:01:19,370 --> 00:01:20,730
+then we want to accelerate.
+
+27
+00:01:20,730 --> 00:01:27,245
+So, if our speed is less than a target speed,
+
+28
+00:01:27,245 --> 00:01:28,980
+we need to go faster.
+
+29
+00:01:28,980 --> 00:01:34,250
+However, if our speed is too great,
+
+30
+00:01:34,250 --> 00:01:38,439
+we don't want to get pulled over by the cops so we want to deaccelerate.
+
+31
+00:01:39,349 --> 00:01:43,174
+This helps us out with just staying in this lane.
+
+32
+00:01:43,174 --> 00:01:46,209
+Now let's think about the situation where we have other cars.
+
+33
+00:01:46,209 --> 00:01:50,899
+So sooner or later we're going to run into this following car
+
+34
+00:01:50,900 --> 00:01:53,080
+and we can have a sensor that helps us out with this.
+
+35
+00:01:53,079 --> 00:01:58,144
+We can use radar and the radar can tell us how close we are to this other vehicle.
+
+36
+00:01:58,144 --> 00:02:05,155
+So now, we have another parameter that we're dealing with which is the radar distance.
+
+37
+00:02:05,155 --> 00:02:06,594
+Okay.
+
+38
+00:02:06,594 --> 00:02:11,180
+Let's say that we have some safe following distance.
+
+39
+00:02:11,180 --> 00:02:19,765
+So, if the radar distance becomes too small from the safe following distance,
+
+40
+00:02:19,764 --> 00:02:23,064
+then we need to deaccelerate.
+
+41
+00:02:23,064 --> 00:02:25,710
+However, there's other options that we have too.
+
+42
+00:02:25,710 --> 00:02:27,185
+We are on a three-lane highway.
+
+43
+00:02:27,185 --> 00:02:31,579
+So we could actually try to change lanes and to do that,
+
+44
+00:02:31,579 --> 00:02:37,564
+we can use another sensor such as Lidar to see if there's any cars in this window here.
+
+45
+00:02:37,564 --> 00:02:41,689
+If that's open, we can actually switch over to the other lane.
+
+46
+00:02:41,689 --> 00:02:47,800
+If it's occupied, we could just deaccelerate and just keep following this car.
+
+47
+00:02:47,800 --> 00:02:51,620
+We also have other options to if we're in the middle lane,
+
+48
+00:02:51,620 --> 00:02:58,295
+we can actually go to either lane depending on this strict like lane passing rules.
+
+49
+00:02:58,294 --> 00:02:59,739
+Yeah, great.
+
+50
+00:02:59,740 --> 00:03:02,629
+Then we'll find ourselves in this situation for
+
+51
+00:03:02,629 --> 00:03:06,454
+this country side where we have this crosswalk.
+
+52
+00:03:06,455 --> 00:03:11,210
+In this case, we actually want to stop at this crosswalk if there's
+
+53
+00:03:11,210 --> 00:03:16,670
+a stop sign and then use perception to see if there's any pedestrians crossing it.
+
+54
+00:03:16,669 --> 00:03:19,250
+If there aren't any pedestrians and it's clear,
+
+55
+00:03:19,250 --> 00:03:21,430
+then we can proceed with where we want to go.
+
+56
+00:03:21,430 --> 00:03:23,870
+We can either go straight, go off to right,
+
+57
+00:03:23,870 --> 00:03:27,800
+go off to the left, depending on where our final destinations at.
+
+58
+00:03:27,800 --> 00:03:33,230
+Pretty similarly if it's a stop sign or if it's a traffic light,
+
+59
+00:03:33,229 --> 00:03:35,419
+we can actually use perception to see if the light is green or
+
+60
+00:03:35,419 --> 00:03:38,264
+red and then proceed as needed.
+
+61
+00:03:38,264 --> 00:03:38,859
+Great.
+
+62
+00:03:38,860 --> 00:03:41,375
+Where it gets pretty interesting is when we're
+
+63
+00:03:41,375 --> 00:03:44,435
+generating this trajectory for changing lanes.
+
+64
+00:03:44,435 --> 00:03:51,229
+So, part of our motion planning scheme is actually figure out how this trajectory looks.
+
+65
+00:03:51,229 --> 00:03:54,569
+So, we can have these different cars when changing lanes.
+
+66
+00:03:54,569 --> 00:03:59,919
+For doing this, we actually want to take into consideration the other cars nearby.
+
+67
+00:03:59,919 --> 00:04:03,239
+So, as well as the passengers in this car.
+
+68
+00:04:03,240 --> 00:04:07,430
+We want to look at and monitor acceleration and jerk and how close we're
+
+69
+00:04:07,430 --> 00:04:12,000
+getting to say other cars and how fast they're going.
+
+70
+00:04:12,000 --> 00:04:14,270
+We're predicting out into the future.
+
+71
+00:04:14,270 --> 00:04:16,579
+One interesting way of doing this.
+
+72
+00:04:16,579 --> 00:04:18,634
+So you can have a cost function do is actually.
+
+73
+00:04:18,634 --> 00:04:19,149
+Okay.
+
+74
+00:04:19,149 --> 00:04:21,914
+Generate a polynomial curve this way.
+
+75
+00:04:21,915 --> 00:04:23,905
+You could actually use an MPC,
+
+76
+00:04:23,904 --> 00:04:29,284
+Model Predictive Controller to figure out how to generate this trajectory.
+
+77
+00:04:29,285 --> 00:04:32,570
+To do that, you're actually creating the right cost function where you
+
+78
+00:04:32,569 --> 00:04:35,909
+want your acceleration to be low,
+
+79
+00:04:35,910 --> 00:04:41,055
+your jerk to be low and to have a nice safe following distance between cars.
+
+80
+00:04:41,055 --> 00:04:43,759
+Great, you mentioned the model predictive controller,
+
+81
+00:04:43,759 --> 00:04:45,730
+have you implemented that in something you worked on?
+
+82
+00:04:45,730 --> 00:04:47,000
+Yeah, actually I have.
+
+83
+00:04:47,000 --> 00:04:48,485
+It's a pretty interesting case.
+
+84
+00:04:48,485 --> 00:04:50,245
+It was for doing parallel parking.
+
+85
+00:04:50,245 --> 00:04:52,230
+Really? How did you do that with parallel parking?
+
+86
+00:04:52,230 --> 00:04:58,009
+Yes. So let's say you have your car right here
+
+87
+00:04:58,009 --> 00:05:02,129
+and you're trying to park it right in between these two other cars.
+
+88
+00:05:02,129 --> 00:05:06,439
+It's all about generating the right cost function to do this.
+
+89
+00:05:06,439 --> 00:05:09,589
+So we have our center of the car and we have a target as
+
+90
+00:05:09,589 --> 00:05:13,989
+well and we have our heading and we have the heading that we want to end up in.
+
+91
+00:05:13,990 --> 00:05:18,254
+So at the end of the day, we'd want our car to fit perfectly right in here.
+
+92
+00:05:18,254 --> 00:05:20,269
+So that's per our cost function.
+
+93
+00:05:20,269 --> 00:05:24,659
+We want to minimize this distance and how the headings are lining up.
+
+94
+00:05:24,660 --> 00:05:28,880
+Where it gets very interesting is we don't want to collide into these other cars.
+
+95
+00:05:28,879 --> 00:05:37,790
+So we can go ahead and construct some boundary lines that we're dealing with
+
+96
+00:05:37,790 --> 00:05:43,925
+and we'll accumulate lots of negative points
+
+97
+00:05:43,925 --> 00:05:46,579
+if we're actually intersecting in-between these
+
+98
+00:05:46,579 --> 00:05:49,664
+and we can actually monitor this by looking at the vertices.
+
+99
+00:05:49,665 --> 00:05:50,050
+Great.
+
+100
+00:05:50,050 --> 00:05:53,160
+If we do this and we make sure that it's differentiable by
+
+101
+00:05:53,160 --> 00:05:57,000
+basically using these s-curves,
+
+102
+00:05:57,000 --> 00:06:00,470
+then we can actually have this cost function and I've
+
+103
+00:06:00,470 --> 00:06:03,775
+gotten pretty good results doing parallel parking with this MPC.
+
+104
+00:06:03,774 --> 00:06:05,889
+Great, that's a really interesting application I think.
+
+105
+00:06:05,889 --> 00:06:07,504
+Yeah, there's a lot of fun designing it.
+
+106
+00:06:07,504 --> 00:06:09,139
+Awesome. Well, that's all I have for
+
+107
+00:06:09,139 --> 00:06:11,599
+this question and let's go ahead and move on to next topic.
+
+108
+00:06:11,600 --> 00:06:12,360
+Sure.
+

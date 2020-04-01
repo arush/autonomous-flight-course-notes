@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:02,410
+Let's dive into Optical Flow.
+
+2
+00:00:02,410 --> 00:00:05,140
+The goal here is to use a downward facing camera to
+
+3
+00:00:05,139 --> 00:00:07,974
+obtain an estimate of the vehicles x and y velocity.
+
+4
+00:00:07,974 --> 00:00:10,240
+We're going to do this by looking at what's called the
+
+5
+00:00:10,240 --> 00:00:12,789
+optical flow of the scene from frame to frame.
+
+6
+00:00:12,789 --> 00:00:14,404
+At the highest level,
+
+7
+00:00:14,404 --> 00:00:17,879
+this velocity estimation happens in two steps.
+
+8
+00:00:17,879 --> 00:00:21,015
+First, optical flow analysis.
+
+9
+00:00:21,015 --> 00:00:23,980
+We need to analyze the data for my camera to obtain
+
+10
+00:00:23,980 --> 00:00:29,050
+the optical flow vector which describes the x and y velocity of pixels in the scene.
+
+11
+00:00:29,050 --> 00:00:33,009
+Note that these velocities are measured in something like pixels per frame.
+
+12
+00:00:33,009 --> 00:00:36,219
+The second step is converting the velocity in pixels per
+
+13
+00:00:36,219 --> 00:00:39,984
+frame to a vehicle velocity measured in meters per second.
+
+14
+00:00:39,984 --> 00:00:42,994
+As you can imagine, this step involves a lot of geometry.
+
+15
+00:00:42,994 --> 00:00:45,030
+The vehicles altitude above the ground,
+
+16
+00:00:45,030 --> 00:00:46,495
+it's role and it's pitch,
+
+17
+00:00:46,494 --> 00:00:50,534
+and it's body rates all affect the pixel velocities that the camera sees.
+
+18
+00:00:50,534 --> 00:00:53,449
+But once you've done this geometry correctly,
+
+19
+00:00:53,450 --> 00:00:58,280
+you'll be left with a good estimate of the vehicles x and y velocity.
+

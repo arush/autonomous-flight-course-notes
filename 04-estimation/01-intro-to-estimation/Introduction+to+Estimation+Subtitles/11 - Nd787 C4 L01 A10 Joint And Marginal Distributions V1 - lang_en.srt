@@ -1,0 +1,208 @@
+1
+00:00:00,000 --> 00:00:05,610
+Now, I made reference earlier to the fact that if we have a multivariate distribution,
+
+2
+00:00:05,610 --> 00:00:07,440
+we can't just assume that we have
+
+3
+00:00:07,440 --> 00:00:12,150
+a probability distribution around each variable or field in the vector,
+
+4
+00:00:12,150 --> 00:00:15,074
+and operate with those separate probability distributions.
+
+5
+00:00:15,074 --> 00:00:17,750
+The reason for that is that a lot of the time,
+
+6
+00:00:17,750 --> 00:00:22,350
+knowing the value of one field in your vector tells you something about the other fields.
+
+7
+00:00:22,350 --> 00:00:28,109
+So for instance, if you have a vehicle that has a distribution over a state x, y, z,
+
+8
+00:00:28,109 --> 00:00:30,989
+knowing the altitude of the vehicle may tell you
+
+9
+00:00:30,989 --> 00:00:34,725
+something about the lateral position of the vehicle or vice versa.
+
+10
+00:00:34,725 --> 00:00:38,609
+You can't treat those probabilities separately and differently.
+
+11
+00:00:38,609 --> 00:00:42,975
+What that means is that we often have joint distributions,
+
+12
+00:00:42,975 --> 00:00:45,554
+where if our vector value is x,
+
+13
+00:00:45,554 --> 00:00:49,244
+then p of x is actually equal to the p of x1 and x2.
+
+14
+00:00:49,244 --> 00:00:52,394
+If x is equal to the vector x1 and x2.
+
+15
+00:00:52,395 --> 00:00:55,920
+This function p of x is a probability distribution over
+
+16
+00:00:55,920 --> 00:01:01,100
+these two variables that takes the vector as an input and outputs a scalar density.
+
+17
+00:01:01,100 --> 00:01:04,530
+But what if we only want to worry about the probability over x1?
+
+18
+00:01:04,530 --> 00:01:08,570
+Can we still use that joint distribution? The answer is yes.
+
+19
+00:01:08,569 --> 00:01:11,339
+We can compute what's called the marginal simply
+
+20
+00:01:11,340 --> 00:01:14,219
+by integrating x2 out of the density function.
+
+21
+00:01:14,219 --> 00:01:16,599
+If we have many variables in our vector,
+
+22
+00:01:16,599 --> 00:01:20,429
+we can just integrate out all the variables we don't want to get a
+
+23
+00:01:20,430 --> 00:01:24,540
+marginal over any subset of variables we do want.
+
+24
+00:01:24,540 --> 00:01:26,820
+Now, it might be the case that the system that
+
+25
+00:01:26,819 --> 00:01:29,625
+you're estimating has many more than two variables.
+
+26
+00:01:29,625 --> 00:01:32,819
+Your flying vehicle may have variables for x, y,
+
+27
+00:01:32,819 --> 00:01:36,314
+z, roll, pitch, yaw, that's six.
+
+28
+00:01:36,314 --> 00:01:40,094
+You may also have variables for the derivatives which takes it to 12.
+
+29
+00:01:40,094 --> 00:01:43,319
+You might also have variables that track what's happening in the environment.
+
+30
+00:01:43,319 --> 00:01:46,279
+So, if you're tracking other vehicles in the air,
+
+31
+00:01:46,280 --> 00:01:50,099
+then your joint estimator would be all of your 12 degrees of freedom,
+
+32
+00:01:50,099 --> 00:01:52,093
+plus the 12 variables,
+
+33
+00:01:52,093 --> 00:01:55,539
+the six degrees of freedom and the derivatives for all the other vehicles,
+
+34
+00:01:55,540 --> 00:01:58,950
+and that distribution is going to get unwieldy very very quickly.
+
+35
+00:01:58,950 --> 00:02:04,275
+But only some of the variables may actually have information about each other.
+
+36
+00:02:04,275 --> 00:02:10,664
+It might be the case that some of the random variables in the vector are independent.
+
+37
+00:02:10,664 --> 00:02:15,269
+Independence is the property that the joint probability density function is
+
+38
+00:02:15,270 --> 00:02:20,355
+really the product of individual densities of the component variables.
+
+39
+00:02:20,354 --> 00:02:24,074
+We can see the effect for a 2D Gaussian where,
+
+40
+00:02:24,074 --> 00:02:26,294
+if I have x1 and x2,
+
+41
+00:02:26,294 --> 00:02:28,439
+and if x1 and x2 are correlated,
+
+42
+00:02:28,439 --> 00:02:31,740
+then I may have a distribution which is kind of tilted up like so,
+
+43
+00:02:31,740 --> 00:02:35,100
+and you can see that if you have a positive x1,
+
+44
+00:02:35,099 --> 00:02:37,680
+then you're very likely to have a positive x2.
+
+45
+00:02:37,680 --> 00:02:41,819
+If you have a negative x1 you're very likely to have a negative x2.
+
+46
+00:02:41,819 --> 00:02:45,359
+On the other hand, if I have a spherical Gaussian like this,
+
+47
+00:02:45,360 --> 00:02:48,630
+then knowing where I am on the x1 axis,
+
+48
+00:02:48,629 --> 00:02:51,884
+tells me very little about where I might be on the x2 axis.
+
+49
+00:02:51,884 --> 00:02:55,649
+Really, this idea of independence is that knowing the value
+
+50
+00:02:55,650 --> 00:02:59,250
+of one variable has no effect on the other random variable,
+
+51
+00:02:59,250 --> 00:03:00,748
+and knowing the value of x1,
+
+52
+00:03:00,748 --> 00:03:03,400
+tells us nothing about x2.
+

@@ -1,0 +1,208 @@
+1
+00:00:00,000 --> 00:00:03,935
+The first thing we need to do to get a velocity estimate for the vehicle,
+
+2
+00:00:03,935 --> 00:00:08,970
+is to recover the uv velocity vector from the image that the camera sees.
+
+3
+00:00:08,970 --> 00:00:11,429
+Let's start by looking at how we estimate
+
+4
+00:00:11,429 --> 00:00:14,099
+the motion of a vehicle from a downward-facing camera.
+
+5
+00:00:14,099 --> 00:00:17,870
+If we have two images taken from two positions of the camera,
+
+6
+00:00:17,870 --> 00:00:21,530
+then we can see how much the scene appears to have moved from image to image,
+
+7
+00:00:21,530 --> 00:00:24,265
+which tells us how much the camera must have moved.
+
+8
+00:00:24,265 --> 00:00:26,375
+Now, there's many ways to do this,
+
+9
+00:00:26,375 --> 00:00:28,199
+and it's by no means a solved problem.
+
+10
+00:00:28,199 --> 00:00:30,559
+The simplest way you can frame the problem is just
+
+11
+00:00:30,559 --> 00:00:33,030
+to work out the relative velocity of the camera.
+
+12
+00:00:33,030 --> 00:00:36,109
+But you can take the problem all the way to working out
+
+13
+00:00:36,109 --> 00:00:38,119
+the exact position of the camera at each point in
+
+14
+00:00:38,119 --> 00:00:40,695
+time and the entire geometry of the scene.
+
+15
+00:00:40,695 --> 00:00:45,890
+That process is called visual simultaneous localization and mapping or visual slam.
+
+16
+00:00:45,890 --> 00:00:48,950
+Regardless of how complicated we make the problem,
+
+17
+00:00:48,950 --> 00:00:51,140
+the first step is being able to reliably
+
+18
+00:00:51,140 --> 00:00:54,210
+recognize the same part of the scene from image to image.
+
+19
+00:00:54,210 --> 00:00:56,450
+Such points we call, features.
+
+20
+00:00:56,450 --> 00:00:59,370
+There are lots of ways to find good features,
+
+21
+00:00:59,369 --> 00:01:03,269
+but the basic idea is that good features or points in the image are
+
+22
+00:01:03,270 --> 00:01:07,515
+ones that we can easily localize by looking through a small window of the image.
+
+23
+00:01:07,515 --> 00:01:09,730
+Shifting the window in any direction,
+
+24
+00:01:09,730 --> 00:01:13,060
+should give a large change in pixel intensities of the window.
+
+25
+00:01:13,060 --> 00:01:15,814
+Which makes the location precisely defined.
+
+26
+00:01:15,814 --> 00:01:17,730
+If we look at this figure,
+
+27
+00:01:17,730 --> 00:01:21,990
+we see that we have a small window over this flat grey plane portion of the image,
+
+28
+00:01:21,989 --> 00:01:23,969
+and if we perturb the window on the image,
+
+29
+00:01:23,969 --> 00:01:26,745
+what we see through the window hasn't changed at all.
+
+30
+00:01:26,745 --> 00:01:30,145
+That means that this location is a bad place to put a feature.
+
+31
+00:01:30,144 --> 00:01:36,019
+We'll have a really hard time figuring out where exactly the feature is in future images.
+
+32
+00:01:36,019 --> 00:01:38,780
+Now, if we move our window to this part of the image,
+
+33
+00:01:38,780 --> 00:01:41,210
+you can see that if you move the window left and right,
+
+34
+00:01:41,209 --> 00:01:43,849
+what you would see is that the image changes quite a bit.
+
+35
+00:01:43,849 --> 00:01:46,429
+But if you move the window up and down,
+
+36
+00:01:46,430 --> 00:01:49,330
+then the image isn't going to change it all along that line.
+
+37
+00:01:49,329 --> 00:01:52,340
+This means at this particular location is a better place
+
+38
+00:01:52,340 --> 00:01:55,090
+for feature than the gray flat field, but still not great.
+
+39
+00:01:55,090 --> 00:01:57,219
+On the other hand,
+
+40
+00:01:57,219 --> 00:02:02,359
+if we put a feature right here and we move the window up and down or left and right,
+
+41
+00:02:02,359 --> 00:02:04,540
+the image is going to change quite a bit.
+
+42
+00:02:04,540 --> 00:02:06,365
+We see here at this location,
+
+43
+00:02:06,364 --> 00:02:08,704
+there's a significant change in all directions.
+
+44
+00:02:08,705 --> 00:02:11,390
+That means that this is a good place to put a feature,
+
+45
+00:02:11,389 --> 00:02:13,069
+and it also means the local image at
+
+46
+00:02:13,069 --> 00:02:17,259
+this location is going to be easy to recognize in future frames.
+
+47
+00:02:17,259 --> 00:02:19,203
+In your next exercise,
+
+48
+00:02:19,204 --> 00:02:22,460
+you're going to take advantage of a toolkit that provides
+
+49
+00:02:22,460 --> 00:02:26,465
+a method to extract features which are called Good Features to Track.
+
+50
+00:02:26,465 --> 00:02:29,180
+By Shi and Tomasi. And the Shi and
+
+51
+00:02:29,180 --> 00:02:32,420
+Tomasi Good Features to Track are called good features,
+
+52
+00:02:32,419 --> 00:02:36,039
+because they are easy to recognize from image to image.
+

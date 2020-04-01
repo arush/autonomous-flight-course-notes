@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:02,225
+let's establish some basic vocabulary,
+
+2
+00:00:02,225 --> 00:00:04,859
+so we can refer to the pieces of a fixed wing aircraft.
+
+3
+00:00:04,860 --> 00:00:07,380
+When we worked with the quadrotor in term one,
+
+4
+00:00:07,379 --> 00:00:10,769
+we didn't spend a lot of time talking about the various pieces of the quadrotor.
+
+5
+00:00:10,769 --> 00:00:13,109
+It was enough to know that there were four rotors and we
+
+6
+00:00:13,109 --> 00:00:15,574
+can adjust the speed of each rotor to control the aircraft.
+
+7
+00:00:15,574 --> 00:00:17,244
+When it comes to fixed-wing aircraft,
+
+8
+00:00:17,245 --> 00:00:19,740
+there are a lot more mechanical pieces that affect
+
+9
+00:00:19,739 --> 00:00:21,959
+the dynamics and if you want to
+
+10
+00:00:21,960 --> 00:00:24,660
+write an autopilot to make the aircraft follow a trajectory.
+
+11
+00:00:24,660 --> 00:00:28,140
+It's important to know what these pieces are and what they do.
+
+12
+00:00:28,140 --> 00:00:31,414
+So, let's take a look at a fixed wing aircraft.
+
+13
+00:00:31,414 --> 00:00:34,280
+The biggest part of most vehicles, is the fuselage.
+
+14
+00:00:34,280 --> 00:00:36,215
+This is the main body of the aircraft.
+
+15
+00:00:36,215 --> 00:00:38,050
+Next, are the wings.
+
+16
+00:00:38,049 --> 00:00:39,884
+The wings have control surfaces in them,
+
+17
+00:00:39,884 --> 00:00:41,854
+such as ailerons and flaps.
+
+18
+00:00:41,854 --> 00:00:44,119
+Any movable bidder the aircraft which changes
+
+19
+00:00:44,119 --> 00:00:47,500
+the aerodynamic properties of the aircraft is called a control surface,
+
+20
+00:00:47,500 --> 00:00:49,820
+and we'll talk about these more in a little bit.
+
+21
+00:00:49,820 --> 00:00:52,280
+Then you may have more control surfaces in the back.
+
+22
+00:00:52,280 --> 00:00:56,060
+You may have a horizontal tail with elevators to control pitch,
+
+23
+00:00:56,060 --> 00:00:59,414
+and you may have a vertical tail with a rudder for yaw stability.
+
+24
+00:00:59,414 --> 00:01:04,000
+The horizontal tail and the vertical tail together are called the empennage.
+
+25
+00:01:04,000 --> 00:01:06,129
+Then we have our propulsion system.
+
+26
+00:01:06,129 --> 00:01:10,229
+In this case, the propulsion system is a single propeller at the front of the vehicle.
+
+27
+00:01:10,230 --> 00:01:12,270
+But you might also have multiple propellers,
+
+28
+00:01:12,269 --> 00:01:14,354
+in which case they would be on the wings.
+
+29
+00:01:14,355 --> 00:01:17,000
+When we have a single propeller at the front of the vehicle,
+
+30
+00:01:17,000 --> 00:01:20,849
+we call it attractor and when the propeller is in the back it's called the pusher.
+
+31
+00:01:20,849 --> 00:01:22,894
+Finally, we have landing gear.
+
+32
+00:01:22,894 --> 00:01:26,239
+Since this vehicle isn't capable of vertical takeoff and landing,
+
+33
+00:01:26,239 --> 00:01:28,309
+it needs wheels so it can roll along the ground.
+
+34
+00:01:28,310 --> 00:01:30,400
+If this were an amphibious aircraft,
+
+35
+00:01:30,400 --> 00:01:34,300
+then these might be pontoons or some combination of wheels and pontoons.
+
+36
+00:01:34,299 --> 00:01:37,219
+There are many other pieces of a fixed wing aircraft,
+
+37
+00:01:37,219 --> 00:01:40,069
+but this is all we really need to know for now.
+

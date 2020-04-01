@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:01,800
+For the rest of this lesson,
+
+2
+00:00:01,800 --> 00:00:07,655
+we are going to be filling in the computational details of this box labeled controller.
+
+3
+00:00:07,655 --> 00:00:12,570
+And we do this for a monorotor that moves only in the z direction.
+
+4
+00:00:12,570 --> 00:00:14,429
+By the end of this lesson,
+
+5
+00:00:14,429 --> 00:00:19,125
+we will have what's called a full PID controller.
+
+6
+00:00:19,125 --> 00:00:22,815
+But we are going to get there incrementally.
+
+7
+00:00:22,815 --> 00:00:26,585
+So let's start with the simplest possible controller.
+
+8
+00:00:26,585 --> 00:00:29,730
+And the simplest type of controller sends
+
+9
+00:00:29,730 --> 00:00:35,340
+a control signal whose strength is proportional to the size of the error.
+
+10
+00:00:35,340 --> 00:00:39,840
+The error for a monorotor is the altitude error.
+
+11
+00:00:39,840 --> 00:00:41,340
+The larger the error,
+
+12
+00:00:41,340 --> 00:00:44,680
+the more the system has to do to correct that error.
+
+13
+00:00:44,679 --> 00:00:48,149
+So if the vehicle is just a little too low,
+
+14
+00:00:48,149 --> 00:00:50,814
+then we increase the thrust by a little bit.
+
+15
+00:00:50,814 --> 00:00:52,725
+But if it's way too low,
+
+16
+00:00:52,725 --> 00:00:55,500
+then we increase the thrust by a lot.
+
+17
+00:00:55,500 --> 00:01:01,454
+As a function of error, you can write the input as u of t is equal to Kp
+
+18
+00:01:01,454 --> 00:01:08,084
+times e of t. The control signal is equal to some constant times the error.
+
+19
+00:01:08,084 --> 00:01:12,039
+To make this an easier and more intuitive control problem,
+
+20
+00:01:12,040 --> 00:01:15,830
+we assume we can directly control the acceleration.
+
+21
+00:01:15,829 --> 00:01:21,789
+And this case of P term is a tunable parameter for this controller.
+
+22
+00:01:21,790 --> 00:01:25,704
+It is also called proportional or peaking.
+
+23
+00:01:25,703 --> 00:01:28,009
+We know how to compute the thrust,
+
+24
+00:01:28,010 --> 00:01:34,175
+the true system input from U bar 1 through a simple algebraic equation.
+
+25
+00:01:34,174 --> 00:01:37,480
+So now, you should implement this controller yourself and
+
+26
+00:01:37,480 --> 00:01:41,000
+take a look at the trajectories that this sort of controller produces.
+

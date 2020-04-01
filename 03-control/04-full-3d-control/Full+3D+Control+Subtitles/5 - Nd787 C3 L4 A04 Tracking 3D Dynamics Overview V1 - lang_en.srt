@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:02,000
+Just like we did in 2D,
+
+2
+00:00:02,000 --> 00:00:05,015
+we need to keep track of our vehicle's state,
+
+3
+00:00:05,015 --> 00:00:08,905
+but this time, we need 12 variables instead of six.
+
+4
+00:00:08,905 --> 00:00:13,980
+These variables specify the location of the vehicle as x, y, and z.
+
+5
+00:00:13,980 --> 00:00:18,900
+They specify the orientation of the vehicle in Euler angles, for roll,
+
+6
+00:00:18,900 --> 00:00:23,880
+pitch, and yaw, which we abbreviate with phi, theta, and psi.
+
+7
+00:00:23,880 --> 00:00:27,530
+We use Euler angles here because they are intuitive.
+
+8
+00:00:27,530 --> 00:00:30,720
+But we could equally use quaternions, for example,
+
+9
+00:00:30,720 --> 00:00:34,515
+or any other representation that describes orientation.
+
+10
+00:00:34,515 --> 00:00:39,160
+The 12 state variables also specify that x,
+
+11
+00:00:39,160 --> 00:00:40,925
+y, and z velocities,
+
+12
+00:00:40,925 --> 00:00:42,610
+which shouldn't be a surprise.
+
+13
+00:00:42,610 --> 00:00:47,355
+And then finally, they need to specify rotation rates.
+
+14
+00:00:47,355 --> 00:00:49,280
+For the 2D case,
+
+15
+00:00:49,280 --> 00:00:52,325
+that was a single quantity phi-dot.
+
+16
+00:00:52,325 --> 00:00:57,570
+In 3D, we must consider rotation rates about all three axes.
+
+17
+00:00:57,570 --> 00:01:03,140
+We will call them the body rates of the vehicle and the name is p, q,
+
+18
+00:01:03,140 --> 00:01:06,710
+r. Now, the important thing to note is that
+
+19
+00:01:06,710 --> 00:01:10,945
+these are not the same as phi-dot, theta-dot, and psi-dot.
+
+20
+00:01:10,945 --> 00:01:13,630
+And that's because the Euler angles phi,
+
+21
+00:01:13,630 --> 00:01:16,830
+theta, and psi are world frame coordinates.
+
+22
+00:01:16,830 --> 00:01:19,880
+To be precise, they describe the rotations
+
+23
+00:01:19,880 --> 00:01:24,085
+necessary to rotate the world frame into the body frame.
+
+24
+00:01:24,085 --> 00:01:26,560
+By the p, q, r variables,
+
+25
+00:01:26,560 --> 00:01:31,300
+give the angular rate of change of the vehicle in the body frame of the vehicle.
+
+26
+00:01:31,300 --> 00:01:35,510
+So p, q, r are the turn rates about the body x,
+
+27
+00:01:35,510 --> 00:01:38,010
+y, and z axis, respectively.
+
+28
+00:01:38,010 --> 00:01:41,290
+These are the rotational velocities that would be
+
+29
+00:01:41,290 --> 00:01:45,120
+measured by a gyroscope mounted on the vehicle itself.
+
+30
+00:01:45,120 --> 00:01:48,065
+It turns out, it is easier to work with p, q,
+
+31
+00:01:48,065 --> 00:01:51,375
+r than it is to work with Euler angle rates.
+
+32
+00:01:51,375 --> 00:01:57,920
+So tracking vehicles data looks similar in 2D and 3D with this one exception: p,
+
+33
+00:01:57,920 --> 00:02:02,155
+q, r are not the derivatives of phi, theta, and psi.
+
+34
+00:02:02,155 --> 00:02:04,065
+Next, we have step two,
+
+35
+00:02:04,065 --> 00:02:10,065
+figure out the forces and movements acting on the vehicle in the body frame.
+
+36
+00:02:10,065 --> 00:02:14,590
+Remember, these forces come from the rotation of the motors,
+
+37
+00:02:14,590 --> 00:02:16,560
+and in a body fixed frame,
+
+38
+00:02:16,560 --> 00:02:19,835
+the location of the motors are fixed which is to desirable.
+
+39
+00:02:19,835 --> 00:02:24,290
+All four motor forces point up in the frame of the body.
+
+40
+00:02:24,290 --> 00:02:27,200
+The net force in the body frame will be
+
+41
+00:02:27,200 --> 00:02:28,660
+the collective thrust from
+
+42
+00:02:28,660 --> 00:02:32,105
+the four rotors and it will be negative in the z direction,
+
+43
+00:02:32,105 --> 00:02:35,855
+since down is positive and up is negative.
+
+44
+00:02:35,855 --> 00:02:40,625
+The net torque should be easy to calculate in the body frame as well,
+
+45
+00:02:40,625 --> 00:02:44,670
+because the orientation or attitude of the vehicle doesn't matter.
+
+46
+00:02:44,670 --> 00:02:49,240
+At this point, we have two separate mathematical paths we have to take.
+
+47
+00:02:49,240 --> 00:02:53,560
+We have to figure out translational motion from the forces,
+
+48
+00:02:53,560 --> 00:02:55,940
+and then on a separate path,
+
+49
+00:02:55,940 --> 00:03:00,940
+we are going to consider how the moments influenced the rotational motion,
+
+50
+00:03:00,940 --> 00:03:03,245
+that will be a little trickier.
+
+51
+00:03:03,245 --> 00:03:05,870
+So we've got three things on our to-do
+
+52
+00:03:05,870 --> 00:03:09,675
+list before we can really solve the 3D dynamics case.
+
+53
+00:03:09,675 --> 00:03:14,260
+One, figure out exactly how four propeller turn rates,
+
+54
+00:03:14,260 --> 00:03:17,385
+turn into a net force and three moments.
+
+55
+00:03:17,385 --> 00:03:22,965
+Two, track the influence of force on translational motion.
+
+56
+00:03:22,965 --> 00:03:28,510
+And three, track the influence of the three moments on rotational motion.
+
+57
+00:03:28,510 --> 00:03:32,650
+We will walk through the first two in programming activities,
+
+58
+00:03:32,650 --> 00:03:37,150
+and then we'll come back for a bit more explanation about number three.
+

@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:05,325
+At this point, you've seen how noise can corrupt our sensor measurements.
+
+2
+00:00:05,325 --> 00:00:09,480
+But really there are several different sources of error which corrupt
+
+3
+00:00:09,480 --> 00:00:12,060
+our measurements and the best way to correct
+
+4
+00:00:12,060 --> 00:00:15,480
+these errors is by understanding where they come from.
+
+5
+00:00:15,480 --> 00:00:17,385
+So, with that in mind,
+
+6
+00:00:17,385 --> 00:00:22,455
+I want to show you a standard technical specification for an IMU sensor.
+
+7
+00:00:22,454 --> 00:00:25,349
+This is a real IMU spec sheet.
+
+8
+00:00:25,350 --> 00:00:26,920
+There's a lot here,
+
+9
+00:00:26,920 --> 00:00:29,495
+but I just want to walk through some of it.
+
+10
+00:00:29,495 --> 00:00:34,359
+The first thing to remember is that an IMU is a digital sensor.
+
+11
+00:00:34,359 --> 00:00:40,914
+This IMU happens to have a 16-bit resolution for the accelerometer and the gyroscope.
+
+12
+00:00:40,914 --> 00:00:44,725
+The maximum resolution for this IMU is given for the
+
+13
+00:00:44,725 --> 00:00:48,535
+chiral as degrees per second and for the accelerometer,
+
+14
+00:00:48,534 --> 00:00:51,054
+it's given in milli g's.
+
+15
+00:00:51,054 --> 00:00:57,549
+So, one milli g is one 1,000's of the acceleration due to gravity.
+
+16
+00:00:57,549 --> 00:01:03,265
+Then these next three are some of the most important numbers on the spec sheet.
+
+17
+00:01:03,265 --> 00:01:07,439
+This zero offset gives the bias of the sensors.
+
+18
+00:01:07,439 --> 00:01:11,924
+You can see for gyroscope the bias can be pretty big,
+
+19
+00:01:11,924 --> 00:01:18,134
+one degree per second can really add up and so we'll definitely need to correct for that.
+
+20
+00:01:18,135 --> 00:01:20,594
+Here we have TCO,
+
+21
+00:01:20,594 --> 00:01:23,804
+which stands for temperature calibration offset,
+
+22
+00:01:23,805 --> 00:01:28,620
+and you can see it's in units of milli g per Kelvin,
+
+23
+00:01:28,620 --> 00:01:32,910
+which makes this an acceleration per temperature.
+
+24
+00:01:32,909 --> 00:01:38,939
+So, this tells us how the bias of the sensor can actually change with temperature.
+
+25
+00:01:38,939 --> 00:01:42,569
+Then down here, we have the noise density,
+
+26
+00:01:42,569 --> 00:01:48,599
+and this has a funny unit of micro g's per square root of frequency.
+
+27
+00:01:48,599 --> 00:01:51,419
+To get the noise standard deviation,
+
+28
+00:01:51,420 --> 00:01:54,510
+this value is multiplied by the square root of
+
+29
+00:01:54,510 --> 00:01:56,250
+the cut-off frequency of
+
+30
+00:01:56,250 --> 00:02:00,555
+the low pass filter that you use to filter your measurement signal.
+
+31
+00:02:00,555 --> 00:02:05,940
+A good choice for that is 0.5 times the sampling rate.
+
+32
+00:02:05,939 --> 00:02:09,590
+So, if I had a sampling rate of 200 Hertz,
+
+33
+00:02:09,590 --> 00:02:12,409
+I'd have to multiply this number by 10,
+
+34
+00:02:12,409 --> 00:02:19,534
+the square root of 200 times 0.5 to get the noise standard deviation.
+
+35
+00:02:19,534 --> 00:02:22,759
+If I low-pass filter my signal more,
+
+36
+00:02:22,759 --> 00:02:24,424
+the noise goes down.
+
+37
+00:02:24,425 --> 00:02:29,735
+So, this datasheet already gives us some really interesting information.
+
+38
+00:02:29,735 --> 00:02:32,270
+We see that there's a bias,
+
+39
+00:02:32,270 --> 00:02:35,810
+there's also a temperature dependent bias,
+
+40
+00:02:35,810 --> 00:02:37,640
+and there's some random noise.
+

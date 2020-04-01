@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:02,294
+As you've seen earlier in this course,
+
+2
+00:00:02,294 --> 00:00:04,339
+sensors are not perfect.
+
+3
+00:00:04,339 --> 00:00:08,925
+And we can capture the imperfections in a sensor using something
+
+4
+00:00:08,925 --> 00:00:13,650
+called a measurement model which tells us p of z given x.
+
+5
+00:00:13,650 --> 00:00:17,199
+That is, the probability of making some measurement, for example,
+
+6
+00:00:17,199 --> 00:00:18,589
+with the rain sensor,
+
+7
+00:00:18,589 --> 00:00:20,129
+given a certain state,
+
+8
+00:00:20,129 --> 00:00:23,449
+for example, how far the drone really is above the ground.
+
+9
+00:00:23,449 --> 00:00:26,905
+And often, these measurement models are Gaussian.
+
+10
+00:00:26,905 --> 00:00:29,679
+The most likely measurement is centered around
+
+11
+00:00:29,679 --> 00:00:32,835
+the true value of whatever the sensor measures,
+
+12
+00:00:32,835 --> 00:00:35,350
+but there's some covariance as well.
+
+13
+00:00:35,350 --> 00:00:36,890
+In the next exercise,
+
+14
+00:00:36,890 --> 00:00:41,170
+you'll simulate noisy measurements and see what happens when you try to
+
+15
+00:00:41,170 --> 00:00:45,760
+use those noisy measurements directly to control a 1D drone.
+

@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:03,839
+Halyon had a fairly good answer for his PID controller.
+
+2
+00:00:03,839 --> 00:00:05,960
+He went through each step of proportional,
+
+3
+00:00:05,960 --> 00:00:08,949
+integral, and derivative, and explained each of these well,
+
+4
+00:00:08,949 --> 00:00:12,119
+and how they relate to the overall PID controller equation,
+
+5
+00:00:12,119 --> 00:00:14,479
+which is what gets output for steering angle,
+
+6
+00:00:14,480 --> 00:00:16,605
+for instance, or for a robotic arm.
+
+7
+00:00:16,605 --> 00:00:20,265
+One of the things I would say that he could do better was the first time he went through.
+
+8
+00:00:20,265 --> 00:00:22,355
+He mainly did things in pseudocode.
+
+9
+00:00:22,355 --> 00:00:27,140
+I prompted him a little bit to say what would you do if this within C++,
+
+10
+00:00:27,140 --> 00:00:28,920
+and he did a good job to add
+
+11
+00:00:28,920 --> 00:00:33,300
+his type declarations like floats as well as initializing things to zero,
+
+12
+00:00:33,299 --> 00:00:35,709
+if they needed to be, and adding semicolons.
+
+13
+00:00:35,710 --> 00:00:38,520
+Other than that though, I thought he gave a great answer.
+

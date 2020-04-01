@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:03,060
+We started this lesson with a full non-linear equations of
+
+2
+00:00:03,060 --> 00:00:06,359
+motion for the lateral-directional dynamics of fixed-wing flight,
+
+3
+00:00:06,360 --> 00:00:10,484
+and we use these equations to understand some important concepts related to flight.
+
+4
+00:00:10,484 --> 00:00:13,139
+For example, you learned about side slip
+
+5
+00:00:13,140 --> 00:00:15,975
+and its impact on the side force of vehicle experiences.
+
+6
+00:00:15,974 --> 00:00:18,839
+You also learned how to steer a fixed-wing vehicle
+
+7
+00:00:18,839 --> 00:00:22,039
+without introducing excessive uncomfortable side force,
+
+8
+00:00:22,039 --> 00:00:24,079
+by performing a coordinated turn.
+
+9
+00:00:24,079 --> 00:00:26,250
+You learned about the static stability,
+
+10
+00:00:26,250 --> 00:00:29,710
+including role stability and yaw stability of a fixed-wing aircraft.
+
+11
+00:00:29,710 --> 00:00:31,964
+But, as we saw in the last lesson,
+
+12
+00:00:31,964 --> 00:00:36,255
+there's only so much we can learn by studying the non-linear equations of motion.
+
+13
+00:00:36,255 --> 00:00:38,085
+In the last half of this lesson,
+
+14
+00:00:38,085 --> 00:00:40,865
+we linearize the equations of motion around trim.
+
+15
+00:00:40,865 --> 00:00:42,620
+We studied the eigenvalues of
+
+16
+00:00:42,619 --> 00:00:47,289
+the resulting stability matrix and identified three lateral dynamic modes,
+
+17
+00:00:47,289 --> 00:00:50,734
+the Roll mode, the Spiral mode, and the Dutch roll mode.
+
+18
+00:00:50,734 --> 00:00:56,115
+By now, you should have a good sense for just how unintuitive fixed-wing dynamics can be.
+
+19
+00:00:56,115 --> 00:00:58,640
+For example, you might not have guessed that
+
+20
+00:00:58,640 --> 00:01:02,649
+a yawing motion would induce a rolling moment but that actually does happen.
+
+21
+00:01:02,649 --> 00:01:05,329
+Now that we have some understanding about some of
+
+22
+00:01:05,329 --> 00:01:08,200
+the unintuitive dynamics that govern fixed-wing flight,
+
+23
+00:01:08,200 --> 00:01:10,219
+we're almost ready to start using that
+
+24
+00:01:10,219 --> 00:01:14,039
+understanding to actually control a fixed-wing vehicle.
+

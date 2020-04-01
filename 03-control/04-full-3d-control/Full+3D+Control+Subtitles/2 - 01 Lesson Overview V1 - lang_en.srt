@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:03,650
+Welcome back. In the first three lessons of this course,
+
+2
+00:00:03,650 --> 00:00:09,010
+you've learned about quadrotor dynamics and quadrotor control in one and two dimensions.
+
+3
+00:00:09,010 --> 00:00:10,710
+And remember what it means to
+
+4
+00:00:10,710 --> 00:00:12,880
+understand the dynamics of a quadrotor.
+
+5
+00:00:12,880 --> 00:00:16,950
+It means that when we know the forces and the moments that are acting on the vehicle,
+
+6
+00:00:16,950 --> 00:00:20,155
+we can predict what the state of the vehicle will be in the future.
+
+7
+00:00:20,155 --> 00:00:23,150
+That's right. And understanding the dynamics is
+
+8
+00:00:23,150 --> 00:00:26,740
+really helpful for solving the problem of vehicle control.
+
+9
+00:00:26,740 --> 00:00:28,600
+When we solve a control's problem,
+
+10
+00:00:28,600 --> 00:00:29,945
+we go the other way.
+
+11
+00:00:29,945 --> 00:00:35,540
+We start with the desired motion and then we determine what forces and moments we need to
+
+12
+00:00:35,540 --> 00:00:37,430
+command to the vehicle based on
+
+13
+00:00:37,430 --> 00:00:42,435
+our current knowledge of the state of the vehicle compared to the target state.
+
+14
+00:00:42,435 --> 00:00:45,920
+And in this lesson, you're going to complete two major tasks.
+
+15
+00:00:45,920 --> 00:00:48,120
+First, you're going to model the dynamics of
+
+16
+00:00:48,120 --> 00:00:51,620
+a 3D quadrotor by implementing an advanced state function.
+
+17
+00:00:51,620 --> 00:00:54,140
+And once you've modeled the dynamics,
+
+18
+00:00:54,140 --> 00:00:58,510
+you'll learn how to solve the problem of three-dimensional control of a quadrotor.
+
+19
+00:00:58,510 --> 00:01:03,275
+Now, this lesson won't require introducing any brand new controls concepts,
+
+20
+00:01:03,275 --> 00:01:07,770
+but some of the math is going to get a little trickier than it's been up till now.
+
+21
+00:01:07,770 --> 00:01:10,065
+But I promise, it will all be worth it.
+
+22
+00:01:10,065 --> 00:01:12,005
+Because at the end of this lesson,
+
+23
+00:01:12,005 --> 00:01:17,460
+you will be able to design a full controller that can actually control a real quadrotor.
+

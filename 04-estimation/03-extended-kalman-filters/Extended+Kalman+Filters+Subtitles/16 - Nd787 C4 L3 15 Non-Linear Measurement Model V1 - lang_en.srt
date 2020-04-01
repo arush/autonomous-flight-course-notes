@@ -1,0 +1,120 @@
+1
+00:00:00,000 --> 00:00:03,960
+Before we can dive into the measurement update step,
+
+2
+00:00:03,960 --> 00:00:06,825
+we need to talk about this drones sensor.
+
+3
+00:00:06,825 --> 00:00:13,664
+So, here is our drone and remember it's only allowed to rotate and move left and right.
+
+4
+00:00:13,664 --> 00:00:16,184
+Over here we are going to imagine there is
+
+5
+00:00:16,184 --> 00:00:20,174
+a big vertical wall at some position wall sub y,
+
+6
+00:00:20,175 --> 00:00:24,435
+and this wall extends infinitely upwards and downwards.
+
+7
+00:00:24,434 --> 00:00:27,449
+We are going to give this drone a range sensor that
+
+8
+00:00:27,449 --> 00:00:30,855
+points to the right and measures the distance to this wall.
+
+9
+00:00:30,855 --> 00:00:34,905
+So, when the drones rule angle phi is equal to zero,
+
+10
+00:00:34,905 --> 00:00:39,539
+we'd expect this sensor to give us a measured value of wall sub y,
+
+11
+00:00:39,539 --> 00:00:43,004
+minus the drones y position, x of y.
+
+12
+00:00:43,005 --> 00:00:46,365
+If we let the drone rule to some angle phi,
+
+13
+00:00:46,365 --> 00:00:50,835
+then we'd expect the sensor to return some number that's bigger than wall sub y,
+
+14
+00:00:50,835 --> 00:00:52,454
+minus x sub y.
+
+15
+00:00:52,454 --> 00:00:55,934
+In fact, we'd expect it to return wall sub y,
+
+16
+00:00:55,935 --> 00:00:57,225
+minus x sub y,
+
+17
+00:00:57,225 --> 00:00:59,760
+divided by the cosine of phi,
+
+18
+00:00:59,759 --> 00:01:02,594
+and this is our measurement model.
+
+19
+00:01:02,594 --> 00:01:06,659
+This function h takes in a state as input,
+
+20
+00:01:06,659 --> 00:01:10,950
+and returns an expected value of what the sensor will read.
+
+21
+00:01:10,950 --> 00:01:15,299
+Keep in mind, this really does just return and expected value.
+
+22
+00:01:15,299 --> 00:01:18,314
+The sensor is of course noisy.
+
+23
+00:01:18,314 --> 00:01:21,204
+This measurement model is really useful.
+
+24
+00:01:21,204 --> 00:01:24,674
+Even though I said it takes the true state as input,
+
+25
+00:01:24,674 --> 00:01:28,905
+we could also pass it in estimate of the state and then figure out
+
+26
+00:01:28,905 --> 00:01:33,570
+what we expect the measurement to be based on our current estimate.
+
+27
+00:01:33,569 --> 00:01:36,734
+Now this h function has a cosine in it.
+
+28
+00:01:36,734 --> 00:01:38,953
+So, clearly, it's non-linear,
+
+29
+00:01:38,953 --> 00:01:44,224
+and that means that if we want to use the measurement model in an extended Kalman Filter,
+
+30
+00:01:44,224 --> 00:01:49,079
+we're going to have to linearise the model around the current state.
+

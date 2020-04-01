@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,279
+The first thing we need to do is figure out how to
+
+2
+00:00:02,279 --> 00:00:05,099
+represent a distribution with samples instead of parameters.
+
+3
+00:00:05,099 --> 00:00:08,865
+A Gaussian can be neatly described with a mean and a covariance.
+
+4
+00:00:08,865 --> 00:00:13,574
+But now we're going to represent the distribution as a set of discrete samples x_i.
+
+5
+00:00:13,574 --> 00:00:18,278
+The estimators job is to create a set of samples that capture the distribution.
+
+6
+00:00:18,278 --> 00:00:20,949
+What's interesting about using samples,
+
+7
+00:00:20,949 --> 00:00:23,199
+is that you can often use the samples
+
+8
+00:00:23,199 --> 00:00:26,774
+directly in place of the parametric form of the distribution.
+
+9
+00:00:26,774 --> 00:00:29,949
+For example, let's say I need to give the control system
+
+10
+00:00:29,949 --> 00:00:34,089
+the mean of the distribution and I have a set of samples like this x_i,
+
+11
+00:00:34,090 --> 00:00:37,090
+if those samples are drawn from the distribution,
+
+12
+00:00:37,090 --> 00:00:40,090
+than they are naturally going to be denser around the mean,
+
+13
+00:00:40,090 --> 00:00:42,595
+and sparser further away from the mean.
+
+14
+00:00:42,594 --> 00:00:45,280
+Once I have the set of samples,
+
+15
+00:00:45,280 --> 00:00:50,160
+then I can compute the mean simply using x hat is equal to the sum of the samples.
+
+16
+00:00:50,159 --> 00:00:54,184
+Perhaps with some weights and we'll see where those weights come from shortly.
+
+17
+00:00:54,185 --> 00:00:58,995
+But the important thing is that I can use the samples to compute the mean exactly,
+
+18
+00:00:58,994 --> 00:01:01,964
+and I can do the same thing for the variance.
+
+19
+00:01:01,965 --> 00:01:06,375
+Okay, we can use samples and set of parameters to represent our distribution.
+
+20
+00:01:06,375 --> 00:01:08,560
+But where do these samples come from?
+
+21
+00:01:08,560 --> 00:01:11,905
+How do we sample from a known distribution?
+
+22
+00:01:11,905 --> 00:01:13,969
+One way is the computer.
+
+23
+00:01:13,969 --> 00:01:17,480
+Python gives us ways to sample from some kinds of known distributions.
+
+24
+00:01:17,480 --> 00:01:21,435
+Num pi in particular is a variety of distributions that we can sample from.
+
+25
+00:01:21,435 --> 00:01:24,010
+When you look at the num pi documentation,
+
+26
+00:01:24,010 --> 00:01:29,000
+you see binomial, normal the poisson distribution et cetera.
+
+27
+00:01:29,000 --> 00:01:31,670
+We can simple directly from these,
+
+28
+00:01:31,670 --> 00:01:35,510
+but often our distributions are a mixture of components or other kinds of
+
+29
+00:01:35,510 --> 00:01:40,850
+distributions that we might be able to evaluate that is for a given event or outcome,
+
+30
+00:01:40,849 --> 00:01:42,919
+we can evaluate the density of that point,
+
+31
+00:01:42,920 --> 00:01:46,710
+but we can't necessarily sample directly from that distribution.
+
+32
+00:01:46,709 --> 00:01:49,054
+So, what do we do in that situation?
+
+33
+00:01:49,055 --> 00:01:52,610
+In particular, how do we propagate our samples using
+
+34
+00:01:52,609 --> 00:01:56,599
+our knowledge of the commanded controls and the vehicle dynamics?
+

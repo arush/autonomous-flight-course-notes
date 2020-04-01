@@ -1,0 +1,144 @@
+1
+00:00:00,000 --> 00:00:02,759
+We're going to separate the control problem into
+
+2
+00:00:02,759 --> 00:00:05,960
+two separate autopilots: the lateral directional autopilot,
+
+3
+00:00:05,960 --> 00:00:07,679
+and the longitudinal autopilot.
+
+4
+00:00:07,679 --> 00:00:10,544
+Let's start with the lateral directional autopilot.
+
+5
+00:00:10,544 --> 00:00:14,905
+The lateral directional autopilot has two jobs: maintain the desired heading,
+
+6
+00:00:14,904 --> 00:00:16,739
+and keep sideslip to a minimum.
+
+7
+00:00:16,739 --> 00:00:20,559
+Each of these responsibilities is handled through its own controller.
+
+8
+00:00:20,559 --> 00:00:24,439
+The course controller maintains heading by controlling the ailerons.
+
+9
+00:00:24,440 --> 00:00:27,109
+So, it takes a commanded heading angle as input,
+
+10
+00:00:27,109 --> 00:00:29,884
+and produces an aileron command as output,
+
+11
+00:00:29,885 --> 00:00:33,175
+and this controller is actually a nested controller.
+
+12
+00:00:33,174 --> 00:00:37,098
+The outer loop uses the heading to generate a target roll angle,
+
+13
+00:00:37,098 --> 00:00:41,244
+and the inner loop uses the error enroll angle to command the ailerons.
+
+14
+00:00:41,244 --> 00:00:43,864
+This inner loop will be a PD controller.
+
+15
+00:00:43,865 --> 00:00:46,490
+Why don't we have an integral term in this inner loop?
+
+16
+00:00:46,490 --> 00:00:50,118
+Remember that the integrator's job is to handle any modeling errors,
+
+17
+00:00:50,118 --> 00:00:53,329
+but it can take some time for the integrator to get to the right value,
+
+18
+00:00:53,329 --> 00:00:56,329
+which limits how quickly the inner loop can respond.
+
+19
+00:00:56,329 --> 00:00:58,850
+We're going to try and get the inner loop's model of
+
+20
+00:00:58,850 --> 00:01:02,810
+the vehicle dynamics as accurate as possible to avoid needing an I term,
+
+21
+00:01:02,810 --> 00:01:05,960
+which will make the inner loop more responsive to disturbances.
+
+22
+00:01:05,959 --> 00:01:08,959
+Of course, if we have a more responsive inner loop,
+
+23
+00:01:08,959 --> 00:01:12,479
+we also want to make sure it doesn't over react to disturbances,
+
+24
+00:01:12,480 --> 00:01:15,930
+so we definitely want a D term to damp this loop.
+
+25
+00:01:15,930 --> 00:01:19,030
+This outer loop will be a PI controller.
+
+26
+00:01:19,030 --> 00:01:22,855
+Here is where we can use an I term to handle any errors in our model,
+
+27
+00:01:22,855 --> 00:01:25,160
+and because it'll be a much slower loop,
+
+28
+00:01:25,159 --> 00:01:27,140
+we don't need to damp it with a D term.
+
+29
+00:01:27,140 --> 00:01:29,670
+Responsiveness isn't as much an issue here.
+
+30
+00:01:29,670 --> 00:01:33,689
+The sideslip controller controls the sideslip angle with the rudder.
+
+31
+00:01:33,689 --> 00:01:36,384
+Generally, the target sideslip angle will be zero,
+
+32
+00:01:36,385 --> 00:01:39,510
+but there are some situations where that won't be the case.
+
+33
+00:01:39,510 --> 00:01:41,984
+This controller will be a PI controller.
+
+34
+00:01:41,984 --> 00:01:44,510
+Together, these three controllers,
+
+35
+00:01:44,510 --> 00:01:46,969
+each with two tunable parameters will be
+
+36
+00:01:46,969 --> 00:01:50,670
+enough to control the lateral directional motion of the vehicle.
+

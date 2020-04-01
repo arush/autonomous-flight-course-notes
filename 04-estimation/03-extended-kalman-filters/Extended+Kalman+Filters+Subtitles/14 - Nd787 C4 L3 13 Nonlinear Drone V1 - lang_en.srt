@@ -1,0 +1,244 @@
+1
+00:00:00,000 --> 00:00:05,485
+The Kalman Filter is the optimal algorithm for estimating the state of the one day drone.
+
+2
+00:00:05,485 --> 00:00:10,650
+And that's because in that case everything was linear and everything was Gaussian.
+
+3
+00:00:10,650 --> 00:00:14,730
+But well, we can often justify the Gaussian assumption.
+
+4
+00:00:14,730 --> 00:00:19,004
+The most interesting estimation problems are usually non-linear,
+
+5
+00:00:19,004 --> 00:00:22,365
+and the Kalman filter just won't work in those cases.
+
+6
+00:00:22,364 --> 00:00:24,419
+We need a different algorithm.
+
+7
+00:00:24,420 --> 00:00:27,480
+The first algorithm we're going to use to solve
+
+8
+00:00:27,480 --> 00:00:31,515
+non-linear estimation problems is the extended Kalman Filter,
+
+9
+00:00:31,515 --> 00:00:35,700
+and it turns out that the math can get pretty tricky with EKFs.
+
+10
+00:00:35,700 --> 00:00:38,670
+So, to try to avoid getting lost in the math,
+
+11
+00:00:38,670 --> 00:00:42,734
+we're going to be working with a very simple non-linear system,
+
+12
+00:00:42,734 --> 00:00:46,994
+and the system will be working with is pretty contrived but that's all right.
+
+13
+00:00:46,994 --> 00:00:49,214
+The drone we'll be working with will be
+
+14
+00:00:49,215 --> 00:00:53,370
+a two-dimensional drone similar to what you've seen in the controls course,
+
+15
+00:00:53,369 --> 00:00:57,179
+except this drone will be constrained in the vertical direction,
+
+16
+00:00:57,179 --> 00:01:00,000
+so it won't be allowed to go up or down.
+
+17
+00:01:00,000 --> 00:01:05,760
+That means the state of this drone is going to be given by its current role angle phi,
+
+18
+00:01:05,760 --> 00:01:09,510
+it's horizontal position Y and also Y dot.
+
+19
+00:01:09,510 --> 00:01:13,715
+And we're going to define a weird control input as well,
+
+20
+00:01:13,715 --> 00:01:15,469
+know how to simplify the math.
+
+21
+00:01:15,469 --> 00:01:18,105
+Instead of thinking of forces and moments,
+
+22
+00:01:18,105 --> 00:01:22,230
+we're just going to have one control input which lets us set phi directly.
+
+23
+00:01:22,230 --> 00:01:26,909
+So, we command some roll angle and the drone just teleports to that phi.
+
+24
+00:01:26,909 --> 00:01:31,619
+The thrust we assume is constant and equal to one as is the mass.
+
+25
+00:01:31,620 --> 00:01:35,715
+So, if we want to accelerate this vehicle to the right,
+
+26
+00:01:35,715 --> 00:01:38,430
+we set some roll angle that's tilted correctly,
+
+27
+00:01:38,430 --> 00:01:40,620
+and some portion of that thrust equal to
+
+28
+00:01:40,620 --> 00:01:43,875
+the sine of phi will cause the vehicle to accelerate.
+
+29
+00:01:43,875 --> 00:01:47,099
+So, just like we did with the Kalman Filter,
+
+30
+00:01:47,099 --> 00:01:52,125
+the first thing we need to do is define a transition function for this model.
+
+31
+00:01:52,125 --> 00:01:57,855
+This is a function that takes as input x of t, u sub of t,
+
+32
+00:01:57,855 --> 00:02:01,590
+and delta t, and it returns x of t plus 1,
+
+33
+00:02:01,590 --> 00:02:05,579
+and the transition function for this system looks like this.
+
+34
+00:02:05,579 --> 00:02:07,304
+The new phi is easy.
+
+35
+00:02:07,305 --> 00:02:09,224
+It's just whatever we set it to be,
+
+36
+00:02:09,224 --> 00:02:12,329
+and I'm going to call that u sub of t comma phi,
+
+37
+00:02:12,330 --> 00:02:15,719
+which means the phi component of the control input.
+
+38
+00:02:15,719 --> 00:02:21,330
+That might be a bit of overkill since that's the only component of the control input.
+
+39
+00:02:21,330 --> 00:02:25,995
+But it will make the math easier later if we stay consistent now.
+
+40
+00:02:25,995 --> 00:02:29,700
+Next, we update the velocity y dot,
+
+41
+00:02:29,699 --> 00:02:32,849
+and that just means we take the current y dot and we have to
+
+42
+00:02:32,849 --> 00:02:37,094
+subtract the sin of phi times delta t. And know
+
+43
+00:02:37,094 --> 00:02:40,669
+I'm not writing phi but x sub t comma phi
+
+44
+00:02:40,669 --> 00:02:45,034
+to emphasize that phi is part of the state vector x.
+
+45
+00:02:45,034 --> 00:02:47,520
+Then to update y, well,
+
+46
+00:02:47,520 --> 00:02:53,070
+that's just the current y plus y dot times delta t. Now,
+
+47
+00:02:53,069 --> 00:02:55,530
+x sub t is a three vector,
+
+48
+00:02:55,530 --> 00:03:02,280
+and g takes an x sub t and a u sub t and it also returns a three vector,
+
+49
+00:03:02,280 --> 00:03:05,985
+the new x sub t after you apply the control input.
+
+50
+00:03:05,985 --> 00:03:09,585
+Now, this is unlike the one D case.
+
+51
+00:03:09,585 --> 00:03:10,995
+In the one D case,
+
+52
+00:03:10,995 --> 00:03:13,425
+we could write g as a linear equation.
+
+53
+00:03:13,425 --> 00:03:18,900
+We could write it as an a sub t which was constant times x sub t plus b
+
+54
+00:03:18,900 --> 00:03:24,270
+sub t which was also constant times u sub t. But here we can't do that,
+
+55
+00:03:24,270 --> 00:03:26,730
+and the reason is because of this sine.
+
+56
+00:03:26,729 --> 00:03:32,729
+We can't factor this into a and b matrices that don't depend on the state.
+
+57
+00:03:32,729 --> 00:03:35,534
+And that means that we won't be able to use
+
+58
+00:03:35,534 --> 00:03:39,000
+a Kalman Filter as our estimation algorithm for this system.
+
+59
+00:03:39,000 --> 00:03:41,908
+If we want to use a Kalman Filter here,
+
+60
+00:03:41,908 --> 00:03:45,525
+we're going to have to work with a linear approximation of the system
+
+61
+00:03:45,525 --> 00:03:50,640
+that's linearized around whenever the current state of the vehicle is.
+

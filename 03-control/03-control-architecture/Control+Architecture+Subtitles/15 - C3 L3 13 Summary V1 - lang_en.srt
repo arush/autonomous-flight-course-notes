@@ -1,0 +1,112 @@
+1
+00:00:00,000 --> 00:00:01,875
+Congratulations!
+
+2
+00:00:01,875 --> 00:00:05,300
+You've implemented some pretty serious control logic in
+
+3
+00:00:05,300 --> 00:00:10,365
+this lesson and learned quite a bit about control theory in the process.
+
+4
+00:00:10,365 --> 00:00:13,720
+First, you saw how the 2D plane of quadrotor is
+
+5
+00:00:13,720 --> 00:00:19,514
+an underactuated system because while it has three degrees of freedom, with its y, z,
+
+6
+00:00:19,514 --> 00:00:24,515
+and phi coordinates, they only directly control two quantities,
+
+7
+00:00:24,515 --> 00:00:27,205
+the thrust and the rotational movement,
+
+8
+00:00:27,205 --> 00:00:29,619
+which we called U1 and U2.
+
+9
+00:00:29,619 --> 00:00:35,615
+Then you saw how we could directly control two of those three degrees of freedom,
+
+10
+00:00:35,615 --> 00:00:41,345
+namely y and z, if we sacrifice control of the third degree of freedom.
+
+11
+00:00:41,345 --> 00:00:45,231
+Then we started thinking about how we would control y and z,
+
+12
+00:00:45,231 --> 00:00:51,327
+and you saw that when we linearize the dynamics of the system around the hover state,
+
+13
+00:00:51,327 --> 00:00:55,070
+the equations that governed y and z became decoupled,
+
+14
+00:00:55,070 --> 00:00:59,665
+which meant we could control each independently.
+
+15
+00:00:59,665 --> 00:01:03,230
+U1 could be used to control the altitude and
+
+16
+00:01:03,230 --> 00:01:07,945
+U2 could be used to control the lateral motion in the y direction.
+
+17
+00:01:07,945 --> 00:01:10,665
+Then we noticed something interesting,
+
+18
+00:01:10,665 --> 00:01:15,770
+and that was how U2 controlled the motion in the y direction.
+
+19
+00:01:15,770 --> 00:01:18,095
+Instead of controlling y directly,
+
+20
+00:01:18,095 --> 00:01:23,675
+it did so by first controlling the intermediate variable of roll, or phi.
+
+21
+00:01:23,675 --> 00:01:29,675
+This realization led us to use a cascaded control structure where you first
+
+22
+00:01:29,675 --> 00:01:35,640
+implemented and tuned the inner faster control loop which controlled the roll angle,
+
+23
+00:01:35,640 --> 00:01:37,625
+and once that was working,
+
+24
+00:01:37,625 --> 00:01:42,260
+you implemented a slower outer control loop which took information about
+
+25
+00:01:42,260 --> 00:01:48,555
+the y trajectory and used it to set the target roll angle for the inner controller.
+
+26
+00:01:48,555 --> 00:01:50,215
+In the next lesson,
+
+27
+00:01:50,215 --> 00:01:54,100
+you'll be taking the complexity and realism up a level by
+
+28
+00:01:54,100 --> 00:01:59,000
+designing a controller for quadrotor of that operates in a three-dimensional world.
+

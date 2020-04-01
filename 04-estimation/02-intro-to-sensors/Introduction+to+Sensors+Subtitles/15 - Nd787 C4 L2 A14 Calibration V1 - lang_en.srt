@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:05,400
+The easiest way to handle errors is by doing what's called, offline calibration.
+
+2
+00:00:05,400 --> 00:00:10,095
+Let's say I want to calibrate the accelerometers on this drone.
+
+3
+00:00:10,095 --> 00:00:14,429
+If I know this table is flat and I put my drone on it,
+
+4
+00:00:14,429 --> 00:00:20,730
+I would expect to see an accelerometer reading of 9.8 meters per second squared upwards.
+
+5
+00:00:20,730 --> 00:00:24,855
+If I look at the actual measurements and they say something different,
+
+6
+00:00:24,855 --> 00:00:27,149
+then I can introduce a correction,
+
+7
+00:00:27,149 --> 00:00:30,284
+and that would be offline calibration.
+
+8
+00:00:30,285 --> 00:00:34,500
+The other approach to calibration is online calibration,
+
+9
+00:00:34,500 --> 00:00:39,109
+and we have to use online calibration when the bias slowly changes in flight,
+
+10
+00:00:39,109 --> 00:00:42,945
+which is something that the IMUs are notorious for.
+
+11
+00:00:42,945 --> 00:00:49,185
+In online calibration, we actually add the bias into a vehicle state vector.
+
+12
+00:00:49,185 --> 00:00:53,415
+So instead of tracking the usual 12-state variables,
+
+13
+00:00:53,414 --> 00:00:56,609
+we might use a random work model and correct
+
+14
+00:00:56,609 --> 00:01:00,350
+the three additional accelerometer biases as well.
+
+15
+00:01:00,350 --> 00:01:02,895
+When we do offline calibration,
+
+16
+00:01:02,895 --> 00:01:06,135
+we generally need some calibration routine.
+
+17
+00:01:06,135 --> 00:01:08,700
+For example, remember when we looked at
+
+18
+00:01:08,700 --> 00:01:12,564
+the specs sheet and we saw the temperature calibration offset,
+
+19
+00:01:12,564 --> 00:01:15,189
+gyros and accelerometer biases have
+
+20
+00:01:15,189 --> 00:01:19,799
+a temperature dependent component that isn't a function of time.
+
+21
+00:01:19,799 --> 00:01:22,409
+To get the most out of an IMU,
+
+22
+00:01:22,409 --> 00:01:24,359
+we would like to know this function,
+
+23
+00:01:24,359 --> 00:01:29,459
+and the way we do that is with a pretty straightforward calibration routine.
+
+24
+00:01:29,459 --> 00:01:31,379
+So for this IMU,
+
+25
+00:01:31,379 --> 00:01:36,179
+we could just set it on a table with some known orientation and then
+
+26
+00:01:36,180 --> 00:01:41,805
+we can put it through a range of temperatures and observe the bias at each temperature.
+
+27
+00:01:41,805 --> 00:01:44,070
+Once we have our data,
+
+28
+00:01:44,069 --> 00:01:48,029
+we can use least-squares to fit a polynomial to the data,
+
+29
+00:01:48,030 --> 00:01:52,579
+and then we have a model of how temperature influences bias.
+

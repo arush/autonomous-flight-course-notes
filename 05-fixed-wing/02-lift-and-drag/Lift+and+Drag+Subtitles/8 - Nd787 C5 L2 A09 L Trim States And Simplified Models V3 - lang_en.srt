@@ -1,0 +1,244 @@
+1
+00:00:00,000 --> 00:00:03,475
+At this point, we've developed a mathematical model for lift,
+
+2
+00:00:03,475 --> 00:00:05,634
+drag and pitching moment.
+
+3
+00:00:05,634 --> 00:00:08,809
+Each of these models has a coefficient associated with it.
+
+4
+00:00:08,810 --> 00:00:12,870
+It's important to remember that these equations are models of reality,
+
+5
+00:00:12,869 --> 00:00:14,864
+and these models are not perfect.
+
+6
+00:00:14,865 --> 00:00:16,230
+When we make models,
+
+7
+00:00:16,230 --> 00:00:18,600
+we want them to be accurate and simple.
+
+8
+00:00:18,600 --> 00:00:20,760
+Often, we make assumptions that may make
+
+9
+00:00:20,760 --> 00:00:24,375
+our model slightly less accurate in order to keep it simple.
+
+10
+00:00:24,375 --> 00:00:26,870
+For example, in reality,
+
+11
+00:00:26,870 --> 00:00:30,390
+these forces and moments also depend on a pitch rate of the vehicle,
+
+12
+00:00:30,390 --> 00:00:32,429
+which we've been representing with Q.
+
+13
+00:00:32,429 --> 00:00:35,479
+But this contribution is generally small for normal flight,
+
+14
+00:00:35,479 --> 00:00:37,289
+so we've ignored it in these models.
+
+15
+00:00:37,289 --> 00:00:40,339
+But what is normal flight for a fixed-wing aircraft?
+
+16
+00:00:40,340 --> 00:00:41,805
+With a few exceptions,
+
+17
+00:00:41,804 --> 00:00:46,414
+fixed-wing vehicles usually operate at or very near some sort of trim state.
+
+18
+00:00:46,414 --> 00:00:49,000
+A trim state is simply an equilibrium state where
+
+19
+00:00:49,000 --> 00:00:52,395
+the net force and net moment on the vehicle are zero.
+
+20
+00:00:52,395 --> 00:00:55,585
+One common trim state is straight and level flight.
+
+21
+00:00:55,585 --> 00:00:57,700
+This is flight where the vehicles flying in
+
+22
+00:00:57,700 --> 00:01:00,730
+a straight and level flight path at constant speed.
+
+23
+00:01:00,729 --> 00:01:03,044
+Straight means the vehicle isn't turning,
+
+24
+00:01:03,045 --> 00:01:05,905
+and level means it stays at constant altitude.
+
+25
+00:01:05,905 --> 00:01:08,379
+Note that the level in straight and level flight
+
+26
+00:01:08,379 --> 00:01:10,869
+doesn't refer to the orientation of the vehicle,
+
+27
+00:01:10,870 --> 00:01:13,875
+but to the fact that its altitude isn't changing.
+
+28
+00:01:13,875 --> 00:01:18,200
+Now we'd like to use our models to answer some questions about this trim state.
+
+29
+00:01:18,200 --> 00:01:21,700
+For example, if I want to fly at a certain velocity,
+
+30
+00:01:21,700 --> 00:01:25,640
+I might want to know how much thrust should the propulsion system provide?
+
+31
+00:01:25,640 --> 00:01:28,219
+What angle of attack should I try to fly at?
+
+32
+00:01:28,219 --> 00:01:31,025
+In general, the answer will not be zero.
+
+33
+00:01:31,025 --> 00:01:33,390
+What elevator deflection angle will I need?
+
+34
+00:01:33,390 --> 00:01:36,519
+We would like to answer these questions using a model that's
+
+35
+00:01:36,519 --> 00:01:40,269
+as simple as possible without sacrificing too much accuracy.
+
+36
+00:01:40,269 --> 00:01:44,634
+Let's consider the forces acting on an aircraft in straight and level flight.
+
+37
+00:01:44,635 --> 00:01:49,570
+There's the weight, lift, thrust, and drag.
+
+38
+00:01:49,569 --> 00:01:51,639
+Since this is a trim state,
+
+39
+00:01:51,640 --> 00:01:55,265
+the forces must balance in a horizontal or vertical direction.
+
+40
+00:01:55,265 --> 00:01:57,915
+This is fairly straightforward analysis.
+
+41
+00:01:57,915 --> 00:01:59,900
+The most important thing to remember is that we
+
+42
+00:01:59,900 --> 00:02:01,840
+need the lift force to match the weight force.
+
+43
+00:02:01,840 --> 00:02:05,454
+There is a vertical component of thrust that will help match the weight force,
+
+44
+00:02:05,454 --> 00:02:08,294
+but we won't be pitched by much, so let's ignore that.
+
+45
+00:02:08,294 --> 00:02:11,889
+For a level flight, that our pitch is the same as our angle of attack,
+
+46
+00:02:11,889 --> 00:02:13,704
+and that's where lift comes from.
+
+47
+00:02:13,705 --> 00:02:17,810
+We just need to pitch up enough to make sure our lift matches our weight.
+
+48
+00:02:17,810 --> 00:02:21,129
+But if we're pitched up, then we'll have a pitching moment too.
+
+49
+00:02:21,129 --> 00:02:24,155
+That will cause the vehicle to start rotating upwards,
+
+50
+00:02:24,155 --> 00:02:25,824
+increasing our angle of attack,
+
+51
+00:02:25,824 --> 00:02:28,929
+creating more lift and causing us to gain altitude.
+
+52
+00:02:28,930 --> 00:02:32,944
+To avoid that, we need to counteract the pitching moment with the elevator.
+
+53
+00:02:32,944 --> 00:02:35,000
+It might seem counter intuitive,
+
+54
+00:02:35,000 --> 00:02:37,764
+but in level flight will deflect the elevator downwards,
+
+55
+00:02:37,764 --> 00:02:42,024
+just enough to counteract the pitching moment of the positive angle of attack.
+
+56
+00:02:42,025 --> 00:02:44,840
+The elevator will also contribute to the lift,
+
+57
+00:02:44,840 --> 00:02:48,020
+but near this trim state the elevator deflection will be really small
+
+58
+00:02:48,020 --> 00:02:51,960
+and the contribution of this term will be negligible compared to the other terms.
+
+59
+00:02:51,960 --> 00:02:54,105
+That means, for this example,
+
+60
+00:02:54,104 --> 00:02:56,544
+we can ignore this terms impact on lift.
+
+61
+00:02:56,544 --> 00:03:00,739
+We'll walk through some of this math in more detail next.
+

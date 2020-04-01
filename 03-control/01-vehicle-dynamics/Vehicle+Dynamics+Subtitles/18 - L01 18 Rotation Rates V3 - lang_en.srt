@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:05,714
+At this point, you have some intuitive understanding of how the rotation rates of
+
+2
+00:00:05,714 --> 00:00:12,044
+four propellers can lead to four quantities that we are actually most interested in.
+
+3
+00:00:12,044 --> 00:00:14,714
+The collective upwards thrust,
+
+4
+00:00:14,714 --> 00:00:17,684
+the total moment about the x axis,
+
+5
+00:00:17,684 --> 00:00:19,890
+which causes the vehicle to roll,
+
+6
+00:00:19,890 --> 00:00:22,410
+the total moment about the y axis,
+
+7
+00:00:22,410 --> 00:00:24,725
+which causes the vehicle to pitch,
+
+8
+00:00:24,725 --> 00:00:30,745
+and the total reaction moment about the set axis which causes the vehicle to yaw.
+
+9
+00:00:30,745 --> 00:00:33,759
+When we analyze the dynamics of a vehicle with
+
+10
+00:00:33,759 --> 00:00:38,335
+a side-by-side rotor configuration that moves in two-dimensions,
+
+11
+00:00:38,335 --> 00:00:42,609
+we only need to consider the first two quantities.
+
+12
+00:00:42,609 --> 00:00:45,070
+As you'll see in the next segment,
+
+13
+00:00:45,070 --> 00:00:48,715
+it's possible to write code that directly translates
+
+14
+00:00:48,715 --> 00:00:53,005
+the rotation rates of the two motors into a collective thrust,
+
+15
+00:00:53,005 --> 00:00:55,660
+and a moment about the x axis.
+

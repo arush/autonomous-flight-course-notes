@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:02,745
+Welcome back, and welcome back Angela.
+
+2
+00:00:02,745 --> 00:00:04,724
+Thanks it's great to be here.
+
+3
+00:00:04,724 --> 00:00:08,129
+As you can tell this course is going to be jointly taught by Nick,
+
+4
+00:00:08,130 --> 00:00:10,095
+Angela and in the next lesson,
+
+5
+00:00:10,095 --> 00:00:11,880
+you'll need a third instructor Stephanie.
+
+6
+00:00:11,880 --> 00:00:14,850
+So, what are we going to learn in this lesson Angela?
+
+7
+00:00:14,849 --> 00:00:18,509
+This lesson is all about sensors and how a flying vehicle
+
+8
+00:00:18,510 --> 00:00:22,695
+uses imperfect but complimentary sensors like accelerometers,
+
+9
+00:00:22,695 --> 00:00:27,045
+rate gyros and GPS to accurately estimate where it is in the rock.
+
+10
+00:00:27,045 --> 00:00:29,010
+Right. Because up until now,
+
+11
+00:00:29,010 --> 00:00:31,950
+it's been pretty easy to forget about sensors when you're working in
+
+12
+00:00:31,949 --> 00:00:36,210
+a simulated environment where you just assume perfect knowledge of your vehicle.
+
+13
+00:00:36,210 --> 00:00:40,859
+That's right, but then you start working on real flying vehicles,
+
+14
+00:00:40,859 --> 00:00:44,320
+you are going to find that sensors are impossible to ignore.
+

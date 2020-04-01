@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:01,845
+The roll-pitch controller is
+
+2
+00:00:01,845 --> 00:00:05,565
+the most mathematically involved controller in this architecture.
+
+3
+00:00:05,565 --> 00:00:08,900
+We covered it first because we wanted to stay focused
+
+4
+00:00:08,900 --> 00:00:12,470
+on the math associated with 3D rotations.
+
+5
+00:00:12,470 --> 00:00:16,515
+But this isn't the first controller you would implement
+
+6
+00:00:16,515 --> 00:00:20,795
+if you were actually implementing this architecture from scratch.
+
+7
+00:00:20,795 --> 00:00:23,520
+The sequence you would want to take would be to
+
+8
+00:00:23,519 --> 00:00:26,820
+implement and tune the inner control loops first.
+
+9
+00:00:26,820 --> 00:00:29,589
+Remember, these inner loops generally
+
+10
+00:00:29,589 --> 00:00:33,420
+operate on a faster time scale than the outer loops.
+
+11
+00:00:33,420 --> 00:00:37,530
+So if you were just looking at the position controller,
+
+12
+00:00:37,530 --> 00:00:40,545
+roll-pitch controller and body-rate controller,
+
+13
+00:00:40,545 --> 00:00:45,310
+what sequence would you want to implement these controllers in?
+

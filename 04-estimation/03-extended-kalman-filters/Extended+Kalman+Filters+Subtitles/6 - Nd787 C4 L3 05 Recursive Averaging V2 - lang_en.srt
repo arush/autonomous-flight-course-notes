@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:03,464
+So, we want to avoid having to save
+
+2
+00:00:03,464 --> 00:00:07,559
+our entire history of sensor measurements to perform our update.
+
+3
+00:00:07,559 --> 00:00:09,539
+Luckily that's not so hard.
+
+4
+00:00:09,539 --> 00:00:14,399
+What we're going to do is transform this into a recursive update,
+
+5
+00:00:14,400 --> 00:00:21,615
+where we take our old x_hat and our new z_sub_t and use those to get a new x_hat,
+
+6
+00:00:21,614 --> 00:00:23,804
+and the equation looks like this.
+
+7
+00:00:23,804 --> 00:00:27,059
+We've replaced the history of t minus
+
+8
+00:00:27,059 --> 00:00:30,869
+one sensor measurements with a single number, their average.
+
+9
+00:00:30,870 --> 00:00:34,484
+And then we multiply that by t minus one,
+
+10
+00:00:34,484 --> 00:00:37,170
+and then add it in the new measurement and then we divide
+
+11
+00:00:37,170 --> 00:00:40,260
+by t. And this is so much better.
+
+12
+00:00:40,259 --> 00:00:44,250
+This approach respects something called the "Markov Assumption",
+
+13
+00:00:44,250 --> 00:00:48,015
+and basically that just means that our updated estimate
+
+14
+00:00:48,015 --> 00:00:52,350
+only depends on the current observation and the previous estimate.
+
+15
+00:00:52,350 --> 00:00:54,060
+It doesn't depend on
+
+16
+00:00:54,060 --> 00:00:59,010
+all the previous observations we used to come up with that previous estimate.
+
+17
+00:00:59,009 --> 00:01:01,515
+A lot of what we do in estimation,
+
+18
+00:01:01,515 --> 00:01:03,450
+is trying to get problems into
+
+19
+00:01:03,450 --> 00:01:08,515
+this Markov form so that we can exploit this computational advantage.
+
+20
+00:01:08,515 --> 00:01:13,469
+But unfortunately, even though this approach is computationally better,
+
+21
+00:01:13,469 --> 00:01:17,069
+when we try to use those we're going to run into another problem.
+
+22
+00:01:17,069 --> 00:01:20,250
+As t gets bigger new measurements are
+
+23
+00:01:20,250 --> 00:01:23,325
+going to cause the estimate to change less and less.
+
+24
+00:01:23,325 --> 00:01:27,390
+So this will be really bad for a drone that hovers in place for
+
+25
+00:01:27,390 --> 00:01:31,500
+a long time and then after a long time decides to move.
+
+26
+00:01:31,500 --> 00:01:36,689
+The motion will take a long time to get incorporated into the estimate.
+
+27
+00:01:36,689 --> 00:01:42,719
+We can attempt to address this by implementing an exponential moving average like this.
+
+28
+00:01:42,719 --> 00:01:47,280
+This would definitely make the vehicle more responsive to new measurements,
+
+29
+00:01:47,280 --> 00:01:53,560
+but it might suffer the same problems that you saw when using raw measurements.
+

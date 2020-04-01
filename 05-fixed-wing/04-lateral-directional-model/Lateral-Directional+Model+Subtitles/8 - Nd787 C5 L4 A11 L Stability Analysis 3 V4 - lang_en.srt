@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:03,459
+The final lateral dynamic mode is called the Dutch Roll mode.
+
+2
+00:00:03,459 --> 00:00:08,949
+This mode corresponds to the only pair of complex eigenvalues from the stability matrix.
+
+3
+00:00:08,949 --> 00:00:10,744
+To understand this mode,
+
+4
+00:00:10,744 --> 00:00:15,779
+we're once again going to consider the same vehicle from two angles simultaneously.
+
+5
+00:00:15,779 --> 00:00:20,949
+I'm going to use curved arrows to denote the roll and yaw rates at each point in time.
+
+6
+00:00:20,949 --> 00:00:24,829
+We're going to start at T equals zero with this vehicle at some roll angle,
+
+7
+00:00:24,829 --> 00:00:27,000
+phi, and zero, your angle.
+
+8
+00:00:27,000 --> 00:00:30,824
+Then we're going to introduce some yaw rate as a disturbance.
+
+9
+00:00:30,824 --> 00:00:35,375
+As you saw earlier, this yaw rate will cause a rolling moment on the aircraft.
+
+10
+00:00:35,375 --> 00:00:36,905
+A few moments later,
+
+11
+00:00:36,905 --> 00:00:38,965
+the vehicle will look like this.
+
+12
+00:00:38,965 --> 00:00:41,205
+Now it has zero roll angle,
+
+13
+00:00:41,204 --> 00:00:45,649
+but due to inertia, it still has some non-zero roll rate in this direction.
+
+14
+00:00:45,649 --> 00:00:49,074
+At this point, the vehicle has reached it's maximum angle,
+
+15
+00:00:49,075 --> 00:00:50,730
+so the yaw rate has gone to zero.
+
+16
+00:00:50,729 --> 00:00:52,909
+A few moments later,
+
+17
+00:00:52,909 --> 00:00:57,709
+the roll rate from before will have rolled the vehicle to some new maximal roll angle,
+
+18
+00:00:57,710 --> 00:00:59,390
+and the lower right wing will lead to
+
+19
+00:00:59,390 --> 00:01:03,615
+a yawing moment which will have restored the vehicle to zero yaw.
+
+20
+00:01:03,615 --> 00:01:06,859
+Finally, inertia will yaw the vehicle to
+
+21
+00:01:06,859 --> 00:01:10,980
+an orientation like this as the vehicle rolls through wings level.
+
+22
+00:01:10,980 --> 00:01:13,835
+If we were to plot the roll angle versus time,
+
+23
+00:01:13,834 --> 00:01:16,184
+we can see that it should start high,
+
+24
+00:01:16,185 --> 00:01:21,945
+go through zero, reach some minimal value and then return.
+
+25
+00:01:21,944 --> 00:01:27,079
+We could also plot the yaw angle versus time and we get a plot like this.
+
+26
+00:01:27,079 --> 00:01:29,659
+These plots look very similar,
+
+27
+00:01:29,659 --> 00:01:34,890
+except we can see that there is about a quarter cycle or 90 degrees of lag between them.
+
+28
+00:01:34,890 --> 00:01:37,540
+Now, why is this called Dutch Roll?
+
+29
+00:01:37,540 --> 00:01:39,640
+The pioneering aeronautical engineer,
+
+30
+00:01:39,640 --> 00:01:41,230
+Hans Hacker from MIT,
+
+31
+00:01:41,230 --> 00:01:45,290
+coined the term comparing it to a type of skating called the Dutch Roll where
+
+32
+00:01:45,290 --> 00:01:50,360
+skaters skate on the outside of their blades swinging from side to side as they go.
+

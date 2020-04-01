@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:03,839
+So, how do we know if two variables are independent?
+
+2
+00:00:03,839 --> 00:00:06,254
+How can we tell if a random variable
+
+3
+00:00:06,254 --> 00:00:09,074
+such as whether the vehicle is working is independent
+
+4
+00:00:09,074 --> 00:00:10,934
+of whether the payload is working?
+
+5
+00:00:10,935 --> 00:00:13,290
+If the data are discrete and you have
+
+6
+00:00:13,289 --> 00:00:17,099
+a probability mass function also known as having categorical data,
+
+7
+00:00:17,100 --> 00:00:19,530
+then a chi-square test is a type of
+
+8
+00:00:19,530 --> 00:00:22,650
+statistical test that can be used to determine the degree to
+
+9
+00:00:22,649 --> 00:00:25,279
+which the differences between variables are due to
+
+10
+00:00:25,280 --> 00:00:28,160
+chance or if they're actually correlated in some way.
+
+11
+00:00:28,160 --> 00:00:32,750
+For flying cars, we're going to be dealing with continuous data more often.
+
+12
+00:00:32,750 --> 00:00:37,429
+And if the data are continuous we can examine what's known as the correlation.
+
+13
+00:00:37,429 --> 00:00:42,890
+Intuitively, correlation gives us some measure of how related two variables are.
+
+14
+00:00:42,890 --> 00:00:45,770
+Let's say we have two variables x_1 and x_2.
+
+15
+00:00:45,770 --> 00:00:51,035
+Now let's say we sample some distribution over these variables and plot those points.
+
+16
+00:00:51,034 --> 00:00:55,849
+In this case we would say the correlation between x_1 and x_2 is positive.
+
+17
+00:00:55,850 --> 00:00:59,675
+Since a large x_1 means x_2 is likely to be large as well.
+
+18
+00:00:59,674 --> 00:01:03,125
+Here, the correlation will be negative,
+
+19
+00:01:03,125 --> 00:01:06,329
+and here, the correlation would be zero.
+
+20
+00:01:06,329 --> 00:01:10,364
+This is knowledge of x_1 doesn't really say anything about x_2.
+
+21
+00:01:10,364 --> 00:01:16,696
+Now, that's fine for a qualitative understanding of whether the correlation is positive, negative, or zero.
+
+22
+00:01:16,697 --> 00:01:19,200
+But to precisely quantify the correlation,
+
+23
+00:01:19,200 --> 00:01:21,045
+we need a correlation function.
+
+24
+00:01:21,045 --> 00:01:24,329
+There are many different choices for correlation functions.
+
+25
+00:01:24,329 --> 00:01:27,780
+One common choice is the Pearson Product-Moment Correlation.
+
+26
+00:01:27,780 --> 00:01:30,480
+Which is equal to the covariance of x_1 and x_2,
+
+27
+00:01:30,480 --> 00:01:33,945
+divided by the standard deviations of x_1 and x_2,
+
+28
+00:01:33,944 --> 00:01:37,079
+and this gives the correlation between x_1 and x_2.
+
+29
+00:01:37,079 --> 00:01:40,625
+Now we can show that if the data are independent,
+
+30
+00:01:40,625 --> 00:01:43,194
+then the correlation is going to be equal to zero.
+
+31
+00:01:43,194 --> 00:01:45,779
+If we look at the co-variance of x_1 and x_2,
+
+32
+00:01:45,780 --> 00:01:51,515
+it's going to be equal to the expectation of x_1 minus mu x_1 times x_2 minus mu x_2.
+
+33
+00:01:51,515 --> 00:01:56,075
+It turns out that we can rewrite this as the expectation of x_1 times x_2,
+
+34
+00:01:56,075 --> 00:01:59,600
+minus the expectation of x_1 times the expectation of x_2.
+
+35
+00:01:59,599 --> 00:02:02,119
+If we know that x_1 and x_2 are independent,
+
+36
+00:02:02,120 --> 00:02:05,960
+then this is equal to the expectation of x_1 times the expectation of x_2,
+
+37
+00:02:05,959 --> 00:02:09,500
+minus the expectation of x_1 times expectation of x_2 again,
+
+38
+00:02:09,500 --> 00:02:11,229
+and that's going to be equal to zero.
+
+39
+00:02:11,229 --> 00:02:13,659
+As a result the correlation is going to be zero
+
+40
+00:02:13,659 --> 00:02:16,060
+divided by whatever the standard deviations are.
+
+41
+00:02:16,060 --> 00:02:18,909
+That's good. If the data are truly independent,
+
+42
+00:02:18,909 --> 00:02:21,174
+then the correlation will be zero.
+
+43
+00:02:21,175 --> 00:02:24,640
+That's a good test but we have to be very careful,
+
+44
+00:02:24,639 --> 00:02:28,079
+because uncorrelated does not always imply independence.
+
+45
+00:02:28,080 --> 00:02:30,370
+For example imagine that we had
+
+46
+00:02:30,370 --> 00:02:34,120
+two random variables y_1 and y_2 and they're constructed in
+
+47
+00:02:34,120 --> 00:02:37,030
+this funny way where they're actually functions of some other
+
+48
+00:02:37,030 --> 00:02:40,840
+random variable that itself is distributed from zero to two pi.
+
+49
+00:02:40,840 --> 00:02:43,069
+These variables are clearly not independent.
+
+50
+00:02:43,069 --> 00:02:46,870
+If you know one with high probability, you know the other.
+
+51
+00:02:46,870 --> 00:02:52,620
+It's easy to show the expected value of all these terms is equal to zero,
+
+52
+00:02:52,620 --> 00:02:54,360
+and the co-variance is equal to zero.
+
+53
+00:02:54,360 --> 00:02:57,165
+Which means that y_1 and y_2 are uncorrelated,
+
+54
+00:02:57,164 --> 00:02:59,489
+but they're clearly not independent.
+
+55
+00:02:59,490 --> 00:03:02,100
+So, why am I even describing correlation?
+
+56
+00:03:02,099 --> 00:03:06,644
+The answer is because for jointly Gaussian random variables x_1 and x_2,
+
+57
+00:03:06,645 --> 00:03:11,130
+we can show that if the correlation is zero then the variables are indeed independent.
+
+58
+00:03:11,129 --> 00:03:14,115
+It's a useful test just for this particular setting.
+
+59
+00:03:14,115 --> 00:03:19,050
+You've got to be careful though because x_1 and x_2 have to be jointly Gaussian.
+
+60
+00:03:19,050 --> 00:03:22,439
+It's also easy to construct an example where if
+
+61
+00:03:22,439 --> 00:03:25,754
+the marginal x_1 and the marginal x_2 are each Gaussian,
+
+62
+00:03:25,754 --> 00:03:30,560
+the co-variance will be zero even though they're clearly not independent.
+

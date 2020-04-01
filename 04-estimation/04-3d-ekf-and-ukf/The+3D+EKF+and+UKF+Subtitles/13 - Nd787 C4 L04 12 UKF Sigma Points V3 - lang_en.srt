@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:04,125
+So, how do we get these special Sigma points?
+
+2
+00:00:04,125 --> 00:00:08,339
+We can't just symmetrically sample any points around the mean.
+
+3
+00:00:08,339 --> 00:00:12,019
+In order for the math underlying the UKF to work out,
+
+4
+00:00:12,019 --> 00:00:14,744
+we need to choose the right points.
+
+5
+00:00:14,744 --> 00:00:18,559
+In fact, if we have an N dimensional state space,
+
+6
+00:00:18,559 --> 00:00:23,250
+we're going to need to generate two times N plus one Sigma points.
+
+7
+00:00:23,250 --> 00:00:26,990
+The first Sigma point is just going to come from the mean.
+
+8
+00:00:26,989 --> 00:00:29,429
+If I were doing this in one dimension,
+
+9
+00:00:29,429 --> 00:00:32,534
+that would mean my first Sigma point is here.
+
+10
+00:00:32,534 --> 00:00:36,794
+Then my remaining two points might be at the mean plus
+
+11
+00:00:36,795 --> 00:00:41,684
+the standard deviation and the mean minus the standard deviation.
+
+12
+00:00:41,683 --> 00:00:45,244
+To calculate Sigma points in higher dimensions,
+
+13
+00:00:45,244 --> 00:00:47,669
+I first need to calculate S,
+
+14
+00:00:47,670 --> 00:00:50,940
+which is the square root of the covariance matrix.
+
+15
+00:00:50,939 --> 00:00:54,549
+Remember, this will be an N by N matrix.
+
+16
+00:00:54,549 --> 00:00:57,849
+So, this S matrix will have N rows.
+
+17
+00:00:57,850 --> 00:01:02,085
+I'm going to refer to row number I as S_i.
+
+18
+00:01:02,085 --> 00:01:04,170
+You can think of this like
+
+19
+00:01:04,170 --> 00:01:08,390
+a multidimensional version of a standard deviation in one dimension.
+
+20
+00:01:08,390 --> 00:01:12,724
+Now that I have S with rows given by S_i.
+
+21
+00:01:12,724 --> 00:01:16,719
+I'm going to get my Sigma points according to this math here.
+
+22
+00:01:16,719 --> 00:01:20,329
+This just says, I should take my first point to be
+
+23
+00:01:20,329 --> 00:01:24,715
+the mean and then I should sample N points like this,
+
+24
+00:01:24,715 --> 00:01:29,365
+where each point is sampled by stepping some distance away from the mean.
+
+25
+00:01:29,364 --> 00:01:32,809
+The size of that step is set by Gamma and
+
+26
+00:01:32,810 --> 00:01:36,620
+the direction is given by row I of the S matrix.
+
+27
+00:01:36,620 --> 00:01:39,965
+Of course, I also have to do something similar
+
+28
+00:01:39,965 --> 00:01:43,240
+in the opposite direction to make the sampling symmetric.
+
+29
+00:01:43,239 --> 00:01:48,875
+Eventually, we're going to use all of these Sigmas to try to recover the mean
+
+30
+00:01:48,875 --> 00:01:51,530
+and covariance of the samples once we
+
+31
+00:01:51,530 --> 00:01:54,864
+pass them through the measurement and transition models.
+
+32
+00:01:54,864 --> 00:01:57,114
+When we perform that averaging,
+
+33
+00:01:57,114 --> 00:02:00,619
+we aren't going to count all of the Sigma points equally.
+
+34
+00:02:00,620 --> 00:02:07,150
+Each one will have a weight we use for the mean calculation given by these equations.
+
+35
+00:02:07,150 --> 00:02:12,319
+Note here, the superscript N to denote that this weight is used for
+
+36
+00:02:12,319 --> 00:02:16,009
+the mean calculation and each Sigma point will
+
+37
+00:02:16,009 --> 00:02:20,784
+also have a separate weight associated with the covariance calculation.
+
+38
+00:02:20,784 --> 00:02:23,349
+We'll explain more about the details of
+
+39
+00:02:23,349 --> 00:02:27,969
+this math and some other parameters in the text below this video.
+

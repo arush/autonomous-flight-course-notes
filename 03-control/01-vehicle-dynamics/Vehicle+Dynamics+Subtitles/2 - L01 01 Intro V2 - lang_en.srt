@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:02,730
+Welcome to the first lesson of controls.
+
+2
+00:00:02,730 --> 00:00:05,849
+This lesson is called Vehicle Dynamics.
+
+3
+00:00:05,849 --> 00:00:09,334
+My name is Angela Schoellig and I will be your instructor for this course.
+
+4
+00:00:09,335 --> 00:00:11,490
+And my name is Andy Brown and I'll be
+
+5
+00:00:11,490 --> 00:00:14,115
+popping in occasionally to explain a concept or two,
+
+6
+00:00:14,115 --> 00:00:16,469
+but mostly I'll be helping you as you work through
+
+7
+00:00:16,469 --> 00:00:20,003
+the programming exercises that you'll encounter throughout this course.
+
+8
+00:00:20,003 --> 00:00:24,269
+So, Angela, can you explain what do we mean when we talk about vehicle dynamics?
+
+9
+00:00:24,269 --> 00:00:29,864
+Well, dynamics is concerned with the motion of bodies under the action of forces.
+
+10
+00:00:29,864 --> 00:00:31,205
+So for our purposes,
+
+11
+00:00:31,205 --> 00:00:34,769
+vehicle dynamics means understanding how the rotation of
+
+12
+00:00:34,770 --> 00:00:36,900
+the drone's four propellers creates
+
+13
+00:00:36,899 --> 00:00:40,429
+forces and how these forces generate motion of the vehicle.
+
+14
+00:00:40,429 --> 00:00:42,015
+And in this lesson,
+
+15
+00:00:42,015 --> 00:00:44,100
+you'll be learning how to model these forces
+
+16
+00:00:44,100 --> 00:00:47,460
+mathematically in Python and then you'll use those models
+
+17
+00:00:47,460 --> 00:00:49,710
+to advance the current state of the vehicle into
+
+18
+00:00:49,710 --> 00:00:53,380
+the future to actually predict the motion of flying vehicles.
+
+19
+00:00:53,380 --> 00:00:57,695
+Exactly, and there are plenty of reasons why we need to build these models.
+
+20
+00:00:57,695 --> 00:00:59,579
+But from a control standpoint,
+
+21
+00:00:59,579 --> 00:01:02,820
+having a good dynamic model of the vehicle allows us to
+
+22
+00:01:02,820 --> 00:01:07,379
+intelligently influences the output of the vehicle by properly setting the inputs.
+
+23
+00:01:07,379 --> 00:01:13,189
+And what do we mean when we talk about inputs and outputs for something like a drone?
+
+24
+00:01:13,189 --> 00:01:14,536
+Right. So for a drone,
+
+25
+00:01:14,537 --> 00:01:16,880
+the input would be the rotation rates of
+
+26
+00:01:16,879 --> 00:01:21,619
+the four propellers and the output would be the resulting motion of the vehicle.
+
+27
+00:01:21,620 --> 00:01:23,090
+Sounds good. Let's get started.
+

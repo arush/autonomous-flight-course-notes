@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:01,740
+Michael did a great job in his interview,
+
+2
+00:00:01,740 --> 00:00:05,519
+actually he did a really good job of kind of highlighting the problem,
+
+3
+00:00:05,519 --> 00:00:08,414
+explaining the problem, and taking me through it step-by-step.
+
+4
+00:00:08,414 --> 00:00:13,169
+I even asked him a couple of questions in his process of going through this problem,
+
+5
+00:00:13,169 --> 00:00:15,500
+and that allowed him to kind of stop and explain that,
+
+6
+00:00:15,500 --> 00:00:16,905
+and kind of break his train of thought.
+
+7
+00:00:16,905 --> 00:00:20,670
+Things I like to see is if somebody can actually go through and explain something
+
+8
+00:00:20,670 --> 00:00:22,320
+when they have their thought broken because
+
+9
+00:00:22,320 --> 00:00:24,570
+sometimes people might try to rehearse something,
+
+10
+00:00:24,570 --> 00:00:26,260
+and not really understand it very well.
+
+11
+00:00:26,260 --> 00:00:29,460
+But it really showed that Michael had really good knowledge in the area,
+
+12
+00:00:29,460 --> 00:00:31,825
+and understood where he could go to make improvements.
+
+13
+00:00:31,824 --> 00:00:34,899
+Michael also showed a great depth of knowledge in the area,
+
+14
+00:00:34,899 --> 00:00:37,405
+and seemed to be really interested in what he was talking about.
+
+15
+00:00:37,405 --> 00:00:41,160
+I think he did a really good job explaining the Convolutional Neural Net,
+
+16
+00:00:41,159 --> 00:00:44,559
+and explaining how the encoding and decoding works.
+
+17
+00:00:44,560 --> 00:00:46,230
+It was really great to see how
+
+18
+00:00:46,229 --> 00:00:49,199
+all this passion and excitement come through during his interview.
+

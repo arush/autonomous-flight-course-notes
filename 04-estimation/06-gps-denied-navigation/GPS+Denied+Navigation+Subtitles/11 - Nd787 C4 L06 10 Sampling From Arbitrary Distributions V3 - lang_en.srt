@@ -1,0 +1,272 @@
+1
+00:00:00,000 --> 00:00:02,218
+We've handled the motion propagation.
+
+2
+00:00:02,218 --> 00:00:06,839
+But if we want to do the same thing to incorporate the sensor model,
+
+3
+00:00:06,839 --> 00:00:08,339
+it gets more complicated.
+
+4
+00:00:08,339 --> 00:00:10,949
+The distribution we want to sample from,
+
+5
+00:00:10,949 --> 00:00:14,199
+given a sensor measurement is p of x sub t given
+
+6
+00:00:14,199 --> 00:00:18,725
+z sub t. It's not at all obvious how to sample from this distribution directly.
+
+7
+00:00:18,725 --> 00:00:23,160
+What is interesting however is that we can often evaluate distributions.
+
+8
+00:00:23,160 --> 00:00:26,250
+That is; given a specific measurement z sub t,
+
+9
+00:00:26,250 --> 00:00:28,585
+we can evaluate the likelihood of a given state
+
+10
+00:00:28,585 --> 00:00:32,020
+x sub t. Given the ability to evaluate a distribution,
+
+11
+00:00:32,020 --> 00:00:33,400
+can we sample from it?
+
+12
+00:00:33,399 --> 00:00:38,054
+The answer is yes, we can do that using a process known as important sampling.
+
+13
+00:00:38,054 --> 00:00:43,890
+Let's assume that we have some distribution p of x that we want to sample from,
+
+14
+00:00:43,890 --> 00:00:46,410
+we don't know how but we have a way to evaluate it.
+
+15
+00:00:46,409 --> 00:00:50,089
+That is, given some value x we can at least compute p of x.
+
+16
+00:00:50,090 --> 00:00:53,120
+We'll call this distribution, the target distribution.
+
+17
+00:00:53,119 --> 00:00:58,140
+Let's assume that we have some other distribution q of x that we can sample from.
+
+18
+00:00:58,140 --> 00:01:00,480
+We'll call this the proposal distribution,
+
+19
+00:01:00,479 --> 00:01:01,889
+it can be anything at all.
+
+20
+00:01:01,890 --> 00:01:03,640
+Let's draw some samples,
+
+21
+00:01:03,640 --> 00:01:05,689
+xi from q of x.
+
+22
+00:01:05,689 --> 00:01:08,364
+Each of these vertical lines is a sample.
+
+23
+00:01:08,364 --> 00:01:13,724
+Now, let's imagine that we want to sample from this bimodal Gaussian distribution here.
+
+24
+00:01:13,724 --> 00:01:16,104
+So, that's our p of x, our target.
+
+25
+00:01:16,105 --> 00:01:18,765
+Mathematically p of x looks like this
+
+26
+00:01:18,765 --> 00:01:22,299
+with some weights to make sure everything is properly normalized.
+
+27
+00:01:22,299 --> 00:01:27,204
+Unfortunately, we can't always sample directly from multi-modal Gaussians,
+
+28
+00:01:27,204 --> 00:01:29,969
+but what we can do is we can sample from
+
+29
+00:01:29,969 --> 00:01:34,150
+a proposal distribution which in this case might be the uniform distribution.
+
+30
+00:01:34,150 --> 00:01:38,305
+Given the ability to sample from this uniform distribution,
+
+31
+00:01:38,305 --> 00:01:44,450
+how do we turn these samples into samples that actually match the bimodal Gaussian?
+
+32
+00:01:44,450 --> 00:01:47,394
+Let's give each sample a weight
+
+33
+00:01:47,394 --> 00:01:50,379
+which we can represent by the height of the vertical line.
+
+34
+00:01:50,379 --> 00:01:53,530
+That weight is going to be equal to the ratio between
+
+35
+00:01:53,530 --> 00:01:57,935
+the target p of x of i and the proposal q of x of i.
+
+36
+00:01:57,935 --> 00:02:00,250
+We can now treat the weighted samples as if
+
+37
+00:02:00,250 --> 00:02:02,519
+they were drawn from the target distribution itself.
+
+38
+00:02:02,519 --> 00:02:05,369
+For instance, we can compute the mean of the target,
+
+39
+00:02:05,370 --> 00:02:10,730
+x^ as the sum of the weighted samples and that will give us the correct mean.
+
+40
+00:02:10,729 --> 00:02:13,959
+Furthermore, if we draw a fresh set of samples
+
+41
+00:02:13,960 --> 00:02:17,379
+x_star of y from the samples according to the weights,
+
+42
+00:02:17,379 --> 00:02:21,009
+samples with higher weight are more likely than lower weight samples,
+
+43
+00:02:21,009 --> 00:02:22,599
+which means that the new samples will be
+
+44
+00:02:22,599 --> 00:02:25,439
+distributed as if they were drawn from the target itself.
+
+45
+00:02:25,439 --> 00:02:27,365
+This is exactly what we wanted,
+
+46
+00:02:27,365 --> 00:02:32,510
+samples distributed according to some arbitrary distribution p of x.
+
+47
+00:02:32,509 --> 00:02:34,754
+To recap what we just did,
+
+48
+00:02:34,754 --> 00:02:37,689
+we started with some target distribution
+
+49
+00:02:37,689 --> 00:02:40,419
+p of x that we wanted to sample from but couldn't.
+
+50
+00:02:40,419 --> 00:02:45,894
+Then, we generated a uniform proposal distribution q of x from which we could sample.
+
+51
+00:02:45,895 --> 00:02:49,360
+Then, we sample from that proposal distribution and assign weights to
+
+52
+00:02:49,360 --> 00:02:53,955
+each sample according to the ratio of p of x over q of x.
+
+53
+00:02:53,955 --> 00:02:57,719
+Finally, we resample those particles according to the weights,
+
+54
+00:02:57,719 --> 00:03:02,764
+which left us with equally weighted particles distributed according to p of x.
+
+55
+00:03:02,764 --> 00:03:07,339
+This approach will work generally for any proposal and any target.
+
+56
+00:03:07,340 --> 00:03:11,340
+But let's plug in the values for the specific estimator that we want.
+
+57
+00:03:11,340 --> 00:03:15,930
+We started with samples drawn from our prior p of x sub t,
+
+58
+00:03:15,930 --> 00:03:19,170
+and we want to generate samples drawn from p of x sub t,
+
+59
+00:03:19,169 --> 00:03:23,609
+given z sub t. That means that our target is p of x sub t
+
+60
+00:03:23,610 --> 00:03:28,585
+given z sub t and our proposal is p of x sub t. Notice,
+
+61
+00:03:28,585 --> 00:03:32,900
+that if we use Bayes' rule we can rewrite our target as some normalizer
+
+62
+00:03:32,900 --> 00:03:39,560
+alpha times p of z sub t given x sub t times p of x sub t. Then,
+
+63
+00:03:39,560 --> 00:03:43,280
+the p of x sub t terms cancel and all of a sudden our weights become p of
+
+64
+00:03:43,280 --> 00:03:47,650
+z sub t given x sub t. We can safely ignore the normalizer alpha,
+
+65
+00:03:47,650 --> 00:03:50,020
+because we're going to resample from the weighted samples
+
+66
+00:03:50,020 --> 00:03:54,075
+anyhow and the normalizer will have no effect on that process.
+
+67
+00:03:54,074 --> 00:03:56,500
+This results should make sense intuitively.
+
+68
+00:03:56,500 --> 00:04:00,270
+The weights now are just proportional to the likelihood of the samples.
+

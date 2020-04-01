@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:02,174
+Welcome back. In this lesson,
+
+2
+00:00:02,174 --> 00:00:05,689
+we're going to analyze a longitudinal motion of fixed-wing vehicles.
+
+3
+00:00:05,690 --> 00:00:09,720
+We're going to start by using the equations we developed in the last lesson,
+
+4
+00:00:09,720 --> 00:00:12,060
+to write down the non-linear equations of motion
+
+5
+00:00:12,060 --> 00:00:14,910
+for the longitudinal motion of a fixed-wing vehicle.
+
+6
+00:00:14,910 --> 00:00:17,100
+These non-linear equations will be really
+
+7
+00:00:17,100 --> 00:00:19,540
+useful when we're trying to simulate fixed-wing flight,
+
+8
+00:00:19,539 --> 00:00:23,839
+but not as useful for actually analyzing an aircraft's actual motion.
+
+9
+00:00:23,839 --> 00:00:27,149
+To do useful mathematical analysis of fixed-wing flight,
+
+10
+00:00:27,149 --> 00:00:31,399
+we'll need to first linearize the equations of motion around a trim state.
+
+11
+00:00:31,399 --> 00:00:33,129
+Once we have a linear model,
+
+12
+00:00:33,130 --> 00:00:36,120
+we'll use some of the tools of linear algebra to answer
+
+13
+00:00:36,119 --> 00:00:41,239
+some important questions about the motion and stability of fixed-wing vehicles.
+

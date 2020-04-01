@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,205
+In the previous video,
+
+2
+00:00:02,205 --> 00:00:05,016
+I mentioned that if you want to control y and z,
+
+3
+00:00:05,017 --> 00:00:07,592
+you have to sacrifice control of phi.
+
+4
+00:00:07,591 --> 00:00:10,439
+And one way of understanding why this
+
+5
+00:00:10,439 --> 00:00:14,184
+is the case is to look at how these equations are coupled.
+
+6
+00:00:14,185 --> 00:00:16,475
+So, looking at the y equation,
+
+7
+00:00:16,475 --> 00:00:19,415
+we see there's a sine phi term.
+
+8
+00:00:19,414 --> 00:00:24,399
+So, this means that y behavior is somehow tied to the roll angle phi.
+
+9
+00:00:24,399 --> 00:00:26,104
+In the z equation,
+
+10
+00:00:26,105 --> 00:00:28,405
+you can see there's also a phi term,
+
+11
+00:00:28,405 --> 00:00:34,460
+a cosine phi, which means that z behavior is also tied to the roll angle.
+
+12
+00:00:34,460 --> 00:00:40,145
+So, we can say that y and z motion are coupled through the roll angle phi.
+
+13
+00:00:40,145 --> 00:00:42,940
+Let's think through what would happen if we tried to
+
+14
+00:00:42,939 --> 00:00:46,128
+simultaneously control y, z, and phi.
+
+15
+00:00:46,128 --> 00:00:49,559
+First, let's control some phi behavior.
+
+16
+00:00:49,560 --> 00:00:52,355
+Well, looking at the last equation of motion,
+
+17
+00:00:52,354 --> 00:00:55,339
+you can see that we can do this but
+
+18
+00:00:55,340 --> 00:00:58,520
+it will require spending one of our control variables,
+
+19
+00:00:58,520 --> 00:01:00,500
+in this case, u2.
+
+20
+00:01:00,500 --> 00:01:02,990
+Next, we could specify y behavior.
+
+21
+00:01:02,990 --> 00:01:05,170
+But since we've already fixed phi,
+
+22
+00:01:05,170 --> 00:01:09,140
+we have to spend our other control variable to fix y,
+
+23
+00:01:09,140 --> 00:01:11,355
+in this case u1.
+
+24
+00:01:11,355 --> 00:01:15,064
+Now, if you try to specify z, we find that we can't.
+
+25
+00:01:15,064 --> 00:01:18,799
+We've already used up most of our control variables and we have
+
+26
+00:01:18,799 --> 00:01:23,284
+no more control knobs left to turn to influence the system.
+
+27
+00:01:23,284 --> 00:01:26,254
+So, you can see that the messiness of the system,
+
+28
+00:01:26,254 --> 00:01:27,875
+is in some ways,
+
+29
+00:01:27,875 --> 00:01:30,950
+due to the coupling inherent in the system.
+
+30
+00:01:30,950 --> 00:01:33,719
+If you want a picture to demonstrate this coupling,
+
+31
+00:01:33,719 --> 00:01:37,560
+you can think of a vehicle pitched at some angle phi.
+
+32
+00:01:37,560 --> 00:01:42,820
+Any thrust that it commands will be shared in the y and z directions.
+
+33
+00:01:42,819 --> 00:01:47,329
+This coupling has important consequences for the controller architecture,
+
+34
+00:01:47,329 --> 00:01:50,000
+which you'll understand by the end of this lesson.
+

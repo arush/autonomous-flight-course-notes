@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:03,720
+The vehicle would accelerate upwards because
+
+2
+00:00:03,720 --> 00:00:07,634
+the vehicle is lighter than the controller has assumed.
+
+3
+00:00:07,634 --> 00:00:11,279
+But what will happen to our position over time?
+
+4
+00:00:11,279 --> 00:00:16,934
+Remember, we are assuming that the target Z is just some constant altitude.
+
+5
+00:00:16,934 --> 00:00:21,750
+We first need to integrate Z double dot to get velocity or
+
+6
+00:00:21,750 --> 00:00:27,673
+Z dot and then we integrate that with respect to time to get Z as a function of time.
+
+7
+00:00:27,673 --> 00:00:33,363
+With Z of zero being Z knot and Z dot of zero being zero,
+
+8
+00:00:33,363 --> 00:00:37,905
+the altitude was supposed to be Z knot forever.
+
+9
+00:00:37,905 --> 00:00:44,189
+But now, it grows quadratically with time and all because of a small error in the mass.
+
+10
+00:00:44,189 --> 00:00:49,739
+So the smallest error in our model can cause a huge mismatch
+
+11
+00:00:49,740 --> 00:00:55,910
+between what we think is happening based on our model and what actually happens.
+
+12
+00:00:55,909 --> 00:00:59,629
+This quadratic error appears anytime we have
+
+13
+00:00:59,630 --> 00:01:03,515
+a double integrator system like the one we have here.
+
+14
+00:01:03,515 --> 00:01:08,075
+We call a double integrator an unstable system.
+
+15
+00:01:08,075 --> 00:01:10,460
+A stable system would have
+
+16
+00:01:10,459 --> 00:01:15,794
+some self-correcting ability and the mismatch would not grow infinitely.
+
+17
+00:01:15,795 --> 00:01:20,560
+And it's important to note that these model errors are unavoidable.
+
+18
+00:01:20,560 --> 00:01:26,004
+Our dynamics models are always an approximation of the real word.
+
+19
+00:01:26,004 --> 00:01:31,030
+Understanding and addressing errors is so important to control that
+
+20
+00:01:31,030 --> 00:01:35,298
+we actually have different words for different types of error.
+
+21
+00:01:35,298 --> 00:01:38,870
+The type of error you just saw is called a model error,
+
+22
+00:01:38,870 --> 00:01:43,219
+which just refers to an error in our model of the vehicle itself.
+
+23
+00:01:43,219 --> 00:01:47,905
+In this case, our model misrepresented the true mass of the vehicle,
+
+24
+00:01:47,905 --> 00:01:52,969
+but there are many ways our model can fail to account for the true dynamics.
+
+25
+00:01:52,969 --> 00:01:55,844
+Next, we have disturbances.
+
+26
+00:01:55,844 --> 00:02:01,454
+These are errors caused by something external to the vehicle that we didn't anticipate.
+
+27
+00:02:01,454 --> 00:02:07,170
+For example, a strong crossbreeds would be a disturbance that could introduce error.
+
+28
+00:02:07,170 --> 00:02:10,155
+Finally, we have measurement noise.
+
+29
+00:02:10,155 --> 00:02:14,775
+Measurement noise refers to the unpredictable errors introduced
+
+30
+00:02:14,775 --> 00:02:19,844
+whenever we try to measure something about the quad or its environment.
+
+31
+00:02:19,844 --> 00:02:25,449
+You will learn a lot more about noise in particular in the next course on estimation.
+

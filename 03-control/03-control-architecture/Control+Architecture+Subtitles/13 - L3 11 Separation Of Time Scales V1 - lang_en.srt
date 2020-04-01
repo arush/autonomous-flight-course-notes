@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:01,850
+Congratulations!
+
+2
+00:00:01,850 --> 00:00:07,390
+Hopefully at this point you've implemented your first Cascade controller.
+
+3
+00:00:07,389 --> 00:00:10,539
+I mentioned earlier that we want the outer loop,
+
+4
+00:00:10,539 --> 00:00:13,660
+in this case the right position loop of a controller to be
+
+5
+00:00:13,660 --> 00:00:17,410
+able to rely on the inner loop of the inner controller.
+
+6
+00:00:17,410 --> 00:00:22,759
+Why? Because the outer loop assumes it can actually command phi.
+
+7
+00:00:22,760 --> 00:00:26,020
+So, it basically assumes that the phi command is
+
+8
+00:00:26,019 --> 00:00:29,829
+achieved at the time it computes the next target value.
+
+9
+00:00:29,829 --> 00:00:34,814
+What that means is that whenever the outer loop gets executed the inner loop
+
+10
+00:00:34,814 --> 00:00:40,079
+should have reached whatever rule had been commanded by the outer loop previously.
+
+11
+00:00:40,079 --> 00:00:42,924
+And in order for that to happen the inner loop
+
+12
+00:00:42,924 --> 00:00:46,699
+needs to be running on a faster time scale than the outer loop.
+
+13
+00:00:46,700 --> 00:00:48,609
+In the next exercise,
+
+14
+00:00:48,609 --> 00:00:51,000
+you'll explore that idea a little more deeply.
+

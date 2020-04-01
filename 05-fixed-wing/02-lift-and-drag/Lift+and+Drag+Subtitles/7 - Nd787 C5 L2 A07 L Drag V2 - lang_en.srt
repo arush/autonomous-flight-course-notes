@@ -1,0 +1,124 @@
+1
+00:00:00,000 --> 00:00:03,924
+The second major aerodynamic force acting on the vehicle is drag.
+
+2
+00:00:03,924 --> 00:00:08,519
+Drag always points parallel to the direction of airflow relative to the vehicle,
+
+3
+00:00:08,519 --> 00:00:11,129
+which means it acts to resist forward motion.
+
+4
+00:00:11,130 --> 00:00:13,160
+There are actually two forms of drag.
+
+5
+00:00:13,160 --> 00:00:15,839
+The first is called parasitic drag and this is
+
+6
+00:00:15,839 --> 00:00:19,519
+just the resistance the air puts up against any body moving through it.
+
+7
+00:00:19,519 --> 00:00:22,745
+The other form of drag is called lift induced drag.
+
+8
+00:00:22,745 --> 00:00:25,339
+Remember, that when a wing is producing lift
+
+9
+00:00:25,339 --> 00:00:30,105
+the incoming air flows over the top and bottom of the wing at different speeds.
+
+10
+00:00:30,105 --> 00:00:31,800
+When these flows are joined,
+
+11
+00:00:31,800 --> 00:00:33,695
+they tend to get deflected downwards,
+
+12
+00:00:33,695 --> 00:00:35,255
+this is called downwash.
+
+13
+00:00:35,255 --> 00:00:36,690
+So for this wing,
+
+14
+00:00:36,689 --> 00:00:39,589
+we have the relative airflow coming into the wind like this and
+
+15
+00:00:39,590 --> 00:00:43,000
+the effective relative airflow leaving the wing like this.
+
+16
+00:00:43,000 --> 00:00:44,840
+Now, we define lift to be
+
+17
+00:00:44,840 --> 00:00:48,140
+the aerodynamic force that's perpendicular to the relative airflow.
+
+18
+00:00:48,140 --> 00:00:51,410
+So, the lift in this case has to point like this,
+
+19
+00:00:51,409 --> 00:00:53,869
+but since the effective airflow that the wing sees
+
+20
+00:00:53,869 --> 00:00:56,274
+is actually rotated by this downwash angle,
+
+21
+00:00:56,274 --> 00:00:59,769
+the effective lift will also be rotated by the same amount.
+
+22
+00:00:59,770 --> 00:01:03,710
+This rotated effective lift vector has a component that points parallel to
+
+23
+00:01:03,710 --> 00:01:08,465
+the incoming relative airflow and that component is what we call lift induced drag.
+
+24
+00:01:08,465 --> 00:01:10,125
+So, when we model drag,
+
+25
+00:01:10,125 --> 00:01:13,025
+we'll model it as some non-dimensional coefficient,
+
+26
+00:01:13,025 --> 00:01:14,455
+times the dynamic pressure,
+
+27
+00:01:14,454 --> 00:01:17,024
+times the surface area of the wing.
+
+28
+00:01:17,025 --> 00:01:20,790
+This coefficient will be the sum of two other coefficients.
+
+29
+00:01:20,790 --> 00:01:23,525
+The first is the coefficient of parasitic drag
+
+30
+00:01:23,525 --> 00:01:26,900
+and the second is the coefficient of lift induced drag.
+
+31
+00:01:26,900 --> 00:01:32,280
+This second coefficient is itself a function of the lift coefficient we saw before.
+

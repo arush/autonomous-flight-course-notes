@@ -1,0 +1,64 @@
+1
+00:00:00,000 --> 00:00:01,379
+Welcome back.
+
+2
+00:00:01,379 --> 00:00:04,889
+At this point, you've learned how to plan paths for a flying vehicle,
+
+3
+00:00:04,889 --> 00:00:08,984
+and how to control a flying vehicle so it can actually fly along those paths.
+
+4
+00:00:08,984 --> 00:00:10,980
+That's right, but up until now,
+
+5
+00:00:10,980 --> 00:00:12,600
+we've made an assumption that we can't
+
+6
+00:00:12,599 --> 00:00:14,865
+make when we're working with a real flying vehicle.
+
+7
+00:00:14,865 --> 00:00:18,329
+We've assumed that we always know what the state of the vehicles is.
+
+8
+00:00:18,329 --> 00:00:20,789
+Exactly. For example, the controller you just
+
+9
+00:00:20,789 --> 00:00:24,599
+implemented was somehow able to use the vehicle state variables like X,
+
+10
+00:00:24,600 --> 00:00:26,580
+Y, and Z, in its control logic.
+
+11
+00:00:26,579 --> 00:00:30,264
+In reality, we never know the vehicle state with certainty.
+
+12
+00:00:30,265 --> 00:00:31,960
+It's something that has to be estimated.
+
+13
+00:00:31,960 --> 00:00:34,660
+So, in this lesson and the lessons that follow,
+
+14
+00:00:34,659 --> 00:00:37,779
+you'll learn how we can estimate the state of a flying vehicle.
+
+15
+00:00:37,780 --> 00:00:39,100
+And in the project that follows,
+
+16
+00:00:39,100 --> 00:00:41,920
+you'll implement your own estimator for a quadrotor.
+

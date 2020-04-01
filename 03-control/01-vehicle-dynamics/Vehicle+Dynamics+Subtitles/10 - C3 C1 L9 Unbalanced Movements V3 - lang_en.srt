@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:05,205
+Just like how unbalanced forces cause translational acceleration,
+
+2
+00:00:05,205 --> 00:00:09,285
+unbalanced moments cause rotational acceleration.
+
+3
+00:00:09,285 --> 00:00:13,669
+And the equation that relates these quantities looks like this,
+
+4
+00:00:13,669 --> 00:00:18,144
+torque is equal to I times alpha.
+
+5
+00:00:18,144 --> 00:00:22,085
+This is the equation you might see in an introductory physics class.
+
+6
+00:00:22,085 --> 00:00:26,089
+Here, torque is the net torque around a given axis.
+
+7
+00:00:26,089 --> 00:00:29,024
+And remember, I'm using the word torque interchangeably with moment.
+
+8
+00:00:29,024 --> 00:00:34,527
+Alpha is the angular acceleration about the same axis,
+
+9
+00:00:34,527 --> 00:00:38,405
+so it tells me how fast my rotational speed is changing.
+
+10
+00:00:38,405 --> 00:00:42,060
+The units for alpha are radians per second squared.
+
+11
+00:00:42,060 --> 00:00:44,700
+And this I is a little more interesting.
+
+12
+00:00:44,700 --> 00:00:47,594
+It's a quantity called Moment of Inertia.
+
+13
+00:00:47,594 --> 00:00:50,304
+And it's a measure of how hard it is to change
+
+14
+00:00:50,304 --> 00:00:54,560
+an object's rotational velocity about a particular axis.
+
+15
+00:00:54,560 --> 00:00:58,925
+Remember that a quadrotor can roll around its x-axis,
+
+16
+00:00:58,924 --> 00:01:01,129
+pitch around its y-axis,
+
+17
+00:01:01,130 --> 00:01:04,254
+and yaw around its z-axis.
+
+18
+00:01:04,254 --> 00:01:09,739
+And in general, the moment of inertia can be different for each of these axes.
+
+19
+00:01:09,739 --> 00:01:11,030
+We will see later,
+
+20
+00:01:11,030 --> 00:01:13,855
+that to describe the three-dimensional quadrotor motion,
+
+21
+00:01:13,855 --> 00:01:17,495
+the moment of inertia will be a three by three matrix,
+
+22
+00:01:17,495 --> 00:01:20,015
+and torque and alpha are vectors.
+
+23
+00:01:20,015 --> 00:01:22,075
+For the purposes of this lesson,
+
+24
+00:01:22,075 --> 00:01:25,954
+we'll only be thinking about one axis of rotation at a time.
+
+25
+00:01:25,954 --> 00:01:27,980
+For our monorotor example,
+
+26
+00:01:27,980 --> 00:01:31,289
+we are only considering yaw about the z-axis,
+
+27
+00:01:31,289 --> 00:01:33,808
+so we only need to pay attention to Iz,
+
+28
+00:01:33,808 --> 00:01:36,500
+and alpha and the torque are scalar values.
+
+29
+00:01:36,500 --> 00:01:38,745
+In the world of quadrotor dynamics,
+
+30
+00:01:38,745 --> 00:01:42,255
+people tended to use the word moment over torque.
+
+31
+00:01:42,254 --> 00:01:46,739
+And we usually use the Greek letter psi to represent yaw.
+
+32
+00:01:46,739 --> 00:01:50,954
+So, another way to write this torque equation is like this,
+
+33
+00:01:50,954 --> 00:01:55,674
+Mz is equal to Iz times psi double dot.
+
+34
+00:01:55,674 --> 00:01:58,051
+And this is just another way of saying,
+
+35
+00:01:58,052 --> 00:02:04,020
+that a moment about the z-axis will cause an acceleration in the psi coordinate.
+
+36
+00:02:04,019 --> 00:02:05,780
+Now, let's try applying this,
+
+37
+00:02:05,780 --> 00:02:08,215
+first by answering a few questions,
+
+38
+00:02:08,215 --> 00:02:11,469
+and then by programming up a more general solution.
+
+39
+00:02:11,469 --> 00:02:13,097
+In the next few segments,
+
+40
+00:02:13,097 --> 00:02:16,670
+the vehicle we will be discussing is a co-axial helicopter,
+
+41
+00:02:16,669 --> 00:02:20,804
+which is just a body with two rotors on top of each other.
+
+42
+00:02:20,805 --> 00:02:23,580
+These rotors both produce upward thrusts,
+
+43
+00:02:23,580 --> 00:02:26,000
+but they do so by spinning in opposite directions.
+

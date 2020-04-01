@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:02,984
+Welcome back. In the last lesson,
+
+2
+00:00:02,984 --> 00:00:05,189
+you learned about PID control,
+
+3
+00:00:05,190 --> 00:00:07,589
+and how it can be used to control a vehicle
+
+4
+00:00:07,589 --> 00:00:10,650
+that moves purely in the vertical set direction.
+
+5
+00:00:10,650 --> 00:00:13,769
+The equation underlying these dynamics look like this.
+
+6
+00:00:13,769 --> 00:00:18,504
+And here, z double dot is the acceleration in the z direction,
+
+7
+00:00:18,504 --> 00:00:21,669
+and u1 is a total upward thrust control input.
+
+8
+00:00:21,670 --> 00:00:25,504
+And m and g represent mass and gravitational acceleration.
+
+9
+00:00:25,504 --> 00:00:27,520
+And since m and g are constants,
+
+10
+00:00:27,519 --> 00:00:29,875
+they actually aren't that interesting mathematically.
+
+11
+00:00:29,875 --> 00:00:32,859
+So, another way of writing this equation is like this.
+
+12
+00:00:32,859 --> 00:00:37,509
+Where u1 bar equals g minus u1 over n.
+
+13
+00:00:37,509 --> 00:00:39,699
+And this rewriting of that equation,
+
+14
+00:00:39,700 --> 00:00:45,490
+helps us to remember that we have direct control over z double dot.
+
+15
+00:00:45,490 --> 00:00:46,960
+This lesson is all about solving
+
+16
+00:00:46,960 --> 00:00:50,914
+control problems where the dynamics get a bit more complicated.
+
+17
+00:00:50,914 --> 00:00:52,814
+Recall from lesson one,
+
+18
+00:00:52,814 --> 00:00:56,774
+the dynamics of a 2D quadrotor moving in the yz plane.
+
+19
+00:00:56,774 --> 00:00:59,129
+The equations of motion looked like this.
+
+20
+00:00:59,130 --> 00:01:03,330
+And we're going to be dealing with these equations throughout this lesson.
+
+21
+00:01:03,329 --> 00:01:07,664
+And for now, I want you to focus your attention on this u1 and u2.
+
+22
+00:01:07,665 --> 00:01:11,385
+These variables represent the total applied thrust from the rotors,
+
+23
+00:01:11,385 --> 00:01:14,609
+and the total applied torque from the rotors respectively.
+
+24
+00:01:14,609 --> 00:01:18,170
+And they're both quantities which we can control directly.
+

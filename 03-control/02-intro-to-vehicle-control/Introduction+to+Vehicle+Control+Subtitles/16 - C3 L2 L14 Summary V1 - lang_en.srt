@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:01,850
+We began this lesson with
+
+2
+00:00:01,850 --> 00:00:07,199
+a naive open loop approach to control a monorotor in one dimension.
+
+3
+00:00:07,200 --> 00:00:09,359
+But this approach had a big problem,
+
+4
+00:00:09,359 --> 00:00:12,625
+a single tiny error in how we modeled
+
+5
+00:00:12,625 --> 00:00:17,714
+the vehicle's mass led to a precision error that grew quickly overtime.
+
+6
+00:00:17,714 --> 00:00:22,875
+We tried to correct that with a proportional P controller which increased the thrust
+
+7
+00:00:22,875 --> 00:00:29,204
+when the vehicle was too low and decreased the thrust when the vehicle was too high.
+
+8
+00:00:29,204 --> 00:00:33,369
+This was an improvement but caused the vehicle to oscillate.
+
+9
+00:00:33,369 --> 00:00:37,739
+So we added a derivative or D term to our controller
+
+10
+00:00:37,740 --> 00:00:42,340
+which tried to get the vehicle's actual velocity to match the target.
+
+11
+00:00:42,340 --> 00:00:44,430
+And this helped a lot.
+
+12
+00:00:44,429 --> 00:00:47,399
+We are able to get rid of the oscillations and
+
+13
+00:00:47,399 --> 00:00:51,134
+generally stay pretty close to the target trajectory.
+
+14
+00:00:51,134 --> 00:00:54,824
+Then, you also saw how we could parameterize
+
+15
+00:00:54,825 --> 00:00:59,520
+this PD controller using parameters with real physical meeting.
+
+16
+00:00:59,520 --> 00:01:03,725
+At this point, the monorotor was flying quite well.
+
+17
+00:01:03,725 --> 00:01:07,320
+It just wasn't exactly hitting its target and
+
+18
+00:01:07,319 --> 00:01:11,459
+that was because of an underlying error in our model of the vehicle's mass,
+
+19
+00:01:11,459 --> 00:01:14,069
+which was causing it to hover at an altitude that
+
+20
+00:01:14,069 --> 00:01:17,104
+was close to correct but not quite right.
+
+21
+00:01:17,105 --> 00:01:21,520
+We corrected this by introducing an integral I term,
+
+22
+00:01:21,519 --> 00:01:26,774
+which accumulated this error and adjusted the control in the opposite direction.
+
+23
+00:01:26,775 --> 00:01:30,990
+Together, these PI and D terms made
+
+24
+00:01:30,989 --> 00:01:33,059
+a PID controller which could
+
+25
+00:01:33,060 --> 00:01:37,140
+precisely control the monorotor we built within this lesson.
+
+26
+00:01:37,140 --> 00:01:42,000
+In the next lesson, you'll see how things change when we move into two-dimensional control.
+

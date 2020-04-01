@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:03,750
+So, there are all these different approaches to estimation,
+
+2
+00:00:03,750 --> 00:00:07,429
+and all of them are implementations of a Bayes filter.
+
+3
+00:00:07,429 --> 00:00:13,500
+The key idea behind all of these filters is if we know what we told the drone to do,
+
+4
+00:00:13,500 --> 00:00:15,839
+we can predict where it will be.
+
+5
+00:00:15,839 --> 00:00:19,245
+Then, we can use measurements from sensors and
+
+6
+00:00:19,245 --> 00:00:23,880
+incorporate those into our estimate in a way that's mathematically correct.
+
+7
+00:00:23,879 --> 00:00:26,894
+So, what we'll be doing in a Bayes filter,
+
+8
+00:00:26,894 --> 00:00:32,130
+any Bayes filter, is alternating between prediction and measurement.
+
+9
+00:00:32,130 --> 00:00:33,825
+In the prediction step,
+
+10
+00:00:33,825 --> 00:00:37,350
+I tell the filter what controls I can monitor to the drone
+
+11
+00:00:37,350 --> 00:00:41,234
+and use that to anticipate where the drone is likely to be.
+
+12
+00:00:41,234 --> 00:00:43,049
+In the measurement step,
+
+13
+00:00:43,049 --> 00:00:47,504
+I use actual observations of the world to correct that prediction,
+
+14
+00:00:47,505 --> 00:00:50,250
+and then I predict and then I update,
+
+15
+00:00:50,250 --> 00:00:52,380
+and I do this over and over.
+
+16
+00:00:52,380 --> 00:00:53,895
+If I do it correctly,
+
+17
+00:00:53,895 --> 00:00:56,234
+I'll be able to maintain a robust,
+
+18
+00:00:56,234 --> 00:01:00,119
+responsive and accurate estimate of the state of my vehicle.
+
+19
+00:01:00,119 --> 00:01:05,655
+The way this is going to work is our estimate is not going to be a point estimate.
+
+20
+00:01:05,655 --> 00:01:07,829
+It's going to have uncertainty.
+
+21
+00:01:07,829 --> 00:01:09,825
+It's going to be a distribution.
+
+22
+00:01:09,825 --> 00:01:12,299
+So, after we do the prediction step,
+
+23
+00:01:12,299 --> 00:01:17,069
+we're going to project where we think we are forward based on the control input.
+
+24
+00:01:17,069 --> 00:01:21,464
+But, we're going to assume that we don't have a perfect model of the system.
+
+25
+00:01:21,465 --> 00:01:25,405
+So, the uncertainty is actually going to increase at this step.
+
+26
+00:01:25,405 --> 00:01:28,230
+So, if we tell the drone to go up,
+
+27
+00:01:28,230 --> 00:01:30,870
+then the rotors are going to start turning faster and we
+
+28
+00:01:30,870 --> 00:01:34,079
+can have some idea of where the drone will wind up,
+
+29
+00:01:34,079 --> 00:01:38,265
+but that prediction will be noisy and will cause or belief to spread out.
+
+30
+00:01:38,265 --> 00:01:41,099
+Then, when we do the measurement,
+
+31
+00:01:41,099 --> 00:01:44,399
+we're going to incorporate information from the external world.
+
+32
+00:01:44,400 --> 00:01:47,129
+Even though this is noisy information,
+
+33
+00:01:47,129 --> 00:01:50,085
+it's still going to cause our uncertainty to go down.
+
+34
+00:01:50,084 --> 00:01:53,219
+So, let's look at the base filter algorithm.
+
+35
+00:01:53,219 --> 00:01:56,579
+Here, we assume we're at some timestamp t,
+
+36
+00:01:56,579 --> 00:02:01,859
+and we have some belief from the previous timestamp called bel of x_t-1.
+
+37
+00:02:01,859 --> 00:02:09,509
+The first thing we do is somehow use that previous belief to get a new control value u_t,
+
+38
+00:02:09,509 --> 00:02:13,739
+then we use that u_t to predict the state of the vehicle at
+
+39
+00:02:13,740 --> 00:02:18,385
+the next timestamp and then we call that bel-bar of x_t.
+
+40
+00:02:18,384 --> 00:02:22,870
+Then we get a new measurement z_t from our sensor,
+
+41
+00:02:22,870 --> 00:02:28,170
+and then we use that measurement along with bel-bar to update our belief.
+
+42
+00:02:28,169 --> 00:02:30,544
+For this general base filter,
+
+43
+00:02:30,544 --> 00:02:33,269
+the predict and update functions look like this.
+
+44
+00:02:33,270 --> 00:02:38,955
+So, in the predict function calculating bel-bar is an integral in general.
+
+45
+00:02:38,955 --> 00:02:42,300
+But depending on how you present bel and bel-bar,
+
+46
+00:02:42,300 --> 00:02:45,439
+this integral might take a closed form.
+
+47
+00:02:45,439 --> 00:02:48,844
+In particular, when the belief is Gaussian,
+
+48
+00:02:48,844 --> 00:02:54,210
+this takes the form of matrix operations over the mean and covariance matrix.
+
+49
+00:02:54,210 --> 00:02:56,564
+Then in the update step,
+
+50
+00:02:56,564 --> 00:02:59,759
+I take the state estimate after prediction and I
+
+51
+00:02:59,759 --> 00:03:04,019
+compute a new estimate that takes into account the observation.
+
+52
+00:03:04,020 --> 00:03:07,320
+This step really is just doing Bayes rule to
+
+53
+00:03:07,319 --> 00:03:10,514
+calculate a new distribution given the observation,
+
+54
+00:03:10,514 --> 00:03:15,554
+and it does that by multiplying p of z given x times the belief.
+
+55
+00:03:15,555 --> 00:03:20,670
+Something that's worth noticing is what each of these functions take as inputs.
+
+56
+00:03:20,669 --> 00:03:26,199
+The predict function only takes my previous belief and my new control,
+
+57
+00:03:26,199 --> 00:03:31,049
+and my update function only takes a belief and a measurement.
+
+58
+00:03:31,050 --> 00:03:33,090
+Because of the Markov property,
+
+59
+00:03:33,090 --> 00:03:37,754
+we don't need to remember all of our previous controls and measurements.
+
+60
+00:03:37,754 --> 00:03:41,144
+So, this has all been pretty high level.
+
+61
+00:03:41,145 --> 00:03:44,490
+Let's jump into the first implementation of the Bayes filter
+
+62
+00:03:44,490 --> 00:03:48,320
+that we're going to discuss and that is the common filter.
+

@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:03,194
+So this is my solution to the advanced state function.
+
+2
+00:00:03,194 --> 00:00:04,620
+And when I look through this code,
+
+3
+00:00:04,620 --> 00:00:06,345
+I actually see a lot of repetition.
+
+4
+00:00:06,344 --> 00:00:11,550
+And in particular, this code looks a lot like this code,
+
+5
+00:00:11,550 --> 00:00:13,785
+which looks a lot like this code,
+
+6
+00:00:13,785 --> 00:00:16,100
+which looks a lot like this code.
+
+7
+00:00:16,100 --> 00:00:19,575
+And in fact we have four of these repetitive blocks of code,
+
+8
+00:00:19,574 --> 00:00:21,689
+one for each of our state variables,
+
+9
+00:00:21,690 --> 00:00:24,725
+and each of them is doing essentially the same thing.
+
+10
+00:00:24,725 --> 00:00:26,190
+They're taking some quantity,
+
+11
+00:00:26,190 --> 00:00:28,095
+multiplying it by dt,
+
+12
+00:00:28,094 --> 00:00:33,259
+and using this result to update some other quantity.
+
+13
+00:00:33,259 --> 00:00:36,299
+It would be nice to have a more compact representation of this state than
+
+14
+00:00:36,299 --> 00:00:39,989
+just using these four separate state variables and updating each independently.
+
+15
+00:00:39,990 --> 00:00:42,960
+So what we're going to do is we're going to think in
+
+16
+00:00:42,960 --> 00:00:46,710
+terms of state vectors instead of state variables.
+
+17
+00:00:46,710 --> 00:00:49,020
+So here, first thing I'm going to do is I'm going to get rid of
+
+18
+00:00:49,020 --> 00:00:51,730
+these four variables, four state variables,
+
+19
+00:00:51,729 --> 00:00:53,039
+we're going to place them with
+
+20
+00:00:53,039 --> 00:00:56,530
+a single state vector which I'm going to call upper case X,
+
+21
+00:00:56,530 --> 00:01:01,395
+and it's just going to be an np.array with four values in it,
+
+22
+00:01:01,395 --> 00:01:03,975
+and these values correspond to z,
+
+23
+00:01:03,975 --> 00:01:07,329
+psi, z_dot, and psi_dot.
+
+24
+00:01:07,329 --> 00:01:10,409
+And what's going to be nice about representing state this way,
+
+25
+00:01:10,409 --> 00:01:12,104
+is if we do things right,
+
+26
+00:01:12,105 --> 00:01:15,710
+we're going to be able to update all of these quantities all at once.
+
+27
+00:01:15,709 --> 00:01:18,149
+So instead of this version of advanced state,
+
+28
+00:01:18,150 --> 00:01:21,760
+we're going to use this version of advanced state.
+
+29
+00:01:21,760 --> 00:01:26,605
+And in this version we just have this one vector called capital X_dot.
+
+30
+00:01:26,605 --> 00:01:30,795
+And we multiply this X_dot vector by this dt,
+
+31
+00:01:30,795 --> 00:01:35,730
+the amount of seconds we're advancing the state forward to get a single delta x,
+
+32
+00:01:35,730 --> 00:01:39,630
+which represents how all those state variables change all at once and then we
+
+33
+00:01:39,629 --> 00:01:44,265
+say the new state is just the old state plus this delta x.
+
+34
+00:01:44,265 --> 00:01:48,114
+And so written now, in terms of math which is probably a little easier to think about,
+
+35
+00:01:48,114 --> 00:01:50,759
+we have this updated state vector which is z, z_dot, psi,
+
+36
+00:01:50,760 --> 00:01:54,060
+psi_dot prime, which is just equal to
+
+37
+00:01:54,060 --> 00:01:59,650
+the old state vector plus dt times the corresponding derivatives for each of these.
+
+38
+00:01:59,650 --> 00:02:01,920
+And this is a pretty slick way of doing this state update,
+
+39
+00:02:01,920 --> 00:02:05,070
+and it's something you'll see more of in later lessons.
+
+40
+00:02:05,069 --> 00:02:06,629
+And honestly now, at this point,
+
+41
+00:02:06,629 --> 00:02:10,289
+we've said just about everything there is to say about this coaxial copter.
+
+42
+00:02:10,289 --> 00:02:11,459
+Now, we're going to move to
+
+43
+00:02:11,460 --> 00:02:15,000
+a more complex vehicle where the two propellers are side by side.
+

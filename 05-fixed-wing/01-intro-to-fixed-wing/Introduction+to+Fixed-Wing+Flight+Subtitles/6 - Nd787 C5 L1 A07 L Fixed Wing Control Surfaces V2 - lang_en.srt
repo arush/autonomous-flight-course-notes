@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:03,430
+If you've ever put your hand out the window while driving on a highway,
+
+2
+00:00:03,430 --> 00:00:07,509
+you already have some idea for how control surfaces in a fixed-wing vehicle work.
+
+3
+00:00:07,509 --> 00:00:09,474
+When you angle your hand upwards like this,
+
+4
+00:00:09,474 --> 00:00:12,740
+you can actually feel a force on your hand which pushes it upwards,
+
+5
+00:00:12,740 --> 00:00:15,000
+and when you angle your hand downwards,
+
+6
+00:00:15,000 --> 00:00:17,579
+you can feel a force which pushes it downwards.
+
+7
+00:00:17,579 --> 00:00:21,329
+Fixed-wing aircraft is typically equipped with three primary types of
+
+8
+00:00:21,329 --> 00:00:25,875
+control surfaces called the ailerons, elevators, and rudder.
+
+9
+00:00:25,875 --> 00:00:30,750
+These surfaces can be actuated by a pilot or an autopilot to control the roll,
+
+10
+00:00:30,750 --> 00:00:32,759
+pitch, and yaw of the vehicle.
+
+11
+00:00:32,759 --> 00:00:34,890
+If you look at our fixed wing simulator,
+
+12
+00:00:34,890 --> 00:00:38,359
+you can get a sense for how these work and the vertical tail,
+
+13
+00:00:38,359 --> 00:00:41,375
+you have the rudder and this controls the yaw of the vehicle.
+
+14
+00:00:41,375 --> 00:00:44,149
+When the rudder is deflected to the left that introduces
+
+15
+00:00:44,149 --> 00:00:47,939
+a rotational moment on the vehicle that causes it to yaw to the left.
+
+16
+00:00:47,939 --> 00:00:52,579
+The horizontal tail, you can see the elevators which control the pitch of the vehicle.
+
+17
+00:00:52,579 --> 00:00:54,754
+When the elevators are deflected downwards,
+
+18
+00:00:54,755 --> 00:00:57,475
+that causes the vehicle to pitch downwards as well.
+
+19
+00:00:57,475 --> 00:00:59,149
+At the end of each wing,
+
+20
+00:00:59,149 --> 00:01:02,784
+you can see the ailerons which control the roll of the vehicle.
+
+21
+00:01:02,784 --> 00:01:05,424
+The ailerons act anti symmetrically,
+
+22
+00:01:05,424 --> 00:01:08,000
+which means that when one ailerons deflects upwards,
+
+23
+00:01:08,000 --> 00:01:09,765
+the other deflects downwards.
+
+24
+00:01:09,765 --> 00:01:12,299
+So, to create a positive role,
+
+25
+00:01:12,299 --> 00:01:14,384
+positive around the body x-axis,
+
+26
+00:01:14,385 --> 00:01:16,130
+the ailerons on the right-wing deflects
+
+27
+00:01:16,129 --> 00:01:19,405
+downwards and the ailerons on the left-wing deflects upwards.
+
+28
+00:01:19,405 --> 00:01:21,980
+In addition to these primary control surfaces,
+
+29
+00:01:21,980 --> 00:01:25,454
+some aircraft will have additional control surfaces like flaps,
+
+30
+00:01:25,454 --> 00:01:28,424
+spoilers, slats, and rubrics.
+
+31
+00:01:28,424 --> 00:01:31,105
+We're not going to discuss these too much in this module,
+
+32
+00:01:31,105 --> 00:01:34,520
+but you can read more about these additional control surfaces below.
+

@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:01,090
+Hi, Vienna.
+
+2
+00:00:01,090 --> 00:00:05,344
+It's really nice to meet you and I'm glad to have you in today for our position.
+
+3
+00:00:05,344 --> 00:00:07,474
+Yes, nice to meet you, too. I'm glad to be here.
+
+4
+00:00:07,474 --> 00:00:10,320
+So, one of the first things I want to ask you is
+
+5
+00:00:10,320 --> 00:00:13,669
+specific to the role for perception around sensor fusion.
+
+6
+00:00:13,669 --> 00:00:19,850
+Say, you had a robot or a self-driving car that had radar and lidar sensors on it,
+
+7
+00:00:19,850 --> 00:00:25,240
+how would you go about fusing that data to help you do something like object detection?
+
+8
+00:00:25,239 --> 00:00:28,320
+I think I'd probably just go for a common filter
+
+9
+00:00:28,320 --> 00:00:31,480
+that tends to be really useful for doing things like that.
+
+10
+00:00:31,480 --> 00:00:34,140
+I can take some of the the less
+
+11
+00:00:34,140 --> 00:00:37,920
+precise location estimates that you would get with a radar,
+
+12
+00:00:37,920 --> 00:00:39,710
+for example, fuse that with
+
+13
+00:00:39,710 --> 00:00:44,039
+the more exact lidar and come up with the optimal estimation for that.
+
+14
+00:00:44,039 --> 00:00:46,210
+Great. In that situation,
+
+15
+00:00:46,210 --> 00:00:49,920
+say that you had different refresh rates between the radar and lidar,
+
+16
+00:00:49,920 --> 00:00:51,995
+how would you be able to deal with that?
+
+17
+00:00:51,994 --> 00:00:55,044
+Can you give me an example of when that might come into play?
+
+18
+00:00:55,045 --> 00:00:59,265
+Sure. Say, if you had a radar that refreshed at, say,
+
+19
+00:00:59,265 --> 00:01:02,730
+80 Hertz and the lidar only refreshed at 10 Hertz,
+
+20
+00:01:02,729 --> 00:01:04,590
+what would you do in that situation,
+
+21
+00:01:04,590 --> 00:01:05,844
+or would you need to do anything?
+
+22
+00:01:05,844 --> 00:01:08,015
+I'm actually not sure.
+
+23
+00:01:08,015 --> 00:01:09,625
+I'd have to look into that a little more.
+
+24
+00:01:09,625 --> 00:01:10,189
+Okay. Great.
+
+25
+00:01:10,189 --> 00:01:12,090
+It's not something I've really been exposed to so far.
+
+26
+00:01:12,090 --> 00:01:14,750
+Sure. Along with that, if you also,
+
+27
+00:01:14,750 --> 00:01:17,549
+say, had camera data coming in, how would you use that?
+
+28
+00:01:17,549 --> 00:01:20,329
+Would you bring that in as an input or would you have it, say,
+
+29
+00:01:20,329 --> 00:01:23,450
+that you bring the data out of the radar and lidar,
+
+30
+00:01:23,450 --> 00:01:25,079
+and then use that towards something else?
+
+31
+00:01:25,079 --> 00:01:27,349
+I think I definitely want to incorporate
+
+32
+00:01:27,349 --> 00:01:30,339
+the camera data as well and just really make use of
+
+33
+00:01:30,340 --> 00:01:33,680
+as many sensors and as much data as I could to build
+
+34
+00:01:33,680 --> 00:01:36,955
+up the most accurate estimation of the world around,
+
+35
+00:01:36,954 --> 00:01:40,849
+and really playing to the strengths of each sensor and where they
+
+36
+00:01:40,849 --> 00:01:45,169
+can overlap and share to help correct for each other's weaknesses.
+
+37
+00:01:45,170 --> 00:01:46,730
+Great. Very interesting.
+
+38
+00:01:46,730 --> 00:01:49,170
+Have you worked with any of these types of sensors before?
+
+39
+00:01:49,170 --> 00:01:51,650
+I've been exposed to them a little bit at a high level
+
+40
+00:01:51,650 --> 00:01:53,925
+but not so much the hands-on aspects.
+
+41
+00:01:53,924 --> 00:01:57,879
+Okay. Great. That's all I have here on this topic,
+
+42
+00:01:57,879 --> 00:01:59,459
+so let's go ahead and go into the next one.
+
+43
+00:01:59,459 --> 00:02:00,799
+All right. Sounds good.
+

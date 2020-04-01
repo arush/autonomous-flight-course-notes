@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:02,270
+Aaron did a great job in is deep learning interview.
+
+2
+00:00:02,270 --> 00:00:04,349
+He went through and clearly stated
+
+3
+00:00:04,349 --> 00:00:07,070
+what all made up semantic segmentation and how it works.
+
+4
+00:00:07,070 --> 00:00:10,544
+He did a very good job in going through the technical nature
+
+5
+00:00:10,544 --> 00:00:14,804
+of a neural network and explaining the encoder to decoder network,
+
+6
+00:00:14,804 --> 00:00:16,920
+and especially when he started getting into
+
+7
+00:00:16,920 --> 00:00:20,550
+his loss functions which are extremely important for semantic segmentation.
+
+8
+00:00:20,550 --> 00:00:23,160
+It was clear that he knew what he was talking about.
+
+9
+00:00:23,160 --> 00:00:26,300
+One of the things I would probably ask Aaron to do, otherwise,
+
+10
+00:00:26,300 --> 00:00:31,080
+is maybe to even code a little bit of his neural network perhaps in TensorFlow or Keras,
+
+11
+00:00:31,079 --> 00:00:33,835
+just to show his knowledge of those deep learning libraries.
+
+12
+00:00:33,835 --> 00:00:36,350
+Other than that, though, I really liked Aaron's answer.
+
+13
+00:00:36,350 --> 00:00:38,960
+He showed his technical knowledge really well,
+

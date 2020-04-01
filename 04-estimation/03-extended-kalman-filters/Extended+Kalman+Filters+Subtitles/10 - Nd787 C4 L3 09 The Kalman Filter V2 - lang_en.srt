@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:06,375
+So, let's talk about one implementation of the Bayes filter called the Kalman filter.
+
+2
+00:00:06,375 --> 00:00:11,925
+And we're going to talk about the Kalman filter by using an example of a 1D drone.
+
+3
+00:00:11,925 --> 00:00:15,330
+And this drone is able to set it's acceleration
+
+4
+00:00:15,330 --> 00:00:19,004
+which will influence the vertical velocity and the height, z.
+
+5
+00:00:19,004 --> 00:00:22,649
+Let's start by defining the state variables for this system.
+
+6
+00:00:22,649 --> 00:00:24,375
+For this 1D drone,
+
+7
+00:00:24,375 --> 00:00:25,620
+when we ignore yaw,
+
+8
+00:00:25,620 --> 00:00:29,115
+the state variables are just z dot and z.
+
+9
+00:00:29,114 --> 00:00:34,185
+Then the control input for this system we can say is just z double dot.
+
+10
+00:00:34,185 --> 00:00:37,920
+Now, I'm also going to need a state transition function
+
+11
+00:00:37,920 --> 00:00:41,520
+which we call g. And this function's job is
+
+12
+00:00:41,520 --> 00:00:44,850
+to advance the state x of t to time t plus
+
+13
+00:00:44,850 --> 00:00:49,079
+one based on the system dynamics and the given control input.
+
+14
+00:00:49,079 --> 00:00:51,674
+So, the velocity updates like this,
+
+15
+00:00:51,674 --> 00:00:53,189
+x of t comma,
+
+16
+00:00:53,189 --> 00:00:55,469
+z dot is how I'm going to refer to
+
+17
+00:00:55,469 --> 00:00:59,729
+the z dot component of the state variable at time t. So,
+
+18
+00:00:59,729 --> 00:01:02,909
+this just says that the new velocity is
+
+19
+00:01:02,909 --> 00:01:08,369
+the old velocity plus the control input which is the acceleration times delta t.
+
+20
+00:01:08,370 --> 00:01:12,525
+Then the new position is just the previous position
+
+21
+00:01:12,525 --> 00:01:18,105
+plus the velocity times delta t. That's one way to write the transition function,
+
+22
+00:01:18,105 --> 00:01:22,380
+but we could also express this in matrix form like this.
+
+23
+00:01:22,379 --> 00:01:26,369
+Here, we have one matrix A sub t times
+
+24
+00:01:26,370 --> 00:01:32,100
+the state vector plus another matrix B sub t times the control input.
+
+25
+00:01:32,099 --> 00:01:33,989
+And usually, when you see
+
+26
+00:01:33,989 --> 00:01:38,384
+Kalman filter math you'll see it expressed in this matrix notation.
+
+27
+00:01:38,385 --> 00:01:42,195
+So, think back to the Bayes filter for a moment.
+
+28
+00:01:42,194 --> 00:01:46,769
+Remember, we had bel and bel bar that we were passing around.
+
+29
+00:01:46,769 --> 00:01:49,364
+Any of these beliefs could have been anything.
+
+30
+00:01:49,364 --> 00:01:55,349
+Now, with the Kalman filter we're insisting that beliefs must be Gaussian.
+
+31
+00:01:55,349 --> 00:02:00,239
+And that means that all we have to pass around is mu and
+
+32
+00:02:00,239 --> 00:02:05,354
+sigma where mu is the mean and sigma is the covariance.
+
+33
+00:02:05,355 --> 00:02:08,370
+Then we can manipulate this mean and
+
+34
+00:02:08,370 --> 00:02:13,080
+the covariance in the Kalman filters prediction and update steps.
+

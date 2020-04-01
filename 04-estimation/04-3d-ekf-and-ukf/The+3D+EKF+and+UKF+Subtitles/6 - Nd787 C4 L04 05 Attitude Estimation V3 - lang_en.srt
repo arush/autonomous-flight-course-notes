@@ -1,0 +1,164 @@
+1
+00:00:00,000 --> 00:00:02,129
+As I said before,
+
+2
+00:00:02,129 --> 00:00:06,375
+we're going to be using something called a complimentary filter for attitude estimation.
+
+3
+00:00:06,375 --> 00:00:09,615
+So, we might as well get that out of the way first.
+
+4
+00:00:09,615 --> 00:00:13,949
+For a real quadrotor to fly in three-dimensions,
+
+5
+00:00:13,949 --> 00:00:18,524
+it's crucial that it have a really accurate estimate of it's attitude.
+
+6
+00:00:18,524 --> 00:00:22,348
+Small mistakes in roll and pitch estimates especially,
+
+7
+00:00:22,349 --> 00:00:25,109
+can lead to some really bad behaviour.
+
+8
+00:00:25,109 --> 00:00:27,179
+The basic idea behind
+
+9
+00:00:27,179 --> 00:00:32,144
+a complimentary filter is that we're going to use two measurements of attitude.
+
+10
+00:00:32,145 --> 00:00:36,195
+One, which comes from the accelerometer and a second,
+
+11
+00:00:36,195 --> 00:00:38,630
+which comes from the rate gyros.
+
+12
+00:00:38,630 --> 00:00:41,515
+Neither of these measurements alone can provide
+
+13
+00:00:41,515 --> 00:00:44,375
+a reliable and responsive attitude estimate.
+
+14
+00:00:44,375 --> 00:00:48,289
+But taken together, the two sensors compliment each other,
+
+15
+00:00:48,289 --> 00:00:51,475
+and we can get a good estimate of attitude.
+
+16
+00:00:51,475 --> 00:00:56,015
+The accelerometer measures attitude because it can tell you which way is down,
+
+17
+00:00:56,015 --> 00:00:57,899
+and that's because of gravity,
+
+18
+00:00:57,899 --> 00:01:00,375
+which we know always points down.
+
+19
+00:01:00,375 --> 00:01:04,829
+Then if the drone feels an acceleration vector which is inclined,
+
+20
+00:01:04,829 --> 00:01:06,010
+there's a good chance,
+
+21
+00:01:06,010 --> 00:01:08,579
+that means the drone itself isn't level.
+
+22
+00:01:08,579 --> 00:01:12,109
+We can use this to figure out the roll and the pitch.
+
+23
+00:01:12,109 --> 00:01:14,390
+Now, there are some caveats here,
+
+24
+00:01:14,390 --> 00:01:19,969
+but the key idea is that when we average the acceleration over long time scales,
+
+25
+00:01:19,969 --> 00:01:21,289
+It should point down,
+
+26
+00:01:21,290 --> 00:01:25,300
+and we can use that reference down to measure attitude.
+
+27
+00:01:25,299 --> 00:01:30,659
+Unfortunately, any individual accelerometer measurement is pretty noisy.
+
+28
+00:01:30,659 --> 00:01:33,109
+So, over long time scales,
+
+29
+00:01:33,109 --> 00:01:35,179
+the accelerometer is good,
+
+30
+00:01:35,180 --> 00:01:39,485
+but it's not very responsive to sudden changes in attitude.
+
+31
+00:01:39,484 --> 00:01:42,019
+The rate gyros on the other hand,
+
+32
+00:01:42,019 --> 00:01:45,450
+give really good measurement of the angular rates,
+
+33
+00:01:45,450 --> 00:01:47,954
+and these can be integrated to get the attitude.
+
+34
+00:01:47,954 --> 00:01:50,280
+These measurements aren't very noisy.
+
+35
+00:01:50,280 --> 00:01:54,840
+But since they get integrated they are susceptible to a drift over time.
+
+36
+00:01:54,840 --> 00:01:58,064
+So, this means the rate gyros are responsive,
+
+37
+00:01:58,064 --> 00:02:01,590
+but they aren't useful over long time scales.
+
+38
+00:02:01,590 --> 00:02:06,405
+So, we have accelerometer measurements that are good over long time scales,
+
+39
+00:02:06,405 --> 00:02:11,115
+and gyro measurements that are good over short time scales.
+
+40
+00:02:11,115 --> 00:02:15,480
+We want to combine these measurements intelligently so that we can have
+
+41
+00:02:15,479 --> 00:02:20,399
+an estimate of attitude that is both accurate and responsive.
+

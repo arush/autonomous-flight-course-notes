@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:02,730
+Now that we've got prediction figured out,
+
+2
+00:00:02,730 --> 00:00:06,060
+we can move on to the measurement update step.
+
+3
+00:00:06,059 --> 00:00:11,189
+And this is going to require defining a measurement model h,
+
+4
+00:00:11,189 --> 00:00:15,884
+and then finding the jacobian h prime for each of our sensors.
+
+5
+00:00:15,884 --> 00:00:18,285
+So, let's go through our sensors.
+
+6
+00:00:18,285 --> 00:00:20,640
+We can start with GPS.
+
+7
+00:00:20,640 --> 00:00:26,484
+We get position and velocity from the GPS.
+
+8
+00:00:26,484 --> 00:00:30,289
+So, this z_t is the measurement you'd get.
+
+9
+00:00:30,289 --> 00:00:34,204
+And since we're directly measuring all of these state variables,
+
+10
+00:00:34,204 --> 00:00:37,039
+the measurement model is really straightforward,
+
+11
+00:00:37,039 --> 00:00:40,754
+and this means the jacobian looks like this.
+
+12
+00:00:40,755 --> 00:00:44,525
+The other sensor is the magnetometer.
+
+13
+00:00:44,524 --> 00:00:48,619
+And this gives us a measurement of the yaw angle psi.
+
+14
+00:00:48,619 --> 00:00:51,784
+Again the observation model is straightforward.
+
+15
+00:00:51,784 --> 00:00:53,914
+We just measure psi directly.
+
+16
+00:00:53,914 --> 00:00:57,045
+And the jacobian looks like this.
+
+17
+00:00:57,045 --> 00:01:02,090
+And these two sensors are all that you'll need to handle in the final project.
+
+18
+00:01:02,090 --> 00:01:06,030
+And since it turns out that everything is linear for these sensors,
+
+19
+00:01:06,030 --> 00:01:09,105
+the update step is especially straightforward.
+
+20
+00:01:09,105 --> 00:01:12,314
+But not all drones have GPS.
+
+21
+00:01:12,314 --> 00:01:15,359
+Some drones like the crazyfly for example,
+
+22
+00:01:15,359 --> 00:01:20,519
+use a camera and something called optical flow to measure the velocity of the vehicle.
+
+23
+00:01:20,519 --> 00:01:24,179
+The math for optical flow involves a lot of geometry,
+
+24
+00:01:24,180 --> 00:01:27,960
+but Nick is going to teach you more about that in the last lesson.
+
+25
+00:01:27,959 --> 00:01:31,079
+At this point you should have everything you need to
+
+26
+00:01:31,079 --> 00:01:34,760
+implement the update step for the 3D EKF.
+

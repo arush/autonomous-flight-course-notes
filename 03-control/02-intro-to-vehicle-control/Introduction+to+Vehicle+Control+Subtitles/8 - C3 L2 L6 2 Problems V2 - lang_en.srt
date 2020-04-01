@@ -1,0 +1,72 @@
+1
+00:00:00,000 --> 00:00:03,345
+The code for a P Controller is pretty simple.
+
+2
+00:00:03,345 --> 00:00:06,870
+And the output that this control strategy produces is already
+
+3
+00:00:06,870 --> 00:00:11,175
+much better than the quadratic error we saw with the open-loop controller,
+
+4
+00:00:11,175 --> 00:00:13,110
+which would have caused a crash.
+
+5
+00:00:13,109 --> 00:00:15,554
+But it's clearly not perfect.
+
+6
+00:00:15,554 --> 00:00:19,425
+I want to draw your attention to two problems.
+
+7
+00:00:19,425 --> 00:00:24,210
+The first and most obvious problem is the oscillating behavior.
+
+8
+00:00:24,210 --> 00:00:29,130
+The actual z, bounces up and down when it's supposed to be steady.
+
+9
+00:00:29,129 --> 00:00:32,698
+The second problem is the offset.
+
+10
+00:00:32,698 --> 00:00:37,530
+These oscillations aren't even centered on the target z.
+
+11
+00:00:37,530 --> 00:00:40,620
+We are going to address both of these problems,
+
+12
+00:00:40,619 --> 00:00:42,989
+but let's start with the oscillations.
+
+13
+00:00:42,990 --> 00:00:45,990
+At this point, you should spend some time playing
+
+14
+00:00:45,990 --> 00:00:49,109
+around with different values of this kp constant,
+
+15
+00:00:49,109 --> 00:00:52,229
+that relates error to command thrust.
+
+16
+00:00:52,229 --> 00:00:56,474
+As you do, keep the following question in mind,
+
+17
+00:00:56,475 --> 00:00:59,564
+why are these oscillations occurring,
+
+18
+00:00:59,564 --> 00:01:03,320
+and is it possible to get rid of them by tuning kp?
+

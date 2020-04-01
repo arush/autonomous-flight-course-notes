@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:03,758
+We just incorporated the fact that phi is small,
+
+2
+00:00:03,758 --> 00:00:06,179
+and we got rid of our sines and cosines,
+
+3
+00:00:06,179 --> 00:00:09,059
+and now our equations look like this.
+
+4
+00:00:09,060 --> 00:00:11,910
+And what I really like about these equations,
+
+5
+00:00:11,910 --> 00:00:15,983
+is that the set acceleration depends only on U1,
+
+6
+00:00:15,983 --> 00:00:19,615
+and phi acceleration depends only on U2.
+
+7
+00:00:19,614 --> 00:00:23,000
+The one thing that's bothering me still,
+
+8
+00:00:23,000 --> 00:00:29,750
+is this Y term because it contains the product of two variables, U1 and phi.
+
+9
+00:00:29,750 --> 00:00:34,159
+At this point, it helps to remember that near hover U1 will just be
+
+10
+00:00:34,159 --> 00:00:40,099
+equal to MG plus some small deviation delta U1,
+
+11
+00:00:40,100 --> 00:00:42,649
+which can be positive or negative.
+
+12
+00:00:42,649 --> 00:00:46,534
+And likewise, when we linearize around hover,
+
+13
+00:00:46,534 --> 00:00:50,119
+phi will be close to its value at hover.
+
+14
+00:00:50,119 --> 00:00:55,394
+So phi will be zero plus some small deviation delta phi.
+
+15
+00:00:55,395 --> 00:01:02,689
+Now, if we plug these versions of phi and U1 into the equations for Y double dot,
+
+16
+00:01:02,689 --> 00:01:04,299
+we find the following.
+
+17
+00:01:04,299 --> 00:01:07,200
+After multiplying out these terms,
+
+18
+00:01:07,200 --> 00:01:10,625
+we are left with the equation for Y double dot.
+
+19
+00:01:10,625 --> 00:01:14,049
+The first term is G times delta phi.
+
+20
+00:01:14,049 --> 00:01:18,189
+And remember, we are assuming delta phi is very small,
+
+21
+00:01:18,189 --> 00:01:21,340
+so this product will be a small number.
+
+22
+00:01:21,340 --> 00:01:26,530
+But the second term has this delta U times delta phi,
+
+23
+00:01:26,530 --> 00:01:31,445
+which is a very small number times another very small number.
+
+24
+00:01:31,444 --> 00:01:35,789
+And the key insight behind most linearization is this,
+
+25
+00:01:35,790 --> 00:01:39,975
+the product of a very small number times a very small number,
+
+26
+00:01:39,974 --> 00:01:45,780
+is a tiny number whose value is so small that it can be safely ignored.
+
+27
+00:01:45,780 --> 00:01:50,204
+And that means, we can just cancel out this last term,
+
+28
+00:01:50,204 --> 00:01:53,204
+and we are left with the following equation.
+
+29
+00:01:53,204 --> 00:01:58,079
+And remember, near Hover delta phi and phi are the same thing.
+
+30
+00:01:58,079 --> 00:02:04,459
+So, this equation reduces to the following truly linear equation for Y double dot,
+
+31
+00:02:04,459 --> 00:02:07,744
+Y double dot equals G times phi.
+
+32
+00:02:07,745 --> 00:02:12,520
+And that gives us the full linearized decoupled dynamics.
+

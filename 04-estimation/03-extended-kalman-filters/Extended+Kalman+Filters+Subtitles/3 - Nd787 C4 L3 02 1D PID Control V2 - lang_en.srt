@@ -1,0 +1,160 @@
+1
+00:00:00,000 --> 00:00:03,180
+Think back to the controls course you took before.
+
+2
+00:00:03,180 --> 00:00:04,754
+In one of those lessons,
+
+3
+00:00:04,754 --> 00:00:07,634
+you learned about PID control in the context
+
+4
+00:00:07,634 --> 00:00:11,199
+of a drone moving only in the vertical direction.
+
+5
+00:00:11,199 --> 00:00:14,189
+The control code you wrote for PController,
+
+6
+00:00:14,189 --> 00:00:16,859
+for example, looked something like this.
+
+7
+00:00:16,859 --> 00:00:22,530
+And the thing I want you to notice about this code is what it took as input.
+
+8
+00:00:22,530 --> 00:00:26,345
+The z_target is something you would get from a trajectory planner,
+
+9
+00:00:26,344 --> 00:00:30,035
+but the z_actual was just passed in magically.
+
+10
+00:00:30,035 --> 00:00:35,695
+And in fact, z_actual isn't the best name for this parameter because in the real world,
+
+11
+00:00:35,695 --> 00:00:39,700
+sensors are noisy and we never really know z_actual.
+
+12
+00:00:39,700 --> 00:00:42,730
+A better name would be either z_measured,
+
+13
+00:00:42,729 --> 00:00:46,554
+though really, the best name would be z_estimated.
+
+14
+00:00:46,554 --> 00:00:48,615
+And earlier in this course,
+
+15
+00:00:48,615 --> 00:00:52,120
+Nick showed you some state estimation techniques but all
+
+16
+00:00:52,119 --> 00:00:56,004
+of them relied on the assumption that this vehicle wasn't moving.
+
+17
+00:00:56,005 --> 00:00:57,800
+And for obvious reasons,
+
+18
+00:00:57,799 --> 00:01:01,699
+that assumption just won't work for a real flying vehicle.
+
+19
+00:01:01,700 --> 00:01:04,680
+In this lesson, I'm going to show you how we can
+
+20
+00:01:04,680 --> 00:01:07,905
+estimate the state of a moving vehicle with
+
+21
+00:01:07,905 --> 00:01:11,040
+noisy sensor data using a technique called
+
+22
+00:01:11,040 --> 00:01:15,730
+the Kalman filter and then something called an extended Kalman filter.
+
+23
+00:01:15,730 --> 00:01:21,425
+We're going to use this example of a 1D drone for the first part of this lesson.
+
+24
+00:01:21,424 --> 00:01:26,054
+First, you're going to try controlling this drone directly using
+
+25
+00:01:26,055 --> 00:01:28,290
+the normally distributed measurements from
+
+26
+00:01:28,290 --> 00:01:31,805
+a noisy range sensor just like the one on this crazy fly.
+
+27
+00:01:31,805 --> 00:01:36,820
+Then, when the raw measurement data leads to some pretty crazy flight paths,
+
+28
+00:01:36,819 --> 00:01:40,729
+we're going to try implementing some other estimation techniques
+
+29
+00:01:40,730 --> 00:01:45,670
+using intuitive techniques and clever manipulation of the sensor data.
+
+30
+00:01:45,670 --> 00:01:50,930
+But we're going to find out that no matter how clever we are with the sensor data,
+
+31
+00:01:50,930 --> 00:01:56,240
+we just can't maintain a robust and responsive estimate of our vehicle state,
+
+32
+00:01:56,239 --> 00:01:58,879
+unless we also tell our estimator about
+
+33
+00:01:58,879 --> 00:02:02,030
+the controls that we're commanding to the vehicle.
+
+34
+00:02:02,030 --> 00:02:04,204
+In the second part of the lesson,
+
+35
+00:02:04,204 --> 00:02:07,784
+we'll talk about the Bayes Filter as a general framework
+
+36
+00:02:07,784 --> 00:02:11,699
+for thinking about state estimation for a moving vehicle,
+
+37
+00:02:11,699 --> 00:02:15,899
+and then dive into the Kalman filter as a specific implementation.
+
+38
+00:02:15,900 --> 00:02:17,780
+At the end of this lesson,
+
+39
+00:02:17,780 --> 00:02:23,039
+we'll discuss the extended Kalman filter as an improvement to the Kalman filter which can
+
+40
+00:02:23,039 --> 00:02:29,359
+handle non-linear systems like a drone that moves in two or three dimensions.
+

@@ -1,0 +1,152 @@
+1
+00:00:00,000 --> 00:00:04,065
+Before we jump into each of these individual blocks on this diagram,
+
+2
+00:00:04,065 --> 00:00:07,290
+it's important to point out that not every one of
+
+3
+00:00:07,290 --> 00:00:11,664
+these blocks will be filled with a PID or even a PD controller.
+
+4
+00:00:11,664 --> 00:00:16,669
+And that's because some of these blocks do not represent second order systems.
+
+5
+00:00:16,670 --> 00:00:20,290
+Recall the control diagram from the previous lesson,
+
+6
+00:00:20,289 --> 00:00:25,469
+each of the blocks of this diagram represent the second order systems.
+
+7
+00:00:25,469 --> 00:00:28,424
+The altitude controller took a z target,
+
+8
+00:00:28,425 --> 00:00:31,885
+along with its first and second derivative as an input.
+
+9
+00:00:31,885 --> 00:00:36,010
+And as an output, it produced a thrust which maps directly to
+
+10
+00:00:36,009 --> 00:00:40,574
+an acceleration which is the second derivative of the input z.
+
+11
+00:00:40,575 --> 00:00:43,720
+Since this controller was responsible for hitting
+
+12
+00:00:43,719 --> 00:00:47,155
+a target z by commanding its second derivative,
+
+13
+00:00:47,155 --> 00:00:49,939
+this was a second order system.
+
+14
+00:00:49,939 --> 00:00:54,489
+To stably control a second order system without oscillations,
+
+15
+00:00:54,490 --> 00:00:58,370
+you need to have a PD controller at the very least.
+
+16
+00:00:58,369 --> 00:01:03,655
+Sometimes, an I term is also useful but it can often be safely ignored.
+
+17
+00:01:03,655 --> 00:01:09,335
+The other two blocks in the 2D control diagram represented second order systems as well.
+
+18
+00:01:09,334 --> 00:01:11,204
+For the 3D diagram,
+
+19
+00:01:11,204 --> 00:01:12,899
+that isn't the case.
+
+20
+00:01:12,900 --> 00:01:15,940
+The altitude controller in 3D will still be
+
+21
+00:01:15,939 --> 00:01:20,394
+a PD controller since it's clearly a second order system.
+
+22
+00:01:20,394 --> 00:01:22,450
+But look at the yaw controller.
+
+23
+00:01:22,450 --> 00:01:29,115
+Its job is to take a yaw command as input and produce a yaw.command as output.
+
+24
+00:01:29,114 --> 00:01:35,500
+That's only a single derivative and that makes the yaw controller a first order system.
+
+25
+00:01:35,500 --> 00:01:39,204
+And this means that the yaw controller will ultimately be
+
+26
+00:01:39,204 --> 00:01:43,554
+implemented as a key controller without any d term.
+
+27
+00:01:43,555 --> 00:01:47,735
+The yaw controller isn't the only first order system in this diagram.
+
+28
+00:01:47,734 --> 00:01:51,060
+The body rate controller and the role-pitch controller are
+
+29
+00:01:51,060 --> 00:01:55,894
+also first order systems which will be controlled with p controllers.
+
+30
+00:01:55,894 --> 00:02:01,679
+The implementations of the yaw and body rate controllers will be pretty straightforward.
+
+31
+00:02:01,680 --> 00:02:05,580
+The role-pitch controller will be more complex and
+
+32
+00:02:05,579 --> 00:02:09,465
+that's because the role-pitch controller is responsible for handling
+
+33
+00:02:09,465 --> 00:02:12,590
+all the mathematical realness associated with
+
+34
+00:02:12,590 --> 00:02:17,194
+transformations between the world and the body frames.
+
+35
+00:02:17,194 --> 00:02:20,840
+At this point, I want you to read through a couple of sections of
+
+36
+00:02:20,840 --> 00:02:24,620
+a paper which gives an overview of how this math works.
+
+37
+00:02:24,620 --> 00:02:27,194
+As you read through some of this paper,
+
+38
+00:02:27,194 --> 00:02:30,829
+keep an eye out for the first auto p control equation.
+

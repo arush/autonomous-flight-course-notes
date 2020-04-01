@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:04,559
+You would want to implement and tune the body rate control at first.
+
+2
+00:00:04,559 --> 00:00:07,625
+Once you could rely on that controller to hit
+
+3
+00:00:07,625 --> 00:00:12,294
+its roll-pitch yaw rate commands, then implement roll-pitch.
+
+4
+00:00:12,294 --> 00:00:13,890
+To do that in practice,
+
+5
+00:00:13,890 --> 00:00:18,179
+you manually control the thrust to roughly counteract gravity.
+
+6
+00:00:18,179 --> 00:00:24,164
+Then, you implement the altitude controller because it's so critical to avoid crashes.
+
+7
+00:00:24,164 --> 00:00:28,059
+And finally, you implement the lateral position controller.
+
+8
+00:00:28,059 --> 00:00:31,349
+The majority of the rest of this lesson will involve
+
+9
+00:00:31,350 --> 00:00:34,700
+filling out and tuning the rest of these control loops.
+
+10
+00:00:34,700 --> 00:00:39,990
+The order we would ideally go in is: first, body rate; next,
+
+11
+00:00:39,990 --> 00:00:43,560
+pitch-roll; then yaw, and after that,
+
+12
+00:00:43,560 --> 00:00:47,054
+altitude, and finally, lateral position.
+
+13
+00:00:47,054 --> 00:00:50,070
+But you already saw the pitch-roll controller,
+
+14
+00:00:50,070 --> 00:00:52,539
+so the order will adjust slightly.
+
+15
+00:00:52,539 --> 00:00:56,384
+Each of these controllers will be presented in isolation,
+
+16
+00:00:56,384 --> 00:01:01,174
+and you'll be asked to implement a working solution for each of them.
+
+17
+00:01:01,174 --> 00:01:04,469
+We'll also be providing solutions for each,
+
+18
+00:01:04,469 --> 00:01:06,640
+but I highly recommend you implement
+
+19
+00:01:06,640 --> 00:01:11,474
+your own working controller at each step before looking at the solution.
+
+20
+00:01:11,474 --> 00:01:15,519
+If you do get really stuck, consult the solution,
+
+21
+00:01:15,519 --> 00:01:19,619
+understand it, and then go back and implement it yourself.
+
+22
+00:01:19,620 --> 00:01:23,344
+Even when you do get a working solution on your own,
+
+23
+00:01:23,344 --> 00:01:28,765
+you should also compare your version to the solution and note any differences.
+
+24
+00:01:28,765 --> 00:01:32,500
+This will also be a great opportunity to ask questions,
+
+25
+00:01:32,500 --> 00:01:37,390
+compare code, and discuss the material in the Nanodegree's Slack channels.
+
+26
+00:01:37,390 --> 00:01:40,290
+For the Python portion of the final project,
+
+27
+00:01:40,290 --> 00:01:46,670
+you will be combining these into a single file which will control a simulated 3D quad.
+

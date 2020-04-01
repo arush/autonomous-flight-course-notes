@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:03,240
+A typical sensor model looks like this,
+
+2
+00:00:03,240 --> 00:00:07,125
+and this says that the measured value of a sensor
+
+3
+00:00:07,125 --> 00:00:11,099
+comes from some bias plus this term here,
+
+4
+00:00:11,099 --> 00:00:15,989
+which is the identity matrix plus the scaling and cross-coupling matrix,
+
+5
+00:00:15,990 --> 00:00:18,600
+M. And that's multiplied by
+
+6
+00:00:18,600 --> 00:00:24,975
+the true value X and then there's always this additive component of random noise.
+
+7
+00:00:24,975 --> 00:00:28,840
+So these three terms, b, M,
+
+8
+00:00:28,839 --> 00:00:32,814
+and eta are the three primary sources of error.
+
+9
+00:00:32,814 --> 00:00:35,469
+First, there's the bias,
+
+10
+00:00:35,469 --> 00:00:40,729
+and you've seen that bias is just an offset in a measurement value.
+
+11
+00:00:40,729 --> 00:00:45,549
+And usually, we model bias as a random walk where the bias at
+
+12
+00:00:45,549 --> 00:00:50,724
+time t is equal to the bias at t minus one plus random noise.
+
+13
+00:00:50,725 --> 00:00:55,370
+And here, you can see some typical biases plotted over time.
+
+14
+00:00:55,369 --> 00:00:57,039
+And as you can see,
+
+15
+00:00:57,039 --> 00:01:00,710
+there's no real upwards or downwards pattern to these biases,
+
+16
+00:01:00,710 --> 00:01:04,500
+but they do generally tend to move away from zero.
+
+17
+00:01:04,500 --> 00:01:08,584
+Then, there's the scaling and cross-coupling matrix.
+
+18
+00:01:08,584 --> 00:01:10,449
+And if this is zero,
+
+19
+00:01:10,450 --> 00:01:12,674
+then we only have bias and noise.
+
+20
+00:01:12,674 --> 00:01:14,500
+But if it is non-zero,
+
+21
+00:01:14,500 --> 00:01:18,540
+then the diagonal terms indicate that there's a slope error.
+
+22
+00:01:18,540 --> 00:01:20,700
+So instead of measuring one,
+
+23
+00:01:20,700 --> 00:01:26,070
+I measure 1.1, and instead of measuring two, I measure 2.2.
+
+24
+00:01:26,069 --> 00:01:29,984
+The off-diagonal terms indicates some coupling.
+
+25
+00:01:29,984 --> 00:01:32,950
+So if this were a three-axis accelerometer,
+
+26
+00:01:32,950 --> 00:01:38,909
+this could indicate that the X accelerometer is actually influencing the Y accelerometer,
+
+27
+00:01:38,909 --> 00:01:42,149
+for example, or it might indicate that
+
+28
+00:01:42,150 --> 00:01:47,955
+there some misalignment between the sensor and the vehicle body coordinate frames.
+
+29
+00:01:47,954 --> 00:01:50,969
+Finally, there's also random noise,
+
+30
+00:01:50,969 --> 00:01:53,353
+and the key word here is random,
+
+31
+00:01:53,353 --> 00:01:58,004
+which means there's no correlation between past and future values.
+
+32
+00:01:58,004 --> 00:02:03,879
+And usually, this is assumed to be a zero mean Gaussian with some covariance sigma.
+

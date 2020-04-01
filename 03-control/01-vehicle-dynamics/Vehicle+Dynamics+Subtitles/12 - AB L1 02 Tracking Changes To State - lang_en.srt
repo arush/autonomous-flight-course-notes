@@ -1,0 +1,252 @@
+1
+00:00:00,000 --> 00:00:04,980
+In order to claim that I understand the dynamics of a system like the CoaxialCopter,
+
+2
+00:00:04,980 --> 00:00:06,419
+I need to be able to the track,
+
+3
+00:00:06,419 --> 00:00:08,730
+the motion of that system over time.
+
+4
+00:00:08,730 --> 00:00:10,544
+So at this point the first thing I need to do,
+
+5
+00:00:10,544 --> 00:00:12,480
+is make some changes right in
+
+6
+00:00:12,480 --> 00:00:15,495
+the initializer so that I can actually track the state of the system.
+
+7
+00:00:15,494 --> 00:00:17,175
+So I need to add some state variables,
+
+8
+00:00:17,175 --> 00:00:21,135
+and I'm going to add a variable for Z and psi.
+
+9
+00:00:21,135 --> 00:00:24,250
+I'm going to start those both off with values of zero.
+
+10
+00:00:24,250 --> 00:00:28,620
+Now, I want to advance these state variables forward in time by
+
+11
+00:00:28,620 --> 00:00:31,350
+however much dt time I want and I'm going to
+
+12
+00:00:31,350 --> 00:00:34,469
+do that in a method called advanced state uncontrolled.
+
+13
+00:00:34,469 --> 00:00:37,109
+And this uncontrolled, this just
+
+14
+00:00:37,109 --> 00:00:40,554
+emphasizes that what we're doing is we're pretending like the rotors aren't spinning,
+
+15
+00:00:40,554 --> 00:00:42,759
+that this copter is just in free fall.
+
+16
+00:00:42,759 --> 00:00:44,534
+It's actually not that useful of a function,
+
+17
+00:00:44,534 --> 00:00:47,669
+but I'm really just walking through the logic of how I think through
+
+18
+00:00:47,670 --> 00:00:51,510
+it so that you can implement the advanced state function yourself.
+
+19
+00:00:51,509 --> 00:00:53,894
+So the first thing I want to do in this function, well,
+
+20
+00:00:53,895 --> 00:00:58,173
+I want to realize that there's not going to be any rotational acceleration.
+
+21
+00:00:58,173 --> 00:00:59,310
+If the rotors aren't turning,
+
+22
+00:00:59,310 --> 00:01:01,560
+there's not going to be any torque on the system,
+
+23
+00:01:01,560 --> 00:01:03,030
+not any moment on the system,
+
+24
+00:01:03,030 --> 00:01:05,325
+and so there's not going to be any rotational acceleration.
+
+25
+00:01:05,325 --> 00:01:07,859
+So the first thing I have to do is only figure out
+
+26
+00:01:07,859 --> 00:01:11,334
+the linear acceleration of the systems, z_dot_dot.
+
+27
+00:01:11,334 --> 00:01:13,184
+And for a quadrotor,
+
+28
+00:01:13,185 --> 00:01:15,765
+or I should say a coaxial copter under free fall,
+
+29
+00:01:15,765 --> 00:01:18,329
+that would just be the acceleration due to gravity.
+
+30
+00:01:18,329 --> 00:01:22,884
+Now I have to think, what is this acceleration actually do to the system?
+
+31
+00:01:22,885 --> 00:01:26,510
+Well remember, I'm advancing the state forward by dt seconds.
+
+32
+00:01:26,510 --> 00:01:31,000
+And acceleration over time changes a velocity.
+
+33
+00:01:31,000 --> 00:01:34,525
+So a change in velocity alright is delta_z_dot,
+
+34
+00:01:34,525 --> 00:01:39,600
+and that's just going to be equal to z_dot_dot times this dt.
+
+35
+00:01:39,599 --> 00:01:42,750
+This change in velocity is actually reminding
+
+36
+00:01:42,750 --> 00:01:45,709
+me that I haven't written enough state variables up here.
+
+37
+00:01:45,709 --> 00:01:49,879
+It's not enough to just know Z and psi,
+
+38
+00:01:49,879 --> 00:01:55,042
+I also have to track z_dot and psi_dot.
+
+39
+00:01:55,043 --> 00:01:59,070
+And together these four comprise my state variables,
+
+40
+00:01:59,069 --> 00:02:01,959
+Z, psi and their derivatives.
+
+41
+00:02:01,959 --> 00:02:03,208
+So the new velocity,
+
+42
+00:02:03,209 --> 00:02:07,575
+vertical velocity of the system is equal to the old vertical velocity,
+
+43
+00:02:07,575 --> 00:02:10,890
+plus whatever the changes.
+
+44
+00:02:10,889 --> 00:02:17,024
+So just as I went through the process of figuring out how z_dot_dot changed z_dot,
+
+45
+00:02:17,025 --> 00:02:21,105
+now I have to figure out how the velocity changes the position.
+
+46
+00:02:21,104 --> 00:02:27,405
+Well, a velocity over time causes the delta_z. Just like this.
+
+47
+00:02:27,405 --> 00:02:33,409
+And this delta_z, gets just directly added to update my new Z value.
+
+48
+00:02:33,409 --> 00:02:37,620
+So my Z value is just the old Z value plus the change.
+
+49
+00:02:37,620 --> 00:02:40,620
+So I am going to execute the cell and
+
+50
+00:02:40,620 --> 00:02:43,289
+then that takes me down to this next cell right here,
+
+51
+00:02:43,289 --> 00:02:46,634
+which is just a bit of logic to actually
+
+52
+00:02:46,634 --> 00:02:50,629
+plot the course of the vehicle over two seconds of flight in the air,
+
+53
+00:02:50,629 --> 00:02:52,259
+or I should say two seconds of freefall.
+
+54
+00:02:52,259 --> 00:02:54,259
+So let's execute this cell,
+
+55
+00:02:54,259 --> 00:02:56,664
+and this is what I get.
+
+56
+00:02:56,664 --> 00:02:59,549
+And this plot looks pretty consistent for what the vertical position
+
+57
+00:02:59,550 --> 00:03:03,459
+should be doing overtime for an object in freefall.
+
+58
+00:03:03,459 --> 00:03:07,344
+Now, you should write the actual advanced state function.
+
+59
+00:03:07,344 --> 00:03:09,199
+And this one is going to be different in a couple of ways.
+
+60
+00:03:09,199 --> 00:03:12,944
+One, it's going to have to take into account what the rotors are doing.
+
+61
+00:03:12,944 --> 00:03:15,780
+And two, because the rotors are now doing something,
+
+62
+00:03:15,780 --> 00:03:19,169
+that's going to introduce the potential for a moment on the system,
+
+63
+00:03:19,169 --> 00:03:22,000
+which means you are going to have to track the change in rotational motion as well.
+

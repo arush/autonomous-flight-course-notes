@@ -1,0 +1,336 @@
+1
+00:00:00,000 --> 00:00:02,490
+At this point, we figured out how we can take
+
+2
+00:00:02,490 --> 00:00:04,769
+a set of measurements that are linear function of
+
+3
+00:00:04,769 --> 00:00:09,494
+the unknown quantity to be estimated the state and solve it as a least squares problem,
+
+4
+00:00:09,494 --> 00:00:11,474
+but we had to make some assumptions.
+
+5
+00:00:11,474 --> 00:00:14,504
+Let's see if we can relax one of those assumptions.
+
+6
+00:00:14,505 --> 00:00:17,775
+Let's go back to our third experiment of a flying car
+
+7
+00:00:17,774 --> 00:00:21,214
+receiving measurements that are linear function of the state.
+
+8
+00:00:21,214 --> 00:00:24,539
+We're going to still assume that the vehicle is not moving and we're
+
+9
+00:00:24,539 --> 00:00:27,824
+going to assume the measurements are noisy but linear function of the position.
+
+10
+00:00:27,824 --> 00:00:31,939
+But now, let's allow the measurements to actually be received one at a time.
+
+11
+00:00:31,940 --> 00:00:34,910
+So, instead of coming up with an estimate all once,
+
+12
+00:00:34,909 --> 00:00:37,069
+we're going to think about maintaining an estimate,
+
+13
+00:00:37,070 --> 00:00:39,840
+and allowing new measurements to update that estimate.
+
+14
+00:00:39,840 --> 00:00:45,085
+Once again, we'll make m measurements y of our constant vector x,
+
+15
+00:00:45,085 --> 00:00:49,594
+such that y is equal to H times x plus v. In this equation,
+
+16
+00:00:49,594 --> 00:00:52,475
+x is again the constant unknown state vector of length n,
+
+17
+00:00:52,475 --> 00:00:53,870
+the thing we want to estimate,
+
+18
+00:00:53,869 --> 00:00:57,199
+y tilde is the vector of actual measurements received.
+
+19
+00:00:57,200 --> 00:01:00,080
+V is the unknown error vector and H is again
+
+20
+00:01:00,079 --> 00:01:03,820
+the measurement matrix assumed to be constant and known.
+
+21
+00:01:03,820 --> 00:01:09,555
+Let's assume that we now have a prior estimate of the vehicle position,
+
+22
+00:01:09,555 --> 00:01:11,520
+we're going to assume that it's given as
+
+23
+00:01:11,519 --> 00:01:15,060
+a Gaussian and it's going to have an initial estimate x naught,
+
+24
+00:01:15,060 --> 00:01:17,144
+with some co-variance Q naught.
+
+25
+00:01:17,144 --> 00:01:21,659
+I am going to use the subscript naught to denote the estimate before any measurement is
+
+26
+00:01:21,659 --> 00:01:26,924
+received and subscript one to denote the estimate after one measurement is received,
+
+27
+00:01:26,924 --> 00:01:29,325
+and will increment from there.
+
+28
+00:01:29,325 --> 00:01:33,450
+How can we actually use this prior in our estimation process?
+
+29
+00:01:33,450 --> 00:01:36,060
+We're going to do a very similar approach to
+
+30
+00:01:36,060 --> 00:01:39,344
+the two steps we did before maximum likelihood estimation.
+
+31
+00:01:39,344 --> 00:01:42,704
+Remember that with maximum likelihood estimation,
+
+32
+00:01:42,704 --> 00:01:46,924
+we first found the probability density function p of y given x,
+
+33
+00:01:46,924 --> 00:01:49,310
+and then we selected the x to be the value
+
+34
+00:01:49,310 --> 00:01:51,799
+that yielded the maximum likelihood of the measurements,
+
+35
+00:01:51,799 --> 00:01:54,384
+y tilde given that x hat.
+
+36
+00:01:54,385 --> 00:01:57,725
+The difference is that now we have a prior,
+
+37
+00:01:57,724 --> 00:02:02,239
+we can find the posterior estimate p of x, given y tilde.
+
+38
+00:02:02,239 --> 00:02:05,375
+The two steps of this new process are, one,
+
+39
+00:02:05,375 --> 00:02:09,280
+can we find the probability density function p of x given y?
+
+40
+00:02:09,280 --> 00:02:12,469
+Two, can we select x hat to be the value that
+
+41
+00:02:12,469 --> 00:02:15,965
+yields the maximum p of x hat, given y tilde?
+
+42
+00:02:15,965 --> 00:02:19,319
+The output of this recursive estimate is usually referred
+
+43
+00:02:19,319 --> 00:02:22,824
+to as the maximum A posteriori or MAP estimate.
+
+44
+00:02:22,824 --> 00:02:26,579
+We're taking our prior and turning it into a posterior using
+
+45
+00:02:26,580 --> 00:02:30,885
+new information from the new measurement. How do we do this?
+
+46
+00:02:30,884 --> 00:02:35,745
+Well, the first step is to find the PDF of p of x given y.
+
+47
+00:02:35,745 --> 00:02:40,259
+Remember, from Bayes rule applied to Gaussians that we can turn p of x given
+
+48
+00:02:40,259 --> 00:02:44,984
+y into p of y given x times p of x over p of y.
+
+49
+00:02:44,985 --> 00:02:49,200
+That's equal to some normalizer alpha times a normal distribution with
+
+50
+00:02:49,199 --> 00:02:53,354
+mean H times x and variance R. This is p of y given x,
+
+51
+00:02:53,354 --> 00:02:55,379
+we worked that out in the previous concepts.
+
+52
+00:02:55,379 --> 00:02:58,590
+We then multiply that by p of x which is our prior,
+
+53
+00:02:58,590 --> 00:03:01,019
+which remember is given to us as a normal distribution
+
+54
+00:03:01,019 --> 00:03:04,425
+with mean x hat naught and co-variance Q naught.
+
+55
+00:03:04,425 --> 00:03:09,960
+We can ignore the normalizer alpha just as we did in the maximum likelihood estimate,
+
+56
+00:03:09,960 --> 00:03:13,920
+the normalizer is not going to have any impact on the maximum.
+
+57
+00:03:13,919 --> 00:03:18,169
+The next thing is, we select x hat to be the value that
+
+58
+00:03:18,169 --> 00:03:22,224
+yields a maximum likelihood of p of x hat given y tilde.
+
+59
+00:03:22,224 --> 00:03:25,639
+If we look at the full formula for the product Gaussian,
+
+60
+00:03:25,639 --> 00:03:28,369
+we have two of the normalizers from the Gaussian here,
+
+61
+00:03:28,370 --> 00:03:31,414
+and then we actually have the product of the two exponents,
+
+62
+00:03:31,414 --> 00:03:34,914
+which when you take the product of exponents becomes the exponent of the sum.
+
+63
+00:03:34,914 --> 00:03:38,959
+Just as before, we see this expression consists of a normalizer term up front
+
+64
+00:03:38,960 --> 00:03:43,219
+which does not depend on x and an exponent that does depend on x.
+
+65
+00:03:43,219 --> 00:03:46,310
+We do the same thing that we did before which is,
+
+66
+00:03:46,310 --> 00:03:48,289
+we take the maximum of the function in
+
+67
+00:03:48,289 --> 00:03:52,414
+the exponent by taking the derivative and finding where it's zero.
+
+68
+00:03:52,414 --> 00:03:57,729
+The result for this maximum A posteriori estimate still a Gaussian,
+
+69
+00:03:57,729 --> 00:04:01,074
+but the Gaussian hasn't updated mean and covariance.
+
+70
+00:04:01,074 --> 00:04:04,364
+We first do a covariance update to get Q1,
+
+71
+00:04:04,365 --> 00:04:07,314
+and notice that it does depend on R even if we define
+
+72
+00:04:07,314 --> 00:04:10,359
+R to be a variance times the identity matrix,
+
+73
+00:04:10,360 --> 00:04:14,124
+and then we do an update to the mean based on this new covariance.
+
+74
+00:04:14,123 --> 00:04:18,399
+You can think of the maximum A posteriori estimate as a weighted average
+
+75
+00:04:18,399 --> 00:04:22,529
+between the prior x hat naught and what the new measurement says about x.
+
+76
+00:04:22,529 --> 00:04:26,884
+The weights come from the relative magnitude of the prior covariance, Q naught,
+
+77
+00:04:26,884 --> 00:04:31,105
+and the measurement covariance R. The more we trust the prior estimate,
+
+78
+00:04:31,105 --> 00:04:35,509
+the smaller the prior covariance and the less the measurements will affect the estimate.
+
+79
+00:04:35,509 --> 00:04:37,594
+The more we trust our measurements,
+
+80
+00:04:37,595 --> 00:04:40,520
+the smaller the measurement covariance and the more the
+
+81
+00:04:40,519 --> 00:04:43,774
+new measurements will change our current estimate.
+
+82
+00:04:43,774 --> 00:04:48,259
+As I've said once before and we'll say a few more times for this module,
+
+83
+00:04:48,259 --> 00:04:50,599
+that balance between prior information and
+
+84
+00:04:50,600 --> 00:04:54,120
+new information is the heart of the estimation process.
+

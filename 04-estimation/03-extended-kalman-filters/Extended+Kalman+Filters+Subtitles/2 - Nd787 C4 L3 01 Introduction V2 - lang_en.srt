@@ -1,0 +1,60 @@
+1
+00:00:00,000 --> 00:00:02,339
+Welcome back, I'd like to introduce you to
+
+2
+00:00:02,339 --> 00:00:05,339
+your instructor for the next two lessons, Stefanie Tellex.
+
+3
+00:00:05,339 --> 00:00:06,960
+Thanks, it's great to be here.
+
+4
+00:00:06,960 --> 00:00:08,310
+And it's great to have you here.
+
+5
+00:00:08,310 --> 00:00:10,695
+So, should we explain what this lesson is all about?
+
+6
+00:00:10,695 --> 00:00:13,290
+Yeah, well, so far in this course,
+
+7
+00:00:13,289 --> 00:00:15,629
+you've learned a lot about making measurements and
+
+8
+00:00:15,630 --> 00:00:18,344
+incorporating those measurements into your state estimator.
+
+9
+00:00:18,344 --> 00:00:20,559
+That's right. But up until this point,
+
+10
+00:00:20,559 --> 00:00:23,129
+we've had to assume that the vehicle wasn't moving,
+
+11
+00:00:23,129 --> 00:00:26,234
+and state estimation for a stationary vehicle just isn't that useful.
+
+12
+00:00:26,234 --> 00:00:27,719
+So in this lesson,
+
+13
+00:00:27,719 --> 00:00:31,679
+you'll learn how we can use something called a Kalman filter, and later,
+
+14
+00:00:31,679 --> 00:00:34,155
+an extended Kalman filter to incorporate
+
+15
+00:00:34,155 --> 00:00:37,759
+the controls we command the vehicle into our state estimator.
+

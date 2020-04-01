@@ -1,0 +1,204 @@
+1
+00:00:00,000 --> 00:00:02,338
+To begin talking about probability,
+
+2
+00:00:02,338 --> 00:00:03,960
+let's define some terms.
+
+3
+00:00:03,960 --> 00:00:07,515
+Let's say that there's a space of possible things that might happen.
+
+4
+00:00:07,514 --> 00:00:11,205
+For now, we're going to describe a discrete set of possible outcomes.
+
+5
+00:00:11,205 --> 00:00:13,679
+Before we dig into position estimation,
+
+6
+00:00:13,679 --> 00:00:15,959
+let's start very simply and just think
+
+7
+00:00:15,960 --> 00:00:18,870
+about whether the vehicle is working or not working.
+
+8
+00:00:18,870 --> 00:00:21,440
+Each of these we call an event or outcome,
+
+9
+00:00:21,440 --> 00:00:23,940
+and together they form our sample space.
+
+10
+00:00:23,940 --> 00:00:25,740
+We're going to assign to each one of these
+
+11
+00:00:25,739 --> 00:00:29,239
+some probability or relative likelihood of that outcome.
+
+12
+00:00:29,239 --> 00:00:32,670
+Let's say, we have a highly reliable vehicle with 0.9
+
+13
+00:00:32,670 --> 00:00:36,315
+probability of it working and 0.1 probability of it not working.
+
+14
+00:00:36,314 --> 00:00:40,140
+These numbers with the outcomes define a probability distribution.
+
+15
+00:00:40,140 --> 00:00:43,100
+To be a properly normalized probability distribution
+
+16
+00:00:43,100 --> 00:00:46,185
+the sum of these probabilities has to equal one.
+
+17
+00:00:46,185 --> 00:00:48,660
+We can in fact write this distribution as
+
+18
+00:00:48,659 --> 00:00:51,629
+a function that maps from the outcomes to numbers.
+
+19
+00:00:51,630 --> 00:00:54,810
+All probability function maps to numbers between zero and
+
+20
+00:00:54,810 --> 00:00:58,920
+one where zero probability means an event is guaranteed to not happen.
+
+21
+00:00:58,920 --> 00:01:03,030
+At a probability of one means an event is certain to happen.
+
+22
+00:01:03,030 --> 00:01:08,519
+When we have discrete outcomes we can call this function a probability mass function.
+
+23
+00:01:08,519 --> 00:01:11,579
+And if we have relative frequencies of things,
+
+24
+00:01:11,579 --> 00:01:13,590
+they may not be in the range zero to one,
+
+25
+00:01:13,590 --> 00:01:17,185
+but we can make the relative frequency sum to one by normalizing,
+
+26
+00:01:17,185 --> 00:01:19,320
+taking the sum and dividing.
+
+27
+00:01:19,319 --> 00:01:21,839
+Once we have a probability mass function
+
+28
+00:01:21,840 --> 00:01:24,960
+we can use it to answer a couple of questions such as,
+
+29
+00:01:24,959 --> 00:01:27,074
+what is the probability of some event or
+
+30
+00:01:27,075 --> 00:01:30,269
+outcome given that some other event or outcome occurred.
+
+31
+00:01:30,269 --> 00:01:32,879
+This is called conditional probability.
+
+32
+00:01:32,879 --> 00:01:36,584
+We can also sample from the space of possible outcomes,
+
+33
+00:01:36,584 --> 00:01:40,905
+and for some distributions we can ask what is the most likely event?
+
+34
+00:01:40,905 --> 00:01:45,000
+However, this particular representation where we write
+
+35
+00:01:45,000 --> 00:01:49,079
+down the names of the different outcomes is not as helpful as it might be.
+
+36
+00:01:49,079 --> 00:01:53,340
+If before working out the probabilities we first have a function that maps
+
+37
+00:01:53,340 --> 00:01:57,659
+each outcome to a number then we can ask and answer more questions.
+
+38
+00:01:57,659 --> 00:02:00,614
+So, let's say we have a set of outcomes, say,
+
+39
+00:02:00,614 --> 00:02:03,839
+working, not working, and let's add mostly working.
+
+40
+00:02:03,840 --> 00:02:07,980
+We can map them to the integer numbers zero, one, and two.
+
+41
+00:02:07,980 --> 00:02:12,254
+So, now we have this mapping of outcomes to integers and then the probabilities say,
+
+42
+00:02:12,254 --> 00:02:15,180
+0.9, 0.05 and 0.05.
+
+43
+00:02:15,180 --> 00:02:17,969
+This map of integers to relative frequencies or
+
+44
+00:02:17,969 --> 00:02:21,014
+probabilities is what's called a random variable.
+
+45
+00:02:21,014 --> 00:02:25,049
+We're going to use as notation the letter X to represent the random variable
+
+46
+00:02:25,050 --> 00:02:29,120
+which in this case, is this entire table of integer numbers.
+
+47
+00:02:29,120 --> 00:02:31,990
+X of I represents one entry in the table,
+
+48
+00:02:31,990 --> 00:02:34,680
+P of X represents the column of probabilities in
+
+49
+00:02:34,680 --> 00:02:39,420
+this table and then P of X of I would represent one entry in that column.
+
+50
+00:02:39,419 --> 00:02:42,689
+Now, that we have a random variable that maps events to
+
+51
+00:02:42,689 --> 00:02:46,919
+numbers we can perform computations over the events.
+

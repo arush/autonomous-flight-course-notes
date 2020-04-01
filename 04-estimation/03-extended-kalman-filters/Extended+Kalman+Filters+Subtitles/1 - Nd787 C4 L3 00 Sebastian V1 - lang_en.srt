@@ -1,0 +1,36 @@
+1
+00:00:00,000 --> 00:00:01,875
+Let's talk about Kalman filters.
+
+2
+00:00:01,875 --> 00:00:04,650
+Kalman filters were invented by Rudolf Kalman in the 1950s.
+
+3
+00:00:04,650 --> 00:00:06,270
+Although technically speaking, there were
+
+4
+00:00:06,269 --> 00:00:08,625
+two other folks who did this before him, long forgotten.
+
+5
+00:00:08,625 --> 00:00:10,230
+I think Thielen Starling.
+
+6
+00:00:10,230 --> 00:00:13,560
+Never mind. Kalman filters allow you to integrate measurements and
+
+7
+00:00:13,560 --> 00:00:17,359
+controls in a continuous space to find this continuous state estimate.
+
+8
+00:00:17,359 --> 00:00:23,210
+We're going to code our first Kalman filter here and for non-linear systems,
+
+9
+00:00:23,210 --> 00:00:26,960
+as you'll see, we're going to build what's called an extended Kalman filter.
+

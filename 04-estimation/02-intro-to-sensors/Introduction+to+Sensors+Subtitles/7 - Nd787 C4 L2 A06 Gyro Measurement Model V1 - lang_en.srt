@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:03,495
+The number that you read from a gyroscope is
+
+2
+00:00:03,495 --> 00:00:07,390
+unlikely to be the correct value of the rotation rate.
+
+3
+00:00:07,389 --> 00:00:11,609
+In order to make sense of their imperfect measurements that we receive
+
+4
+00:00:11,609 --> 00:00:16,269
+from a sensor we first need a measurement model for that sensor.
+
+5
+00:00:16,269 --> 00:00:21,899
+Once we have the measurement model we can use the measurements we'll receive to estimate
+
+6
+00:00:21,899 --> 00:00:27,564
+the body rate of the vehicle and then we can integrate to get the actual altitude.
+
+7
+00:00:27,565 --> 00:00:32,700
+A simple measurement model for a gyroscope looks like this.
+
+8
+00:00:32,700 --> 00:00:37,950
+Here we see that the measured value of the rotation rate omega is equal to
+
+9
+00:00:37,950 --> 00:00:42,090
+the true angular velocity which gets corrupted
+
+10
+00:00:42,090 --> 00:00:46,980
+by some kind of bias that we may need to identify ahead of time.
+
+11
+00:00:46,979 --> 00:00:51,449
+Plus some additive zero mean Gaussian noise.
+
+12
+00:00:51,450 --> 00:00:56,250
+So, here the noise is something that changes for every measurement we get.
+
+13
+00:00:56,250 --> 00:00:59,219
+The bias might be temperature dependent,
+
+14
+00:00:59,219 --> 00:01:01,109
+and might change slowly,
+
+15
+00:01:01,109 --> 00:01:05,900
+but it's something that stays constant at least for some amount of time.
+
+16
+00:01:05,900 --> 00:01:10,800
+Now, I'd like to use this measurement to track my angle theta,
+
+17
+00:01:10,799 --> 00:01:14,144
+and also my uncertainty from time step to time step.
+
+18
+00:01:14,144 --> 00:01:19,199
+And we can use this army got tilda measurement to update an angle from
+
+19
+00:01:19,200 --> 00:01:25,010
+time t minus 1 to t and the equation we use looks like this.
+
+20
+00:01:25,010 --> 00:01:28,109
+And it's important to note that this is
+
+21
+00:01:28,109 --> 00:01:31,200
+a discrete approximation for computing the integral.
+
+22
+00:01:31,200 --> 00:01:35,490
+So, really there would also be some epsilon approximation error.
+
+23
+00:01:35,489 --> 00:01:38,864
+But we're going to ignore that for now.
+
+24
+00:01:38,864 --> 00:01:42,545
+We are also going to assume that any potential bias is
+
+25
+00:01:42,545 --> 00:01:45,950
+calibrated and removed from the Gyro measurements.
+
+26
+00:01:45,950 --> 00:01:49,240
+So, our make up tilda just looks like this.
+
+27
+00:01:49,239 --> 00:01:53,609
+And clearly, for this equation to be useful at time step t,
+
+28
+00:01:53,609 --> 00:01:57,510
+I would have needed to start with some initial angle theta not,
+
+29
+00:01:57,510 --> 00:02:01,900
+and then repeated this update with all my measurements up until now.
+
+30
+00:02:01,900 --> 00:02:07,380
+This type of navigation-by-integration is called dead reckoning.
+
+31
+00:02:07,379 --> 00:02:10,379
+Inertial navigation that is navigation based on
+
+32
+00:02:10,379 --> 00:02:14,514
+inertial sensors only is purely based on dead reckoning.
+
+33
+00:02:14,514 --> 00:02:16,679
+And as you might have guessed,
+
+34
+00:02:16,680 --> 00:02:19,159
+it's highly susceptible to drift.
+

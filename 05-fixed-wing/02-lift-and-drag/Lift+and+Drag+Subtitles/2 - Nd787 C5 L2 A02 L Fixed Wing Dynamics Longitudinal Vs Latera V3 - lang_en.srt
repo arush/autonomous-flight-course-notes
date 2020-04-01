@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:02,390
+To understand the motion of a fixed-wing vehicle,
+
+2
+00:00:02,390 --> 00:00:05,865
+we need to understand how it moves and rotates in all three dimensions.
+
+3
+00:00:05,865 --> 00:00:10,929
+But a complete 3D analysis of the forces can get very complicated very quickly.
+
+4
+00:00:10,929 --> 00:00:12,684
+To avoid this complexity,
+
+5
+00:00:12,685 --> 00:00:15,225
+we often split the four or 3-dimensional analysis
+
+6
+00:00:15,224 --> 00:00:17,725
+into two separate 2-dimensional problems,
+
+7
+00:00:17,725 --> 00:00:20,405
+the longitudinal motion and the lateral motion.
+
+8
+00:00:20,405 --> 00:00:22,960
+When we analyze the longitudinal motion,
+
+9
+00:00:22,960 --> 00:00:26,894
+we typically think of a picture like this where we view the vehicle from the side.
+
+10
+00:00:26,894 --> 00:00:29,449
+This is the picture we used in the previous quizzes.
+
+11
+00:00:29,449 --> 00:00:33,804
+It's also the picture we'll be using for the majority of this lesson as well as the next.
+
+12
+00:00:33,804 --> 00:00:35,854
+When we analyze a lateral motion,
+
+13
+00:00:35,854 --> 00:00:39,259
+we either look at the plane from above or from behind.
+
+14
+00:00:39,259 --> 00:00:43,099
+We'll be analyzing lateral dynamics in the lesson after the next lesson.
+
+15
+00:00:43,100 --> 00:00:44,929
+Each of these pictures is useful for
+
+16
+00:00:44,929 --> 00:00:47,715
+understanding various aspects of the vehicles motion.
+
+17
+00:00:47,715 --> 00:00:51,500
+For example, longitudinal analysis helps us understand how
+
+18
+00:00:51,500 --> 00:00:53,729
+the aircraft pitch changes over time
+
+19
+00:00:53,729 --> 00:00:57,750
+while lateral analysis helps us understand roll and yaw.
+

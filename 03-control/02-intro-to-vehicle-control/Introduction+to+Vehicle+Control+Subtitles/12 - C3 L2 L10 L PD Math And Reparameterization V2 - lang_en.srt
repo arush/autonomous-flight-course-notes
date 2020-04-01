@@ -1,0 +1,200 @@
+1
+00:00:00,000 --> 00:00:04,919
+So far, we have this as our controller equation and we
+
+2
+00:00:04,919 --> 00:00:09,419
+can interpret this as saying the best control to command right now
+
+3
+00:00:09,419 --> 00:00:13,859
+is whatever the current target acceleration is plus some correction for
+
+4
+00:00:13,859 --> 00:00:19,064
+any error in velocity plus some correction for any error in position.
+
+5
+00:00:19,065 --> 00:00:23,370
+We can also see that Kp and Kd must be positive for
+
+6
+00:00:23,370 --> 00:00:27,859
+the corrections to be effective and for the system to remain stable over all.
+
+7
+00:00:27,859 --> 00:00:31,660
+But how do we decide how big these corrections should be?
+
+8
+00:00:31,660 --> 00:00:36,115
+Written like this, these coefficients Kp and Kd don't tell us
+
+9
+00:00:36,115 --> 00:00:40,734
+much and I don't know how to tune them to get good behavior.
+
+10
+00:00:40,734 --> 00:00:43,149
+But there's a way to rewrite this equation so that
+
+11
+00:00:43,149 --> 00:00:46,494
+the coefficients have more physical significance.
+
+12
+00:00:46,494 --> 00:00:49,419
+I'm going to walk through the mass now,
+
+13
+00:00:49,420 --> 00:00:53,769
+and then afterwards, you'll have a chance to play around with these ideas in code.
+
+14
+00:00:53,768 --> 00:00:58,539
+The first thing I want to do is write this equation like this.
+
+15
+00:00:58,539 --> 00:01:04,385
+And now, I can see that these terms in parentheses are just the derivatives of the error.
+
+16
+00:01:04,385 --> 00:01:07,245
+If you've ever studied differential equations,
+
+17
+00:01:07,245 --> 00:01:10,454
+then you have seen very similar equations before.
+
+18
+00:01:10,454 --> 00:01:14,700
+In fact, this looks like the equation for mass on a spring with
+
+19
+00:01:14,700 --> 00:01:19,510
+some damping term and the resulting motion is a damped oscillation,
+
+20
+00:01:19,510 --> 00:01:23,378
+which just means the motion has sinusoidal oscillation,
+
+21
+00:01:23,378 --> 00:01:27,150
+whose amplitude is modified by a decaying exponential.
+
+22
+00:01:27,150 --> 00:01:28,874
+Let me show you what I mean.
+
+23
+00:01:28,873 --> 00:01:32,834
+I'm using a tool called desmos to show graphs here.
+
+24
+00:01:32,834 --> 00:01:35,704
+Here, I've defined a function f,
+
+25
+00:01:35,704 --> 00:01:41,745
+which is just the cosine of omega t. And you can see that when I increase omega,
+
+26
+00:01:41,745 --> 00:01:44,250
+I increase the rate of oscillation.
+
+27
+00:01:44,250 --> 00:01:47,579
+So, this is pure oscillatory behavior.
+
+28
+00:01:47,579 --> 00:01:52,650
+I can turn that off and we can look at pure decay.
+
+29
+00:01:52,650 --> 00:01:55,590
+And here, you can see a graph of e to
+
+30
+00:01:55,590 --> 00:02:01,335
+the minus delta omega t and this is pure exponential decay.
+
+31
+00:02:01,334 --> 00:02:03,637
+And if I slide this delta,
+
+32
+00:02:03,638 --> 00:02:07,960
+you can see that I can control how fast this decay happens.
+
+33
+00:02:07,959 --> 00:02:12,680
+But the actual error as a function of time like the position of a mass
+
+34
+00:02:12,680 --> 00:02:17,090
+on a spring will display both of these behaviors simultaneously.
+
+35
+00:02:17,090 --> 00:02:20,810
+So down here, I've defined this third function h,
+
+36
+00:02:20,810 --> 00:02:24,634
+which is the product of the oscillation and the decay.
+
+37
+00:02:24,634 --> 00:02:26,883
+Let me turn that on now.
+
+38
+00:02:26,883 --> 00:02:32,224
+As you can see, we are left with this oscillation which is modulated by decay.
+
+39
+00:02:32,224 --> 00:02:35,239
+This wouldn't be the worst error for a flying vehicle.
+
+40
+00:02:35,240 --> 00:02:38,659
+But honestly, we'd like the error to converge to zero much
+
+41
+00:02:38,659 --> 00:02:42,799
+faster and we would rather not have so much oscillation.
+
+42
+00:02:42,800 --> 00:02:45,670
+Luckily, I can correct for that.
+
+43
+00:02:45,669 --> 00:02:48,189
+Now, I can modify my delta and my omega.
+
+44
+00:02:48,189 --> 00:02:52,495
+And since I have some intuitive sense of what those parameters do,
+
+45
+00:02:52,495 --> 00:02:56,455
+I can more easily tweak how the error will behave over time.
+
+46
+00:02:56,455 --> 00:02:59,650
+It turns out that when you solve this equation,
+
+47
+00:02:59,650 --> 00:03:02,409
+you find that Kp is just the square of
+
+48
+00:03:02,409 --> 00:03:08,275
+that natural frequency omega and Kd is two times delta times omega.
+
+49
+00:03:08,275 --> 00:03:11,050
+In practice, when you tune your controllers,
+
+50
+00:03:11,050 --> 00:03:15,640
+it is helpful to think of these coefficients instead of Kp and Kd.
+

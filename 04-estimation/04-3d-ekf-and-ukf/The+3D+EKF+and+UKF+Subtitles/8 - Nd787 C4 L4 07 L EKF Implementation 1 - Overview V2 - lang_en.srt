@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:03,750
+Now that we have the complimentary filter implemented,
+
+2
+00:00:03,750 --> 00:00:07,695
+you should be able to estimate the roll and the pitch in the global frame.
+
+3
+00:00:07,695 --> 00:00:11,070
+So, we're just going to assume that's happening all the time,
+
+4
+00:00:11,070 --> 00:00:15,765
+and we just know roll and pitch now as a result of that estimation process.
+
+5
+00:00:15,765 --> 00:00:21,440
+Now, I like to walk through some of the actual EKF implementation details.
+
+6
+00:00:21,440 --> 00:00:26,400
+We'll be providing you with a document that goes over all of this in detail,
+
+7
+00:00:26,399 --> 00:00:30,419
+and you may find that more useful than listening to me explain everything,
+
+8
+00:00:30,420 --> 00:00:33,175
+but let's walk through that document as well.
+
+9
+00:00:33,174 --> 00:00:37,594
+So, here I am in the section called three dimensional quad.
+
+10
+00:00:37,594 --> 00:00:42,899
+Now, in the event that we make some changes to this document after I record this,
+
+11
+00:00:42,899 --> 00:00:46,949
+it's worth noting that some of the details of what you see here may change.
+
+12
+00:00:46,950 --> 00:00:52,770
+So, things like the section and equation numbers that you see in this video might change.
+
+13
+00:00:52,770 --> 00:00:57,090
+I also want to mention that there's a lot of math here,
+
+14
+00:00:57,090 --> 00:01:01,275
+and it's possible that there are some mistakes in the draft I'm recording with here.
+
+15
+00:01:01,274 --> 00:01:02,699
+If we find mistakes,
+
+16
+00:01:02,700 --> 00:01:05,909
+we will make sure to update the document that we distribute.
+
+17
+00:01:05,909 --> 00:01:09,879
+So, if you have any doubts just make sure you consult the document.
+
+18
+00:01:09,879 --> 00:01:12,364
+With that out of the way, let's dive in.
+
+19
+00:01:12,364 --> 00:01:14,259
+As I already mentioned,
+
+20
+00:01:14,260 --> 00:01:18,734
+we're representing the state at time t with these variables,
+
+21
+00:01:18,734 --> 00:01:23,150
+and the control input at time t with these variables.
+
+22
+00:01:23,150 --> 00:01:28,780
+This control input will be getting from the IMU which is weird, but it works.
+
+23
+00:01:28,780 --> 00:01:32,079
+Note the superscript B and all of these variables
+
+24
+00:01:32,079 --> 00:01:35,739
+which indicates that these are given in the body frame.
+
+25
+00:01:35,739 --> 00:01:38,140
+Since these are in the body frame,
+
+26
+00:01:38,140 --> 00:01:44,170
+we need a rotation matrix that converts from the body frame to the world or global frame,
+
+27
+00:01:44,170 --> 00:01:46,239
+and that should look pretty familiar.
+

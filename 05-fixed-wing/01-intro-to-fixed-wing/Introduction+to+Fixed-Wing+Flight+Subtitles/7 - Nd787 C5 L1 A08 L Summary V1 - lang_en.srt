@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:04,650
+Fixed-wing and rotary wing aircraft each have their own strengths and weaknesses.
+
+2
+00:00:04,650 --> 00:00:07,380
+Building an effective flying car requires using
+
+3
+00:00:07,379 --> 00:00:11,339
+a hybrid design that takes advantage of the strengths of each.
+
+4
+00:00:11,339 --> 00:00:13,560
+Before you can design a hybrid vehicles,
+
+5
+00:00:13,560 --> 00:00:17,594
+it's important to first understand how purely fixed-wing vehicles work.
+
+6
+00:00:17,594 --> 00:00:22,074
+In this lesson, you were introduced to the various components of these vehicles.
+
+7
+00:00:22,074 --> 00:00:25,609
+In particular the wings and the various control surfaces.
+
+8
+00:00:25,609 --> 00:00:28,769
+In the next lesson, you'll learn about lift and
+
+9
+00:00:28,769 --> 00:00:32,795
+drag and how these aerodynamic forces influence fixed-wing flights.
+
+10
+00:00:32,795 --> 00:00:35,359
+In later lessons, you'll learn more about the Physics
+
+11
+00:00:35,359 --> 00:00:37,829
+which govern fixed-wing vehicles and how you can
+
+12
+00:00:37,829 --> 00:00:40,379
+actually control a fixed-wing vehicle by issuing
+
+13
+00:00:40,380 --> 00:00:44,200
+commands to the propulsion system and the control surfaces.
+

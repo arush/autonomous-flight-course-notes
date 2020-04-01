@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:04,740
+Welcome back and congratulations on completing the first term of the Nanodegree program.
+
+2
+00:00:04,740 --> 00:00:08,355
+Up until now, we've been focusing our attention on quadrotors.
+
+3
+00:00:08,355 --> 00:00:11,870
+A quadrotor is what's known as a rotary wing aircraft.
+
+4
+00:00:11,869 --> 00:00:14,399
+We call rotary wing because each of the propellers is
+
+5
+00:00:14,400 --> 00:00:17,399
+actually a wing which spins to the air to generate lift.
+
+6
+00:00:17,399 --> 00:00:21,989
+But as you know rotary wing vehicles aren't the only aircraft design,
+
+7
+00:00:21,989 --> 00:00:23,848
+there are also fixed-wing aircrafts,
+
+8
+00:00:23,849 --> 00:00:25,184
+like the one you see here.
+
+9
+00:00:25,184 --> 00:00:29,369
+This is footage from the fixed wing simulation environment that you'll be using soon.
+
+10
+00:00:29,370 --> 00:00:32,850
+As you can see, instead of using a motor to spin the blade,
+
+11
+00:00:32,850 --> 00:00:37,420
+a fixed wing vehicle uses its own velocity through the air to generate lift.
+
+12
+00:00:37,420 --> 00:00:41,439
+But there are other vehicle designs besides fixed-wing and rotary wing vehicles.
+
+13
+00:00:41,439 --> 00:00:44,500
+For example, there are vehicles like Cora.
+
+14
+00:00:44,500 --> 00:00:49,579
+Cora is made by Kitty Hawk and it's a hybrid fixed wing and rotary wing aircraft.
+
+15
+00:00:49,579 --> 00:00:52,759
+When we use the term flying car in this Nanodegree program,
+
+16
+00:00:52,759 --> 00:00:55,599
+we're generally referring to a hybrid vehicle like this.
+
+17
+00:00:55,600 --> 00:00:59,789
+A flying car like Cora has three important capabilities.
+
+18
+00:00:59,789 --> 00:01:03,990
+First, it's capable of VTOL or vertical takeoff and landing.
+
+19
+00:01:03,990 --> 00:01:08,090
+This means it can operate without needing a long runway to take off and land.
+
+20
+00:01:08,090 --> 00:01:12,799
+Second, it's capable of both rotary wing flight and fixed wing flight,
+
+21
+00:01:12,799 --> 00:01:15,450
+which comes with some benefits that we'll discuss shortly.
+
+22
+00:01:15,450 --> 00:01:19,320
+Third, a flying car has to be able to operate autonomously.
+
+23
+00:01:19,319 --> 00:01:23,089
+It's not practical or safe to ask everyone to become a pilot,
+
+24
+00:01:23,090 --> 00:01:26,510
+so a realistic flying car needs to be able to fly itself.
+
+25
+00:01:26,510 --> 00:01:29,165
+Implementing these three capabilities means solving
+
+26
+00:01:29,165 --> 00:01:32,390
+three main technical challenges on the software side.
+
+27
+00:01:32,390 --> 00:01:37,165
+One, autonomous flight and rotor craft mode this is something you can already do.
+
+28
+00:01:37,165 --> 00:01:40,315
+Two, autonomous flight in fixed wing mode.
+
+29
+00:01:40,314 --> 00:01:43,504
+This is what you'll be learning about in the next few lessons.
+
+30
+00:01:43,504 --> 00:01:47,104
+Three, how to transition from hover to fixed-wing flight.
+
+31
+00:01:47,105 --> 00:01:49,640
+This transition period is a very difficult,
+
+32
+00:01:49,640 --> 00:01:52,959
+and it's an open question on the best way to solve this problem.
+
+33
+00:01:52,959 --> 00:01:55,339
+We'll be focusing most of this lesson
+
+34
+00:01:55,340 --> 00:01:58,174
+and the lessons that follow on the second challenge.
+
+35
+00:01:58,174 --> 00:02:01,569
+How can we make a fixed wing vehicle fly autonomously.
+
+36
+00:02:01,569 --> 00:02:04,189
+But for now I'd like to talk a bit about some of
+
+37
+00:02:04,189 --> 00:02:08,129
+the many ways that people have tried to design hybrid vehicles.
+

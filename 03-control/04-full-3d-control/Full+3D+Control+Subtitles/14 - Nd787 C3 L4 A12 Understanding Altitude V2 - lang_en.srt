@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:03,120
+When, you draw a box around all three of
+
+2
+00:00:03,120 --> 00:00:07,710
+these controllers and think of the inputs and outputs to this box,
+
+3
+00:00:07,710 --> 00:00:12,690
+you can see that this box is really controlling second order systems.
+
+4
+00:00:12,690 --> 00:00:19,670
+For example, yaw goes in as input and some moment is produced as output.
+
+5
+00:00:19,670 --> 00:00:23,895
+Since that moment controls the second derivative of yaw,
+
+6
+00:00:23,895 --> 00:00:27,475
+that makes the whole thing a second order system.
+
+7
+00:00:27,475 --> 00:00:30,920
+Likewise, the roll-pitch and body rate
+
+8
+00:00:30,920 --> 00:00:34,900
+controllers together make up a second order system.
+
+9
+00:00:34,900 --> 00:00:39,490
+The roll-pitch controller handles the first half of that system.
+
+10
+00:00:39,490 --> 00:00:43,740
+The job of the roll-pitch controller is to take command at x,
+
+11
+00:00:43,740 --> 00:00:45,665
+y accelerations, a thrust,
+
+12
+00:00:45,665 --> 00:00:47,360
+and the vehicle's attitude,
+
+13
+00:00:47,360 --> 00:00:49,665
+and produce a roll rate command,
+
+14
+00:00:49,665 --> 00:00:52,570
+abbreviated P subscript c in the paper,
+
+15
+00:00:52,570 --> 00:00:54,385
+and a pitch rate command,
+
+16
+00:00:54,385 --> 00:00:57,965
+Q sub c. This is the first order system.
+
+17
+00:00:57,965 --> 00:01:03,610
+For our purposes, the key equations in this paper are equations two and six.
+
+18
+00:01:03,610 --> 00:01:07,490
+Together, they represent some of the most complex math that you
+
+19
+00:01:07,490 --> 00:01:11,590
+will be implementing in Python and C++ in the final project.
+
+20
+00:01:11,590 --> 00:01:13,505
+Here, in equation two,
+
+21
+00:01:13,505 --> 00:01:17,895
+we start to see our control knobs for x and y emerging.
+
+22
+00:01:17,895 --> 00:01:19,720
+Here, in these equations,
+
+23
+00:01:19,720 --> 00:01:22,245
+c is the total commanded thrust,
+
+24
+00:01:22,245 --> 00:01:23,905
+and in this equation two,
+
+25
+00:01:23,905 --> 00:01:27,030
+we can see that the x acceleration, for instance,
+
+26
+00:01:27,030 --> 00:01:32,050
+is the product of this commanded thrust times this bx term.
+
+27
+00:01:32,050 --> 00:01:35,280
+It turns out that the x is the element in
+
+28
+00:01:35,280 --> 00:01:40,435
+the rotation matrix that must set in the body frame to x in the build frame.
+
+29
+00:01:40,435 --> 00:01:42,685
+This is just R13.
+
+30
+00:01:42,685 --> 00:01:47,160
+In effect, we are going to think of these elements in the rotation matrix,
+
+31
+00:01:47,160 --> 00:01:51,450
+R13 and R23, as the control knobs,
+
+32
+00:01:51,450 --> 00:01:55,750
+which are eventually going to control our x and y motion.
+
+33
+00:01:55,750 --> 00:01:59,860
+So, we want to command the value of these matrix elements,
+
+34
+00:01:59,860 --> 00:02:02,765
+but we need to know exactly how to do that.
+
+35
+00:02:02,765 --> 00:02:07,845
+Eventually, this controller needs to output commands for P and Q.
+
+36
+00:02:07,845 --> 00:02:11,150
+But we want to issue these commands by first,
+
+37
+00:02:11,150 --> 00:02:13,980
+setting targets for these matrix elements.
+
+38
+00:02:13,980 --> 00:02:19,070
+But how do we convert matrix element targets into P and Q commands?
+
+39
+00:02:19,070 --> 00:02:20,645
+Later in the paper,
+
+40
+00:02:20,645 --> 00:02:23,080
+in equation six, we are told how.
+
+41
+00:02:23,080 --> 00:02:26,755
+This equation gives us a P command and a Q command,
+
+42
+00:02:26,755 --> 00:02:30,405
+which is what we want our controllers to output and it does so,
+
+43
+00:02:30,405 --> 00:02:32,960
+in terms of the rotation matrix elements on
+
+44
+00:02:32,960 --> 00:02:37,665
+the left multiplied by these other two terms on the right.
+
+45
+00:02:37,665 --> 00:02:40,700
+And you have to be a little persistent in reading
+
+46
+00:02:40,700 --> 00:02:44,535
+the paper to realize what these terms mean
+
+47
+00:02:44,535 --> 00:02:48,250
+because this is where the actual P controller code for
+
+48
+00:02:48,250 --> 00:02:53,060
+the first order system comes in and it does so through this equation.
+
+49
+00:02:53,060 --> 00:02:58,975
+And this equation is given in the paragraph just before equation six.
+
+50
+00:02:58,975 --> 00:03:04,845
+This tau rp is the time constant in the pitch and roll directions.
+
+51
+00:03:04,845 --> 00:03:06,870
+And this bx, remember,
+
+52
+00:03:06,870 --> 00:03:09,555
+is an element of the rotation matrix,
+
+53
+00:03:09,555 --> 00:03:15,790
+and bx with a c subscript is our commanded value of this rotation matrix element.
+
+54
+00:03:15,790 --> 00:03:17,930
+And this looks exactly like
+
+55
+00:03:17,930 --> 00:03:22,320
+the first order math that I showed you earlier for the yaw controller.
+
+56
+00:03:22,320 --> 00:03:26,850
+Now, if you are careful and put this all together just right,
+
+57
+00:03:26,850 --> 00:03:28,530
+you will have a nice controller,
+
+58
+00:03:28,530 --> 00:03:32,100
+which realizes x and y accelerations by properly
+
+59
+00:03:32,100 --> 00:03:36,640
+controlling the value of elements of the rotation matrix itself.
+

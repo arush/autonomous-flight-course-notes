@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:02,745
+In this lesson, you will learn how to maintain
+
+2
+00:00:02,745 --> 00:00:06,419
+an accurate and responsive estimate of a vehicle state using
+
+3
+00:00:06,419 --> 00:00:08,490
+something called a Kalman Filter for
+
+4
+00:00:08,490 --> 00:00:13,335
+linear systems or an extended Kalman Filter for non-linear systems.
+
+5
+00:00:13,335 --> 00:00:16,289
+Both of these algorithms are implementations of
+
+6
+00:00:16,289 --> 00:00:19,049
+a more general algorithm called the Bayes Filter,
+
+7
+00:00:19,050 --> 00:00:22,230
+which uses a cycle of motion prediction and
+
+8
+00:00:22,230 --> 00:00:26,945
+measurement update steps to maintain a belief of a vehicle state.
+
+9
+00:00:26,945 --> 00:00:31,140
+The thing that made the KF and EKF special was
+
+10
+00:00:31,140 --> 00:00:35,070
+the assumption that our beliefs were described by Gaussian's.
+
+11
+00:00:35,070 --> 00:00:37,378
+With that assumption in place,
+
+12
+00:00:37,378 --> 00:00:42,239
+the mathematics of the base filter just turned into sequences of Matrix operations.
+
+13
+00:00:42,240 --> 00:00:45,630
+The difference between the KF and the EKF had
+
+14
+00:00:45,630 --> 00:00:49,050
+to do with the linearity of our motion and sensor models.
+
+15
+00:00:49,049 --> 00:00:52,289
+So for the one dimensional vertical drone,
+
+16
+00:00:52,289 --> 00:00:57,359
+our motion model and our sensor model were both linear functions of their inputs,
+
+17
+00:00:57,359 --> 00:00:59,609
+and because of that we could solve
+
+18
+00:00:59,609 --> 00:01:03,524
+the estimation problem optimally using a Kalman Filter.
+
+19
+00:01:03,524 --> 00:01:09,644
+But when we try to use a Kalman Filter on our weird 2D drone we ran into problems.
+
+20
+00:01:09,644 --> 00:01:13,769
+Both the motion model and the sensor model had non-linear terms in them,
+
+21
+00:01:13,769 --> 00:01:17,039
+which meant we couldn't write them as matrices.
+
+22
+00:01:17,040 --> 00:01:22,245
+The extended Kalman Filters solves this problem by calculating the Jacobian
+
+23
+00:01:22,245 --> 00:01:27,525
+of these models to linearize them around the current estimated state of the vehicle.
+
+24
+00:01:27,525 --> 00:01:33,060
+These linear approximations have to be made at every time stamp and when we do that,
+
+25
+00:01:33,060 --> 00:01:35,909
+we can treat this system as if it were linear.
+
+26
+00:01:35,909 --> 00:01:37,579
+In the next lesson,
+
+27
+00:01:37,579 --> 00:01:41,474
+we'll take the idea of state estimation into three dimensions,
+
+28
+00:01:41,474 --> 00:01:44,579
+and also learn about another variant of
+
+29
+00:01:44,579 --> 00:01:48,319
+the Kalman Filter called the unscented Kalman Filter.
+

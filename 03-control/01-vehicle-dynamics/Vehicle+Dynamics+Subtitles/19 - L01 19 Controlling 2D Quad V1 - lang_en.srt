@@ -1,0 +1,68 @@
+1
+00:00:00,000 --> 00:00:04,470
+At this point, we've actually covered all the underlying physics of
+
+2
+00:00:04,470 --> 00:00:08,910
+quadrotor flight or at least the physics that we'll be modeling.
+
+3
+00:00:08,910 --> 00:00:13,080
+You've seen how a propeller generates a thrust and
+
+4
+00:00:13,080 --> 00:00:15,480
+a yaw inducing reaction moment that are
+
+5
+00:00:15,480 --> 00:00:19,770
+both proportional to the square of the rotation rate.
+
+6
+00:00:19,770 --> 00:00:21,855
+You've also seen how gravity,
+
+7
+00:00:21,855 --> 00:00:23,460
+along with these thrusts,
+
+8
+00:00:23,460 --> 00:00:27,810
+influenced the translational acceleration of the vehicle.
+
+9
+00:00:27,810 --> 00:00:31,260
+And you've also seen how these thrusts produce
+
+10
+00:00:31,260 --> 00:00:35,460
+torques which can cause the quadrotor to pitch and roll.
+
+11
+00:00:35,460 --> 00:00:41,513
+And really, that's about it for the physics that we really need to consider for now.
+
+12
+00:00:41,513 --> 00:00:43,114
+Now, it's time to write
+
+13
+00:00:43,114 --> 00:00:48,885
+the advanced state method for a controlled drone that flies in two dimensions.
+
+14
+00:00:48,885 --> 00:00:51,030
+Writing this method will require you to put
+
+15
+00:00:51,030 --> 00:00:54,935
+together everything you've learned in this lesson.
+
+16
+00:00:54,935 --> 00:00:57,315
+We'll be providing a solution as well,
+
+17
+00:00:57,315 --> 00:01:00,000
+but try your best to solve this on your own.
+

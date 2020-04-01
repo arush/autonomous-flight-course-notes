@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:01,925
+In the previous exercise,
+
+2
+00:00:01,925 --> 00:00:04,770
+you simulated the longitudinal motion of a vehicle,
+
+3
+00:00:04,769 --> 00:00:07,764
+with an initial state that's very close to a trim state.
+
+4
+00:00:07,764 --> 00:00:10,734
+When you plotted the pitch rate of that vehicle versus time,
+
+5
+00:00:10,734 --> 00:00:13,019
+you saw a graph that looked like this.
+
+6
+00:00:13,019 --> 00:00:15,269
+This graph seems pretty strange,
+
+7
+00:00:15,269 --> 00:00:17,234
+and you might have some questions about it.
+
+8
+00:00:17,234 --> 00:00:19,824
+After all, if we are near an equilibrium state,
+
+9
+00:00:19,824 --> 00:00:21,405
+where the pitching moment is zero,
+
+10
+00:00:21,405 --> 00:00:23,825
+why are we seeing this strange oscillation?
+
+11
+00:00:23,824 --> 00:00:27,304
+If we were to build the aircraft that we modeled and actually fly it,
+
+12
+00:00:27,304 --> 00:00:28,864
+would we see this behavior?
+
+13
+00:00:28,864 --> 00:00:31,439
+Or, maybe what we're seeing is an artifact of
+
+14
+00:00:31,440 --> 00:00:35,390
+the discretization that we had to do to simulate this motion on a computer.
+
+15
+00:00:35,390 --> 00:00:37,840
+Or, if this oscillation is real,
+
+16
+00:00:37,840 --> 00:00:39,560
+then we'd like to know more about it.
+
+17
+00:00:39,560 --> 00:00:42,280
+For example, will these oscillations go away?
+
+18
+00:00:42,280 --> 00:00:44,700
+If so, how long will it take?
+
+19
+00:00:44,700 --> 00:00:48,425
+Can we design our vehicle in a way that minimizes these oscillations?
+
+20
+00:00:48,424 --> 00:00:50,914
+We'd like to answer all of these questions.
+
+21
+00:00:50,914 --> 00:00:53,564
+Unfortunately, with the equations written as they are,
+
+22
+00:00:53,564 --> 00:00:58,489
+we just don't have the mathematical tools necessary to analyze this motion rigorously.
+
+23
+00:00:58,490 --> 00:01:01,400
+It's hard to get the non-linear equations underlying
+
+24
+00:01:01,399 --> 00:01:04,599
+the dynamics of this vehicle to explain what is going on.
+
+25
+00:01:04,599 --> 00:01:08,125
+So, as you've seen a few times in this nanodegree program,
+
+26
+00:01:08,125 --> 00:01:11,900
+we're going to want to turn our non-linear model into a linear model,
+
+27
+00:01:11,900 --> 00:01:16,280
+so we can actually analyze these dynamics and answer these questions.
+
