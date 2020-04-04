@@ -1,0 +1,23 @@
+1. Sebastian Introduction
+2. Lesson Introduction
+3. Perfect Control
+4. The problem with open loop control Exercise
+5. Perfect is Impossible
+6. Simple Control Diagrams
+7. P Controllers
+8. Implement P Controller Exercise
+9. Two Problems with P Control
+10. P Controller Tuning Exercise
+11. Limitations of P Control
+12. PD Control
+13. Implement PD Controller Exercise
+14. PD Incorporating Feedforward Control
+15. Implement PD with Feedforward Exercise
+16. PD Math and Reparametrization
+17. Overshoot, Rise Time, Settling Time
+18. More Model Errors
+19. PID Control
+20. PID Control Exercise
+21. PID Control Example
+22. PID controller in practice
+23. Summary

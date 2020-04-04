@@ -1,0 +1,9 @@
+1. Controls on the Crazyflie
+2. Configuring the Crazyflie
+3. Control Architecture
+4. Outer Loop - Altitude
+5. Outer Loop - Lateral Position
+6. Choosing Initial Gains
+7. Inner Loop
+8. Trajectories
+9. Going Beyond

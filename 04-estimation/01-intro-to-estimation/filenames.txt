@@ -1,0 +1,28 @@
+1. Sebastian Introduction
+2. Welcome Back
+3. Intro to Estimation
+4. Review of Discrete Probability
+5. Expected Value
+6. Variance
+7. Playing with Probabilities Notebook
+8. Probability Density Functions
+9. Uniform Distribution Notebook
+10. Uniform and Gaussian Distributions
+11. Estimating Parameters from Data
+12. Multivariate Distributions
+13. 2D Gaussian Notebook
+14. Joint and Marginal Distributions
+15. Correlation and Independence
+16. Conditional Distributions
+17. Applying Bayes' Rule
+18. Approaches to Estimation
+19. Intro to Least Squares
+20. Deriving the Maximum Likelihood Estimator
+21. Fitting a Line with Linear Least Squares
+22. Least Squares Notebook
+23. Recursive Estimation
+24. Recursive Estimation Notebook
+25. The Problem with non-Linearities
+26. Calculating the Jacobian
+27. Non-Linear Least Squares Notebook
+28. Conclusion

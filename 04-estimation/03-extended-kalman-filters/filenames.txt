@@ -1,0 +1,21 @@
+1. Sebastian Introduction
+2. Introduction
+3. 1D PID Control
+4. Controlling with Noisy Measurements
+5. Averaging Measurements
+6. Recursive Averaging
+7. Averaging Exercise
+8. The Need for Control
+9. Estimation Filters
+10. The Bayes Filter
+11. The Kalman Filter
+12. Kalman Predict
+13. The Measurement Function
+14. Kalman Update
+15. Kalman Filter Exercise
+16. Nonlinear Drone
+17. EKF Predict
+18. Non-linear Measurement Model
+19. EKF Update
+20. EKF Exercise
+21. Summary

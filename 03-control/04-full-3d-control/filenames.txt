@@ -1,0 +1,26 @@
+1. Sebastian Introduction
+2. Lesson Overview
+3. Review of 2D Dynamics
+4. World vs Body Frames
+5. Tracking 3D Dynamics Overview
+6. Notebook Walkthrough
+7. 3D Drone Part 1 Exercise
+8. Tracking Rotations in 3D
+9. Euler's Equations in a Rotating Frame
+10. 3D Drone Part 2 Exercise
+11. Integrating PQR Into the World Frame
+12. 3D Drone Part 3 Exercise
+13. Summary of 3D Dynamics
+14. "Control Knobs" for a 3D Quadrotor
+15. 3D Control Architecture
+16. First vs Second Order Systems
+17. Understanding Attitude Control Equations
+18. 3D Drone Part 4 Exercise
+19. Controller Design
+20. Controller Design
+21. 3D Drone Part 5 Exercise
+22. Practical Considerations
+23. From Path Planning to Control
+24. Trajectory Generation Exercise
+25. Polynomial Segmentation Exercise
+26. Conclusion

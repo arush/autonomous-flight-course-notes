@@ -1,0 +1,28 @@
+1. Sebastian Introduction
+2. Welcome Back
+3. Introduction
+4. Complementary Sensors
+5. Inertial Sensors
+6. Rate Gyro Physics and Implementation
+7. Gyro Measurement Model
+8. Gyroscope Measurements
+9. Dead Reckoning Uncertainty
+10. Full 3D Attitude Update
+11. Accelerometers
+12. Dead Reckoning 3D
+13. Two Things Accelerometers Measure
+14. Inertial Navigation vs Position Fixing
+15. Reading an IMU Spec Sheet
+16. Three Sources of Error
+17. Calibration
+18. IMU Calibration
+19. Magnetometer Intuition
+20. Magnetometer Errors and Calibration
+21. Magnetometer Calibration
+22. GPS Overview
+23. GPS Math
+24. GPS Errors, Initialization, and Calibration
+25. The Barometer
+26. Barometer Errors and Calibration
+27. Barometer and GPS integration
+28. Summary

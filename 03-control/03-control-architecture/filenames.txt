@@ -1,0 +1,19 @@
+1. Sebastian Introduction
+2. Intro to 2D Dynamics
+3. Underactuation
+4. Coupling
+5. Lesson Overview
+6. Motivation for Linearization
+7. Linearization Math
+8. Linearization Intuition
+9. Linearization Intuition
+10. Linearization Intuition
+11. Linearization Exploration Exercise
+12. Controlling Motion Near Hover
+13. Intro to Cascaded Control
+14. Implement Linear Controller Exercise
+15. Separation of Time Scales
+16. Non-Linear Control
+17. Implement Non-Linear Controller Exercise
+18. Comparing Trajectories Exercise
+19. Summary

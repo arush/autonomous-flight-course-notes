@@ -1,0 +1,19 @@
+1. Sebastian Introduction
+2. Welcome Back
+3. 3D Estimation Overview
+4. EKF Tradeoffs 1 - State
+5. EKF Tradeoffs 2 - Control
+6. Attitude Estimation
+7. Complementary Filter Math
+8. Attitude Estimation Exercise
+9. EKF Implementation 1 - Overview
+10. EKF Implementation 2 - Predict
+11. EKF Implementation 3 - Update
+12. Kalman Recap
+13. Drone in 3D Exercise
+14. The Unscented Kalman Filter
+15. UKF Sigma Points
+16. UKF Predict
+17. UKF Update
+18. UKF Exercise
+19. Conclusion

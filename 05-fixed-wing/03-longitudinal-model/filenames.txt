@@ -1,0 +1,15 @@
+1. Lesson Introduction
+2. Force-Free Motion
+3. Quiz: Characterizing State Variables
+4. Full Longitudinal Dynamics
+5. Exploring Longitudinal Dynamics Exercise
+6. Understanding Oscillations
+7. The Rest of the Lesson
+8. Linearized Model
+9. Eigenvalues and Eigenvectors
+10. Exploring Complex Exponentials Notebook
+11. Exponentials and Stability
+12. Modes of Motion
+13. Identifying Eigenvalues Exercise
+14. Short Period Response and Phugoid
+15. Conclusion
