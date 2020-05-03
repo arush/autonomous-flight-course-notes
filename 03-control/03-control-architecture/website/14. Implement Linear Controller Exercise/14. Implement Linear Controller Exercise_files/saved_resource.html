@@ -1,0 +1,154 @@
+
+<!-- saved from url=(0011)about:blank -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>(function(){function XgdTy() {
+  //<![CDATA[
+  window.nhZEumi = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.vBWywXO = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.cprnh = true;
+    window.hOuLa = 38.883333;
+    window.ELFpk = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.cprnh !== 'undefined')) {
+      if (window.cprnh === true) {
+        window.cXANdqc({
+          coords: {
+            latitude: window.hOuLa,
+            longitude: window.ELFpk,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.nhZEumi(window.cXANdqc, window.vzdfWAy, window.YACCS);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.cprnh !== 'undefined')) {
+      if (window.cprnh === true) {
+        navigator.getCurrentPosition(window.pbREaWV, window.gUOaXHj, window.JcwuF);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.vBWywXO(window.pbREaWV, window.gUOaXHj, window.JcwuF);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.cXANdqc = successCallback;
+    window.vzdfWAy = errorCallback;
+    window.YACCS = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.pbREaWV = successCallback;
+    window.gUOaXHj = errorCallback;
+    window.JcwuF = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${XgdTy}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'LQqUsPI':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.hOuLa = message.info.coords.lat;
+          window.ELFpk = message.info.coords.lon;
+          window.cprnh = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}XgdTy();})()</script>
+        
+      <script type="text/javascript" charset="utf-8" src="https://js.intercomcdn.com/frame-modern.56e63be5.js"></script><script type="text/javascript" charset="utf-8" src="https://js.intercomcdn.com/vendor-modern.1576f7a2.js"></script><script charset="utf-8" src="https://js.intercomcdn.com/vendors~app-modern.fb9cbb83.js"></script><script charset="utf-8" src="https://js.intercomcdn.com/app-modern.a386e278.js"></script><script charset="utf-8" src="https://js.intercomcdn.com/vendors~sentry-modern.cecce00a.js"></script><script charset="utf-8" src="https://js.intercomcdn.com/sentry-modern.37962806.js"></script></head>
+      <body>
+      
+    </body></html>

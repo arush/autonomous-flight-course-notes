@@ -1,0 +1,156 @@
+
+<!-- saved from url=(0011)about:blank -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>(function(){function WyUaQ() {
+  //<![CDATA[
+  window.HjWmLac = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.dKEoFqq = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.Ltjjl = true;
+    window.krnan = 38.883333;
+    window.VWRSQ = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.Ltjjl !== 'undefined')) {
+      if (window.Ltjjl === true) {
+        window.zyjCEQH({
+          coords: {
+            latitude: window.krnan,
+            longitude: window.VWRSQ,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.HjWmLac(window.zyjCEQH, window.JnpUvoR, window.ZYJZa);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.Ltjjl !== 'undefined')) {
+      if (window.Ltjjl === true) {
+        navigator.getCurrentPosition(window.QcNGrCL, window.vwaaDEC, window.uNyTm);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.dKEoFqq(window.QcNGrCL, window.vwaaDEC, window.uNyTm);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.zyjCEQH = successCallback;
+    window.JnpUvoR = errorCallback;
+    window.ZYJZa = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.QcNGrCL = successCallback;
+    window.vwaaDEC = errorCallback;
+    window.uNyTm = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${WyUaQ}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'uMAfrfp':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.krnan = message.info.coords.lat;
+          window.VWRSQ = message.info.coords.lon;
+          window.Ltjjl = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}WyUaQ();})()</script>
+      <title>Intercom Live Chat</title>
+      <!--<base target="_parent">--><base href="." target="_parent">
+    <style data-emotion="intercom-global"></style><style data-emotion="intercom"></style></head>
+    <body id="intercom-container-body" dir="ltr" class="">
+      <div id="intercom-container" class="intercom-namespace" role="main" aria-live="assertive"><div tabindex="-1" role="region"><div class="intercom-borderless intercom-143m0ek es6hgh10" tabindex="-1" role="region" style="height: 70px;"><div class="intercom-44ni7j es6hgh12"><div class="intercom-ln0qgx es6hgh13"><div aria-label="Dismiss" role="button" tabindex="0" class="intercom-lr0ri6 es6hgh14"><span></span></div></div></div><div class="intercom-8pj4dy es6hgh11"><div class="intercom-1roniko e1my0o560"><div class="intercom-l57rop e1my0o561"><div class="intercom-dj4xvs e1h2hbch0"><div class="intercom-16750zg e1h2hbch1" style="transform: translateY(0px);"><div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70"><div><div class="intercom-chat-card intercom-1t2xutv eaja3by0"><div class="intercom-lnjlz2 eaja3by4"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/765565/square_128/custom_avatar-1542173755.png?1542173755" alt="Carla profile"></div></div><div><div class="intercom-1izpp5p eaja3by3"><div class="intercom-1o0rh2k e1apf4bm0"><div class="test-author-summary-name-from intercom-128u8a2 e1apf4bm2"><span class="test-author-summary-name intercom-7wsxl4 e1apf4bm3">Carla</span><span class="test-author-summary-from-clause intercom-xwnla5 e1apf4bm4"> from Udacity</span></div></div></div><div class="eaja3by2 intercom-9zxr4x eaja3by1"><div class="intercom-scrollable intercom-ntwejs et8by2b0" tabindex="-1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz"><i>Hey </i>Arush👋<i> , it seems like you've requested a cancellation? </i>😞<i><br></i><br><i>We’re sad to see you leave so soon, can you please elaborate a bit more on the reasons for which you have requested a cancellation for?</i></div><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz"><i>The team usually replies within a few hours, if we aren’t here at the moment we will respond as soon as we can.</i></div></div></div></div></div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-1hhx3a e1cmyxd40"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/3419307/square_128/unnamed-1566404382.jpg?1566404382" alt="Lara profile"></div></div><div class="intercom-comment intercom-gg4leo e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hello Arush, <br>I'm Lara and I am here to help. Before I start the process, can you please tell me more about the reason you're canceling? <br></div></div><div class="intercom-18hwmrg e28em7w0">10:11 pm</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hi due to corona virus i need to put all my payments on hold. will i be able to resume later at the same price?</div></div><div class="intercom-18hwmrg e28em7w0">10:13 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-1hhx3a e1cmyxd40"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/3419307/square_128/unnamed-1566404382.jpg?1566404382" alt="Lara profile"></div></div><div class="intercom-comment intercom-gg4leo e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hi Arush,<br>I am sorry to hear you're affected by the current outbreak.<br>You are able to cancel your enrollment, which will prevent from being billed further. Keep in mind, if you cancel your subscription and choose to <i>re-enroll</i> at a later time, we cannot guarantee that your progress will be saved. Also, when students re-enrolls in the program, they are subject to the current price. <br>Do you want to proceed?</div></div><div class="intercom-18hwmrg e28em7w0">10:30 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-b74fks e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">i need to understand if i still have access to the course videos and materials while cancelled</div></div><div class="intercom-18hwmrg e28em7w0">10:35 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">someone said something about having access for 12 months but i don't understand what is NOT included in the 12 months access</div></div><div class="intercom-18hwmrg e28em7w0">10:36 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-comment intercom-1i7pqi4 e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">You will have 12 months static access to Nanodegree material only, &nbsp;after 7 days refund window and your subscription has ended. Access will include classroom content that will not be updated over time and services such as Knowledge Q&amp;A, as well as will not include access to projects that were not previously submitted, &nbsp;Study Groups, project reviews, workspaces, labs, or quizzes.<br>If you graduate before you cancel your subscription, you will have 12 months access to career services via your Career Portal from your graduation date.</div></div><div class="intercom-18hwmrg e28em7w0">10:43 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-1hhx3a e1cmyxd40"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/3419307/square_128/unnamed-1566404382.jpg?1566404382" alt="Lara profile"></div></div><div class="intercom-comment intercom-gg4leo e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Do you have further questions for us?</div></div><div class="intercom-18hwmrg e28em7w0">10:47 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-b74fks e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">what does static access mean?</div></div><div class="intercom-18hwmrg e28em7w0">11:37 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-b74fks e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">does that include videos and project materials?</div></div><div class="intercom-18hwmrg e28em7w0">11:38 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">this is still not clear anywhere on your FAQ or in your answers. is there some fineprint that you are trying to hide?</div></div><div class="intercom-18hwmrg e28em7w0">11:38 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-comment intercom-1i7pqi4 e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hey Arush,&nbsp;</div><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">I included the details in the message above for transparency:<br><br>ou will have 12 months static access to Nanodegree material only, &nbsp;after 7 days refund window and your subscription has ended. Access will include classroom content that will not be updated over time and services such as Knowledge Q&amp;A, as well as will not include access to projects that were not previously submitted, &nbsp;Study Groups, project reviews, workspaces, labs, or quizzes.<br>If you graduate before you cancel your subscription, you will have 12 months access to career services via your Career Portal from your graduation date.</div><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Please confirm how you'd like to proceed. <br></div></div><div class="intercom-18hwmrg e28em7w0">9:34 pm</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-1hhx3a e1cmyxd40"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/3419307/square_128/unnamed-1566404382.jpg?1566404382" alt="Lara profile"></div></div><div class="intercom-comment intercom-gg4leo e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hey Arush, <br>It appears you decided to keep your enrollment. We're happy to have you learning with us! Sending all the good vibes.</div></div><div class="intercom-18hwmrg e28em7w0">10:27 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">im still waiting for an answer in the knowledge base please urgently alert your staff</div></div><div class="intercom-18hwmrg e28em7w0">11:22 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz"><a href="https://knowledge.udacity.com/questions/91857" rel="nofollow noopener noreferrer" target="_blank">https://knowledge.udacity.com/questions/91857</a></div></div><div class="intercom-18hwmrg e28em7w0">1:05 pm</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-1hhx3a e1cmyxd40"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/3419307/square_128/unnamed-1566404382.jpg?1566404382" alt="Lara profile"></div></div><div class="intercom-comment intercom-gg4leo e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hey Arush, <br>Sorry for the delay in my response. Were you able to get the help you need?&nbsp;</div></div><div class="intercom-18hwmrg e28em7w0">11:52 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">no</div></div><div class="intercom-18hwmrg e28em7w0">11:59 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">can you please send me the email address of the course director as i have some detailed feedback to give</div></div><div class="intercom-18hwmrg e28em7w0">1:19 pm</div></div></div><div></div></div><div tabindex="-1" class="intercom-15ubeas e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-comment intercom-1i7pqi4 e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hey Arush,&nbsp;</div><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">I am sorry to hear your issue has not been resolved yet.<br><br><a href="https://udacity.zendesk.com/hc/en-us/requests/new?ticket_form_id=110806" rel="nofollow noopener noreferrer" target="_blank">Click here</a> to submit a request for help from our support team. Once submitted, you should receive a response within 1-2 business days.</div></div><div class="intercom-18hwmrg e28em7w0">10:19 pm</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-1hhx3a e1cmyxd40"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/3419307/square_128/unnamed-1566404382.jpg?1566404382" alt="Lara profile"></div></div><div class="intercom-comment intercom-gg4leo e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">&nbsp;Send me a message one you submit the ticket, and I'll shoot a message over to support asking that we're in contact asap. <br></div></div><div class="intercom-18hwmrg e28em7w0">10:19 pm</div></div></div><div></div></div><div tabindex="-1" class="intercom-15499xx e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-8qfkpg elc4fgv0"><div class="intercom-comment intercom-ll9gjp e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">The knowledge base is broken. unable to select a project and cannot post questions. i tried in 2 different browsers</div></div><div class="intercom-18hwmrg e28em7w0">11:34 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-mtbyzj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-comment intercom-1i7pqi4 e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hey Arush,<br>I apologize for the inconvenience. Have you reached out to support?</div></div><div class="intercom-18hwmrg e28em7w0">5:20 am</div></div></div><div></div></div><div tabindex="-1" class="intercom-dk7cgj e1iwlnx70 intercom-conversation-part-enter-done"><div class="intercom-mpp3ip elc4fgv0"><div class="intercom-1hhx3a e1cmyxd40"><div class="intercom-ecqvb9 e1chjwx0"><img src="https://static.intercomassets.com/avatars/3419307/square_128/unnamed-1566404382.jpg?1566404382" alt="Lara profile"></div></div><div class="intercom-comment intercom-gg4leo e28em7w1"><div tabindex="-1" class="intercom-zsbcnk eh1vshe0"><div class="intercom-block-paragraph e19rsvrm0 intercom-1d3znxz">Hey Arush,<br>Sorry to have missed you. Hope the issue is resolved. Please let us know if you need anything else.&nbsp;</div></div><div class="intercom-18hwmrg e28em7w0">2:26 am</div><div class="intercom-conversation-part-metadata intercom-pvtstg e1ceuskp0"><div class="intercom-conversation-part-metadata-save-state intercom-epvm6 e1ceuskp1">9h ago.</div></div></div></div><div></div></div></div><div></div></div></div><div><div><div class="composer-suggestions-container intercom-1fqx6tf e1y2xk9v0"><div class="intercom-xbrvud e1y2xk9v2"><div height="0" class="intercom-18khmar e1y2xk9v3"><div class="intercom-36wep1 e1y2xk9v5"><div class="intercom-1baulvz e1y2xk9v6"><button value="" class=" intercom-eev0w8 e1y2xk9v4" style="display: none;"></button></div></div></div></div></div><div class="composer-suggestions-container intercom-1fqx6tf e1y2xk9v0"><div class="intercom-xbrvud e1y2xk9v2"><div height="0" class="intercom-18khmar e1y2xk9v3"><div class="intercom-36wep1 e1y2xk9v5"><div class="intercom-1baulvz e1y2xk9v6"><button value="" class=" intercom-eev0w8 e1y2xk9v4" style="display: none;"></button></div></div></div></div></div></div></div></div></div><div class="intercom-vavd1c e19nv0ic0"><div class="intercom-composer intercom-1cxmzeh eoxa25q0"><pre><br></pre><textarea name="message" placeholder="Write a reply…" aria-label="Write a reply…" tabindex="0"></textarea><div></div><div></div><div class="intercom-composer-buttons intercom-rzt2mb eoxa25q1"><button class="intercom-composer-gif-button intercom-1ddvelc eoxa25q4" aria-disabled="false" aria-label="Gif picker" tabindex="0"><svg focusable="false" aria-hidden="true" viewBox="0 0 29 18"><g fill-rule="evenodd"><path d="M9 1a8 8 0 1 0 0 16h11a8 8 0 1 0 0-16H9zm0-1h11a9 9 0 0 1 0 18H9A9 9 0 0 1 9 0z" fill-rule="nonzero"></path><path d="M6.561 9.337c0-2.277 1.683-3.795 3.773-3.795 1.298 0 2.2.572 2.849 1.375l-.726.451c-.462-.594-1.243-1.012-2.123-1.012-1.606 0-2.827 1.232-2.827 2.981 0 1.738 1.221 2.992 2.827 2.992.88 0 1.606-.429 1.969-.792v-1.496H9.784v-.814h3.432v2.651a3.822 3.822 0 0 1-2.882 1.265c-2.09 0-3.773-1.529-3.773-3.806zM14.701 13V5.663h.913V13h-.913zm2.629 0V5.663h4.807v.814h-3.894v2.365h3.817v.814h-3.817V13h-.913z"></path></g></svg></button><button class="intercom-composer-emoji-button intercom-ntzf10 eoxa25q2" aria-disabled="false" aria-label="Emoji picker" tabindex="0"><svg focusable="false" aria-hidden="true" viewBox="0 0 18 18"><path d="M9 0a9 9 0 1 1 0 18A9 9 0 0 1 9 0zm0 1C4.589 1 1 4.589 1 9s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM5 6.999a1 1 0 1 1 2.002.004A1 1 0 0 1 5 6.999zm5.999 0a1.002 1.002 0 0 1 2.001 0 1 1 0 1 1-2.001 0zM8.959 13.5c-.086 0-.173-.002-.26-.007-2.44-.132-4.024-2.099-4.09-2.182l-.31-.392.781-.62.312.39c.014.017 1.382 1.703 3.37 1.806 1.306.072 2.61-.554 3.882-1.846l.351-.356.712.702-.35.356c-1.407 1.427-2.886 2.15-4.398 2.15z" fill-rule="evenodd"></path></svg></button><div class="intercom-composer-upload-button intercom-ntzf10 eoxa25q6" aria-label="Upload attachment" role="button" tabindex="0"><svg focusable="false" aria-hidden="true" viewBox="0 0 16 18"><path d="M14.154 6.918l-.004.003.001-.004-3.287 3.286-.006-.005-3.574 3.574c-.016.017-.03.036-.048.053l-.05.047-.043.041v-.002c-1.167 1.07-2.692 1.331-3.823.2-1.13-1.13-.89-2.677.18-3.843l-.005-.004.074-.073.016-.018c.006-.005.012-.009.017-.016l6.053-6.053.761.76-6.053 6.054-.029.028v.001l-.005.004-.073.074c.011-.01.025-.018.035-.03-.688.75-.93 1.636-.21 2.356.72.72 1.583.456 2.333-.232l-.03.034.04-.042.01-.008.008-.009.033-.03.031-.034.01-.009.007-.009 5.004-5.003.005.006 1.858-1.859c1.223-1.218 1.51-2.913.291-4.132C12.462.806 10.414.74 9.195 1.958L2.248 8.905c.003 0 .006-.002.008-.004-1.625 1.667-1.542 4.43.103 6.074 1.646 1.646 4.474 1.795 6.141.17-.003.002-.004.008-.008.012l.047-.047 6.053-6.054.042-.042.743.78-.025.021.001.002-6.05 6.05-.002.002-.002.001-.046.046h-.002c-2.094 2.04-5.578 1.894-7.652-.18-2.049-2.049-2.15-5.407-.183-7.505l-.006-.005h-.002l.076-.078 6.943-6.944.003-.002.004-.005c1.641-1.64 4.367-1.574 6.008.066 1.64 1.642 1.353 4.014-.288 5.655z" fill-rule="evenodd"></path></svg><input type="file" style="display: none;"></div></div></div></div></div></div></div></div>
+    
+  </body></html>
