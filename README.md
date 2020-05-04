@@ -18,18 +18,10 @@ Videos and exercises for every lecture are in the corresponding lesson folders
 3. [Sensor Fusion for State Estimation](https://github.com/arush/state-estimation) uses complimentary filters and an extended kalman filter and explains all the mathematics behind them.
 
 ## Other Resources
-
-#### Bitcraze crazyflie EKF implementation
-[https://github.com/bitcraze/crazyflie-firmware/blob/master/src/modules/src/estimator_kalman.c](https://github.com/bitcraze/crazyflie-firmware/blob/master/src/modules/src/estimator_kalman.c)
-
-#### Mathematical formulas for implementing EKF for autonomous flight sensors
-[Estimation_for_Quadrotors_.pdf](Estimation_for_Quadrotors_.pdf)
-
-#### Quadcopter Dynamics, Simulation and Control
-[.quad_dynamics_simulation_control.pdf](.quad_dynamics_simulation_control.pdf)
-
-#### Kalman filter 55 video series
-[https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT](https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT)
+- [Bitcraze crazyflie EKF implementation](https://github.com/bitcraze/crazyflie-firmware/blob/master/src/modules/src/estimator_kalman.c)
+- [Estimation_for_Quadrotors_.pdf](Estimation_for_Quadrotors_.pdf) - formulas for implementing EKF for autonomous flight sensors
+- [Quadcopter Dynamics, Simulation and Control](.quad_dynamics_simulation_control.pdf)
+- [Kalman filter 55 video series](https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT)
 
 #### Research Papers
 - [The Unscented Kalman Filter for Nonlinear Estimation](https://www.seas.harvard.edu/courses/cs281/papers/unscented.pdf) is a short paper (only 6 pages) and does a great job explaining the UKF.
