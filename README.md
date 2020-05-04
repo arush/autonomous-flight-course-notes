@@ -20,7 +20,7 @@ Videos and exercises for every lecture are in the corresponding lesson folders
 ## Other Resources
 - [Bitcraze crazyflie EKF implementation](https://github.com/bitcraze/crazyflie-firmware/blob/master/src/modules/src/estimator_kalman.c)
 - [Estimation_for_Quadrotors_.pdf](Estimation_for_Quadrotors_.pdf) - formulas for implementing EKF for autonomous flight sensors
-- [Quadcopter Dynamics, Simulation and Control](.quad_dynamics_simulation_control.pdf)
+- [Quadcopter Dynamics, Simulation and Control](.quad_dynamics_simulation_control.pdf) : [https://andrew.gibiansky.com/blog/physics/quadcopter-dynamics/](https://andrew.gibiansky.com/blog/physics/quadcopter-dynamics/)
 - [Kalman filter 55 video series](https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT)
 
 #### Research Papers
