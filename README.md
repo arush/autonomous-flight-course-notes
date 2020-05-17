@@ -23,6 +23,13 @@ Videos and exercises for every lecture are in the corresponding lesson folders
 - [Quadcopter Dynamics, Simulation and Control](.quad_dynamics_simulation_control.pdf) : [https://andrew.gibiansky.com/blog/physics/quadcopter-dynamics/](https://andrew.gibiansky.com/blog/physics/quadcopter-dynamics/)
 - [Kalman filter 55 video series](https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT)
 
+#### Potential field
+- [https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08](https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08)
+- [https://github.com/AtsushiSakai/PythonRobotics/blob/master/PathPlanning/PotentialFieldPlanning/potential_field_planning.py](https://github.com/AtsushiSakai/PythonRobotics/blob/master/PathPlanning/PotentialFieldPlanning/potential_field_planning.py)
+- [https://forum.unity.com/threads/ai-influence-maps.145368/](https://forum.unity.com/threads/ai-influence-maps.145368/)
+- [https://gamedevelopment.tutsplus.com/tutorials/understanding-goal-based-vector-field-pathfinding--gamedev-9007](https://gamedevelopment.tutsplus.com/tutorials/understanding-goal-based-vector-field-pathfinding--gamedev-9007)
+
+
 #### Research Papers
 - [The Unscented Kalman Filter for Nonlinear Estimation](https://www.seas.harvard.edu/courses/cs281/papers/unscented.pdf) is a short paper (only 6 pages) and does a great job explaining the UKF.
 - [A New Extension of the Kalman Filter to Nonlinear Systems](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.5.2891&rep=rep1&type=pdf) is a bit longer (12 pages) and includes some helpful example applications.
