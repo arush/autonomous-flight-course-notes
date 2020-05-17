@@ -1,4 +1,7 @@
 # Autonomous Flight Course & My Notes
+
+Read my Medium series here: [https://medium.com/building-autonomous-flight-software](https://medium.com/building-autonomous-flight-software)
+
 This repo contains all the videos and learning material for the Autonomous Flight course, the most valuable part is the course notes that I wrote summarizing the content in each video.
 
 ## Video Lectures and Python exercises
